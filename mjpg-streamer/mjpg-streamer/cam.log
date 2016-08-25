@@ -1,0 +1,42 @@
+MJPG Streamer Version: svn rev: Unversioned directory
+ i: Using V4L2 device.: /dev/video0
+ i: Desired Resolution: 640 x 480
+ i: Frames Per Second.: 5
+ i: Format............: YUV
+ i: JPEG Quality......: 80
+Adding control for Pan (relative)
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+Adding control for Tilt (relative)
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+Adding control for Pan Reset
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+Adding control for Tilt Reset
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+Adding control for Pan/tilt Reset
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+Adding control for Focus (absolute)
+UVCIOC_CTRL_ADD - Error: Inappropriate ioctl for device
+mapping control for Pan (relative)
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Tilt (relative)
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Pan Reset
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Tilt Reset
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Pan/tilt Reset
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Focus (absolute)
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for LED1 Mode
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for LED1 Frequency
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Disable video processing
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+mapping control for Raw bits per pixel
+UVCIOC_CTRL_MAP - Error: Inappropriate ioctl for device
+ o: www-folder-path...: ./www/
+ o: HTTP TCP port.....: 8080
+ o: username:password.: disabled
+ o: commands..........: enabled
