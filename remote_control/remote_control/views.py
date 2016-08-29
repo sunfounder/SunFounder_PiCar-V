@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
-from django.shortcuts import RequestContext
-from server import camera, back_wheels, front_wheels, stream
+from driver import camera, back_wheels, front_wheels, stream
 from django.http import HttpResponse
 
 fw = front_wheels.Front_Wheels()
@@ -14,10 +13,7 @@ bw.ready()
 SPEED = 60
 bw_status = 0
 
-try:
-	stream.on()
-except:
-	pass
+print stream.start()
 
 def home(request):
 	return render_to_response("base.html", request)

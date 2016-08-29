@@ -33,10 +33,10 @@ class fileDB(object):
 		for i in range(file_len):
 			if lines[i][0] != '#':
 				if lines[i].split('=')[0].strip() == name:
-					lines[i] = '%s = %s\n' % (name, value)
+					lines[i] = '%s = %s\n\n' % (name, value)
 					flag = True
 		if not flag:
-			lines.append('%s = %s\n' % (name, value))
+			lines.append('%s = %s\n\n' % (name, value))
 
 		cf = open(self.db_path,'w')
 		cf.writelines(lines)

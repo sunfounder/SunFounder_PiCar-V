@@ -1,0 +1,83 @@
+#!/bin/bash
+#Installation
+
+##Tested on:
+
+#- Raspbian (RaspberryPi - think of those possibilities)
+
+#```
+
+# All of these commands are run from the base folder (SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi), wherever you clone it to
+
+if [ "$(whoami)" != "root" ] ; then
+    echo "You must run setup.sh as root."
+    exit
+fi
+
+sudo apt-get update
+#sudo apt-get upgrade -y
+
+###################################
+# install python-pip django i2c-tools python-smbus runtime #
+###################################
+    echo "\n    Installing  python-pip and django \n"
+    if sudo apt-get install python-pip ; then
+        echo "Successfully installed python-pip \n "
+    else
+        echo "Failed to installed python-pip"
+        exit
+    fi
+    if sudo pip install django ; then
+        echo "Successfully installed django runtime \n"
+    else
+        echo "Failed to installed django"
+        exit
+    fi
+
+    echo "\n    Installinging i2c-tools and python-smbus \n"
+    if sudo apt-get install i2c-tools python-smbus -y; then
+        echo "Successfully installed i2c-tools python-smbus \n"
+    else
+        echo "Failed to installed i2c-tools python-smbus"
+        exit
+    fi
+
+###################################
+# Copy MJPG-Streamer to an Alternate Location #
+###################################
+#
+echo "Copy MJPG-Streamer to an Alternate Location "
+sudo cp mjpg-streamer/mjpg_streamer /usr/local/bin
+sudo cp mjpg-streamer/output_http.so mjpg-streamer/input_file.so mjpg-streamer/input_uvc.so /usr/local/lib/
+sudo cp -R mjpg-streamer/www /usr/local/www
+echo "complete\n"
+
+###################################
+# Export Paths #
+###################################
+#
+echo "Export paths"
+echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
+echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
+source ~/.bashrc
+echo "complete\n"
+
+###################################
+# Enable I2C1 #
+###################################
+# Add lines to /boot/config.txt
+echo "Enalbe I2C"
+touch config.txt
+cat /boot/config.txt > config.txt # > overwrite; >> add content
+echo dtparam=i2c_arm=on >> config.txt
+sudo chown root config.txt
+sudo chgrp root config.txt
+sudo mv config.txt /boot/config.txt
+echo "complete\n"
+
+###################################
+# Reboot #
+###################################
+#
+echo "\n   Reboot... \n"
+sudo reboot
