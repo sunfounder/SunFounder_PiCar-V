@@ -1,34 +1,14 @@
 #!/usr/bin/env python
 
-
-
-#############################################################################
-##
-##		此程序为request的客户端，通过request请求，与服务器通讯，服务器根据请求，
-## 来执行相应的动作。
-##					
-##		请求指令：def run_action(cmd):
-#					url = BASE_URL + cmd
-##					requests.get(url)
-##		例如camera左转：requests.get(http://host:port/run/camleft)
-##			
-##
-##	
-##
-#############################################################################
-
-
-
 import sys, time, http.client
-from PyQt5 import QtCore, uic, QtWidgets, QtGui  # pyqt4 -> pyqt5 , QtGui -> QtWidgets
+from PyQt5 import QtCore, uic, QtWidgets  # pyqt4 -> pyqt5 , QtGui -> QtWidgets
 import icons_rc
-from socket import *
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QPixmap
 from urllib.request import urlopen
 import requests
 
-login_screen     = "login_screen.ui" # Enter file here.
+login_screen     = "login_screen.ui" 
 running_screen   = "running_screen.ui"
 setting_screen   = "setting_screen.ui"
 calibrate_screen = "calibrate_screen.ui"
@@ -57,9 +37,9 @@ def reflash_url():
 	global BASE_URL
 	BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
 
-class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 	def __init__(self):
-		QtWidgets.QMainWindow.__init__(self)	# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+		QtWidgets.QDialog.__init__(self)	
 		Ui_Login_screen.__init__(self)
 		self.setupUi(self)
 
@@ -76,16 +56,16 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):# pyqt4 -> pyqt5 , QtGui -
 
 	def on_pBtn_login_clicked(self):
 		global HOST,PORT
-		# 检测输入的host和port长度是否合法
+		# check whether the length of input host and port is allowable
 		if 7<len(self.lEd_host.text())<16 :
 			HOST = self.lEd_host.text()
 			PORT = self.lEd_port.text()
 			reflash_url()
 			self.label_Error.setText("Connecting....")
 			
-			# 检测服务器是否连接上
-			if connection_ok() == True: # request respon 'OK',连接正常
-				if autologin == True:	# autologin勾选，记录HOST
+			# check whethe server is connected
+			if connection_ok() == True: # request respon 'OK', connected
+				if autologin == True:	# autologin checked，record HOST
 					HOST = self.lEd_host.text()
 				else:
 					self.lEd_host.setText("")
@@ -117,10 +97,10 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):# pyqt4 -> pyqt5 , QtGui -
 			self.pBtn_checkbox.setStyleSheet("border-image: url(./images/uncheck1.png);")
 		print ("on_pBtn_checkbox_clicked", HOST,autologin)
 
-class RunningScreen(QtWidgets.QMainWindow, Ui_Running_screen):# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+class RunningScreen(QtWidgets.QMainWindow, Ui_Running_screen):
 	TIMEOUT = 50
 	def __init__(self):
-		QtWidgets.QMainWindow.__init__(self)	# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+		QtWidgets.QMainWindow.__init__(self)	
 		Ui_Running_screen.__init__(self)
 		self.setupUi(self)
 
@@ -130,9 +110,8 @@ class RunningScreen(QtWidgets.QMainWindow, Ui_Running_screen):# pyqt4 -> pyqt5 ,
 		self.btn_setting.setStyleSheet("border-image: url(./images/settings_unpressed.png);")
 	
 	def start_stream(self):
-		#self.setupUi(self)
 		self.queryImage = QueryImage(HOST)
-		self.timer = QTimer(timeout=self.reflash_frame) # 定时器，定时刷新
+		self.timer = QTimer(timeout=self.reflash_frame) # Qt timer，time out, run reflash_frame()
 		self.timer.start(RunningScreen.TIMEOUT)
 		run_action('fwready')
 		run_action('bwready')
@@ -244,10 +223,8 @@ class RunningScreen(QtWidgets.QMainWindow, Ui_Running_screen):# pyqt4 -> pyqt5 ,
 
 	def on_btn_back_pressed(self):
 		self.btn_back.setStyleSheet("border-image: url(./images/back_pressed.png);")
-
 	def on_btn_back_released(self):
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
-
 	def on_btn_back_clicked(self):
 		self.close()
 		self.stop_stream()
@@ -255,23 +232,18 @@ class RunningScreen(QtWidgets.QMainWindow, Ui_Running_screen):# pyqt4 -> pyqt5 ,
 
 	def on_btn_setting_pressed(self):
 		self.btn_setting.setStyleSheet("border-image: url(./images/settings_pressed.png);")
-
 	def on_btn_setting_released(self):
 		self.btn_setting.setStyleSheet("border-image: url(./images/settings_unpressed.png);")
-
 	def on_btn_setting_clicked(self):
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
 		self.close()
 		setting1.show()
 		
-class SettingScreen(QtWidgets.QMainWindow, Ui_Setting_screen):# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+class SettingScreen(QtWidgets.QMainWindow, Ui_Setting_screen):
 	def __init__(self):
-		QtWidgets.QMainWindow.__init__(self)	# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+		QtWidgets.QMainWindow.__init__(self)	
 		Ui_Setting_screen.__init__(self)
 		self.setupUi(self)
-
-		#self.calibrate1 = CalibrateScreen()		# 全局变量，如果只在槽函数中初始化，窗口将一闪而过
-		#self.running1 = RunningScreen()			#
 
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
 
@@ -304,9 +276,9 @@ class SettingScreen(QtWidgets.QMainWindow, Ui_Setting_screen):# pyqt4 -> pyqt5 ,
 		self.close()
 		running1.show()
 
-class CalibrateScreen(QtWidgets.QMainWindow, Ui_Calibrate_screen):# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+class CalibrateScreen(QtWidgets.QMainWindow, Ui_Calibrate_screen):
 	def __init__(self):
-		QtWidgets.QMainWindow.__init__(self)	# pyqt4 -> pyqt5 , QtGui -> QtWidgets
+		QtWidgets.QMainWindow.__init__(self)	
 		Ui_Calibrate_screen.__init__(self)
 		self.setupUi(self)
 		self.calibration_status = 0
@@ -339,37 +311,37 @@ class CalibrateScreen(QtWidgets.QMainWindow, Ui_Calibrate_screen):# pyqt4 -> pyq
 	def keyPressEvent(self, event):
 		key_press = event.key()
 
-		if key_press in (Qt.Key_Up, Qt.Key_W):    # UP
+		if key_press in (Qt.Key_Up, Qt.Key_W):    	# UP
 			if   self.calibration_status == 1:
 				cali_action('camcaliup')
 			elif self.calibration_status == 2:
 				pass
 			elif self.calibration_status == 3:
 				pass
-		elif key_press in (Qt.Key_Right, Qt.Key_D):# RIGHT
+		elif key_press in (Qt.Key_Right, Qt.Key_D):	# RIGHT
 			if   self.calibration_status == 1:
 				cali_action('camcaliright')
 			elif self.calibration_status == 2:
 				cali_action('fwcaliright')
 			elif self.calibration_status == 3:
 				cali_action('bwcaliright')
-		elif key_press in (Qt.Key_Down, Qt.Key_S):# DOWN
+		elif key_press in (Qt.Key_Down, Qt.Key_S):	# DOWN
 			if   self.calibration_status == 1:
 				cali_action('camcalidown')
 			elif self.calibration_status == 2:
 				pass
 			elif self.calibration_status == 3:
 				pass
-		elif key_press in (Qt.Key_Left, Qt.Key_A):# LEFT
+		elif key_press in (Qt.Key_Left, Qt.Key_A):	# LEFT
 			if   self.calibration_status == 1:
 				cali_action('camcalileft')
 			elif self.calibration_status == 2:
 				cali_action('fwcalileft')
 			elif self.calibration_status == 3:
 				cali_action('bwcalileft')
-		elif key_press == Qt.Key_Escape:
+		elif key_press == Qt.Key_Escape:			# ESC
 			run_action('stop')
-			self.close()			# ESC
+			self.close()			
 
 	def on_btn_ok_pressed(self):
 		self.btn_ok.setStyleSheet("border-image: url(./images/ok_pressed.png);")
@@ -404,7 +376,6 @@ class QueryImage:
 		self.argv = argv
 	
 	def queryImage(self):
-		#print ("queryImage")
 		http_data = http.client.HTTPConnection(self.host, self.port)
 		http_data.putrequest('GET', self.argv)
 		http_data.putheader('Host', self.host)
@@ -413,19 +384,7 @@ class QueryImage:
 		http_data.endheaders()
 		returnmsg = http_data.getresponse()
 
-		#print (returnmsg)
 		return returnmsg.read()
-
-def login_to_server(host, port):
-	global tcp_client
-	ADDR = (host, int(port))
-	try:
-		tcp_client = socket(AF_INET, SOCK_STREAM)
-		tcp_client.connect(ADDR)
-		print ("Camera tcp_client")
-		return True
-	except:
-		return False
 
 def connection_ok():
 	cmd = 'connection_test'
