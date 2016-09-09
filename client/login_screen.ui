@@ -454,7 +454,7 @@ color: rgb(80, 76, 77);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/main_icon.png</pixmap>
+     <pixmap>images/main_icon_2.png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -469,6 +469,7 @@ color: rgb(80, 76, 77);</string>
  </tabstops>
  <resources>
   <include location="icons_rc.py"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>

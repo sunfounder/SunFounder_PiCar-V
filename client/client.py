@@ -290,19 +290,19 @@ class CalibrateScreen(QtWidgets.QMainWindow, Ui_Calibrate_screen):
 		self.calibration_status = calibration_status
 		if self.calibration_status == 1:
 			cali_action('camcali')
-			self.label_pic.setStyleSheet("image: url(./images/camera_cali.JPG);")
+			self.label_pic.setStyleSheet("image: url(./images/cali_cam.png);")
 			self.label_Cali_Info.setText("Camera")
 			self.label_Info_1.setText("Calibrate the camera to the position like above.")
 			self.label_Info_2.setText("Use Keyboard Up, Down, Left, Right or W, A, S, D.")
 		if self.calibration_status == 2:
 			cali_action('fwcali')
-			self.label_pic.setStyleSheet("image: url(./images/front_wheel_cali.JPG);")
+			self.label_pic.setStyleSheet("image: url(./images/cali_fw.png);")
 			self.label_Cali_Info.setText("Front Wheels")
 			self.label_Info_1.setText("Calibrate front wheels to the position like above.")
 			self.label_Info_2.setText("Use Keyboard Left, Right or A, D.")
 		if self.calibration_status == 3:
 			cali_action('bwcali')
-			self.label_pic.setStyleSheet("image: url(./images/back_wheel_cali.JPG);")
+			self.label_pic.setStyleSheet("image: url(./images/cali_bw.png);")
 			self.label_Cali_Info.setText("Back Wheels")
 			self.label_Info_1.setText("Calibrate back wheels to the direction like above.")
 			self.label_Info_2.setText("Use Keyboard Left, Right or A, D, to reverse motor")
@@ -362,11 +362,11 @@ class CalibrateScreen(QtWidgets.QMainWindow, Ui_Calibrate_screen):
 		self.btn_cancle.setStyleSheet("border-image: url(./images/cancle_unpressed.png);")
 	def on_btn_cancle_clicked(self):
 		if   self.calibration_status == 1:
-			cali_action('camready')
+			run_action('camready')
 		elif self.calibration_status == 2:
-			cali_action('fwready')
+			run_action('fwready')
 		elif self.calibration_status == 3:
-			cali_action('bwready')
+			run_action('bwready')
 		self.close()		
 
 class QueryImage:

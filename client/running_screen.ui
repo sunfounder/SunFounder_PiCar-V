@@ -28,6 +28,11 @@
     <height>640</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string> running_screen</string>
   </property>
@@ -37,8 +42,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>225</x>
-     <y>481</y>
+     <x>260</x>
+     <y>490</y>
      <width>190</width>
      <height>43</height>
     </rect>
@@ -46,7 +51,7 @@
    <property name="font">
     <font>
      <family>Roboto</family>
-     <pointsize>26</pointsize>
+     <pointsize>18</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
