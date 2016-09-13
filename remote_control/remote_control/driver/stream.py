@@ -1,4 +1,16 @@
-
+#!/usr/bin/env python
+'''
+**********************************************************************
+* Filename    : stream.py
+* Description : A streamer module base on mjpg_streamer
+* Author      : xxx
+* Brand       : SunFounder
+* E-mail      : service@sunfounder.com
+* Website     : www.sunfounder.com
+* Update      : xxx    xxxx-xx-xx    New release
+*               xxx    xxxx-xx-xx    xxxxxxxx
+**********************************************************************
+'''
 import tempfile
 import subprocess
 

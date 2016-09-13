@@ -1,3 +1,5 @@
+# File based database
+
 pan_offset = 0
 
 tilt_offset = 0

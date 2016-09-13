@@ -1,8 +1,21 @@
 #!/usr/bin/env python
+'''
+**********************************************************************
+* Filename    : back_wheels.py
+* Description : A module to control the back wheels of RPi Car
+* Author      : Cavon
+* Brand       : SunFounder
+* E-mail      : service@sunfounder.com
+* Website     : www.sunfounder.com
+* Update      : Cavon    2016-09-13    New release
+**********************************************************************
+'''
+
 import TB6612
 import filedb
 
 class Back_Wheels(object):
+	''' Back wheels control class '''
 	Motor_A = 23
 	Motor_B = 24
 
@@ -12,8 +25,8 @@ class Back_Wheels(object):
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "back_wheels.py":'
 
-
 	def __init__(self):
+		''' Init the direction channel and pwm channel '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, "Debug on"
 		self.forward_A = True
@@ -32,30 +45,35 @@ class Back_Wheels(object):
 			print self._DEBUG_INFO, 'Set right wheel to #%d, PWM channel to %d' % (self.Motor_B, self.PWM_B)
 
 	def forward(self):
+		''' Move both wheels forward '''
 		self.left_wheel.forward()
 		self.right_wheel.forward()
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Running forward'
 
 	def backward(self):
+		''' Move both wheels backward '''
 		self.left_wheel.backward()
 		self.right_wheel.backward()
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Running backward'
 
 	def stop(self):
+		''' Stop both wheels '''
 		self.left_wheel.stop()
 		self.right_wheel.stop()
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Stop'
 
 	def set_speed(self, speed):
+		''' Set moving speeds '''
 		self.left_wheel.set_speed(speed)
 		self.right_wheel.set_speed(speed)
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Set speed to', speed
 
 	def set_debug(self, debug):
+		''' Set if debug information shows '''
 		if debug in (True, False):
 			self._DEBUG = debug
 		else:
@@ -73,6 +91,7 @@ class Back_Wheels(object):
 			self.right_wheel.set_debug(False)
 
 	def ready(self):
+		''' Get the back wheels to the ready position. (stop) '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn to "Ready" position'
 		self.left_wheel.set_offset(self.forward_A)
@@ -80,6 +99,7 @@ class Back_Wheels(object):
 		self.stop()
 
 	def calibration(self):
+		''' Get the front wheels to the calibration position. '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn to "Calibration" position'
 		self.set_speed(30)
@@ -88,16 +108,19 @@ class Back_Wheels(object):
 		self.cali_forward_B = self.forward_B
 
 	def cali_left(self):
+		''' Reverse the left wheels forward direction in calibration '''
 		self.cali_forward_A = not self.cali_forward_A
 		self.left_wheel.set_offset(self.cali_forward_A)
 		self.forward()
 
 	def cali_right(self):
+		''' Reverse the right wheels forward direction in calibration '''
 		self.cali_forward_B = not self.cali_forward_B
 		self.right_wheel.set_offset(self.cali_forward_B)
 		self.forward()
 
 	def cali_ok(self):
+		''' Save the calibration value '''
 		self.forward_A = self.cali_forward_A
 		self.forward_B = self.cali_forward_B
 		self.db.set('forward_A', self.forward_A)

@@ -1,4 +1,15 @@
-# -*- coding: utf-8 -*-
+'''
+**********************************************************************
+* Filename    : views
+* Description : views for server
+* Author      : Cavon
+* Brand       : SunFounder
+* E-mail      : service@sunfounder.com
+* Website     : www.sunfounder.com
+* Update      : Cavon    2016-09-13    New release
+**********************************************************************
+'''
+
 from django.shortcuts import render_to_response
 from driver import camera, back_wheels, front_wheels, stream
 from django.http import HttpResponse

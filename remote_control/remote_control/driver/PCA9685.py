@@ -1,14 +1,23 @@
 #!/usr/bin/python
+'''
+**********************************************************************
+* Filename    : PCA9685.py
+* Description : A driver module for PCA9685
+* Author      : Cavon
+* Brand       : SunFounder
+* E-mail      : service@sunfounder.com
+* Website     : www.sunfounder.com
+* Update      : Cavon    2016-09-13    New release
+**********************************************************************
+'''
+
 import smbus
 import time
 import math
 import RPi.GPIO as GPIO
 
-# ============================================================================
-# PCA9685 16-Channel 12-Bit I2C BUS PWM Driver
-# ============================================================================
-
 class PWM(object):
+	"""A PWM control class for PCA9685."""
 	_MODE1				= 0x00
 	_MODE2				= 0x01
 	_SUBADR1			= 0x02
@@ -36,12 +45,8 @@ class PWM(object):
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "PCA9685.py":'
 
-	def softwareReset(cls):
-		if self._DEBUG:
-			print self._DEBUG_INFO, "Reset"
-		cls.general_call_i2c.writeRaw8(0x06)
-
 	def __init__(self, bus_number=None, address=0x40):
+		'''Init the class with bus_number and address'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, "Debug on"
 		self.address = address
@@ -63,17 +68,20 @@ class PWM(object):
 		time.sleep(0.005)
 
 	def _write_byte_data(self, reg, value):
+		'''Write data to I2C with self.address'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Writing value %2X to %2X' % (value, reg)
 		self.bus.write_byte_data(self.address, reg, value)
 
 	def _read_byte_data(self, reg):
+		'''Read data from I2C with self.address'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Reading value from %2X' % reg
 		results = self.bus.read_byte_data(self.address, reg)
 		return results
 
 	def _get_bus_number(self):
+		'''Get bus number for Raspberry Pi'''
 		pi_type = GPIO.RPI_INFO['TYPE']
 		if pi_type in self._BUS_0_TYPES:
 			bus_number = 0
@@ -87,6 +95,7 @@ class PWM(object):
 		return bus_number
 
 	def set_frequency(self, freq):
+		'''Set PWM frequency'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Set frequency to %d' % freq
 		prescale_value = 25000000.0
@@ -111,6 +120,7 @@ class PWM(object):
 		self.set_debug(self._DEBUG)
 
 	def set_value(self, channel, on, off):
+		'''Set on and off value on specific channel'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Set channel "%d" to value "%d"' % (channel, off)
 		self._write_byte_data(self._LED0_ON_L+4*channel, on & 0xFF)
@@ -119,6 +129,7 @@ class PWM(object):
 		self._write_byte_data(self._LED0_OFF_H+4*channel, off >> 8)
 
 	def set_all_value(self, on, off):
+		'''Set on and off value on all channel'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Set all channel to value "%d"' % (off)
 		self._write_byte_data(self._ALL_LED_ON_L, on & 0xFF)
@@ -127,6 +138,7 @@ class PWM(object):
 		self._write_byte_data(self._ALL_LED_OFF_H, off >> 8)
 
 	def set_debug(self, debug):
+		'''Set if debug information shows'''
 		if debug in (True, False):
 			self._DEBUG = debug
 		else:
