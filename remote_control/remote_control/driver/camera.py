@@ -21,13 +21,13 @@ class Camera(object):
 	tilt_channel = 2		# Tilt servo channel
 
 	READY_PAN = 90			# Ready position angle
-	READY_TILT = 40			# Ready position angle
+	READY_TILT = 25			# Ready position angle
 	CALI_PAN = 90			# Calibration position angle
 	CALI_TILT = 110			# Calibration position angle
 
 	CAMERA_DELAY = 0.005
-	PAN_STEP = 30				# Pan step = 5 degree
-	TILT_STEP = 15			# Tilt step = 5 degree
+	PAN_STEP = 15				# Pan step = 5 degree
+	TILT_STEP = 10			# Tilt step = 5 degree
 
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "camera.py":'
