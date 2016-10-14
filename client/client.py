@@ -463,19 +463,19 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 			self.label_pic.setStyleSheet("image: url(./images/cali_cam.png);")
 			self.label_Cali_Info.setText("Camera")
 			self.label_Info_1.setText("Calibrate the camera to the position like above.")
-			self.label_Info_2.setText("Use Keyboard Up, Down, Left, Right or W, A, S, D.")
+			self.label_Info_2.setText("Use arrow keys or W, A, S, D keys.")
 		if self.calibration_status == 2:				# calibrate front wheels
 			cali_action('fwcali')
 			self.label_pic.setStyleSheet("image: url(./images/cali_fw.png);")
 			self.label_Cali_Info.setText("Front Wheels")
 			self.label_Info_1.setText("Calibrate front wheels to the position like above.")
-			self.label_Info_2.setText("Use Keyboard Left, Right or A, D.")
+			self.label_Info_2.setText("Use the left and right arrow keys or A and D.")
 		if self.calibration_status == 3:				# calibrate back wheels
 			cali_action('bwcali')
 			self.label_pic.setStyleSheet("image: url(./images/cali_bw.png);")
-			self.label_Cali_Info.setText("Back Wheels")
-			self.label_Info_1.setText("Calibrate back wheels to the direction like above.")
-			self.label_Info_2.setText("Use Keyboard Left, Right or A, D, to reverse motor")
+			self.label_Cali_Info.setText("Rear Wheels")
+			self.label_Info_1.setText("Calibrate rear wheels to run forward .")
+			self.label_Info_2.setText("Use the left and right arrow keys or A and D.")
 		self.show()
 
 	def keyPressEvent(self, event):

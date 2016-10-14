@@ -118,7 +118,7 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Calibrations</string>
+    <string>Calibration</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

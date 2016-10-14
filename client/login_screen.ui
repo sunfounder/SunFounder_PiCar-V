@@ -101,7 +101,7 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>IP address and Port</string>
+     <string>IP Address and Port</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget_2">
@@ -209,7 +209,7 @@ color: rgb(80, 76, 77);</string>
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>Login automaticly</string>
+          <string>Remember me</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -273,7 +273,7 @@ color: rgb(80, 76, 77);</string>
 border-image: url(./images/login_button_unpressed.png);</string>
        </property>
        <property name="text">
-        <string>Login</string>
+        <string>Log in</string>
        </property>
        <property name="iconSize">
         <size>
