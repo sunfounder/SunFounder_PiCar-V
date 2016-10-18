@@ -49,7 +49,6 @@ class PWM(object):
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "PCA9685.py":'
 	
-	@staticmethod
 	def _get_bus_number(self):
 		"Gets the version number of the Raspberry Pi board"
 		# Courtesy quick2wire-python-api
