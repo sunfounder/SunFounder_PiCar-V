@@ -40,7 +40,7 @@ class PWM(object):
 	_OUTDRV				= 0x04
 
 	_BUS_0_TYPES = ['Pi 1 Model B']
-	_BUS_1_TYPES = ['Pi 3 Model B', 'Pi 2 Model B', 'Pi 1 Model B+']
+	_BUS_1_TYPES = ['Pi 3 Model B', 'Pi 2 Model B', 'Pi 1 Model B+', 'Pi Model B+']
 
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "PCA9685.py":'
