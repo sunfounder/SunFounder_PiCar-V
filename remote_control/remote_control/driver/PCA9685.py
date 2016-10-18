@@ -39,11 +39,48 @@ class PWM(object):
 	_INVRT				= 0x10
 	_OUTDRV				= 0x04
 
-	_BUS_0_TYPES = ['Pi 1 Model B']
-	_BUS_1_TYPES = ['Pi 3 Model B', 'Pi3 Model B', 'Pi 2 Model B', 'Pi2 Model B', 'Pi 1 Model B+', 'Pi Model B+']
+	RPI_REVISION_0 = ["900092"]
+	RPI_REVISION_1_MODULE_B = ["Beta", "0002", "0003", "0004", "0005", "0006", "000d", "000e", "000f"]
+	RPI_REVISION_1_MODULE_A = ["0007", "0008", "0009",]
+	RPI_REVISION_1_MODULE_BP = ["0010", "0013"]
+	RPI_REVISION_1_MODULE_AP = ["0012"]
+	RPI_REVISION_2 = ["a01041", "a21041"]
+	RPI_REVISION_3 = ["a02082", "a22082"]
 
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "PCA9685.py":'
+	
+	@staticmethod
+	def _get_bus_number(self):
+		"Gets the version number of the Raspberry Pi board"
+		# Courtesy quick2wire-python-api
+		# https://github.com/quick2wire/quick2wire-python-api
+		# Updated revision info from: http://elinux.org/RPi_HardwareHistory#Board_Revision_History
+		try:
+			f = open('/proc/cpuinfo','r')
+			for line in f:
+			if line.startswith('Revision'):
+				if line[11:-1] in self.RPI_REVISION_0:
+					return 0
+				elif line[11:-1] in self.RPI_REVISION_1_MODULE_B:
+					return 0
+				elif line[11:-1] in self.RPI_REVISION_1_MODULE_A:
+					return 0
+				elif line[11:-1] in self.RPI_REVISION_1_MODULE_BP:
+					return 1
+				elif line[11:-1] in self.RPI_REVISION_1_MODULE_AP:
+					return 0
+				elif line[11:-1] in self.RPI_REVISION_2:
+					return 1
+				elif line[11:-1] in self.RPI_REVISION_3:
+					return 1
+				else:
+					return line[11:-1]
+		except:
+			f.close()
+			return 'Open file error'
+		finally:
+			f.close()
 
 	def __init__(self, bus_number=None, address=0x40):
 		'''Init the class with bus_number and address'''
@@ -79,20 +116,6 @@ class PWM(object):
 			print self._DEBUG_INFO, 'Reading value from %2X' % reg
 		results = self.bus.read_byte_data(self.address, reg)
 		return results
-
-	def _get_bus_number(self):
-		'''Get bus number for Raspberry Pi'''
-		pi_type = GPIO.RPI_INFO['TYPE']
-		if pi_type in self._BUS_0_TYPES:
-			bus_number = 0
-		elif pi_type in self._BUS_1_TYPES:
-			bus_number = 1
-		else:
-			raise ValueError("Reading Pi type error, Your Pi {0} is not in the list".format(pi_type))
-
-		if self._DEBUG:
-			print self._DEBUG_INFO, 'Get i2c bus number %d' % bus_number
-		return bus_number
 
 	def set_frequency(self, freq):
 		'''Set PWM frequency'''
