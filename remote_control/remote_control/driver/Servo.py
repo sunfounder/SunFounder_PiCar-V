@@ -90,13 +90,15 @@ def test():
 	for i in range(0, 180, 5):
 		print i
 		a.turn(i)
-		time.sleep(0.2)
+		time.sleep(0.1)
 	for i in range(180, 0, -5):
 		print i
 		a.turn(i)
-		time.sleep(0.2)
-	for i in range(0, 90, 0.5):
-		a.turn(90)
+		time.sleep(0.1)
+	for i in range(0, 91, 2):
+		a.turn(i)
+		time.sleep(0.05)
+	print i
 
 if __name__ == '__main__':
 	test()
