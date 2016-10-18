@@ -14,7 +14,6 @@
 import smbus
 import time
 import math
-import RPi.GPIO as GPIO
 
 class PWM(object):
 	"""A PWM control class for PCA9685."""
@@ -59,23 +58,23 @@ class PWM(object):
 		try:
 			f = open('/proc/cpuinfo','r')
 			for line in f:
-			if line.startswith('Revision'):
-				if line[11:-1] in self.RPI_REVISION_0:
-					return 0
-				elif line[11:-1] in self.RPI_REVISION_1_MODULE_B:
-					return 0
-				elif line[11:-1] in self.RPI_REVISION_1_MODULE_A:
-					return 0
-				elif line[11:-1] in self.RPI_REVISION_1_MODULE_BP:
-					return 1
-				elif line[11:-1] in self.RPI_REVISION_1_MODULE_AP:
-					return 0
-				elif line[11:-1] in self.RPI_REVISION_2:
-					return 1
-				elif line[11:-1] in self.RPI_REVISION_3:
-					return 1
-				else:
-					return line[11:-1]
+				if line.startswith('Revision'):
+					if line[11:-1] in self.RPI_REVISION_0:
+						return 0
+					elif line[11:-1] in self.RPI_REVISION_1_MODULE_B:
+						return 0
+					elif line[11:-1] in self.RPI_REVISION_1_MODULE_A:
+						return 0
+					elif line[11:-1] in self.RPI_REVISION_1_MODULE_BP:
+						return 1
+					elif line[11:-1] in self.RPI_REVISION_1_MODULE_AP:
+						return 0
+					elif line[11:-1] in self.RPI_REVISION_2:
+						return 1
+					elif line[11:-1] in self.RPI_REVISION_3:
+						return 1
+					else:
+						return line[11:-1]
 		except:
 			f.close()
 			return 'Open file error'
