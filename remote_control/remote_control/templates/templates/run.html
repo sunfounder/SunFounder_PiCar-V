@@ -142,9 +142,38 @@
       }
     }
   </script>
+  <script src="virtualjoystick.js"></script>
+  <script>
+    console.log("touchscreen is", VirtualJoystick.touchScreenAvailable() ? "available" : "not available");
+    // 
+    var joystick  = new VirtualJoystick({
+      container : document.body,
+      strokeStyle : 'cyan',
+      limitStickTravel: true,
+      stickRadius : 120   
+    });
+    joystick.addEventListener('touchStartValidation', function(event){
+      var touch = event.changedTouches[0];
+      if( touch.pageX < window.innerWidth/2 ) return false;
+      return true
+    });
+    // one on the right of the screen
+    var joystick  = new VirtualJoystick({
+      container : document.body,
+      strokeStyle : 'orange',
+      limitStickTravel: true,
+      stickRadius : 0   
+    });
+    joystick.addEventListener('touchStartValidation', function(event){
+      var touch = event.changedTouches[0];
+      if( touch.pageX >= window.innerWidth/2 )  return false;
+      return true
+    });
+    joystick.addEventListener('touchStart', function(){
+      console.log('fire')
+    })
+  </script>
   <div class="mui-container-fluid-height mui-container-fluid-line-height">
-    <!-- Control Panel-->
-    <!--Forward button-->
     <div class="mui-row", align="center">
       <img class="mui--z2", src="http://{{ host }}:8080/?action=stream" />
     </div>
@@ -168,15 +197,17 @@
         <button class="mui-btn mui-btn--primary" onmousedown="set_speed('100')">5</button>
       </div>
     </div>
-    <div class="mui-row"><!--◢◣◥◤-->
+    <!-- Control Panel-->
+    <!--Forward button
+    <div class="mui-row">
       <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2", align="center">
         <button class="mui-btn mui-btn--primary" onmousedown="run_action('forward')" onmouseup="run_action('stop')" ontouchstart="action('forward')" ontouchend="action('stop')">▲</button>
       </div>
       <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-4 mui-col-xs-offset-4", align="center">
         <button class="mui-btn mui-btn--primary" onmousedown="run_action('camup')" onmouseup="run_action('camready')" ontouchstart="action('camup')" ontouchend="action('camready')">△</button>
       </div>
-    </div>
-    <!--Left, Stop, Right button-->
+    </div>-->
+    <!--Left, Stop, Right button
     <div class="mui-row">
       <div class="mui-col-xs-2 mui-col-sm-2", align="right">
         <button class="mui-btn mui-btn--primary" onmousedown="run_action('fwleft')" onmouseup="run_action('fwstraight')" ontouchstart="action('fwleft')" ontouchend="action('fwstraight')">◀</button>
@@ -191,8 +222,8 @@
       <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2", align="left">
         <button class="mui-btn mui-btn--primary" onmousedown="run_action('camright')" onmouseup="run_action('camready')" ontouchstart="action('camright')" ontouchend="action('camready')">▷</button>
       </div>
-    </div>
-    <!--Backward button-->
+    </div>-->
+    <!--Backward button
     <div class="mui-row", align="center">
       <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2", align="center">
           <button class="mui-btn mui-btn--primary" onmousedown="run_action('backward')" onmouseup="run_action('stop')" ontouchstart="action('backward')" ontouchend="action('stop')">▼</button>
@@ -200,7 +231,7 @@
       <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-4 mui-col-xs-offset-4", align="center">
           <button class="mui-btn mui-btn--primary" onmousedown="run_action('camdown')" onmouseup="run_action('camready')" ontouchstart="action('camdown')" ontouchend="action('camready')">▽</button>
       </div>
-    </div>
+    </div>-->
   </div>
 <!--Debug: http://{{ debug }}:8080/?action=stream-->
 </body>
