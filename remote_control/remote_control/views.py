@@ -60,6 +60,9 @@ def run(request):
 			fw.turn_right()
 		elif action == 'fwstraight':
 			fw.turn_straight()
+		elif 'fwturn' in action:
+			print "turn %s" % action
+			fw.turn(int(action.split(':')[1]))
 
 		# ================ Camera =================
 		elif action == 'camready':
