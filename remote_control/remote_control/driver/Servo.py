@@ -100,5 +100,17 @@ def test():
 		time.sleep(0.05)
 	print i
 
+def install():
+	all_servo = [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+	for i in range(16):
+		all_servo[i] = Servo(i)
+	for servo in all_servo:
+		servo.turn(90)
+
 if __name__ == '__main__':
-	test()
+	import sys
+	if len(sys.argv) == 2:
+		if sys.argv[1] == "install":
+			install()
+	else:
+		test()
