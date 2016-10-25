@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>setting_screen</string>
+   <string>Calibrations</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(00, 188, 212);</string>
@@ -118,7 +118,7 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Calibration</string>
+    <string>Calibrations</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
