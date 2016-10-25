@@ -115,7 +115,7 @@
    <property name="geometry">
     <rect>
      <x>521</x>
-     <y>525</y>
+     <y>545</y>
      <width>80</width>
      <height>33</height>
     </rect>
@@ -152,7 +152,7 @@
    <property name="geometry">
     <rect>
      <x>521</x>
-     <y>570</y>
+     <y>590</y>
      <width>80</width>
      <height>33</height>
     </rect>
@@ -207,12 +207,50 @@
     <string>Use Keyboard Up,Down,Left,Right or W,A,S,D</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_test">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>500</y>
+     <width>80</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>80</width>
+     <height>33</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>80</width>
+     <height>33</height>
+    </size>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="shortcut">
+    <string>Alt+T</string>
+   </property>
+  </widget>
   <zorder>btn_ok</zorder>
   <zorder>btn_cancle</zorder>
   <zorder>label_Info_1</zorder>
   <zorder>label_pic</zorder>
   <zorder>label_Cali_Info</zorder>
   <zorder>label_Info_2</zorder>
+  <zorder>btn_test</zorder>
  </widget>
  <resources/>
  <connections/>

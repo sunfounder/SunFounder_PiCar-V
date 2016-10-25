@@ -34,7 +34,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string> running_screen</string>
+   <string> Operation</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(00, 188, 212);</string>
@@ -332,7 +332,7 @@
        <string/>
       </property>
       <property name="shortcut">
-       <string>Alt+Right</string>
+       <string>Alt+S</string>
       </property>
      </widget>
     </item>

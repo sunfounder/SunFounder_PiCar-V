@@ -41,14 +41,39 @@ SPEED = [0, SPEED_LEVEL_1, SPEED_LEVEL_2, SPEED_LEVEL_3, SPEED_LEVEL_4, SPEED_LE
 
 HOST      = '192.168.0.133'
 PORT 	  = '8000'
-autologin = True
+autologin = 1
 
 # BASE_URL is variant use to save the format of host and port 
 BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
 
-def _reflash_url():
+def __reflash_url__():
 	global BASE_URL
 	BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
+
+
+def __read_auto_inf__():
+	try:
+		fp = open("auto_ip.inf", 'r')
+		lines = fp.readlines()
+		for line in lines:
+			if "ip" in line:
+				ip = line.replace(' ', '').replace('\n','').split(':')[1]
+
+			elif "port" in line:
+				port = line.replace(' ', '').replace('\n','').split(':')[1]	
+
+			elif "remember_status" in line:
+				remember_status = line.replace(' ', '').replace('\n','').split(':')[1]	
+		fp.close()
+		return ip, port, int(remember_status)
+	except IOError:
+		return -1
+
+def __write_auto_inf__(ip=None, port=None, rem_status=None):
+	fp = open("auto_ip.inf", 'w')
+	string = "ip: %s \nport: %s\nremember_status: %s\n" %(ip, port, rem_status)  
+	fp.write(string)
+	fp.close()
 
 class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 	"""Login Screen
@@ -60,12 +85,25 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 		none
 	"""
 	def __init__(self):
+		global autologin
+		global HOST,PORT
+
+		info = __read_auto_inf__()
+		if info == -1:
+			HOST = ''
+			PORT = ''
+			autologin = -1
+		else:
+			HOST = info[0]
+			PORT = info[1]
+			autologin = info[2]
+	
 		QtWidgets.QDialog.__init__(self)	
 		Ui_Login_screen.__init__(self)
 		self.setupUi(self)
-
+		self.setWindowTitle("Log in - SunFounder video car V2.0 client")
 		# Check value of autologin, if True, set text of host line edit with saved host
-		if autologin == True:
+		if autologin == 1:
 			self.lEd_host.setText(HOST)
 			self.label_Error.setText("")
 			self.pBtn_checkbox.setStyleSheet("border-image: url(./images/check2.png);")
@@ -98,18 +136,22 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 		if 7<len(self.lEd_host.text())<16 :
 			HOST = self.lEd_host.text()
 			PORT = self.lEd_port.text()
-			_reflash_url()
+			__reflash_url__()
 			self.label_Error.setText("Connecting....")
 			
 			# check whethe server is connected
 			if connection_ok() == True: # request respon 'OK', connected
-				if autologin == True:	# autologin checked，record HOST
+				if autologin == 1:	# autologin checked，record HOST
 					HOST = self.lEd_host.text()
+					PORT = self.lEd_port.text()
+					__write_auto_inf__(HOST, PORT, autologin)
 				else:
 					self.lEd_host.setText("")
 					self.label_Error.setText("")
+					__write_auto_inf__(HOST, PORT, autologin)
 				self.label_Error.setText("")
 				# login succeed, login1 screen close, running screen show, function start_stream() run
+					
 				login1.close()
 				running1.start_stream()
 				running1.show()
@@ -144,8 +186,9 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 		"""
 		global autologin
 		# when clicked checkbox button, change value of various autologin
-		autologin = not autologin
-		if autologin == True:
+		autologin = -autologin
+		print('autolongin = %s'%autologin) 
+		if autologin == 1:
 			# the checked picture
 			self.pBtn_checkbox.setStyleSheet("border-image: url(./images/check2.png);")
 		else:
@@ -444,7 +487,9 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 		Ui_Calibrate_screen.__init__(self)
 		self.setupUi(self)
 		self.calibration_status = 0
+		self.bw_status = 0
 
+		self.btn_test.setStyleSheet("border-image: url(./images/test_unpressed.png);")
 		self.btn_ok.setStyleSheet("border-image: url(./images/ok_unpressed.png);")
 		self.btn_cancle.setStyleSheet("border-image: url(./images/cancle_unpressed.png);")
 
@@ -460,18 +505,21 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 		self.calibration_status = calibration_status	
 		if self.calibration_status == 1:				# calibrate camera
 			cali_action('camcali')
+			self.setWindowTitle("Camera calibration - SunFounder video car V2.0 client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_cam.png);")
 			self.label_Cali_Info.setText("Camera")
 			self.label_Info_1.setText("Calibrate the camera to the position like above.")
 			self.label_Info_2.setText("Use arrow keys or W, A, S, D keys.")
 		if self.calibration_status == 2:				# calibrate front wheels
 			cali_action('fwcali')
+			self.setWindowTitle("Front wheels calibration - SunFounder video car V2.0 client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_fw.png);")
 			self.label_Cali_Info.setText("Front Wheels")
 			self.label_Info_1.setText("Calibrate front wheels to the position like above.")
 			self.label_Info_2.setText("Use the left and right arrow keys or A and D.")
 		if self.calibration_status == 3:				# calibrate back wheels
-			cali_action('bwcali')
+			#cali_action('bwcali')
+			self.setWindowTitle("Rear wheels calibration - SunFounder video car V2.0 client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_bw.png);")
 			self.label_Cali_Info.setText("Rear Wheels")
 			self.label_Info_1.setText("Calibrate rear wheels to run forward .")
@@ -525,6 +573,42 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 			run_action('stop')
 			self.close()			
 
+	def on_btn_test_pressed(self):
+		self.btn_test.setStyleSheet("border-image: url(./images/test_pressed.png);")
+	def on_btn_test_released(self):
+		self.btn_test.setStyleSheet("border-image: url(./images/test_unpressed.png);")
+		if  self.calibration_status == 1:
+			run_action('camup')
+			time.sleep(0.5)
+			run_action('camready')
+			time.sleep(0.5)
+			run_action('camdown')
+			time.sleep(0.5)
+			run_action('camready')
+			time.sleep(0.5)
+			run_action('camleft')
+			time.sleep(0.5)
+			run_action('camready')
+			time.sleep(0.5)
+			run_action('camright')
+			time.sleep(0.5)
+			run_action('camready')
+		elif self.calibration_status == 2:
+			run_action('fwleft')
+			time.sleep(0.5)
+			run_action('fwready')
+			time.sleep(0.5)
+			run_action('fwright')
+			time.sleep(0.5)
+			run_action('fwready')
+		elif self.calibration_status == 3:
+			if self.bw_status == 0:
+				run_action('forward')
+				self.bw_status = 1
+			else:
+				run_action('stop')
+				self.bw_status = 0
+			
 	def on_btn_ok_pressed(self):
 		self.btn_ok.setStyleSheet("border-image: url(./images/ok_pressed.png);")
 	def on_btn_ok_released(self):
@@ -675,7 +759,7 @@ def cali_action(cmd):
 	# post request with url 
 	requests.get(url)
 
-if __name__ == "__main__":
+def main():
 	app = QtWidgets.QApplication(sys.argv)
 	
 	# creat objects 
@@ -690,4 +774,28 @@ if __name__ == "__main__":
 	print ("All done")
 	# Wait to exit python if there is a exec_() signal
 	sys.exit(app.exec_())
-		
+
+def test():
+	ip = '192.168.0.133'
+	port = 8000
+	__record_auto_ip__(ip, port)
+	info = __read_auto_inf__()
+	print(info)
+
+if __name__ == "__main__":
+	
+	app = QtWidgets.QApplication(sys.argv)
+	
+	# creat objects 
+	login1 = LoginScreen()
+	running1 = RunningScreen()	
+	setting1   = SettingScreen()
+	calibrate1 = CalibrateScreen()
+
+	# Show object login1
+	login1.show()
+
+	print ("All done")
+	# Wait to exit python if there is a exec_() signal
+	sys.exit(app.exec_())
+
