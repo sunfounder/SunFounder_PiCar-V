@@ -144,11 +144,11 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 				if autologin == 1:	# autologin checked，record HOST
 					HOST = self.lEd_host.text()
 					PORT = self.lEd_port.text()
-					__write_auto_inf__(HOST, PORT, autologin)
 				else:
 					self.lEd_host.setText("")
 					self.label_Error.setText("")
-					__write_auto_inf__(HOST, PORT, autologin)
+
+				__write_auto_inf__(HOST, PORT, autologin)
 				self.label_Error.setText("")
 				# login succeed, login1 screen close, running screen show, function start_stream() run
 					
@@ -775,27 +775,8 @@ def main():
 	# Wait to exit python if there is a exec_() signal
 	sys.exit(app.exec_())
 
-def test():
-	ip = '192.168.0.133'
-	port = 8000
-	__record_auto_ip__(ip, port)
-	info = __read_auto_inf__()
-	print(info)
 
 if __name__ == "__main__":
 	
-	app = QtWidgets.QApplication(sys.argv)
-	
-	# creat objects 
-	login1 = LoginScreen()
-	running1 = RunningScreen()	
-	setting1   = SettingScreen()
-	calibrate1 = CalibrateScreen()
-
-	# Show object login1
-	login1.show()
-
-	print ("All done")
-	# Wait to exit python if there is a exec_() signal
-	sys.exit(app.exec_())
+	main()
 
