@@ -11,12 +11,14 @@
 '''
 
 from django.shortcuts import render_to_response
-from driver import camera, back_wheels, front_wheels, stream
+from driver import camera, stream
+from rpicar2 import back_wheels, front_wheels
 from django.http import HttpResponse
 
-fw = front_wheels.Front_Wheels()
-bw = back_wheels.Back_Wheels()
-cam = camera.Camera()
+db_file = "/home/pi/SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi/remote_control/remote_control/driver/config"
+fw = front_wheels.Front_Wheels(debug=False, db=db_file)
+bw = back_wheels.Back_Wheels(debug=False, db=db_file)
+cam = camera.Camera(debug=False, db=db_file)
 cam.ready()
 fw.ready()
 bw.ready()
@@ -39,12 +41,12 @@ def run(request):
 			bw.ready()
 			bw_status = 0
 		elif action == 'forward':
-			bw.set_speed(SPEED)
+			bw.speed = SPEED
 			bw.forward()
 			bw_status = 1
 			debug = "speed =", SPEED
 		elif action == 'backward':
-			bw.set_speed(SPEED)
+			bw.speed = SPEED
 			bw.backward()
 			bw_status = -1
 		elif action == 'stop':
@@ -83,7 +85,7 @@ def run(request):
 			speed = 100
 		SPEED = speed
 		if bw_status != 0:
-			bw.set_speed(SPEED)
+			bw.speed = SPEED
 		debug = "speed =", speed
 	host = stream.get_host()[:-2]
 	return render_to_response("run.html", {'host': host})

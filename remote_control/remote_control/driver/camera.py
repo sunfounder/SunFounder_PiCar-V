@@ -13,7 +13,7 @@
 
 import Servo
 import time
-import filedb
+from rpicar2 import filedb
 
 class Camera(object):
 	'''Camera movement control class'''
@@ -32,16 +32,15 @@ class Camera(object):
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "camera.py":'
 
-	def __init__(self):
+	def __init__(self, debug=False, db="config"):
 		''' Init the servo channel '''
-		if self._DEBUG:
-			print self._DEBUG_INFO, "Debug on"
-		self.db = filedb.fileDB()
-		self.pan_offset = self.db.get('pan_offset', default_value=0)
-		self.tilt_offset = self.db.get('tilt_offset', default_value=0)
+		self.db = filedb.fileDB(db=db)
+		self.pan_offset = int(self.db.get('pan_offset', default_value=0))
+		self.tilt_offset = int(self.db.get('tilt_offset', default_value=0))
 
 		self.pan_servo = Servo.Servo(self.pan_channel, offset=self.pan_offset)
 		self.tilt_servo = Servo.Servo(self.tilt_channel, offset=self.tilt_offset)
+		self.debug = debug
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Pan servo channel:', self.pan_channel
 			print self._DEBUG_INFO, 'Tilt servo channel:', self.tilt_channel

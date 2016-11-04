@@ -32,7 +32,7 @@ Calibration
       var xmlHttp  = new XMLHttpRequest();
       var protocol  = window.location.protocol;
       var host      = window.location.host;
-      url = protocol + "//" + host + '/run';
+      url = protocol + "//" + host + '/run/?';
       xmlHttp.open( "GET", url, false );
       xmlHttp.send( null );
       return xmlHttp.responseText;
@@ -41,6 +41,7 @@ Calibration
       run_action('camcaliok');
       run_action('fwcaliok');
       run_action('bwcaliok');
+      back();
       back();
     }
   </script>
