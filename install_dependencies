@@ -47,12 +47,12 @@ sudo apt-get update
 ###################################
 
 echo "Cloning repo \n"
-cd ~/
 git clone https://github.com/SunFounder_Raspberry_Pi_Car_V2.0.git
 cd SunFounder_Raspberry_Pi_Car_V2.0
 echo "    Installing RPi Car module \n"
 python setup.py install
-cd ~/
+cd ..
+rm -rf SunFounder_Raspberry_Pi_Car_V2.0
 echo "complete\n"
 
 ###################################
