@@ -20,33 +20,46 @@ sudo apt-get update
 ###################################
 # install python-pip django i2c-tools python-smbus runtime #
 ###################################
-    echo "\n    Installing  python-pip and django \n"
+    echo "\nInstalling  python-pip and django \n"
     if sudo apt-get install python-pip ; then
-        echo "Successfully installed python-pip \n "
+        echo "    Successfully installed python-pip \n"
     else
-        echo "Failed to installed python-pip"
+        echo "    Failed to installed python-pip \n"
         exit
     fi
     if sudo pip install django ; then
-        echo "Successfully installed django runtime \n"
+        echo "    Successfully installed django runtime \n"
     else
-        echo "Failed to installed django"
+        echo "    Failed to installed django \n"
         exit
     fi
 
-    echo "\n    Installinging i2c-tools and python-smbus \n"
+    echo "\nInstalling i2c-tools and python-smbus \n"
     if sudo apt-get install i2c-tools python-smbus -y; then
-        echo "Successfully installed i2c-tools python-smbus \n"
+        echo "    Successfully installed i2c-tools python-smbus \n"
     else
-        echo "Failed to installed i2c-tools python-smbus"
+        echo "    Failed to installed i2c-tools python-smbus \n"
         exit
     fi
+
+###################################
+# Install RPi Car V2 Module
+###################################
+
+echo "Cloning repo \n"
+cd ~/
+git clone https://github.com/SunFounder_Raspberry_Pi_Car_V2.0.git
+cd SunFounder_Raspberry_Pi_Car_V2.0
+echo "    Installing RPi Car module \n"
+python setup.py install
+cd ~/
+echo "complete\n"
 
 ###################################
 # Copy MJPG-Streamer to an Alternate Location #
 ###################################
 #
-echo "Copy MJPG-Streamer to an Alternate Location "
+echo "Copy MJPG-Streamer to an Alternate Location. \n"
 sudo cp mjpg-streamer/mjpg_streamer /usr/local/bin
 sudo cp mjpg-streamer/output_http.so mjpg-streamer/input_file.so mjpg-streamer/input_uvc.so /usr/local/lib/
 sudo cp -R mjpg-streamer/www /usr/local/www
@@ -56,23 +69,25 @@ echo "complete\n"
 # Export Paths #
 ###################################
 #
-echo "Export paths"
+echo "Export paths. \n"
 echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
 echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
 source ~/.bashrc
-echo "complete\n"
+echo "complete. \n"
 
 ###################################
 # Enable I2C1 #
 ###################################
 # Add lines to /boot/config.txt
-echo "\n    Enalbe I2C \n"
+echo "Enalbe I2C \n"
 egrep -v "^#|^$" /boot/config.txt > config.txt.bak  # pick up all uncomment configrations
 if grep -q 'dtparam=i2c_arm=on' config.txt.bak; then  # whether i2c_arm in uncomment configrations or not
-    echo 'Seem i2c_arm parameter already set, skip this step'
+    echo '    Seem i2c_arm parameter already set, skip this step \n'
 else
-    echo 'dtparam=i2c_arm=on' >> /boot/config.txt
+    echo '    dtparam=i2c_arm=on \n' >> /boot/config.txt
 fi
 rm config.txt.bak   
-echo "\n complete, now reboot to take effect\n"
+echo "complete\n"
+
+echo "Now reboot to take effect \n"
 sudo reboot
