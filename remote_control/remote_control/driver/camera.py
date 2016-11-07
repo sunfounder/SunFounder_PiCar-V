@@ -11,7 +11,7 @@
 **********************************************************************
 '''
 
-import Servo
+from rpicar2.SunFounder_PCA9685 import Servo
 import time
 from rpicar2 import filedb
 
@@ -65,31 +65,31 @@ class Camera(object):
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn left at step:', step
 		self.current_pan = self.safe_plus(self.current_pan, step)
-		self.pan_servo.turn(self.current_pan)
+		self.pan_servo.write(self.current_pan)
 
 	def turn_right(self, step=PAN_STEP):
 		''' Control the pan servo to make the camera turning right '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn right at step:', step
 		self.current_pan = self.safe_plus(self.current_pan, -step)
-		self.pan_servo.turn(self.current_pan)
+		self.pan_servo.write(self.current_pan)
 
 	def turn_up(self, step=TILT_STEP):
 		''' Control the tilt servo to make the camera turning up '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn up at step:', step
 		self.current_tilt = self.safe_plus(self.current_tilt, step)
-		self.tilt_servo.turn(self.current_tilt)
+		self.tilt_servo.write(self.current_tilt)
 
 	def turn_down(self, step=TILT_STEP):
 		'''Control the tilt servo to make the camera turning down'''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn down at step:', step
 		self.current_tilt = self.safe_plus(self.current_tilt, -step)
-		self.tilt_servo.turn(self.current_tilt)
+		self.tilt_servo.write(self.current_tilt)
 
 	def to_position(self, expect_pan, expect_tilt, delay=CAMERA_DELAY):
-		'''Control two servo to turn the camera to ready position'''
+		'''Control two servo to write the camera to ready position'''
 		pan_diff = self.current_pan - expect_pan
 		tilt_diff = self.current_tilt - expect_tilt
 		if self._DEBUG:
@@ -113,8 +113,8 @@ class Camera(object):
 				else:
 					self.current_tilt = expect_tilt
 
-				self.pan_servo.turn(self.current_pan)
-				self.tilt_servo.turn(self.current_tilt)
+				self.pan_servo.write(self.current_pan)
+				self.tilt_servo.write(self.current_tilt)
 				time.sleep(delay)
 			else:
 				break
@@ -123,12 +123,12 @@ class Camera(object):
 		''' Set the camera to ready position '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn to "Ready" position'
-		self.pan_servo.set_offset(self.pan_offset)
-		self.tilt_servo.set_offset(self.tilt_offset)
+		self.pan_servo.offset = self.pan_offset
+		self.tilt_servo.offset = self.tilt_offset
 		self.to_position(self.READY_PAN, self.READY_TILT, delay=0.001)
 
 	def calibration(self):
-		''' Control two servo to turn the camera to calibration position '''
+		''' Control two servo to write the camera to calibration position '''
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Turn to "Calibration" position'
 		self.to_position(self.CALI_PAN, self.CALI_TILT)
@@ -138,26 +138,26 @@ class Camera(object):
 	def cali_up(self):
 		''' Calibrate the camera to up '''
 		self.cali_tilt_offset += 1
-		self.tilt_servo.set_offset(self.cali_tilt_offset)
-		self.tilt_servo.turn(self.CALI_TILT)
+		self.tilt_servo.offset = self.cali_tilt_offset
+		self.tilt_servo.write(self.CALI_TILT)
 
 	def cali_down(self):
 		''' Calibrate the camera to down '''
 		self.cali_tilt_offset -= 1
-		self.tilt_servo.set_offset(self.cali_tilt_offset)
-		self.tilt_servo.turn(self.CALI_TILT)
+		self.tilt_servo.offset = self.cali_tilt_offset
+		self.tilt_servo.write(self.CALI_TILT)
 
 	def cali_left(self):
 		''' Calibrate the camera to left '''
 		self.cali_pan_offset += 1
-		self.pan_servo.set_offset(self.cali_pan_offset)
-		self.pan_servo.turn(self.CALI_PAN)
+		self.pan_servo.offset = self.cali_pan_offset
+		self.pan_servo.write(self.CALI_PAN)
 
 	def cali_right(self):
 		''' Calibrate the camera to right '''
 		self.cali_pan_offset -= 1
-		self.pan_servo.set_offset(self.cali_pan_offset)
-		self.pan_servo.turn(self.CALI_PAN)
+		self.pan_servo.offset = self.cali_pan_offset
+		self.pan_servo.write(self.CALI_PAN)
 
 	def cali_ok(self):
 		''' Save the calibration value '''
@@ -166,7 +166,12 @@ class Camera(object):
 		self.db.set('pan_offset', self.pan_offset)
 		self.db.set('tilt_offset', self.tilt_offset)
 
-	def set_debug(self, debug):
+	@property
+	def debug(self):
+		return self._DEBUG
+
+	@debug.setter
+	def debug(self, debug):
 		''' Set if debug information shows '''
 		if debug in (True, False):
 			self._DEBUG = debug
@@ -176,13 +181,13 @@ class Camera(object):
 		if self._DEBUG:
 			print self._DEBUG_INFO, "Set debug on"
 			print self._DEBUG_INFO, "Set pan servo and tilt servo debug on"
-			self.pan_servo.set_debug(True)
-			self.tilt_servo.set_debug(True)
+			self.pan_servo.debug = True
+			self.tilt_servo.debug = True
 		else:
 			print self._DEBUG_INFO, "Set debug off"
 			print self._DEBUG_INFO, "Set pan servo and tilt servo debug off"
-			self.pan_servo.set_debug(False)
-			self.tilt_servo.set_debug(False)
+			self.pan_servo.debug = False
+			self.tilt_servo.debug = False
 
 if __name__ == '__main__':
 	camera = Camera()
