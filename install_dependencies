@@ -48,11 +48,11 @@ sudo apt-get update
 
 echo "Cloning repo \n"
 cd ~
-git clone --recursive https://github.com/sunfounder/SunFounder_Raspberry_Pi_Car_V2.0.git
-cd SunFounder_Raspberry_Pi_Car_V2.0
-echo "    Installing RPi Car module \n"
+git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
+cd SunFounder_PiCar
+echo "    Installing PiCar module \n"
 python setup.py install
-cd ~/SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi
+cd ~/SunFounder_PiCar_V
 echo "complete\n"
 
 ###################################
