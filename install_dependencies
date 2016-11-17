@@ -8,86 +8,145 @@
 #```
 
 # All of these commands are run from the base folder (SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi), wherever you clone it to
+repo_dir=`pwd`
+
+is_installed_django=false
+is_installed_python_smbus=false
 
 if [ "$(whoami)" != "root" ] ; then
-    echo "You must run setup.sh as root."
-    exit
+    echo -e "You must run setup.sh as root."
+    end
 fi
 
-sudo apt-get update
+#sudo apt-get update
 #sudo apt-get upgrade -y
+
+function if_continue(){
+    while :; do
+        echo  -e "(yes/no) \c"
+        read input_item
+        if [ $input_item = "yes" ]; then
+            break
+        elif [ $input_item = "no" ]; then
+            return 0
+        else
+            echo -e "Input error, please try again."
+        fi
+    done
+    return 1 
+}
+
+function end(){
+    print_result
+    echo -e "Exiting..."
+    exit
+}
+
+function print_result(){
+    echo -e "Installation result:"
+    echo -e "django   \c"
+    if [ is_installed_django ]; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
+    echo -e "python-smbus  \c"
+    if [ is_installed_python_smbus ]; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
+}
 
 ###################################
 # install python-pip django i2c-tools python-smbus runtime #
 ###################################
-    echo "\nInstalling  python-pip and django \n"
-    if sudo apt-get install python-pip ; then
-        echo "    Successfully installed python-pip \n"
+echo -e "\nInstalling django \n"
+if sudo pip install django ; then
+    echo -e "    Successfully installed django runtime \n"
+    is_installed_django=true
+else
+    echo -e "    Failed to installed django."
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped django installation."
     else
-        echo "    Failed to installed python-pip \n"
-        exit
+        end
     fi
-    if sudo pip install django ; then
-        echo "    Successfully installed django runtime \n"
-    else
-        echo "    Failed to installed django \n"
-        exit
-    fi
+fi
 
-    echo "\nInstalling i2c-tools and python-smbus \n"
-    if sudo apt-get install i2c-tools python-smbus -y; then
-        echo "    Successfully installed i2c-tools python-smbus \n"
+echo -e "\nInstalling python-smbus \n"
+if sudo apt-get install python-smbus -y; then
+    echo -e "    Successfully installed python-smbus \n"
+    is_installed_python_smbus=true
+else
+    echo -e "    Failed to installed python-smbus \n"
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped django installation."
     else
-        echo "    Failed to installed i2c-tools python-smbus \n"
-        exit
+        end
     fi
+fi
 
 ###################################
 # Install RPi Car V2 Module
 ###################################
 
-echo "Cloning repo \n"
-cd ~
+echo -e "Cloning repo \n"
+cd ../
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
 cd SunFounder_PiCar
-echo "    Installing PiCar module \n"
+echo -e "    Installing PiCar module \n"
 python setup.py install
-cd ~/SunFounder_PiCar_V
-echo "complete\n"
+cd $repo_dir
+echo -e "complete\n"
 
 ###################################
 # Copy MJPG-Streamer to an Alternate Location #
 ###################################
 #
-echo "Copy MJPG-Streamer to an Alternate Location. \n"
-sudo cp mjpg-streamer/mjpg_streamer /usr/local/bin
-sudo cp mjpg-streamer/output_http.so mjpg-streamer/input_file.so mjpg-streamer/input_uvc.so /usr/local/lib/
-sudo cp -R mjpg-streamer/www /usr/local/www
-echo "complete\n"
+echo -e "Copy MJPG-Streamer to an Alternate Location. \n"
+sudo cp $repo_dir/mjpg-streamer/mjpg_streamer /usr/local/bin
+sudo cp $repo_dir/mjpg-streamer/output_http.so mjpg-streamer/input_file.so mjpg-streamer/input_uvc.so /usr/local/lib/
+sudo cp -R $repo_dir/mjpg-streamer/www /usr/local/www
+echo -e "complete\n"
 
 ###################################
 # Export Paths #
 ###################################
 #
-echo "Export paths. \n"
-echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
-echo export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
-source ~/.bashrc
-echo "complete. \n"
+#echo -e "Export paths. \n"
+#echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
+#echo -e export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
+#source ~/.bashrc
+#echo -e "complete. \n"
 
 ###################################
 # Enable I2C1 #
 ###################################
 # Add lines to /boot/config.txt
-echo "Enalbe I2C \n"
-egrep -v "^#|^$" /boot/config.txt > config.txt.bak  # pick up all uncomment configrations
-if grep -q 'dtparam=i2c_arm=on' config.txt.bak; then  # whether i2c_arm in uncomment configrations or not
-    echo '    Seem i2c_arm parameter already set, skip this step \n'
+echo -e "Enalbe I2C \n"
+egrep -v "^#|^$" /boot/config.txt > config.txt.temp  # pick up all uncomment configrations
+if grep -q 'dtparam=i2c_arm=on' config.txt.temp; then  # whether i2c_arm in uncomment configrations or not
+    echo -e '    Seem i2c_arm parameter already set, skip this step \n'
 else
-    echo '    dtparam=i2c_arm=on \n' >> /boot/config.txt
+    echo -e '    dtparam=i2c_arm=on \n' >> /boot/config.txt
 fi
-rm config.txt.bak   
-echo "complete\n"
+rm config.txt.temp   
+echo -e "complete\n"
 
-echo "Now reboot to take effect \n"
-sudo reboot
+print_result
+
+echo -e "The stuff you have change may need reboot to take effect."
+echo -e "Do you want to reboot immediately? \c"
+if_continue
+if [ $? = 1 ]; then
+    echo -e "Rebooting..."
+    sudo reboot
+else
+    echo -e "Exiting..."
+    exit
+fi

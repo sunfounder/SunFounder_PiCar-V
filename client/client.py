@@ -2,7 +2,7 @@
 '''
 /**********************************************************************
 * Filename    : client.py
-* Description : Client for smart video car V2.0. Use python3 + pyqt5
+* Description : Client for PiCar-V. Use python3 + pyqt5
 * Author      : Dream
 * Company     : Sunfounder
 * E-mail      : service@sunfounder.com
@@ -101,7 +101,7 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 		QtWidgets.QDialog.__init__(self)	
 		Ui_Login_screen.__init__(self)
 		self.setupUi(self)
-		self.setWindowTitle("Log in - SunFounder video car V2.0 client")
+		self.setWindowTitle("Log In - SunFounder PiCar-V Client")
 		# Check value of autologin, if True, set text of host line edit with saved host
 		if autologin == 1:
 			self.lEd_host.setText(HOST)
@@ -206,6 +206,16 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 		TIMEOUT, how long it time up for QTimer, using to reflash the frame 
 	"""
 	TIMEOUT = 50
+	LEVEL1_SPEED = 40
+	LEVEL5_SPEED = 100
+
+	LEVEL2_SPEED = int((LEVEL5_SPEED - LEVEL1_SPEED) / 4 * 1 + LEVEL1_SPEED)
+	LEVEL3_SPEED = int((LEVEL5_SPEED - LEVEL1_SPEED) / 4 * 2 + LEVEL1_SPEED)
+	LEVEL4_SPEED = int((LEVEL5_SPEED - LEVEL1_SPEED) / 4 * 3 + LEVEL1_SPEED)
+
+	LEVEL_SPEED = [0, LEVEL1_SPEED, LEVEL2_SPEED, LEVEL3_SPEED, LEVEL4_SPEED, LEVEL5_SPEED]
+
+
 	def __init__(self):
 		QtWidgets.QDialog.__init__(self)	
 		Ui_Running_screen.__init__(self)
@@ -214,6 +224,7 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 		self.speed_level = 0
 		# when init, no level button has been pressed, self.speed_level = 0
 		self.level_btn_show(self.speed_level)
+		self.setWindowTitle("Operation - SunFounder PiCar-V Client")
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
 		self.btn_setting.setStyleSheet("border-image: url(./images/settings_unpressed.png);")
 	
@@ -376,27 +387,27 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 		"""
 		self.speed_level = 1
 		self.level_btn_show(self.speed_level)
-		self.set_speed_level('20')				# level 1, speed 20
+		self.set_speed_level(str(self.LEVEL_SPEED[self.speed_level]))				# level 1, speed 20
 	
 	def on_level2_clicked(self):
 		self.speed_level = 2
 		self.level_btn_show(self.speed_level)
-		self.set_speed_level('40')				# level 2, speed 40
+		self.set_speed_level(str(self.LEVEL_SPEED[self.speed_level]))				# level 2, speed 40
 	
 	def on_level3_clicked(self):
 		self.speed_level = 3
 		self.level_btn_show(self.speed_level)	
-		self.set_speed_level('60')				# level 3, speed 60
+		self.set_speed_level(str(self.LEVEL_SPEED[self.speed_level]))				# level 3, speed 60
 
 	def on_level4_clicked(self):
 		self.speed_level = 4
 		self.level_btn_show(self.speed_level)			
-		self.set_speed_level('80')				# level 4, speed 80
+		self.set_speed_level(str(self.LEVEL_SPEED[self.speed_level]))				# level 4, speed 80
 
 	def on_level5_clicked(self):
 		self.speed_level = 5
 		self.level_btn_show(self.speed_level)
-		self.set_speed_level('100')				# level 5, speed 100
+		self.set_speed_level(str(self.LEVEL_SPEED[self.speed_level]))				# level 5, speed 100
 
 	def on_btn_back_pressed(self):
 		self.btn_back.setStyleSheet("border-image: url(./images/back_pressed.png);")
@@ -441,7 +452,7 @@ class SettingScreen(QtWidgets.QDialog, Ui_Setting_screen):
 		QtWidgets.QDialog.__init__(self)	
 		Ui_Setting_screen.__init__(self)
 		self.setupUi(self)
-
+		self.setWindowTitle("Calibration - SunFounder PiCar-V Client")
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
 
 	def on_btn_camera_cali_pressed(self):
@@ -471,6 +482,7 @@ class SettingScreen(QtWidgets.QDialog, Ui_Setting_screen):
 		self.btn_back.setStyleSheet("border-image: url(./images/back_unpressed.png);")
 	def on_btn_back_clicked(self):
 		self.close()
+		running1.set_speed_level(str(running1.LEVEL_SPEED[running1.speed_level]))				# level 1, speed 20
 		running1.show()
 
 class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
@@ -505,24 +517,27 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 		self.calibration_status = calibration_status	
 		if self.calibration_status == 1:				# calibrate camera
 			cali_action('camcali')
-			self.setWindowTitle("Camera calibration - SunFounder video car V2.0 client")
+			self.setWindowTitle("Camera Calibration - SunFounder PiCar-V Client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_cam.png);")
 			self.label_Cali_Info.setText("Camera")
 			self.label_Info_1.setText("Calibrate the camera to the position like above.")
 			self.label_Info_2.setText("Use arrow keys or W, A, S, D keys.")
 		if self.calibration_status == 2:				# calibrate front wheels
 			cali_action('fwcali')
-			self.setWindowTitle("Front wheels calibration - SunFounder video car V2.0 client")
+			self.setWindowTitle("Front Wheels Calibration - SunFounder PiCar-V Client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_fw.png);")
 			self.label_Cali_Info.setText("Front Wheels")
 			self.label_Info_1.setText("Calibrate front wheels to the position like above.")
 			self.label_Info_2.setText("Use the left and right arrow keys or A and D.")
 		if self.calibration_status == 3:				# calibrate back wheels
-			#cali_action('bwcali')
-			self.setWindowTitle("Rear wheels calibration - SunFounder video car V2.0 client")
+			cali_action('bwcali')
+			run_speed('50')
+			run_action('forward')
+			self.setWindowTitle("Rear Wheels Calibration - SunFounder PiCar-V Client")
 			self.label_pic.setStyleSheet("image: url(./images/cali_bw.png);")
+			self.btn_test.hide()
 			self.label_Cali_Info.setText("Rear Wheels")
-			self.label_Info_1.setText("Calibrate rear wheels to run forward .")
+			self.label_Info_1.setText("Calibrate rear wheels to run forward.")
 			self.label_Info_2.setText("Use the left and right arrow keys or A and D.")
 		self.show()
 
@@ -569,6 +584,7 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 				cali_action('fwcalileft')
 			elif self.calibration_status == 3:
 				cali_action('bwcalileft')
+				cali_action('forward')
 		elif key_press == Qt.Key_Escape:			# ESC
 			run_action('stop')
 			self.close()			
@@ -602,12 +618,7 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 			time.sleep(0.5)
 			run_action('fwready')
 		elif self.calibration_status == 3:
-			if self.bw_status == 0:
-				run_action('forward')
-				self.bw_status = 1
-			else:
-				run_action('stop')
-				self.bw_status = 0
+			pass
 			
 	def on_btn_ok_pressed(self):
 		self.btn_ok.setStyleSheet("border-image: url(./images/ok_pressed.png);")
@@ -621,6 +632,7 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 			cali_action('fwcaliok')
 		elif self.calibration_status == 3:
 			cali_action('bwcaliok')
+			cali_action('stop')
 		self.close()		
 
 	def on_btn_cancle_pressed(self):
@@ -635,6 +647,7 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 			run_action('fwready')
 		elif self.calibration_status == 3:
 			run_action('bwready')
+			cali_action('stop')
 		self.close()		
 
 class QueryImage:
@@ -699,6 +712,16 @@ def connection_ok():
 	except:
 		return False
 
+def __request__(url, times=10):
+	for x in range(times):
+		try:
+			requests.get(url)
+			return 0
+		except :
+			print("Connection error, try again")
+	print("Abort")
+	return -1
+
 def run_action(cmd):
 	"""Ask server to do sth, use in running mode
 
@@ -719,7 +742,7 @@ def run_action(cmd):
 	url = BASE_URL + 'run/?action=' + cmd
 	print('url: %s'% url)
 	# post request with url 
-	requests.get(url)
+	__request__(url)
 
 def run_speed(speed):
 	"""Ask server to set speed, use in running mode
@@ -734,7 +757,7 @@ def run_speed(speed):
 	url = BASE_URL + 'run/?speed=' + speed
 	print('url: %s'% url)
 	# Set speed
-	requests.get(url)
+	__request__(url)
 
 def cali_action(cmd):
 	"""Ask server to do sth, use in calibration mode
@@ -757,7 +780,7 @@ def cali_action(cmd):
 	url = BASE_URL + 'cali/?action=' + cmd
 	print('url: %s'% url)
 	# post request with url 
-	requests.get(url)
+	__request__(url)
 
 def main():
 	app = QtWidgets.QApplication(sys.argv)
@@ -777,6 +800,18 @@ def main():
 
 
 if __name__ == "__main__":
+	app = QtWidgets.QApplication(sys.argv)
 	
-	main()
+	# creat objects 
+	login1 = LoginScreen()
+	running1 = RunningScreen()	
+	setting1   = SettingScreen()
+	calibrate1 = CalibrateScreen()
+
+	# Show object login1
+	login1.show()
+
+	print ("All done")
+	# Wait to exit python if there is a exec_() signal
+	sys.exit(app.exec_())
 
