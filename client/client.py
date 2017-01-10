@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
 /**********************************************************************
 * Filename    : client.py
@@ -239,7 +240,7 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 		"""
 		# creat an object queryImage with the HOST  
 		self.queryImage = QueryImage(HOST)
-		self.timer = QTimer(timeout=self.reflash_frame)  # Qt timer，time up, run reflash_frame()
+		self.timer = QTimer(timeout=self.reflash_frame)  # Qt timer, time up, run reflash_frame()
 		self.timer.start(RunningScreen.TIMEOUT)  # start timer
 		# init the position 
 		run_action('fwready')
@@ -318,7 +319,7 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 	def keyPressEvent(self, event):
 		"""Keyboard press event
 
-		Effective key: W,A,S,D, ↑， ↓， ←， →
+		Effective key: W, A, S, D, ↑,  ↓,  ←,  →
 		Press a key on keyboard, the function will get an event, if the condition is met, call the function 
 		run_action(). 
 
@@ -350,7 +351,7 @@ class RunningScreen(QtWidgets.QDialog, Ui_Running_screen):
 	def keyReleaseEvent(self, event):
 		"""Keyboard released event
 
-		Effective key: W,A,S,D, ↑， ↓， ←， →
+		Effective key: W,A,S,D, ↑,  ↓,  ←,  →
 		Release a key on keyboard, the function will get an event, if the condition is met, call the function 
 		run_action(). 
 
@@ -546,9 +547,9 @@ class CalibrateScreen(QtWidgets.QDialog, Ui_Calibrate_screen):
 
 		Press a key on keyboard, the function will get an event, if the condition is met, call the function 
 		run_action(). 
-		In camera calibration mode, Effective key: W,A,S,D, ↑， ↓， ←， →, ESC
-		In front wheel calibration mode, Effective key: A, D, ←， →, ESC
-		In back wheel calibration mode, Effective key: A, D, ←， →, ESC
+		In camera calibration mode, Effective key: W,A,S,D, ↑,  ↓,  ←,  →, ESC
+		In front wheel calibration mode, Effective key: A, D, ←,  →, ESC
+		In back wheel calibration mode, Effective key: A, D, ←,  →, ESC
 		
 		Args:
 			event, this argument will get when an event of keyboard pressed occured
