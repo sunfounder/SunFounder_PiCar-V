@@ -141,7 +141,7 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 			
 			# check whethe server is connected
 			if connection_ok() == True: # request respon 'OK', connected
-				if autologin == 1:	# autologin checked，record HOST
+				if autologin == 1:	# autologin checked, record HOST
 					HOST = self.lEd_host.text()
 					PORT = self.lEd_port.text()
 				else:
