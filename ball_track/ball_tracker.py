@@ -9,8 +9,8 @@ import numpy as np
 show_image_enable   = False
 draw_circle_enable  = False
 scan_enable         = False
-rear_wheels_enable  = True
-front_wheels_enable = True
+rear_wheels_enable  = False
+front_wheels_enable = False
 pan_tilt_enable     = True
 
 kernel = np.ones((5,5),np.uint8)
@@ -36,7 +36,7 @@ vmx = 255
 # camera follow mode:
 # 0 = step by step(slow, stable), 
 # 1 = calculate the step(fast, unstable)
-follow_mode = 0
+follow_mode = 1
 
 CAMERA_STEP = 2
 CAMERA_X_ANGLE = 20
@@ -95,8 +95,9 @@ def main():
 
         # scan:
         if r < BALL_SIZE_MIN:
+            bw.stop()
             if scan_enable:
-                bw.stop()
+                #bw.stop()
                 pan_angle = SCAN_POS[scan_count][0]
                 tilt_angle = SCAN_POS[scan_count][1]
                 if pan_tilt_enable:
