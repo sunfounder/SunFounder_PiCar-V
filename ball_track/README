@@ -1,0 +1,3 @@
+## To run ball_track.py first, youneed to install cv2 first
+
+sudo apt-get install python_opencv

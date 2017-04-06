@@ -1,5 +1,6 @@
 from picar import front_wheels, back_wheels
 from picar.SunFounder_PCA9685 import Servo
+import picar
 from time import sleep
 import cv2
 import cv2.cv as cv
@@ -59,6 +60,8 @@ bw = back_wheels.Back_Wheels()
 fw = front_wheels.Front_Wheels()
 pan_servo = Servo.Servo(1)
 tilt_servo = Servo.Servo(2)
+picar.setup()
+
 fw.offset = 0
 pan_servo.offset = 10
 tilt_servo.offset = 0
