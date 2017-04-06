@@ -1,5 +1,6 @@
 from picar import front_wheels, back_wheels
 from picar.SunFounder_PCA9685 import Servo
+import picar
 from time import sleep
 import cv2
 import cv2.cv as cv
@@ -36,7 +37,7 @@ vmx = 255
 # camera follow mode:
 # 0 = step by step(slow, stable), 
 # 1 = calculate the step(fast, unstable)
-follow_mode = 0
+follow_mode = 1
 
 CAMERA_STEP = 2
 CAMERA_X_ANGLE = 20
@@ -57,6 +58,8 @@ bw = back_wheels.Back_Wheels()
 fw = front_wheels.Front_Wheels()
 pan_servo = Servo.Servo(1)
 tilt_servo = Servo.Servo(2)
+picar.setup()
+
 fw.offset = 0
 pan_servo.offset = 10
 tilt_servo.offset = 0
