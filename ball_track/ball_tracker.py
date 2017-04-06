@@ -4,7 +4,9 @@ from time import sleep
 import cv2
 import cv2.cv as cv
 import numpy as np
+import picar
 
+picar.setup()
 # Show image captured by camera, True to turn on, youwill need #DISPLAY and it also slows the speed of tracking
 show_image_enable   = False
 draw_circle_enable  = False

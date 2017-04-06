@@ -16,7 +16,7 @@ from picar import back_wheels, front_wheels
 from django.http import HttpResponse
 import picar
 
-picar.pwm_board_setup()
+picar.setup()
 db_file = "/home/pi/SunFounder_PiCar-V/remote_control/remote_control/driver/config"
 fw = front_wheels.Front_Wheels(debug=False, db=db_file)
 bw = back_wheels.Back_Wheels(debug=False, db=db_file)
@@ -40,19 +40,19 @@ def run(request):
 		action = request.GET['action']
 		# ============== Back wheels =============
 		if action == 'bwready':
-			#bw.ready()
+			bw.ready()
 			bw_status = 0
 		elif action == 'forward':
-			#bw.speed = SPEED
-			#bw.forward()
+			bw.speed = SPEED
+			bw.forward()
 			bw_status = 1
 			debug = "speed =", SPEED
 		elif action == 'backward':
-			#bw.speed = SPEED
-			#bw.backward()
+			bw.speed = SPEED
+			bw.backward()
 			bw_status = -1
 		elif action == 'stop':
-			#bw.stop()
+			bw.stop()
 			bw_status = 0
 
 		# ============== Front wheels =============
@@ -67,18 +67,18 @@ def run(request):
 		elif 'fwturn' in action:
 			print "turn %s" % action
 			fw.turn(int(action.split(':')[1]))
-		'''
+		
 		# ================ Camera =================
 		elif action == 'camready':
-			#cam.ready()
+			cam.ready()
 		elif action == "camleft":
-			#cam.turn_left(40)
+			cam.turn_left(40)
 		elif action == 'camright':
-			#cam.turn_right(40)
+			cam.turn_right(40)
 		elif action == 'camup':
-			#cam.turn_up(20)
+			cam.turn_up(20)
 		elif action == 'camdown':
-			#cam.turn_down(20)	
+			cam.turn_down(20)	
 	if 'speed' in request.GET:
 		speed = int(request.GET['speed'])
 		if speed < 0:
@@ -87,8 +87,8 @@ def run(request):
 			speed = 100
 		SPEED = speed
 		if bw_status != 0:
-			#bw.speed = SPEED
-		debug = "speed =", speed'''
+			bw.speed = SPEED
+		debug = "speed =", speed
 	host = stream.get_host()[:-2]
 	return render_to_response("run.html", {'host': host})
 
@@ -98,22 +98,22 @@ def cali(request):
 		# ========== Camera calibration =========
 		if action == 'camcali':
 			print '"%s" command received' % action
-			#cam.calibration()
+			cam.calibration()
 		elif action == 'camcaliup':
 			print '"%s" command received' % action
-			#cam.cali_up()
+			cam.cali_up()
 		elif action == 'camcalidown':
 			print '"%s" command received' % action
-			#cam.cali_down()
+			cam.cali_down()
 		elif action == 'camcalileft':
 			print '"%s" command received' % action
-			#cam.cali_left()
+			cam.cali_left()
 		elif action == 'camcaliright':
 			print '"%s" command received' % action
-			#cam.cali_right()
+			cam.cali_right()
 		elif action == 'camcaliok':
 			print '"%s" command received' % action
-			#cam.cali_ok()
+			cam.cali_ok()
 
 		# ========= Front wheel cali ===========
 		elif action == 'fwcali':
@@ -132,16 +132,16 @@ def cali(request):
 		# ========= Back wheel cali ===========
 		elif action == 'bwcali':
 			print '"%s" command received' % action
-			#bw.calibration()
+			bw.calibration()
 		elif action == 'bwcalileft':
 			print '"%s" command received' % action
-			#bw.cali_left()
+			bw.cali_left()
 		elif action == 'bwcaliright':
 			print '"%s" command received' % action
-			#bw.cali_right()
+			bw.cali_right()
 		elif action == 'bwcaliok':
 			print '"%s" command received' % action
-			#bw.cali_ok()
+			bw.cali_ok()
 		else:
 			print 'command error, error command "%s" received' % action
 	return render_to_response("cali.html", request)

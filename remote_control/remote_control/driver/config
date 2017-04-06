@@ -2,9 +2,9 @@ forward_A = 0
 
 forward_B = 0
 
-turning_offset = -5
+turning_offset = 27
 
-pan_offset = 12
+pan_offset = 8
 
 tilt_offset = 16
 
