@@ -31,7 +31,7 @@ bw_status = 0
 print stream.start()
 
 def home(request):
-	return render_to_response("base.html", request)
+	return render_to_response("base.html")
 
 def run(request):
 	global SPEED, bw_status
@@ -89,7 +89,7 @@ def run(request):
 		if bw_status != 0:
 			bw.speed = SPEED
 		debug = "speed =", speed
-	host = stream.get_host()[:-2]
+	host = stream.get_host().split(' ')[0]
 	return render_to_response("run.html", {'host': host})
 
 def cali(request):
@@ -144,7 +144,7 @@ def cali(request):
 			bw.cali_ok()
 		else:
 			print 'command error, error command "%s" received' % action
-	return render_to_response("cali.html", request)
+	return render_to_response("cali.html")
 
 def connection_test(request):
 	return HttpResponse('OK')
