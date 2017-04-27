@@ -12,8 +12,8 @@ picar.setup()
 show_image_enable   = False
 draw_circle_enable  = False
 scan_enable         = False
-rear_wheels_enable  = True
-front_wheels_enable = True
+rear_wheels_enable  = False
+front_wheels_enable = False
 pan_tilt_enable     = True
 
 kernel = np.ones((5,5),np.uint8)
@@ -37,7 +37,7 @@ vmn = 186
 vmx = 255
 
 # camera follow mode:
-# 0 = step by step(slow, stable), 
+# 0 = step by step(slow, stable),
 # 1 = calculate the step(fast, unstable)
 follow_mode = 1
 
@@ -179,7 +179,7 @@ def main():
                     bw.forward()
         else:
             bw.stop()
-        
+
 def destroy():
     bw.stop()
     img.release()
@@ -239,7 +239,7 @@ def find_blob() :
     if radius > 3:
         return center, radius;
     else:
-        return (0, 0), 0
+        return (-1, -1), -1
 
 
 if __name__ == '__main__':
