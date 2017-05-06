@@ -10,15 +10,16 @@
 # All of these commands are run from the base folder (SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi), wherever you clone it to
 repo_dir=`pwd`
 
-is_installed_django=false
-is_installed_python_smbus=false
+is_installed_django=False
+is_installed_python_smbus=False
+is_installed_python_opencv=False
 
 if [ "$(whoami)" != "root" ] ; then
     echo -e "You must run setup.sh as root."
     end
 fi
 
-#sudo apt-get update
+sudo apt-get update
 #sudo apt-get upgrade -y
 
 function if_continue(){
@@ -33,7 +34,7 @@ function if_continue(){
             echo -e "Input error, please try again."
         fi
     done
-    return 1 
+    return 1
 }
 
 function end(){
@@ -45,13 +46,19 @@ function end(){
 function print_result(){
     echo -e "Installation result:"
     echo -e "django   \c"
-    if [ is_installed_django ]; then
+    if $is_installed_django; then
         echo -e "Success"
     else
         echo -e "Failed"
     fi
     echo -e "python-smbus  \c"
-    if [ is_installed_python_smbus ]; then
+    if $is_installed_python_smbus; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
+    echo -e "python-opencv  \c"
+    if $is_installed_python_opencv; then
         echo -e "Success"
     else
         echo -e "Failed"
@@ -59,7 +66,7 @@ function print_result(){
 }
 
 ###################################
-# install python-pip django i2c-tools python-smbus runtime #
+# install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
 echo -e "\nInstalling django \n"
 if sudo pip install django ; then
@@ -85,7 +92,22 @@ else
     echo -e "    Do you want to skip this? \c"
     if_continue
     if [ $? = 1 ] ; then
-        echo -e "    Skipped django installation."
+        echo -e "    Skipped python-smbus installation."
+    else
+        end
+    fi
+fi
+
+echo -e "\nInstalling python-opencv \n"
+if sudo apt-get install python-opencv -y; then
+    echo -e "    Successfully installed python-opencv \n"
+    is_installed_python_opencv=true
+else
+    echo -e "    Failed to installed python-opencv \n"
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped python-opencv installation."
     else
         end
     fi
@@ -135,7 +157,7 @@ if grep -q 'dtparam=i2c_arm=on' config.txt.temp; then  # whether i2c_arm in unco
 else
     echo -e '    dtparam=i2c_arm=on \n' >> /boot/config.txt
 fi
-rm config.txt.temp   
+rm config.txt.temp
 echo -e "complete\n"
 
 print_result
