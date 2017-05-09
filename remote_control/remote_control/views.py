@@ -12,24 +12,26 @@
 
 from django.shortcuts import render_to_response
 from driver import camera, stream
-from rpicar2 import back_wheels, front_wheels
+from picar import back_wheels, front_wheels
 from django.http import HttpResponse
+import picar
 
-db_file = "/home/pi/SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi/remote_control/remote_control/driver/config"
+picar.setup()
+db_file = "/home/pi/SunFounder_PiCar-V/remote_control/remote_control/driver/config"
 fw = front_wheels.Front_Wheels(debug=False, db=db_file)
 bw = back_wheels.Back_Wheels(debug=False, db=db_file)
 cam = camera.Camera(debug=False, db=db_file)
 cam.ready()
-fw.ready()
 bw.ready()
-
+fw.ready()
+ 
 SPEED = 60
 bw_status = 0
 
 print stream.start()
 
 def home(request):
-	return render_to_response("base.html", request)
+	return render_to_response("base.html")
 
 def run(request):
 	global SPEED, bw_status
@@ -65,7 +67,7 @@ def run(request):
 		elif 'fwturn' in action:
 			print "turn %s" % action
 			fw.turn(int(action.split(':')[1]))
-
+		
 		# ================ Camera =================
 		elif action == 'camready':
 			cam.ready()
@@ -87,7 +89,7 @@ def run(request):
 		if bw_status != 0:
 			bw.speed = SPEED
 		debug = "speed =", speed
-	host = stream.get_host()[:-2]
+	host = stream.get_host().split(' ')[0]
 	return render_to_response("run.html", {'host': host})
 
 def cali(request):
@@ -142,7 +144,7 @@ def cali(request):
 			bw.cali_ok()
 		else:
 			print 'command error, error command "%s" received' % action
-	return render_to_response("cali.html", request)
+	return render_to_response("cali.html")
 
 def connection_test(request):
 	return HttpResponse('OK')

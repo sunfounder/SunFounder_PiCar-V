@@ -1,10 +1,13 @@
 from picar import front_wheels, back_wheels
 from picar.SunFounder_PCA9685 import Servo
+import picar
 from time import sleep
 import cv2
 import cv2.cv as cv
 import numpy as np
+import picar
 
+picar.setup()
 # Show image captured by camera, True to turn on, youwill need #DISPLAY and it also slows the speed of tracking
 show_image_enable   = False
 draw_circle_enable  = False
@@ -36,7 +39,7 @@ vmx = 255
 # camera follow mode:
 # 0 = step by step(slow, stable), 
 # 1 = calculate the step(fast, unstable)
-follow_mode = 0
+follow_mode = 1
 
 CAMERA_STEP = 2
 CAMERA_X_ANGLE = 20
@@ -57,6 +60,8 @@ bw = back_wheels.Back_Wheels()
 fw = front_wheels.Front_Wheels()
 pan_servo = Servo.Servo(1)
 tilt_servo = Servo.Servo(2)
+picar.setup()
+
 fw.offset = 0
 pan_servo.offset = 10
 tilt_servo.offset = 0
@@ -95,8 +100,9 @@ def main():
 
         # scan:
         if r < BALL_SIZE_MIN:
+            bw.stop()
             if scan_enable:
-                bw.stop()
+                #bw.stop()
                 pan_angle = SCAN_POS[scan_count][0]
                 tilt_angle = SCAN_POS[scan_count][1]
                 if pan_tilt_enable:

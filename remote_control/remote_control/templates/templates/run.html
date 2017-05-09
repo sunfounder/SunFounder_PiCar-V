@@ -102,9 +102,9 @@
         return xmlHttp.responseText;
       }
       function keydown_event(key){
-        //if (event.repeat != undefined) {
-        //  allowed = !event.repeat;
-        //}
+        if (event.repeat != undefined) {
+          allowed = !event.repeat;
+        }
         if (!allowed) return;
         allowed = false;
         if (key == 0){
@@ -267,57 +267,57 @@
         <!--Forward, Camera up button  ◤◥-->
         <div class="mui-row">
           <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-            <button class="mui-btn mui-btn--primary" onmousedown="forward_left()"onmouseup="stop()" ontouchend="stop()" id="button_opacity">◤</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="forward_left()"ontouchend="stop()" id="button_opacity">◤</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" onmousedown="run_action('forward')"onmouseup="stop()" ontouchend="stop()" id="button_opacity">▲</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('forward')" ontouchend="stop()" id="button_opacity">▲</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-            <button class="mui-btn mui-btn--primary" onmousedown="forward_right()" onmouseup="stop()"ontouchend="stop()" id="button_opacity">◥</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="forward_right()"ontouchend="stop()" id="button_opacity">◥</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-            <button class="mui-btn mui-btn--primary" onmousedown="camup_left()" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">◸</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="camup_left()"ontouchend="run_action('camready')" id="button_opacity">◸</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" onmousedown="run_action('camup')" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">△</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camup')" ontouchend="run_action('camready')" id="button_opacity">△</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-            <button class="mui-btn mui-btn--primary" onmousedown="camup_right()" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">◹</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="camup_right()" ontouchend="run_action('camready')" id="button_opacity">◹</button>
           </div>
         </div>
         <!--Camera Left, Right button-->
         <div class="mui-row">
           <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-6 mui-col-xs-offset-6", align="right">
-            <button class="mui-btn mui-btn--primary" onmousedown="run_action('camleft')" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">◁</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camleft')" ontouchend="run_action('camready')" id="button_opacity">◁</button>
           </div>
           <!--
           <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" onmousedown="run_action('camready')" onmouseup="run_action('camready')" ontouchend="run_action('camready')">□</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camready')" ontouchend="run_action('camready')">□</button>
           </div>
           -->
           <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2", align="left">
-            <button class="mui-btn mui-btn--primary" onmousedown="run_action('camright')" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">▷</button>
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camright')" ontouchend="run_action('camready')" id="button_opacity">▷</button>
           </div>
         </div>
         <!--Backward button-->
         <div class="mui-row">
           <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-              <button class="mui-btn mui-btn--primary" onmousedown="backward_left()" onmouseup="stop()" ontouchend="stop()" id="button_opacity">◣</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="backward_left()" ontouchend="stop()" id="button_opacity">◣</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-              <button class="mui-btn mui-btn--primary" onmousedown="run_action('backward')" onmouseup="stop()" ontouchend="stop()" id="button_opacity">▼</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="run_action('backward')" ontouchend="stop()" id="button_opacity">▼</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-              <button class="mui-btn mui-btn--primary" onmousedown="backward_right()" onmouseup="stop()" ontouchend="stop()" id="button_opacity">◢</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="backward_right()" ontouchend="stop()" id="button_opacity">◢</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-              <button class="mui-btn mui-btn--primary" onmousedown="camdown_left()" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">◺</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="camdown_left()" ontouchend="run_action('camready')" id="button_opacity">◺</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-              <button class="mui-btn mui-btn--primary" onmousedown="run_action('camdown')" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">▽</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camdown')" ontouchend="run_action('camready')" id="button_opacity">▽</button>
           </div>
           <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-              <button class="mui-btn mui-btn--primary" onmousedown="camdown_right()" onmouseup="run_action('camready')" ontouchend="run_action('camready')" id="button_opacity">◿</button>
+              <button class="mui-btn mui-btn--primary" ontouchstart="camdown_right()" ontouchend="run_action('camready')" id="button_opacity">◿</button>
           </div>
         </div>
       </div>

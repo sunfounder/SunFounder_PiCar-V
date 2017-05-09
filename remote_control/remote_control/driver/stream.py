@@ -14,7 +14,7 @@
 import tempfile
 import subprocess
 
-_CODE_DIR_ = "/home/pi/SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi"
+_CODE_DIR_ = "/home/pi/SunFounder_PiCar-V"
 
 MJPG_STREAMER_PATH = "mjpg_streamer"
 INPUT_PATH = "/usr/local/lib/input_uvc.so"
