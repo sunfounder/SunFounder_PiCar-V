@@ -125,8 +125,10 @@ class Camera(object):
 			print self._DEBUG_INFO, 'Turn to "Ready" position'
 		self.pan_servo.offset = self.pan_offset
 		self.tilt_servo.offset = self.tilt_offset
-		self.pan_servo.write(self.READY_PAN)
-		self.tilt_servo.write(self.READY_TILT)
+		self.current_pan = self.READY_PAN
+		self.current_tilt = self.READY_TILT
+		self.pan_servo.write(self.current_pan)
+		self.tilt_servo.write(self.current_tilt)
 
 	def calibration(self):
 		''' Control two servo to write the camera to calibration position '''
