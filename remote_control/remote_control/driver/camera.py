@@ -32,14 +32,14 @@ class Camera(object):
 	_DEBUG = False
 	_DEBUG_INFO = 'DEBUG "camera.py":'
 
-	def __init__(self, debug=False, db="config"):
+	def __init__(self, debug=False, bus_number=1, db="config"):
 		''' Init the servo channel '''
 		self.db = filedb.fileDB(db=db)
 		self.pan_offset = int(self.db.get('pan_offset', default_value=0))
 		self.tilt_offset = int(self.db.get('tilt_offset', default_value=0))
 
-		self.pan_servo = Servo.Servo(self.pan_channel, offset=self.pan_offset)
-		self.tilt_servo = Servo.Servo(self.tilt_channel, offset=self.tilt_offset)
+		self.pan_servo = Servo.Servo(self.pan_channel, bus_number=bus_number, offset=self.pan_offset)
+		self.tilt_servo = Servo.Servo(self.tilt_channel, bus_number=bus_number, offset=self.tilt_offset)
 		self.debug = debug
 		if self._DEBUG:
 			print self._DEBUG_INFO, 'Pan servo channel:', self.pan_channel
@@ -125,8 +125,10 @@ class Camera(object):
 			print self._DEBUG_INFO, 'Turn to "Ready" position'
 		self.pan_servo.offset = self.pan_offset
 		self.tilt_servo.offset = self.tilt_offset
-		self.pan_servo.write(self.READY_PAN)
-		self.tilt_servo.write(self.READY_TILT)
+		self.current_pan = self.READY_PAN
+		self.current_tilt = self.READY_TILT
+		self.pan_servo.write(self.current_pan)
+		self.tilt_servo.write(self.current_tilt)
 
 	def calibration(self):
 		''' Control two servo to write the camera to calibration position '''
