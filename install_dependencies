@@ -76,7 +76,7 @@ function print_result(){
 # install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
 echo -e "\nInstalling django \n"
-if sudo pip install django ; then
+if sudo pip install "django<2.0" ; then
     echo -e "    Successfully installed django runtime \n"
     is_installed_django=true
 else
