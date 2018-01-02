@@ -11,6 +11,10 @@
 * Update      : Dream    2016/09/12
 **********************************************************************/
 '''
+import sys
+if sys.version_info.major < 3 or sys.version_info.minor < 4:
+    raise RuntimeError('At least Python 3.4 is required')
+
 import sys, time, http.client
 from PyQt5 import QtCore, uic, QtWidgets  
 import icons_rc
