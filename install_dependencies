@@ -13,7 +13,7 @@ repo_dir=`pwd`
 is_installed_django=False
 is_installed_python_smbus=False
 is_installed_python_opencv=False
-is_installed_libjpeg8-dev=False
+is_installed_libjpeg8_dev=False
 
 if [ "$(whoami)" != "root" ] ; then
     echo -e "You must run this script as root."
@@ -65,7 +65,7 @@ function print_result(){
         echo -e "Failed"
     fi
     echo -e "libjpeg8-dev  \c"
-    if $is_installed_libjpeg8-dev; then
+    if $is_installed_libjpeg8_dev; then
         echo -e "Success"
     else
         echo -e "Failed"
@@ -123,7 +123,7 @@ fi
 echo -e "\nInstalling libjpeg8-dev \n"
 if sudo apt-get install libjpeg8-dev -y; then
     echo -e "    Successfully installed libjpeg8-dev \n"
-    is_installed_libjpeg8-dev=true
+    is_installed_libjpeg8_dev=true
 else
     echo -e "    Failed to installed libjpeg8-dev \n"
     echo -e "    Do you want to skip this? \c"
