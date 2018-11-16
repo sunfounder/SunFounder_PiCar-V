@@ -76,7 +76,7 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>Enter Raspberry Pi's</string>
+     <string>Enter voiture's</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -151,7 +151,7 @@ padding:2px 4px;
 color: rgb(80, 76, 77);</string>
        </property>
        <property name="maxLength">
-        <number>15</number>
+        <number>50</number>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
