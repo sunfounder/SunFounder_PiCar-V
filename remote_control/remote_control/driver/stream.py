@@ -13,6 +13,7 @@
 '''
 import tempfile
 import subprocess
+import os
 
 _CODE_DIR_ = "/home/pi/SunFounder_PiCar-V"
 
@@ -30,9 +31,8 @@ def run_command(cmd):
 	return output
 
 def start():
-	files = run_command('ls /dev/video*')
-	files = files.split(' ')
-	if '/dev/video0' in files:
+	files = os.listdir('/dev')
+	if 'video0' in files:
 		run_command(stream_cmd)
 	else:
 		raise IOError("Camera is not connected correctly")
