@@ -30,7 +30,12 @@ def run_command(cmd):
 	return output
 
 def start():
-	run_command(stream_cmd)
+	files = run_command('ls /dev/video*')
+	files = files.split(' ')
+	if '/dev/video0' in files:
+		run_command(stream_cmd)
+	else:
+		raise IOError("Camera is not connected correctly")
 
 def get_host():
 	return run_command('hostname -I')
@@ -47,3 +52,9 @@ def restart():
 	stop()
 	start()
 	return True
+
+def test():
+	run_command(stream_cmd[:-2])
+
+if __name__ == "__main__":
+	test()
