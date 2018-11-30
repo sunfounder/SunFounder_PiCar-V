@@ -156,6 +156,7 @@ echo -e "Copy MJPG-Streamer to an Alternate Location. \n"
 sudo cp $repo_dir/mjpg-streamer/mjpg_streamer /usr/local/bin
 sudo cp $repo_dir/mjpg-streamer/output_http.so mjpg-streamer/input_file.so mjpg-streamer/input_uvc.so /usr/local/lib/
 sudo cp -R $repo_dir/mjpg-streamer/www /usr/local/www
+sudo chmod +x /usr/local/bin/mjpg_streamer
 echo -e "complete\n"
 
 ###################################
