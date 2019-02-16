@@ -20,7 +20,7 @@ if [ "$(whoami)" != "root" ] ; then
     end
 fi
 
-sudo apt-get update
+#sudo apt-get update
 #sudo apt-get upgrade -y
 
 function if_continue(){
@@ -76,7 +76,7 @@ function print_result(){
 # install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
 echo -e "\nInstalling django \n"
-if sudo pip install "django<2.0" ; then
+if sudo pip3 install "django<2.0" ; then
     echo -e "    Successfully installed django runtime \n"
     is_installed_django=true
 else
@@ -91,7 +91,7 @@ else
 fi
 
 echo -e "\nInstalling python-smbus \n"
-if sudo apt-get install python-smbus -y; then
+if sudo dnf install python3-i2c-tools -y; then
     echo -e "    Successfully installed python-smbus \n"
     is_installed_python_smbus=true
 else
@@ -106,7 +106,7 @@ else
 fi
 
 echo -e "\nInstalling python-opencv \n"
-if sudo apt-get install python-opencv -y; then
+if sudo dnf install python3-opencv -y; then
     echo -e "    Successfully installed python-opencv \n"
     is_installed_python_opencv=true
 else
@@ -121,7 +121,7 @@ else
 fi
 
 echo -e "\nInstalling libjpeg8-dev \n"
-if sudo apt-get install libjpeg8-dev -y; then
+if sudo dnf install libjpeg-turbo-devel -y; then
     echo -e "    Successfully installed libjpeg8-dev \n"
     is_installed_libjpeg8_dev=true
 else
@@ -144,7 +144,7 @@ cd ../
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
 cd SunFounder_PiCar
 echo -e "    Installing PiCar module \n"
-python3 setup.py install
+python setup.py install
 cd $repo_dir
 echo -e "complete\n"
 

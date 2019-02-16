@@ -14,9 +14,9 @@ if [ "$1" = "" ]
 then
 	# Run server listen to any IP address and port 8000
 	echo "Server running"
-	python manage.py runserver 0.0.0.0:8000
+	python3 manage.py runserver 0.0.0.0:8000
 elif [ "$1" = "install" ]
 then
 	echo 'Running servo installation'
-	python remote_control/driver/Servo.py install
+	python3 remote_control/driver/Servo.py install
 fi
