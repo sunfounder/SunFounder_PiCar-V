@@ -82,7 +82,7 @@ def main():
     fw_angle = 90
 
     scan_count = 0
-    print "Begin!"
+    print("Begin!")
     while True:
         x = 0             # x initial in the middle
         y = 0             # y initial in the middle
@@ -96,7 +96,7 @@ def main():
                 r = tmp_r
                 break
 
-        print x, y, r
+        print(x, y, r)
 
         # scan:
         if r < BALL_SIZE_MIN:
@@ -119,35 +119,35 @@ def main():
                 if abs(x - CENTER_X) > MIDDLE_TOLERANT:
                     if x < CENTER_X:                              # Ball is on left
                         pan_angle += CAMERA_STEP
-                        #print "Left   ", 
+                        #print("Left   ", )
                         if pan_angle > PAN_ANGLE_MAX:
                             pan_angle = PAN_ANGLE_MAX
                     else:                                         # Ball is on right
                         pan_angle -= CAMERA_STEP
-                        #print "Right  ",
+                        #print("Right  ",)
                         if pan_angle < PAN_ANGLE_MIN:
                             pan_angle = PAN_ANGLE_MIN
                 if abs(y - CENTER_Y) > MIDDLE_TOLERANT:
                     if y < CENTER_Y :                             # Ball is on top
                         tilt_angle += CAMERA_STEP
-                        #print "Top    " 
+                        #print("Top    " )
                         if tilt_angle > TILT_ANGLE_MAX:
                             tilt_angle = TILT_ANGLE_MAX
                     else:                                         # Ball is on bottom
                         tilt_angle -= CAMERA_STEP
-                        #print "Bottom "
+                        #print("Bottom ")
                         if tilt_angle < TILT_ANGLE_MIN:
                             tilt_angle = TILT_ANGLE_MIN
             else:
                 delta_x = CENTER_X - x
                 delta_y = CENTER_Y - y
-                #print "x = %s, delta_x = %s" % (x, delta_x)
-                #print "y = %s, delta_y = %s" % (y, delta_y)
+                #print("x = %s, delta_x = %s" % (x, delta_x))
+                #print("y = %s, delta_y = %s" % (y, delta_y))
                 delta_pan = int(float(CAMERA_X_ANGLE) / SCREEN_WIDTH * delta_x)
-                #print "delta_pan = %s" % delta_pan
+                #print("delta_pan = %s" % delta_pan)
                 pan_angle += delta_pan
                 delta_tilt = int(float(CAMERA_Y_ANGLE) / SCREEN_HIGHT * delta_y)
-                #print "delta_tilt = %s" % delta_tilt
+                #print("delta_tilt = %s" % delta_tilt)
                 tilt_angle += delta_tilt
 
                 if pan_angle > PAN_ANGLE_MAX:
@@ -237,7 +237,7 @@ def find_blob() :
     if k == 27:
         return (0, 0), 0
     if radius > 3:
-        return center, radius;
+        return center, radius
     else:
         return (0, 0), 0
 

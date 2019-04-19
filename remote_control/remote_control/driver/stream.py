@@ -37,6 +37,14 @@ def start():
 	else:
 		raise IOError("Camera is not connected correctly")
 
+def start():
+	files = os.listdir('/dev')
+	print(stream_cmd)
+	video_files = [f for f in files if 'video' in f]
+	if not video_files:
+		raise IOError("Camera is not connected correctly")
+	run_command(stream_cmd)
+
 def get_host():
 	return run_command('hostname -I')
 

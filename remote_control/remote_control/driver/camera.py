@@ -42,10 +42,10 @@ class Camera(object):
 		self.tilt_servo = Servo.Servo(self.tilt_channel, bus_number=bus_number, offset=self.tilt_offset)
 		self.debug = debug
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Pan servo channel:', self.pan_channel
-			print self._DEBUG_INFO, 'Tilt servo channel:', self.tilt_channel
-			print self._DEBUG_INFO, 'Pan offset value:', self.pan_offset
-			print self._DEBUG_INFO, 'Tilt offset value:', self.tilt_offset
+			print(self._DEBUG_INFO, 'Pan servo channel:', self.pan_channel)
+			print(self._DEBUG_INFO, 'Tilt servo channel:', self.tilt_channel)
+			print(self._DEBUG_INFO, 'Pan offset value:', self.pan_offset)
+			print(self._DEBUG_INFO, 'Tilt offset value:', self.tilt_offset)
 
 		self.current_pan = 0
 		self.current_tilt = 0
@@ -63,28 +63,28 @@ class Camera(object):
 	def turn_left(self, step=PAN_STEP):
 		''' Control the pan servo to make the camera turning left '''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn left at step:', step
+			print(self._DEBUG_INFO, 'Turn left at step:', step)
 		self.current_pan = self.safe_plus(self.current_pan, step)
 		self.pan_servo.write(self.current_pan)
 
 	def turn_right(self, step=PAN_STEP):
 		''' Control the pan servo to make the camera turning right '''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn right at step:', step
+			print(self._DEBUG_INFO, 'Turn right at step:', step)
 		self.current_pan = self.safe_plus(self.current_pan, -step)
 		self.pan_servo.write(self.current_pan)
 
 	def turn_up(self, step=TILT_STEP):
 		''' Control the tilt servo to make the camera turning up '''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn up at step:', step
+			print(self._DEBUG_INFO, 'Turn up at step:', step)
 		self.current_tilt = self.safe_plus(self.current_tilt, step)
 		self.tilt_servo.write(self.current_tilt)
 
 	def turn_down(self, step=TILT_STEP):
 		'''Control the tilt servo to make the camera turning down'''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn down at step:', step
+			print(self._DEBUG_INFO, 'Turn down at step:', step)
 		self.current_tilt = self.safe_plus(self.current_tilt, -step)
 		self.tilt_servo.write(self.current_tilt)
 
@@ -93,7 +93,7 @@ class Camera(object):
 		pan_diff = self.current_pan - expect_pan
 		tilt_diff = self.current_tilt - expect_tilt
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn to posision [%s, %s] (pan, tilt)' % (expect_pan, expect_tilt)
+			print(self._DEBUG_INFO, 'Turn to posision [%s, %s] (pan, tilt)' % (expect_pan, expect_tilt))
 		while True:
 			if pan_diff != 0 or tilt_diff != 0:
 				pan_diff = self.current_pan - expect_pan
@@ -122,7 +122,7 @@ class Camera(object):
 	def ready(self):
 		''' Set the camera to ready position '''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn to "Ready" position'
+			print(self._DEBUG_INFO, 'Turn to "Ready" position')
 		self.pan_servo.offset = self.pan_offset
 		self.tilt_servo.offset = self.tilt_offset
 		self.current_pan = self.READY_PAN
@@ -133,7 +133,7 @@ class Camera(object):
 	def calibration(self):
 		''' Control two servo to write the camera to calibration position '''
 		if self._DEBUG:
-			print self._DEBUG_INFO, 'Turn to "Calibration" position'
+			print(self._DEBUG_INFO, 'Turn to "Calibration" position')
 		self.pan_servo.write(self.CALI_PAN)
 		self.tilt_servo.write(self.CALI_TILT)
 		self.cali_pan_offset = self.pan_offset
@@ -183,13 +183,13 @@ class Camera(object):
 			raise ValueError('debug must be "True" (Set debug on) or "False" (Set debug off), not "{0}"'.format(debug))
 
 		if self._DEBUG:
-			print self._DEBUG_INFO, "Set debug on"
-			print self._DEBUG_INFO, "Set pan servo and tilt servo debug on"
+			print(self._DEBUG_INFO, "Set debug on")
+			print(self._DEBUG_INFO, "Set pan servo and tilt servo debug on")
 			self.pan_servo.debug = True
 			self.tilt_servo.debug = True
 		else:
-			print self._DEBUG_INFO, "Set debug off"
-			print self._DEBUG_INFO, "Set pan servo and tilt servo debug off"
+			print(self._DEBUG_INFO, "Set debug off")
+			print(self._DEBUG_INFO, "Set pan servo and tilt servo debug off")
 			self.pan_servo.debug = False
 			self.tilt_servo.debug = False
 
@@ -197,31 +197,31 @@ if __name__ == '__main__':
 	camera = Camera()
 	try:
 		for i in range(0, 36):
-			print "pan moving left     ", i
+			print("pan moving left     ", i)
 			camera.pan_left()
 			time.sleep(camera.CAMERA_DELAY*camera.PAN_STEP)
 		for i in range(0, 36):
-			print "pan moving right    ", i
+			print("pan moving right    ", i)
 			camera.pan_right()
 			time.sleep(camera.CAMERA_DELAY*camera.PAN_STEP)
 		for i in range(0, 36):
-			print "tilt moving up      ", i
+			print("tilt moving up      ", i)
 			camera.tilt_up()
 			time.sleep(camera.CAMERA_DELAY*camera.TILT_STEP)
 		for i in range(0, 36):
-			print "tilt moving right   ", i
+			print("tilt moving right   ", i)
 			camera.tilt_down()
 			time.sleep(camera.CAMERA_DELAY*camera.TILT_STEP)
 		
-		print "Camera move to ready position"
+		print("Camera move to ready position")
 		camera.ready()
 
-		print "Camera move to position (0, 0)"
+		print("Camera move to position (0, 0)")
 		camera.to_posision(0, 0)
-		print "Camera move to position (180, 180)"
+		print("Camera move to position (180, 180)")
 		camera.to_posision(180, 180)
 
-		print "Camera move to ready position"
+		print("Camera move to ready position")
 		camera.ready()
 	except KeyboardInterrupt:
 		camera.ready()

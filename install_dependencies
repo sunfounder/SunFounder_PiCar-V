@@ -76,7 +76,7 @@ function print_result(){
 # install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
 echo -e "\nInstalling django \n"
-if sudo pip install "django<2.0" ; then
+if sudo pip3 install django==2.0 ; then
     echo -e "    Successfully installed django runtime \n"
     is_installed_django=true
 else
@@ -144,7 +144,7 @@ cd ../
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
 cd SunFounder_PiCar
 echo -e "    Installing PiCar module \n"
-python setup.py install
+python3 setup.py install
 cd $repo_dir
 echo -e "complete\n"
 

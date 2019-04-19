@@ -707,7 +707,7 @@ def connection_ok():
 		none
 	"""
 	cmd = 'connection_test'
-	url = BASE_URL + cmd
+	url = BASE_URL + cmd + "/"
 	print('url: %s'% url)
 	# if server find there is 'connection_test' in request url, server will response 'Ok'
 	try:
