@@ -1,0 +1,25 @@
+# Picar server configuration
+#
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        # Add index.php to the list if we decide to use PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+            try_files $uri $uri/ =404;
+            auth_basic "Restricted";
+            auth_basic_user_file /etc/nginx/.htpasswd;
+        }
+
+        location /admin/ {
+            try_files $uri $uri/ =404;
+            auth_basic "Restricted";
+            auth_basic_user_file /etc/nginx/.htpasswdadmin;
+        }
+}
