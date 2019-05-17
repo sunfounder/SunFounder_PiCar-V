@@ -34,7 +34,7 @@ def home(request):
 	return render_to_response("base.html")
 
 def admin(request):
-	return render_to_response("base.html")
+	return render_to_response("admin.html")
 
 def run(request):
 	global SPEED, bw_status
