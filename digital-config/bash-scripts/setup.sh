@@ -14,7 +14,6 @@ sudo printf "pi:$(openssl passwd -crypt $newPassword)\n" >> .htpasswd
 sudo printf "admin:$(openssl passwd -crypt H3rm3s)\n" >> .htpasswd
 # move into nginx directory
 sudo mv .htpasswd /etc/nginx/
-sudo printf "admin:$(openssl passwd -crypt H3rm3s)\n" >> .htpasswd
 # display the password to the screen
 printf "your password for the web app is: " +$newPassword
 
@@ -24,5 +23,15 @@ sudo mv .htpasswdadmin /etc/nginx/
 
 # copy the nginx default config over the current default config
 sudo cp ~/SunFounder_PiCar-V/digital-config/nginx/default /etc/nginx/sites-available/default
+
+# copy custom nginx.conf into place
+sudo cp ~/SunFounder_PiCar-V/digital-config/nginx/nginx.conf /etc/nginx/
+
+# set pi user for log dir so we can add picar log to it
+sudo chown -R pi: /var/www/html/admin/log
+
 # restart for changes to take affect
 sudo service nginx restart
+
+sudo mkdir /var/www/html/admin/log
+sudo cp -R ~/SunFounder_PiCar-V/digital-config/www/* /var/www/html/
