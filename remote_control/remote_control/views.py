@@ -33,6 +33,9 @@ print(stream.start())
 def home(request):
 	return render_to_response("base.html")
 
+def admin(request):
+	return render_to_response("base.html")
+
 def run(request):
 	global SPEED, bw_status
 	debug = ''
