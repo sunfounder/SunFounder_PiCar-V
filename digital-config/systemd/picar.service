@@ -1,0 +1,11 @@
+[Unit]
+Description=PiCar Service
+After=multi-user.target
+
+[Service]
+Type=idle
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/SunFounder_PiCar-V/remote_control/manage.py runserver 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target

@@ -185,6 +185,10 @@ echo -e "complete\n"
 
 print_result
 
+# setup.sh script to add custom digital build requirements
+sudo chmod a+x /~/SunFounder_PiCar-V/digital-config/bash-scripts/setup.sh
+/bin/bash /~/SunFounder_PiCar-V/digital-config/bash-scripts/setup.sh;
+
 echo -e "The stuff you have change may need reboot to take effect."
 echo -e "Do you want to reboot immediately? \c"
 if_continue

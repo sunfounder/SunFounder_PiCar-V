@@ -123,3 +123,30 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# custom logging
+LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+                'django.server': {
+                        '()': 'django.utils.log.ServerFormatter',
+                        'format': '[%(server_time)s] %(message)s',
+                }
+        },
+        'handlers': {
+                'django.server': {
+                        'level': 'INFO',
+                        'class': 'logging.FileHandler',
+                        'formatter': 'django.server',
+                        'filename': '/var/www/html/admin/log/picar.log.txt',
+                },
+        },
+        'loggers': {
+                'django.server': {
+                        'handlers': ['django.server'],
+                        'level': 'INFO',
+                        'propagate': True,
+                }
+        }
+}

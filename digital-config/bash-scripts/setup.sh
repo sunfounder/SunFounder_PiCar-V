@@ -35,3 +35,9 @@ sudo service nginx restart
 
 sudo mkdir /var/www/html/admin/log
 sudo cp -R ~/SunFounder_PiCar-V/digital-config/www/* /var/www/html/
+
+# systemd python service
+sudo cp ~/SunFounder_PiCar-V/digital-config/systemd/picar.service /lib/systemd/system
+sudo chmod 644 /lib/systemd/system/picar.service
+# below requires reboot, but this should be taken care of at the end of the install dependencies script
+sudo systemctl enable picar
