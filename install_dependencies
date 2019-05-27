@@ -144,7 +144,8 @@ cd ../
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
 cd SunFounder_PiCar
 echo -e "    Installing PiCar module \n"
-python3 setup.py install
+sudo python setup.py install
+sudo python3 setup.py install
 cd $repo_dir
 echo -e "complete\n"
 
