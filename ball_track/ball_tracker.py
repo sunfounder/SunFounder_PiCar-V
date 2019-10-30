@@ -3,7 +3,6 @@ from picar.SunFounder_PCA9685 import Servo
 import picar
 from time import sleep
 import cv2
-import cv2.cv as cv
 import numpy as np
 import picar
 
@@ -208,7 +207,7 @@ def find_blob() :
     red_hue_image = cv2.GaussianBlur(red_hue_image, (9, 9), 2, 2)
 
     # Use the Hough transform to detect circles in the combined threshold image
-    circles = cv2.HoughCircles(red_hue_image, cv.CV_HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0);
+    circles = cv2.HoughCircles(red_hue_image, cv2.HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0);
 
     # Loop over all detected circles and outline them on the original image
     all_r = np.array([])
