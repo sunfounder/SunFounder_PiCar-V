@@ -18,7 +18,8 @@ import os
 _CODE_DIR_ = "/home/pi/SunFounder_PiCar-V"
 
 MJPG_STREAMER_PATH = "mjpg_streamer"
-INPUT_PATH = "/usr/local/lib/input_uvc.so"
+INPUT_PATH = "/usr/local/lib/input_uvc.so" #  -r 640x320 -f 30 -q 100 r: resolution, f: frame per second, q: quality
+# INPUT_PATH = "/usr/local/lib/input_uvc.so -r 640x320 -f 30 -q 100" # r: resolution, f: frame per second, q: quality
 OUTPUT_PATH = "/usr/local/lib/output_http.so -w /usr/local/www"
 
 stream_cmd = '%s -i "%s" -o "%s" &' % (MJPG_STREAMER_PATH, INPUT_PATH, OUTPUT_PATH)
