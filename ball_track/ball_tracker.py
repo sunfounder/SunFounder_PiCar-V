@@ -87,7 +87,7 @@ def main():
         y = 0             # y initial in the middle
         r = 0             # ball radius initial to 0(no balls if r < ball_size)
 
-        for i in range(10):
+        for _ in range(10):
             (tmp_x, tmp_y), tmp_r = find_blob()
             if tmp_r > BALL_SIZE_MIN:
                 x = tmp_x
@@ -207,7 +207,7 @@ def find_blob() :
     red_hue_image = cv2.GaussianBlur(red_hue_image, (9, 9), 2, 2)
 
     # Use the Hough transform to detect circles in the combined threshold image
-    circles = cv2.HoughCircles(red_hue_image, cv2.HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0);
+    circles = cv2.HoughCircles(red_hue_image, cv2.HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0)
 
     # Loop over all detected circles and outline them on the original image
     all_r = np.array([])
@@ -219,7 +219,7 @@ def find_blob() :
         center=(int(round(circles[0][closest_ball][0])), int(round(circles[0][closest_ball][1])))
         radius=int(round(circles[0][closest_ball][2]))
         if draw_circle_enable:
-            cv2.circle(orig_image, center, radius, (0, 255, 0), 5);
+            cv2.circle(orig_image, center, radius, (0, 255, 0), 5)
 
     # Show images
     if show_image_enable:
