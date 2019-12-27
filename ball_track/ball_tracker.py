@@ -8,7 +8,7 @@ import picar
 import os
 
 picar.setup()
-# Show image captured by camera, True to turn on, youwill need #DISPLAY and it also slows the speed of tracking
+# Show image captured by camera, True to turn on, you will need #DISPLAY and it also slows the speed of tracking
 show_image_enable   = False
 draw_circle_enable  = False
 scan_enable         = False
