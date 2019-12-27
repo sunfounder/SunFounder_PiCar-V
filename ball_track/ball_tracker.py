@@ -5,6 +5,7 @@ from time import sleep
 import cv2
 import numpy as np
 import picar
+import os
 
 picar.setup()
 # Show image captured by camera, True to turn on, youwill need #DISPLAY and it also slows the speed of tracking
@@ -14,6 +15,11 @@ scan_enable         = False
 rear_wheels_enable  = True
 front_wheels_enable = True
 pan_tilt_enable     = True
+
+if (show_image_enable or draw_circle_enable) and "DISPLAY" not in os.environ:
+    print('Warning: Display not found, turn off "show_image_enable" and "draw_circle_enable"')
+    show_image_enable   = False
+    draw_circle_enable  = False
 
 kernel = np.ones((5,5),np.uint8)
 img = cv2.VideoCapture(-1)
@@ -223,7 +229,8 @@ def find_blob() :
             if draw_circle_enable:
                 cv2.circle(orig_image, center, radius, (0, 255, 0), 5)
         except IndexError:
-            print("circles: %s"%circles)
+            pass
+            # print("circles: %s"%circles)
 
     # Show images
     if show_image_enable:
