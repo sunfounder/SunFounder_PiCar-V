@@ -208,18 +208,22 @@ def find_blob() :
 
     # Use the Hough transform to detect circles in the combined threshold image
     circles = cv2.HoughCircles(red_hue_image, cv2.HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0)
-
+    circles = np.uint16(np.around(circles))
     # Loop over all detected circles and outline them on the original image
     all_r = np.array([])
+    # print("circles: %s"%circles)
     if circles is not None:
-        for i in circles[0]:
-
-            all_r = np.append(all_r, int(round(i[2])))
-        closest_ball = all_r.argmax()
-        center=(int(round(circles[0][closest_ball][0])), int(round(circles[0][closest_ball][1])))
-        radius=int(round(circles[0][closest_ball][2]))
-        if draw_circle_enable:
-            cv2.circle(orig_image, center, radius, (0, 255, 0), 5)
+        try:
+            for i in circles[0,:]:
+                # print("i: %s"%i)
+                all_r = np.append(all_r, int(round(i[2])))
+            closest_ball = all_r.argmax()
+            center=(int(round(circles[0][closest_ball][0])), int(round(circles[0][closest_ball][1])))
+            radius=int(round(circles[0][closest_ball][2]))
+            if draw_circle_enable:
+                cv2.circle(orig_image, center, radius, (0, 255, 0), 5)
+        except IndexError:
+            print("circles: %s"%circles)
 
     # Show images
     if show_image_enable:

@@ -1,3 +1,4 @@
 *.pyc
 *.log
 *auto_ip.inf
+.vscode
