@@ -90,16 +90,16 @@ else
     fi
 fi
 
-echo -e "\nInstalling python-smbus \n"
-if sudo apt-get install python-smbus -y; then
-    echo -e "    Successfully installed python-smbus \n"
+echo -e "\nInstalling python-smbus and git\n"
+if sudo apt-get install python-smbus git -y; then
+    echo -e "    Successfully installed python-smbus and git\n"
     is_installed_python_smbus=true
 else
-    echo -e "    Failed to installed python-smbus \n"
+    echo -e "    Failed to installed python-smbus and git\n"
     echo -e "    Do you want to skip this? \c"
     if_continue
     if [ $? = 1 ] ; then
-        echo -e "    Skipped python-smbus installation."
+        echo -e "    Skipped python-smbus and git installation."
     else
         end
     fi
