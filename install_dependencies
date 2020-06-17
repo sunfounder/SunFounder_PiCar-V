@@ -90,8 +90,8 @@ else
     fi
 fi
 
-echo -e "\nInstalling python-smbus and git\n"
-if sudo apt-get install python-smbus git -y; then
+echo -e "\nInstalling python3-smbus and git\n"
+if sudo apt-get install python3-smbus git -y; then
     echo -e "    Successfully installed python-smbus and git\n"
     is_installed_python_smbus=true
 else
@@ -105,8 +105,8 @@ else
     fi
 fi
 
-echo -e "\nInstalling python-opencv \n"
-if sudo apt-get install python-opencv -y; then
+echo -e "\nInstalling python3-opencv \n"
+if sudo apt-get install python3-opencv -y; then
     echo -e "    Successfully installed python-opencv \n"
     is_installed_python_opencv=true
 else
