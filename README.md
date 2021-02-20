@@ -23,6 +23,10 @@ We are happy to see your issus and pull request. Feel free to be apart.
 
 <a id="update"></a>
 ### Update:
+
+2021-02-20:
+ - Update the user manual
+ 
 2020-10-21:
  - Remove Pyqt client, change video streamer driver
 
