@@ -61,7 +61,7 @@ recommonmark==0.6.0
 reedsolo==1.5.4
 regex==2020.10.23
 requests==2.21.0
-rsa==4.5
+rsa==4.7
 s3cmd==2.0.2
 s3transfer==0.3.3
 sip==4.19.8
