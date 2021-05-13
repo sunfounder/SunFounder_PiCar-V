@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja-JA" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SunFounder PiCar-V Raspberry Pi スマートロボットカーキット &mdash; SunFounder ESP-4WD Car Kit  ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Components List" href="components_list.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> SunFounder ESP-4WD Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">Components List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">Building the Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">Circuits Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">Get Started with Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">Continue to Assemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">Getting on the Road!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SunFounder ESP-4WD Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SunFounder PiCar-V  Raspberry Pi スマートロボットカーキット</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sunfounder-picar-v-smart-car-kit-for-raspberry-pi">
+<h1>SunFounder PiCar-V  Raspberry Pi スマートロボットカーキット<a class="headerlink" href="#sunfounder-picar-v-smart-car-kit-for-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="about-the-picar-v">
+<h2>PiCar-V について<a class="headerlink" href="#about-the-picar-v" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>PiCar-V には、広角 USB ウェブカメラ、配線が少なくシンプルな 3 つのまったく新しい回 路基板、調整可能な構造が内蔵している一部のアクリルプレートや車を制御するほとんど すべてのプラットフォームに適した新しいコードが装備されている。</p>
+<p>本書では、ハードウェアとソフトウェアの両方を考え、説明、物理部品のイラストを使用 して PiCar-V を構築する方法について説明する。これらのすべてがどのように機能するか を学ぶことを楽しむだろう。次のサイトでユーザーマニュアル(PDF )とコードのご利用をできます： <a class="reference external" href="https://github.com/sunfounder/SunFounder_PiCar-V">https://github.com/sunfounder/SunFounder_PiCar-V</a>。</p>
+<p>技術的なご質問がございましたら、当社のウェブサイトの Community -&gt; Forum に トピックを追加してください。できるだけ早く返信させていただく。</p>
+<p>製品の関するご意見、またはマニュアルにない新しいプロジェクトを学習したい場合は、遠慮なくこちらまでご連絡くだだい。できるだけ早めにマニュアルに更新します。</p>
+<p>下記サポートメールアドレスにご送信してください：<a class="reference external" href="mailto:cs&#37;&#52;&#48;sunfounder&#46;com">cs<span>&#64;</span>sunfounder<span>&#46;</span>com</a>。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">Components List</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#plates">Plates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#servo-x-3">Servo x 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#mechanical-fasteners">Mechanical Fasteners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#wires">Wires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#pcb">PCB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#other-components">Other Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#self-provided-components">Self-provided Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">Building the Car</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#front-wheels">Front Wheels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#pan-and-tilt">Pan-and-Tilt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#steering-part">Steering Part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#upper-plate">Upper Plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#battery-holder">Battery Holder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#rear-wheels-screws">Rear Wheels (Screws)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#pcb-assembly">PCB Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#fixing-rear-wheels">Fixing Rear Wheels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">Circuits Building</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-power">Connect the Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-modules">Connect the Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-servos">Connect the Servos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-motor">Connect the Motor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">Get Started with Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started_with_raspberry_pi.html#installing-the-os">Installing the OS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#get-source-code">ソースコードを取得する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#go-to-the-code-directory">コードディレクトリに入る</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#install-the-environment-via-the-script">スクリプトを介して環境をインストールする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#configure-the-servo-to-90-degrees">サーボを 90 度に設定する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">Continue to Assemble</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#assemble-the-steering-servo">Assemble the Steering Servo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#front-half-chassis">Front Half Chassis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#assemble-the-camera">Assemble the Camera</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">Getting on the Road!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="remote_control.html">Remote Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ball_tracker.html">ball_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_analysis.html">File Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_of_the_server_installation_scripts.html">Appendix 1: Function of the Server Installation Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">Appendix 2: Components</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="copyright-notice">
+<h2>著作権表示<a class="headerlink" href="#copyright-notice" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このマニュアルのテキスト、画像とコードを含むがこれらに限定されないすべての内容 は、SunFounder Company が所有している。関連する規制と著作権法に基づき、著者 と関連する権利所有者の法的権利を侵害することなく、個人的な研究、調査、享楽、ま たはその他の非営利目的でのみ使用してください。許可なく営利目的でこれを使用する 個人または組織については、会社は法的措置を取る権利を留保する。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="components_list.html" class="btn btn-neutral float-right" title="Components List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SunFounder.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
