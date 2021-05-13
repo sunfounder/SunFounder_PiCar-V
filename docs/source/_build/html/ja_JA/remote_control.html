@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja-JA" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Remote Control &mdash; SunFounder ESP-4WD Car Kit  ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ball_tracker" href="ball_tracker.html" />
+    <link rel="prev" title="Getting on the Road!" href="getting_on_the_road.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder ESP-4WD Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">Components List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">Building the Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">Circuits Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">Get Started with Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">Continue to Assemble</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="getting_on_the_road.html">Getting on the Road!</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-server-operation-on-raspberry-pi">Run the Server(Operation on Raspberry Pi)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-client-operation-on-pc">Run the Client(Operation on PC)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ball_tracker.html">ball_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_analysis.html">File Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder ESP-4WD Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="getting_on_the_road.html">Getting on the Road!</a> &raquo;</li>
+        
+      <li>Remote Control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/remote_control.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="remote-control">
+<h1>Remote Control<a class="headerlink" href="#remote-control" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Here is what we’re going to do:</p>
+<p>Use the Raspberry Pi as the <strong>server</strong>. Run a web server with an API for
+controlling the car and transmitting images captured by the camera.</p>
+<p>Then take a PC, cell phone, or tablet as the <strong>client</strong>, and acquire the
+images from the camera and control the car by calling the API of the web
+server.</p>
+<p><strong>Now, you can power on the car again. You are also recommended to use
+the power adapter of Raspberry Pi to power your car for that the first
+test will take a long time.</strong></p>
+<div class="section" id="run-the-server-operation-on-raspberry-pi">
+<h2>Run the Server(Operation on Raspberry Pi)<a class="headerlink" href="#run-the-server-operation-on-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Remotely log into the Raspberry Pi. Run the startup script <strong>start</strong>
+under the <strong>remote_control</strong> directory to start the web service.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span><span class="o">/</span><span class="n">remote_control</span>
+<span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="n">sudo</span> <span class="o">./</span><span class="n">start</span>
+</pre></div>
+</div>
+<p>The script will enable the service and the corresponding data will
+appear. The hardware is initialized at the same time, so the servos
+connected to the front wheels and the pan-and-tilt will turn, indicating
+the hardware initialization is done.</p>
+<a class="reference internal image-reference" href="_images/image97.png"><img alt="_images/image97.png" src="_images/image97.png" style="width: 5.71875in; height: 1.66667in;" /></a>
+<p>If you get the result similar as shown above, the server is ready. Now
+move on to start the client.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Keep the server being running all the time until you stop to run the Client.</p>
+</div>
+</div>
+<div class="section" id="run-the-client-operation-on-pc">
+<h2>Run the Client(Operation on PC)<a class="headerlink" href="#run-the-client-operation-on-pc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Visit the server of the car at <a href="#id1"><span class="problematic" id="id2">`http://&lt;RPi_IP_address&gt;:8000/ &lt;&gt;`__</span></a>. You
+will see a welcome page:</p>
+<a class="reference internal image-reference" href="_images/image98.png"><img alt="_images/image98.png" class="align-center" src="_images/image98.png" style="width: 6.16042in; height: 3.5in;" /></a>
+<p>Click LET’S ROCK to go to the operation interface:</p>
+<a class="reference internal image-reference" href="_images/image99.jpeg"><img alt="QQ截图20161117171611" src="_images/image99.jpeg" style="width: 6.92708in; height: 3.875in;" /></a>
+<p>On this page, you can press the keys <strong>W</strong>, <strong>A</strong>, <strong>S</strong>, and <strong>D</strong> on
+the keyboard to control the car to move <strong>forward</strong>, <strong>backward</strong>,
+<strong>turn left</strong>, and <strong>turn right</strong>, press the arrow keys to control the
+camera’s movement, and number <strong>1~5</strong> to change the speed level.</p>
+<p><strong>Calibration</strong></p>
+<p>Click <strong>FULLSCREEN</strong> again to bring back the title bar. And then, tap
+the setting button at the top-right corner of the page to go to the
+calibration page:</p>
+<a class="reference internal image-reference" href="_images/image100.jpeg"><img alt="_images/image100.jpeg" src="_images/image100.jpeg" style="width: 6.91944in; height: 2.40208in;" /></a>
+<p>There are three calibration parts: <strong>Camera Calibration</strong>, <strong>Front
+Wheels Calibration</strong> and <strong>Rear Wheels Calibration</strong>.</p>
+<p>When you enter this page, the car will go forward; if not, click
+<strong>Left</strong> and <strong>Right</strong> in <strong>Rear Wheels Calibration</strong> to adjust the
+angle of the wheel.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Every time you press a button, the angle will be changed slightly. For
+your larger change per time, you need to long press the button.</p>
+</div>
+<p>Click <strong>OK</strong> to save the result after all the calibration is done.</p>
+<p><strong>For Mobile Phones</strong></p>
+<p>Also for mobile phones, tap the <strong>FULLSCREEN</strong> button to have a better
+view and performance. Then, tap the buttons of 5 speed levels on the
+page to control the speed, and the arrow buttons to control the
+direction of the car and the pan-and-tilt. But you can only tab one
+touch point at <strong>one</strong> time.</p>
+<a class="reference internal image-reference" href="_images/image101.jpeg"><img alt="QQ截图20161117171622" src="_images/image101.jpeg" style="width: 6.91944in; height: 4.15069in;" /></a>
+<p>Take this screenshot from an Android phone:</p>
+<a class="reference internal image-reference" href="_images/image102.jpeg"><img alt="Screenshot_20161112-084515" src="_images/image102.jpeg" style="width: 6.91667in; height: 3.89583in;" /></a>
+<p>Though the appearance may not be as good as on the PC. Later updates may
+be released irregularly on <strong>Github</strong>. You are welcome to fork our
+repository and submit a Pull request with your changes. If there is no
+problem after testing, we are more than pleased to merge your request.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ball_tracker.html" class="btn btn-neutral float-right" title="ball_tracker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_on_the_road.html" class="btn btn-neutral float-left" title="Getting on the Road!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SunFounder.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
