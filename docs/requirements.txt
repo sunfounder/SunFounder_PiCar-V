@@ -56,7 +56,7 @@ python-dateutil==2.8.0
 python-magic==0.4.15
 pytz==2019.3
 pywin32-ctypes==0.2.0
-PyYAML==5.1.2
+PyYAML==5.4
 recommonmark==0.6.0
 reedsolo==1.5.4
 regex==2020.10.23
