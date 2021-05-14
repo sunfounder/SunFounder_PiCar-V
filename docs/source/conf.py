@@ -43,7 +43,7 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 language = 'ja_JA'
-locale_dirs = ['locale']
+locale_dirs = ['locale/']
 
 # -- Options for HTML output -------------------------------------------------
 
