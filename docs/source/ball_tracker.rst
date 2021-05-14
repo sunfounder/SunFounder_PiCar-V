@@ -6,8 +6,7 @@ also wrote a ball tracking code.
 
 .. code-block:: python
 
-    sudo apt-get install libatlas-base-dev libjasper-dev libqt4-test libwebp6 libtiff5 libopenexr23
-    libgstreamer1.0-0 libavcodec-dev libavformat-dev libswscale-dev libqtgui4 -y
+    sudo apt-get install libatlas-base-dev libjasper-dev libqt4-test libwebp6 libtiff5 libopenexr23 libgstreamer1.0-0 libavcodec-dev libavformat-dev libswscale-dev libqtgui4 -y
     sudo pip3 install opencv-python==3.4.6.27
     cd ~/SunFounder_PiCar-V/ball_track
     python3 ball_tracker.py
@@ -17,7 +16,6 @@ of the camera) and put it within 10-50cm range in front of the camera to
 get the car to follow your ball.
 
 .. image:: media/image103.jpeg
-   :alt: \_MG_03012
    :width: 6.66667in
    :height: 3.00347in
    :align: center
@@ -94,7 +92,6 @@ When you log in with VNC Viewer, the screen may be black.If your screen
 is working, skip to Step 5.
 
 .. image:: media/image111.png
-   :alt: 微信图片_20201022163547
    :width: 4.36111in
    :height: 2.98264in
    :align: center
@@ -161,7 +158,6 @@ Press Ctrl+X and Y to save the change.
     via VNC, or you can use a monitor; if not, the warning is as follows:
 
 .. image:: media/image116.png
-   :alt: lALPBE1XYwSoeFtOzQSW_1174_78
    :width: 6.80764in
    :height: 0.45208in
    :align: center
@@ -182,7 +178,6 @@ will appear. If you place a red ball in front of the camera, you can see
 a green circle which represents that the car has catched your red ball.
 
 .. image:: media/image118.jpeg
-   :alt: {92877EB8-1115-453C-A80A-32B9C416E7A9}_20191227112028
    :width: 6.82292in
    :height: 4.63056in
    :align: center

@@ -34,6 +34,7 @@ the hardware initialization is done.
 .. image:: media/image97.png
    :width: 5.71875in
    :height: 1.66667in
+   :align: center
 
 If you get the result similar as shown above, the server is ready. Now
 move on to start the client.
@@ -44,8 +45,7 @@ move on to start the client.
 Run the Client(Operation on PC)
 -------------------------------
 
-Visit the server of the car at `http://<RPi_IP_address>:8000/ <>`__. You
-will see a welcome page:
+Visit the server of the car at ``http://<RPi_IP_address>:8000/``. You will see a welcome page:
 
 .. image:: media/image98.png
    :width: 6.16042in
@@ -55,9 +55,9 @@ will see a welcome page:
 Click LET'S ROCK to go to the operation interface:
 
 .. image:: media/image99.jpeg
-   :alt: QQ截图20161117171611
    :width: 6.92708in
    :height: 3.875in
+   :align: center
 
 On this page, you can press the keys **W**, **A**, **S**, and **D** on
 the keyboard to control the car to move **forward**, **backward**,
@@ -73,6 +73,7 @@ calibration page:
 .. image:: media/image100.jpeg
    :width: 6.91944in
    :height: 2.40208in
+   :align: center
 
 There are three calibration parts: **Camera Calibration**, **Front
 Wheels Calibration** and **Rear Wheels Calibration**.
@@ -85,7 +86,7 @@ angle of the wheel.
    Every time you press a button, the angle will be changed slightly. For
    your larger change per time, you need to long press the button.
 
-Click **OK** to save the result after all the calibration is done.
+   Click **OK** to save the result after all the calibration is done.
 
 **For Mobile Phones**
 
@@ -96,16 +97,16 @@ direction of the car and the pan-and-tilt. But you can only tab one
 touch point at **one** time.
 
 .. image:: media/image101.jpeg
-   :alt: QQ截图20161117171622
    :width: 6.91944in
    :height: 4.15069in
+   :align: center
 
 Take this screenshot from an Android phone:
 
 .. image:: media/image102.jpeg
-   :alt: Screenshot_20161112-084515
    :width: 6.91667in
    :height: 3.89583in
+   :align: center
 
 Though the appearance may not be as good as on the PC. Later updates may
 be released irregularly on **Github**. You are welcome to fork our

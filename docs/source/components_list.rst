@@ -5,31 +5,30 @@ Plates
 ------
 
 .. image:: media/image3.jpeg
-   :alt: 图片12
    :width: 6.80833in
    :height: 5.73819in
 
-1.  Upper Plate x 1
+1. Upper Plate x 1
 
-2.  Front Half Plate x 1
+#. Front Half Plate x 1
 
-3.  Back Half Plate x 1
+#. Back Half Plate x 1
 
-4.  Pan-and-tilt Plate x 1
+#. Pan-and-tilt Plate x 1
 
-5.  Pan-and-tilt Base Plate x 1
+#. Pan-and-tilt Base Plate x 1
 
-6.  Camera Mount Plate x 1
+#. Camera Mount Plate x 1
 
-7.  Steering Connector Plate x 2
+#. Steering Connector Plate x 2
 
-8.  Bearing Shield x 8
+#. Bearing Shield x 8
 
-9.  Steering Linkage Plate x 1
+#. Steering Linkage Plate x 1
 
-10.  Hex Front Wheel Fixing Plate x 8
+#. Hex Front Wheel Fixing Plate x 8
 
-11. Gasket Plate x 2
+#. Gasket Plate x 2
 
 .. note::
 
@@ -39,7 +38,6 @@ Servo x 3
 ---------
 
 .. image:: media/image4.jpeg
-   :alt: 舵机图
    :width: 6.77083in
    :height: 4.82569in
 
@@ -59,29 +57,40 @@ Mechanical Fasteners
 --------------------
 
 .. image:: media/Mechanical_Fasteners1.png
+  :align: center
+
 .. image:: media/Mechanical_Fasteners2.png
+  :align: center
 
 Wires
 -----
 
 .. image:: media/Wires.png
+  :align: center
 
 PCB
 ---
 
 .. image:: media/PCB1.png
+  :align: center
+
 .. image:: media/PCB2.png
+  :align: center
 
 Other Components
 ----------------
 
 .. image:: media/Other_Components1.png
+  :align: center
+
 .. image:: media/Other_Components2.png
+  :align: center
 
 Tools
 -----
 
 .. image:: media/Tools.png
+  :align: center
 
 Self-provided Components
 ------------------------
@@ -89,6 +98,7 @@ Self-provided Components
 The following components are not included in this kit.
 
 .. image:: media/Self-provided_Components1.png
+  :align: center
 
 .. note::
     1. You are recommend to use 18650 batteries **without** a protective
@@ -99,13 +109,9 @@ The following components are not included in this kit.
     bulged out (as shown below), so that it can ensure the well
     connection with the battery holder.
 
-    .. |image37| image:: media/image37.jpeg
-        :width: 200
-        :height: 200
-    .. |image38| image:: media/image38.jpeg
-        :width: 150
-        :height: 200
-    |image37|\ |image38|
+    .. image:: media/Self-provided_Components2.png
+      :width: 400
+      :align: center
     
     3. In order to keep the car working for a long time, use large-capacity
     batteries as much as possible

@@ -32,6 +32,7 @@ Check by the **ls** command, then you can see the code directory
 .. image:: media/image82.png
    :width: 6.46875in
    :height: 3.67708in
+   :align: center
 
 Go to the Code Directory
 ------------------------
@@ -45,6 +46,7 @@ Enter the code directory and you can see the installation script:
 .. image:: media/image83.png
    :width: 6.21528in
    :height: 1.02292in
+   :align: center
 
 Install the Environment via the Script
 --------------------------------------
@@ -71,9 +73,10 @@ Configure the Servo to 90 degrees
 
 After reboot, run the picar tool:
 
-.. image:: media/Configure_the_Seevo_to_90_degrees.png
-    :align: center
+.. code-block:: python
 
+    cd ~/SunFounder_PiCar-V
+    picar servo-install
 
 .. note::
     If the "OSError: [Errno 121] Remote I/O error" error message appears,

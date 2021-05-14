@@ -14,7 +14,6 @@ through the overall structure and the process in brief.
 First, let’s check the files in the code folder:
 
 .. image:: media/image119.jpeg
-   :alt: 77777777777771
    :width: 1.83681in
    :height: 3.24236in
    :align: center
@@ -74,8 +73,8 @@ Open the code directory and check the file by **ls**:
 
    pi@raspberry:~ $ cd SunFounder_PiCar-V/
    pi@raspberry:~/SunFounder_PiCar-V $ ls
-   datasheet install_dependencies mjpg-streamer remote_control
-   client i2cHelper.py LICENSE README.md show
+   datasheet   install_dependencies   mjpg-streamer   remote_control
+   client          i2cHelper.py       LICENSE         README.md show
 
 ``remote_control`` is the main code directory of the web server. Open the
 code directory by cd ``remote_control``, and check the file by ls:
@@ -84,7 +83,7 @@ code directory by cd ``remote_control``, and check the file by ls:
 
    pi@raspberry:~/SunFounder_PiCar-V $ cd remote_control
    pi@raspberry:~/SunFounder_PiCar-V/remote_control $ ls
-   db.sqlite3 manage.py remote_control start static
+   db.sqlite3   manage.py   remote_control   start static
 
 -  ``db.sqlite3`` is generated when you create a Django project.
 
@@ -95,7 +94,7 @@ code directory by cd ``remote_control``, and check the file by ls:
 -  ``remote_control`` includes the main code files.
 
 -  ``start`` is a small script written to run ``sudo python manage.py
-   runserver 0.0.0.0:8000``, and servo installation with attribute install
+   runserver 0.0.0.0:8000``, and servo installation with attribute ``install``
    just for convenience.
 
 -  ``static`` is to store some static pictures on the web.
@@ -110,7 +109,7 @@ remote_control``:
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control $ cd remote_control
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ ls
-   driver \__init__.py settings.py templates urls.py views.py wsgi.py
+   driver   \__init__.py   settings.py   templates urls.py   views.py   wsgi.py
 
 -  ``driver`` stores the drivers of the car.
 
@@ -148,7 +147,7 @@ Now open the folder ``driver`` and check:
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd driver/
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ ls
-   camera.py config \__init__.py stream.py
+   camera.py   config   \__init__.py   stream.py
 
 The ``driver`` folder mainly includes the driver modules for controlling the
 pan and tilt and camera streamer.
@@ -167,8 +166,8 @@ Exit and open the folder ``templates`` to view:
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ cd ../
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd templates/
-   admin.py \__init__.py models.py tests.py
-   apps.py migrations templates views.py
+   admin.py   \__init__.py   models.py   tests.py
+   apps.py    migrations     templates   views.py
 
 This folder is created by the ``manage.py startapp`` just for calling the
 templates conveniently. Therefore, the files have not been changed
@@ -178,7 +177,7 @@ except for the ``templates``. Open the ``templates`` again:
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates $ cd templates
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates/templates $ ls
-   base.html cali.html run.html
+   base.html   cali.html   run.html
 
 There are three HTML files that also consist of layers. The low level
 ``base.html`` stores contents contained on each page such as the ``<head>`` of
