@@ -4,7 +4,6 @@ SunFounder Smart Video Car Kit V2.0
 Quick Links:
 
  * [About this kit](#about_this_kit)
- * [Update](#update)
  * [Trouble Shootings](#trouble)
  * [About SunFounder](#about_sunfounder)
  * [License](#license)
@@ -20,11 +19,6 @@ Server side runs on Raspberry Pi, and you can run the client side on Windows and
 Also, you can control the car via web browser. Even though its not that better, but it works. 
 
 We are happy to see your issus and pull request. Feel free to be apart.
-
-<a id="update"></a>
-### Update:
-2016-08-25:
- - New Release
 
 <a id="trouble"></a>
 ###Trouble Shootings:
