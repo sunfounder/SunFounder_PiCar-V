@@ -11,8 +11,8 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 # import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import sys
+sys.path.insert(0, os.path.abspath('.'))
 
 
 
@@ -42,9 +42,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-language = 'zh_CN'#'ja_JA'
-locale_dirs = ['locale/']
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -63,3 +60,7 @@ latex_use_xindy = False
 latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
+
+language = 'zh_CN'#'ja_JA'
+locale_dirs = ['locale/']
+gettext_compact = False 
