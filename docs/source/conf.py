@@ -61,6 +61,6 @@ latex_elements = {
     'preamble': '\\usepackage[UTF8]{ctex}\n',
 }
 
-# language = 'zh_CN'#'ja_JA'
+language = 'ja'
 locale_dirs = ['locale/']
 gettext_compact = False 
