@@ -42,7 +42,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-language = 'ja_JA'
+language = 'zh_CN'#'ja_JA'
 locale_dirs = ['locale/']
 
 # -- Options for HTML output -------------------------------------------------
