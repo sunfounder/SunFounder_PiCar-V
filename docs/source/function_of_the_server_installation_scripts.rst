@@ -7,25 +7,25 @@ detailed steps.
 
 1. Install pip.
 
-.. code-block:: python
+.. code-block::
 
     apt-get install python-pip
 
 2. Use pip to install django.
 
-.. code-block:: python
+.. code-block::
 
     sudo pip install django
 
 3. Install i2c-tools and python-smbus.
 
-.. code-block:: python
+.. code-block::
 
     sudo apt-get install i2c-tools python-smbus –y
 
 4. Install PiCar drivers.
 
-.. code-block:: python
+.. code-block::
 
     cd ~/
     git clone -–recursive https://github.com/sunfounder/SunFounder_PiCar.git
@@ -34,14 +34,14 @@ detailed steps.
 
 5. Download source code.
 
-.. code-block:: python
+.. code-block::
 
     cd ~/
     git clone https://github.com/sunfounder/SunFounder_PiCar-V -b V3.0
 
 6. Copy the MJPG-Streamer file to system directory.
 
-.. code-block:: python
+.. code-block::
 
     cd ~/SunFounder_PiCar-V
     sudo cp mjpg-streamer/mjpg_streamer /usr/local/bin
@@ -52,7 +52,7 @@ detailed steps.
 
 7. Export paths.
 
-.. code-block:: python
+.. code-block::
 
     export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.bashrc
     export LD_LIBRARY_PATH=/usr/local/lib/ >> ~/.profile
@@ -62,18 +62,18 @@ detailed steps.
 
 Edit the file /boot/config.txt:
 
-.. code-block:: python
+.. code-block::
 
     sudo nano /boot/config.txt 
 
 Add the line in the end:
 
-.. code-block:: python
+.. code-block::
 
     dtparam=i2c_arm=ons
 
 9. Reboot.
 
-.. code-block:: python
+.. code-block::
 
     sudo reboot

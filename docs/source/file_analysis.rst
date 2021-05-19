@@ -69,7 +69,7 @@ server works.
 
 Open the code directory and check the file by **ls**:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~ $ cd SunFounder_PiCar-V/
    pi@raspberry:~/SunFounder_PiCar-V $ ls
@@ -79,7 +79,7 @@ Open the code directory and check the file by **ls**:
 ``remote_control`` is the main code directory of the web server. Open the
 code directory by cd ``remote_control``, and check the file by ls:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~/SunFounder_PiCar-V $ cd remote_control
    pi@raspberry:~/SunFounder_PiCar-V/remote_control $ ls
@@ -105,7 +105,7 @@ the addresses on the LAN, and the port number is 8000. Here we will just
 focus on the code in ``remote_control`` folder. Go to the directory via ``cd
 remote_control``:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control $ cd remote_control
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ ls
@@ -143,7 +143,7 @@ on the basis of the parameters set in the browser to control the car.
 
 Now open the folder ``driver`` and check:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd driver/
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ ls
@@ -162,7 +162,7 @@ pan and tilt and camera streamer.
 
 Exit and open the folder ``templates`` to view:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ cd ../
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd templates/
@@ -173,7 +173,7 @@ This folder is created by the ``manage.py startapp`` just for calling the
 templates conveniently. Therefore, the files have not been changed
 except for the ``templates``. Open the ``templates`` again:
 
-.. code-block:: python
+.. code-block::
 
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates $ cd templates
    pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates/templates $ ls

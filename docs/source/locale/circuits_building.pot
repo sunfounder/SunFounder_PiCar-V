@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../circuits_building.rst:2
+msgid "Circuits Building"
+msgstr ""
+
+#: ../circuits_building.rst:5
+msgid "Connect the Power"
+msgstr ""
+
+#: ../circuits_building.rst:13
+msgid "Connect the Modules"
+msgstr ""
+
+#: ../circuits_building.rst:21
+msgid "Connect the Servos"
+msgstr ""
+
+#: ../circuits_building.rst:29
+msgid "Connect the Motor"
+msgstr ""
+
+#: ../circuits_building.rst:36
+msgid "The complete connection is shown as follows."
+msgstr ""

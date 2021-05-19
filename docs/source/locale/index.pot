@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../index.rst:2
+msgid "SunFounder PiCar-V Smart Car Kit for Raspberry Pi"
+msgstr ""
+
+#: ../index.rst:5
+msgid "About the PiCar-V"
+msgstr ""
+
+#: ../index.rst:7
+msgid "The car PiCar-V is equipped with a wide-angle USB webcam, three whole new circuit boards with less but more simple wiring, some acrylic plates with an adjusted structure, and new code suitable for almost all platforms to control the car."
+msgstr ""
+
+#: ../index.rst:12
+msgid "In this book, we will show you how to build the PiCar-V via description, illustrations of physical components, in both hardware and software respects. You will enjoy learning how all this work. You can view the latest PDF user manual or clone the code by click the link: https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0."
+msgstr ""
+
+#: ../index.rst:18
+msgid "You are welcomed to post requests and issues on our page on Github."
+msgstr ""
+
+#: ../index.rst:20
+msgid "If you want to learn another projects which we don’t have, please feel free to send Email and we will update to our online tutorials as soon as possible, any suggestions are welcomed."
+msgstr ""
+
+#: ../index.rst:22
+msgid "Here is the Email: cs@sunfounder.com."
+msgstr ""
+
+#: ../index.rst:38
+msgid "Copyright Notice"
+msgstr ""
+
+#: ../index.rst:39
+msgid "All contents including but not limited to texts, images, and code in this manual are owned by the SunFounder Company. You should only use it for personal study,investigation, enjoyment, or other non-commercial or nonprofit purposes, under therelated regulations and copyrights laws, without infringing the legal rights of the author and relevant right holders. For any individual or organization that uses these for commercial profit without permission, the Company reserves the right to take legal action."
+msgstr ""

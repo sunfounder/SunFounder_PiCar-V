@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../function_of_the_server_installation_scripts.rst:2
+msgid "Appendix 1: Function of the Server Installation Scripts"
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:4
+msgid "You may have a question: What do the installation scripts do when we install the server on the Raspberry Pi by them? So here let's check the detailed steps."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:8
+msgid "Install pip."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:14
+msgid "Use pip to install django."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:20
+msgid "Install i2c-tools and python-smbus."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:26
+msgid "Install PiCar drivers."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:35
+msgid "Download source code."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:42
+msgid "Copy the MJPG-Streamer file to system directory."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:53
+msgid "Export paths."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:61
+msgid "Enable I2C1."
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:63
+msgid "Edit the file /boot/config.txt:"
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:69
+msgid "Add the line in the end:"
+msgstr ""
+
+#: ../function_of_the_server_installation_scripts.rst:75
+msgid "Reboot."
+msgstr ""

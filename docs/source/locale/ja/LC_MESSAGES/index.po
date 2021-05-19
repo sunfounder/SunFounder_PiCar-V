@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder ESP-4WD
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder ESP-4WD Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-13 09:27+0800\n"
+"PO-Revision-Date: 2021-05-13 10:33+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#: ../../index.rst:2
+msgid "SunFounder PiCar-V Smart Car Kit for Raspberry Pi"
+msgstr "SunFounder PiCar-V  Raspberry Pi スマートロボットカーキット"
+
+#: ../../index.rst:5
+msgid "About the PiCar-V"
+msgstr "PiCar-V について"
+
+#: ../../index.rst:7
+msgid ""
+"The car PiCar-V is equipped with a wide-angle USB webcam, three whole "
+"new circuit boards with less but more simple wiring, some acrylic plates "
+"with an adjusted structure, and new code suitable for almost all "
+"platforms to control the car."
+msgstr ""
+"PiCar-V には、広角 USB ウェブカメラ、配線が少なくシンプルな 3 つのまった"
+"く新しい回 路基板、調整可能な構造が内蔵している一部のアクリルプレートや車"
+"を制御するほとんど すべてのプラットフォームに適した新しいコードが装備され"
+"ている。"
+
+#: ../../index.rst:12
+msgid ""
+"In this book, we will show you how to build the PiCar-V via description, "
+"illustrations of physical components, in both hardware and software "
+"respects. You will enjoy learning how all this work. You can view the "
+"latest PDF user manual or clone the code by click the link: https://"
+"github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0."
+msgstr ""
+"本書では、ハードウェアとソフトウェアの両方を考え、説明、物理部品のイラス"
+"トを使用 して PiCar-V を構築する方法について説明する。これらのすべてがど"
+"のように機能するか を学ぶことを楽しむだろう。次のサイトでユーザーマニュア"
+"ル(PDF )とコードのご利用をできます： https://github.com/sunfounder/"
+"SunFounder_PiCar-V。"
+
+#: ../../index.rst:18
+msgid "You are welcomed to post requests and issues on our page on Github."
+msgstr ""
+"技術的なご質問がございましたら、当社のウェブサイトの Community -> Forum "
+"に トピックを追加してください。できるだけ早く返信させていただく。"
+
+#: ../../index.rst:20
+msgid ""
+"If you want to learn another projects which we don’t have, please feel "
+"free to send Email and we will update to our online tutorials as soon as "
+"possible, any suggestions are welcomed."
+msgstr ""
+"製品の関するご意見、またはマニュアルにない新しいプロジェクトを学習したい"
+"場合は、遠慮なくこちらまでご連絡くだだい。できるだけ早めにマニュアルに更"
+"新します。"
+
+#: ../../index.rst:22
+msgid "Here is the Email: cs@sunfounder.com."
+msgstr ""
+"下記サポートメールアドレスにご送信してください：cs@sunfounder.com。"
+
+#: ../../index.rst:40
+msgid "Copyright Notice"
+msgstr "著作権表示"
+
+#: ../../index.rst:41
+msgid ""
+"All contents including but not limited to texts, images, and code in "
+"this manual are owned by the SunFounder Company. You should only use it "
+"for personal study,investigation, enjoyment, or other non-commercial or "
+"nonprofit purposes, under therelated regulations and copyrights laws, "
+"without infringing the legal rights of the author and relevant right "
+"holders. For any individual or organization that uses these for "
+"commercial profit without permission, the Company reserves the right to "
+"take legal action."
+msgstr ""
+"このマニュアルのテキスト、画像とコードを含むがこれらに限定されないすべて"
+"の内容 は、SunFounder Company が所有している。関連する規制と著作権法に基"
+"づき、著者 と関連する権利所有者の法的権利を侵害することなく、個人的な研"
+"究、調査、享楽、ま たはその他の非営利目的でのみ使用してください。許可なく"
+"営利目的でこれを使用する 個人または組織については、会社は法的措置を取る権"
+"利を留保する。"
