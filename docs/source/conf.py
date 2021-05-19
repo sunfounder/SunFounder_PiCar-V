@@ -21,9 +21,9 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'SunFounder PiCar-V Car Kit'
+project = 'SunFounder ESP-4WD Car Kit'
 copyright = '2021, SunFounder'
-author = 'www.sunfounder.com'
+author = 'SunFounder'
 
 
 # -- General configuration ---------------------------------------------------
@@ -53,17 +53,11 @@ exclude_patterns = []
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-
-language = 'zh_CN'#'ja'
-locale_dirs = ['locale/']
-
-html_theme = 'furo'
+html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
-
-html_js_files = [
-    'https://ezblock.cc/readDocFile/topHead.js',
-]
-html_css_files = [
-    'https://ezblock.cc/readDocFile/topHead.css',
-]
+latex_engine = 'pdflatex'
+latex_use_xindy = False
+latex_elements = {
+    'preamble': '\\usepackage[UTF8]{ctex}\n',
+}
