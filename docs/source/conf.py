@@ -63,4 +63,3 @@ latex_elements = {
 
 language = 'zh_CN'#'ja_JA'
 locale_dirs = ['locale/']
-gettext_compact = False 
