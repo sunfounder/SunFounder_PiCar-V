@@ -12,6 +12,6 @@ controlling the PiCar-V remotely and streaming the video data it
 captures back. Then what's new? Let's unveil the mysteries!
 
 .. image:: media/image39.jpeg
-   :alt: C:\Users\Daisy\Documents\Tencent Files\931710392\FileRecv\2.jpg
+   :align: center
    :width: 6in
    :height: 6in

@@ -39,7 +39,6 @@ Then put the assembled Front Half Chassis onto the Upper Plate with
 standoffs aligned with the holes.
 
 .. image:: media/image90.png
-   :alt: 图片6
    :width: 4.89792in
    :height: 3.63264in
    :align: center
@@ -83,5 +82,4 @@ cable to the USB port on the Raspberry Pi.
 the car now! Don’t forget to charge your batteries.**
 
 .. image:: media/image96.jpeg
-   :alt: C:\Users\Daisy\Documents\Tencent Files\931710392\FileRecv\1.jpg
    :align: center

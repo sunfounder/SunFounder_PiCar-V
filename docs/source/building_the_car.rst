@@ -1,5 +1,5 @@
 Building the Car
-================
+==================
 
 Are you excited when you open the box and see so many components? Keep
 your patience and take it easy. Please note that some details in the
@@ -8,18 +8,15 @@ work based on the figures in the manual after finishing each step. let’s
 start!
 
 Front Wheels
-------------
+--------------
 
 Insert an **M4x25 screw** through a **Steering Connector Plate**, 3
 **Bearing Shields**, 3 **Hex Front Wheel Fixing Plates**, and a **front
 wheel**, into an **M4 Self-locking Nut** as shown below:
 
-.. |image40| image:: media/image40.png
-    :width: 300
-.. |image41| image:: media/image41.jpeg
-    :width: 200
-
-|image40|\ |image41|
+.. image:: media/image40.png
+    :width: 550
+    :align: center
 
 You can use the Cross Socket Wrench to secure the **M4 Self-locking
 Nut**, then use the screwdriver to tighten the **M4x25 screw.**
@@ -27,7 +24,6 @@ Nut**, then use the screwdriver to tighten the **M4x25 screw.**
 .. image:: media/image33.jpeg
     :width: 200
     :align: center
-
 
 .. note::
     The Self-locking Nut should be screwed tight enough. It would be better
@@ -40,12 +36,9 @@ Assemble the other front wheel in the same way, but bear in mind the
 Steering Connector plate on the wheel should be symmetric with the
 previous one.
 
-.. |image42| image:: media/image42.png
-    :width: 200
-.. |image43| image:: media/image43.png
-    :width: 200
-
-|image42|\ |image43|
+.. image:: media/image42.png
+    :width: 500
+    :align: center
 
 Now two front wheels have finished assembly.
 
@@ -69,6 +62,7 @@ screws** and the **M2 nuts** (The 2 servo shaft are close to the left
 side ):
 
 .. image:: media/Pan-and-Tilt3.png
+    :width: 600
     :align: center
 
 Steering Part
@@ -78,8 +72,8 @@ Connect the **Steering Linkage** and the **1-arm Rocker Arm** with the
 **M1.5x4 Self-tapping Screw**.
 
 .. note::
-    Insert it into the FIRST hole of the arm (as indicated by the
-    arrow below) which is the farthest from the gears.
+    Insert it into the **FIRST** hole of the arm (as indicated by the
+    **arrow** below) which is the farthest from the gears.
 
 .. image:: media/Steering_Part1.png
     :align: center

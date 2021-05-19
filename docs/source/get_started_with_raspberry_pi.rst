@@ -64,6 +64,7 @@ the SD card you would like to install it on.
 .. image:: media/image69.png
    :width: 6.93681in
    :height: 2.44861in
+   :align: center
 
 .. note::
     1.You will need to be connected to the internet the first time.
@@ -80,6 +81,7 @@ Select the SD card you are using.
 .. image:: media/image70.png
    :width: 7.11458in
    :height: 2.80208in
+   :align: center
 
 **Step 6**
 
@@ -91,6 +93,7 @@ options.
 .. image:: media/image71.png
    :width: 7.11458in
    :height: 4.70833in
+   :align: center
 
 Then scroll down to complete the wifi configuration and click **SAVE**.
 
@@ -106,6 +109,7 @@ Then scroll down to complete the wifi configuration and click **SAVE**.
 .. image:: media/image72.png
    :width: 6.14583in
    :height: 3.85972in
+   :align: center
 
 **Step 7**
 
@@ -114,6 +118,7 @@ Click the **WRITE** button.
 .. image:: media/image73.png
    :width: 6.20833in
    :height: 3.18125in
+   :align: center
 
 **Step 8**
 
@@ -124,6 +129,7 @@ is no file to be backed up, click **Yes**.
 .. image:: media/image74.png
    :width: 6.80972in
    :height: 3.65278in
+   :align: center
 
 **Step 9**
 
@@ -133,6 +139,7 @@ represent the completion of writing.
 .. image:: media/image75.png
    :width: 6.59375in
    :height: 3.48958in
+   :align: center
 
 **Power on the Raspberry Pi**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,9 +149,9 @@ reader and then plug the Micro SD card into the Raspberry Pi.
 
 Put two 18650 fully charged batteries in the holder, plug the wires from
 the battery holder into the development board then toggle the switch
-from off to on. You are also recommended to use the power adapter of
+from off to on. **You are also recommended to use the power adapter of
 Raspberry Pi to power your car for that the first test will take a long
-time.
+time.**
 
 **Get the IP Address**
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -176,6 +183,7 @@ Similarly, the default hostname of the Raspberry Pi OS is
 .. image:: media/image76.png
    :width: 6.38611in
    :height: 2.41736in
+   :align: center
 
 **Use the SSH Remote Control**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,7 +202,7 @@ it.
 
 **Step 2**
 
-Type in **ssh pi@ip_address** . “pi”is your username and “ip_address” is
+Type in **ssh pi@ip_address** . “pi” is your username and “ip_address” is
 your IP address. For example:
 
 .. code-block:: python
@@ -206,18 +214,17 @@ your IP address. For example:
 Input”yes”.
 
 .. image:: media/image77.png
-   :alt: IMG_275
-   :width: 5.17917in
-   :height: 1.33403in
+   :width: 550
+   :align: center
 
 **Step 4**
 
 Input the password and the default password is **raspberry**.
 
 .. image:: media/image78.png
-   :alt: IMG_276
    :width: 6.69861in
    :height: 2.16736in
+   :align: center
 
 **Step 5**
 
@@ -225,9 +232,9 @@ We now get the Raspberry Pi connected and are ready to go to the next
 step.
 
 .. image:: media/image79.png
-   :alt: IMG_277
    :width: 6.13611in
    :height: 1.71944in
+   :align: center
 
 .. note::
     When you input the password, the characters do not display on
@@ -246,9 +253,9 @@ structure. Enter the IP address of the RPi in the text box under **Host
 Name (or IP address)** and **22** under **Port** (by default it is 22).
 
 .. image:: media/image80.png
-   :alt: IMG_278
    :width: 4.79306in
    :height: 4.24931in
+   :align: center
 
 **Step 2**
 
@@ -257,14 +264,12 @@ the IP address, there prompts a security reminder. Just click **Yes**.
 
 **Step 3**
 
-When the PuTTY window prompts “\ **login as:”**, type in
-“\ **pi”**\ (the user name of the RPi), and **password: “**\ raspberry”
-(the default one, if you haven't changed it).
+When the PuTTY window prompts **“login as:”**, type in **pi”** (the user name of the RPi), and **password:** “raspberry” (the default one, if you haven't changed it).
 
 .. image:: media/image81.png
-   :alt: IMG_279
    :width: 7.02083in
    :height: 2.33333in
+   :align: center
 
 .. note::
     When you input the password, the characters do not display on
