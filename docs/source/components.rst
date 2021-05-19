@@ -68,8 +68,7 @@ parallel, distinguished 3-color ports for PWM output.
 1. **PWM output ports**: 3-color ports, independent power PWM output
    port, connect to the servo directly.
 
-2 & 3. **I2C port**: 4-wire I2C port, can be used in parallel.
-       Compatible with 3.3V/5.5V
+2 and 3. **I2C port**: 4-wire I2C port, can be used in parallel. Compatible with 3.3V/5.5V.
 
 4. **PWM power input**: 12V max.
 
