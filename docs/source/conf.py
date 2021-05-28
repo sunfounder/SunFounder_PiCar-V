@@ -57,7 +57,7 @@ html_static_path = ['_static']
 language = 'ja'#'ja'
 locale_dirs = ['locale/']
 
-html_theme = 'furo'
+html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 
