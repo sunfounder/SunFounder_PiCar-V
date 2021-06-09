@@ -14,7 +14,7 @@ click==7.1.2
 colorama==0.4.1
 commonmark==0.9.1
 cryptography==3.4.7
-Django==2.2.7
+Django==2.2.22
 docutils==0.15.2
 ecdsa==0.16.1
 esptool==3.0
