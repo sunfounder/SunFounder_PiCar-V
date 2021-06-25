@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SunFounder PiCar-V Smart Car Kit for Raspberry Pi &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="部品一覧" href="components_list.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">ラズベリー パイを始めよう</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>SunFounder PiCar-V Smart Car Kit for Raspberry Pi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="sunfounder-picar-v-smart-car-kit-for-raspberry-pi">
+<h1>SunFounder PiCar-V Smart Car Kit for Raspberry Pi<a class="headerlink" href="#sunfounder-picar-v-smart-car-kit-for-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="about-the-picar-v">
+<h2>PiCar-Vについて<a class="headerlink" href="#about-the-picar-v" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>PiCar-Vには、広角USBウェブカメラ、配線が少なくシンプルな3つのまったく新しい回路基板、調整可能な構造が内蔵している一部のアクリルプレートや車を制御するほとんどすべてのプラットフォームに適した新しいコードが装備されている。</p>
+<p>本書では、ハードウェアとソフトウェアの両方を考え、説明、物理部品のイラストを使用してPiCar-Vを構築する方法について説明する。これらのすべてがどのように機能するかを学ぶことを楽しむだろう。次のリンクをクリックすると、PDFユーザーマニュアルを表示したり、コードのクローンを作成したりできます:<a class="reference external" href="https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0">https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0</a>.</p>
+<p>あなたはGithubの上で我々のページのポストリクエストと問題に歓迎されます。</p>
+<p>あなたが我々が持っていないもう一つのプロジェクトを学びたいならば、メールを送って、我々が我々のオンラインチュートリアルをできるだけ早く更新すると感じてください、どんな提案も歓迎されます。</p>
+<p>電子メール：<a class="reference external" href="mailto:cs&#37;&#52;&#48;sunfounder&#46;com">cs<span>&#64;</span>sunfounder<span>&#46;</span>com</a>。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#plates">プレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#servo-x-3">サーボx 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#mechanical-fasteners">メカニカルファスナー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#wires">配線</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#pcb">PCB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#other-components">その他の部品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#tools">工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components_list.html#self-provided-components">別途用意する必要な部品</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#front-wheels">前輪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#pan-and-tilt">パンとチルト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#steering-part">ステアリングパーツ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#upper-plate">上部プレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#battery-holder">バッテリーホルダー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#rear-wheels-screws">後輪（ネジ）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#pcb-assembly">PCB組み立て</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_car.html#fixing-rear-wheels">後輪の固定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-power">電源を接続する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-modules">モジュールを接続する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-servos">サーボを接続する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits_building.html#connect-the-motor">モーターを接続する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">ラズベリー パイを始めよう</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="get_started_with_raspberry_pi.html#installing-the-os">オペレーティングシステムのインストール</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#get-source-code">ソースコードを取得する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#go-to-the-code-directory">コードディレクトリに入る</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#install-the-environment-via-the-script">スクリプトを介して環境をインストールする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servo_cdonfiguration.html#configure-the-servo-to-90-degrees">サーボを 90 度に設定する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#assemble-the-steering-servo">ステアリングサーボの組み立て</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#front-half-chassis">フロントハーフシャーシ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continue_to_assemble.html#assemble-the-camera">カメラを組み立てる</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="remote_control.html">遠隔操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ball_tracker.html">ボール_追跡装置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_analysis.html">ファイル分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">高級段階</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_of_the_server_installation_scripts.html">付録1：サーバーインストールスクリプトの機能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">付録2：部品</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="copyright-notice">
+<h2>著作権表示<a class="headerlink" href="#copyright-notice" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このマニュアルのテキスト、画像とコードを含むがこれらに限定されないすべての内容は、SunFounder Companyが所有している。関連する規制と著作権法に基づき、著者と関連する権利所有者の法的権利を侵害することなく、個人的な研究、調査、享楽、またはその他の非営利目的でのみ使用してください。許可なく営利目的でこれを使用する個人または組織については、会社は法的措置を取る権利を留保する。</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="components_list.html" class="btn btn-neutral float-right" title="部品一覧" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

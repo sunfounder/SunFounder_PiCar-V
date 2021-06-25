@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>遠隔操作 &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ボール_追跡装置" href="ball_tracker.html" />
+    <link rel="prev" title="旅に出よう！" href="getting_on_the_road.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">ラズベリー パイを始めよう</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">遠隔操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-server-operation-on-raspberry-pi">サーバーを実行する（Raspberry Piでの操作）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-client-operation-on-pc">クライアントの実行（PCでの操作）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ball_tracker.html">ボール_追跡装置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_analysis.html">ファイル分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">高級段階</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="getting_on_the_road.html">旅に出よう！</a> &raquo;</li>
+        
+      <li>遠隔操作</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/remote_control.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="remote-control">
+<h1>遠隔操作<a class="headerlink" href="#remote-control" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>これはこれから行うことである：</p>
+<p>Raspberry Piを**サーバー**として使う。車を制御し、カメラでキャプチャした画像を送信するためのAPIを使用してWebサーバーを実行する。</p>
+<p>次に、PC、携帯電話、タブレットを**クライアント**として、カメラから画像を取得し、WebサーバーのAPIを呼び出して車を制御します。</p>
+<p><strong>その後、再び車の電源を入れてください。最初のテストに時間がかかるため、Raspberry Piの電源アダプターを使用して車に電源を供給することも勧める。</strong></p>
+<section id="run-the-server-operation-on-raspberry-pi">
+<h2>サーバーを実行する（Raspberry Piでの操作）<a class="headerlink" href="#run-the-server-operation-on-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Raspberry Piにリモートでログインする。<a href="#id1"><span class="problematic" id="id2">**</span></a>remote_control**ディレクトリの下で起動スクリプト**start**を実行して、Webサービスを開始する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span><span class="o">/</span><span class="n">remote_control</span>
+<span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="n">sudo</span> <span class="o">./</span><span class="n">start</span>
+</pre></div>
+</div>
+<p>スクリプトがサービスを有効にし、対応するデータが表示される。同時にハードウェアが初期化されるため、前輪に接続されているサーボとパン＆チルトが回転し、ハードウェアの初期化が完了したことを示す。</p>
+<a class="reference internal image-reference" href="_images/image97.png"><img alt="_images/image97.png" class="align-center" src="_images/image97.png" style="width: 5.71875in; height: 1.66667in;" /></a>
+<p>上記のような結果が得られれば、サーバーは準備できた。次に、クライアントを起動する。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>クライアントの実行を停止するまで、サーバーをいつも動作させる。</p>
+</div>
+</section>
+<section id="run-the-client-operation-on-pc">
+<h2>クライアントの実行（PCでの操作）<a class="headerlink" href="#run-the-client-operation-on-pc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a class="reference external" href="http:/">http:/</a>/&lt;RPi_IP_address&gt;:8000/<a href="#id3"><span class="problematic" id="id4">``</span></a>で車のサーバに訪問する。ウェルカムページが表示される：</p>
+<a class="reference internal image-reference" href="_images/image98.png"><img alt="_images/image98.png" class="align-center" src="_images/image98.png" style="width: 6.16042in; height: 3.5in;" /></a>
+<p>LET'S ROCKをクリックして、操作インターフェイスに入る。</p>
+<a class="reference internal image-reference" href="_images/image99.jpeg"><img alt="_images/image99.jpeg" class="align-center" src="_images/image99.jpeg" style="width: 6.92708in; height: 3.875in;" /></a>
+<p>このページでは、キーボードの**W**、<strong>A</strong>、<strong>S</strong>、<strong>D**キーを押して、車を**前方</strong>、<strong>後方</strong>、<strong>左折</strong>、<a href="#id1"><span class="problematic" id="id2">**</span></a>右折**に制御したり、矢印キーを押してカメラの移動を制御したりすることができ、数値**1〜5**は速度レベルを変更する。</p>
+<p><strong>補正</strong></p>
+<p>もう一度**フルスクリーン**をクリックして、タイトルバーを表示する。次に、ページの右上隅にある設定ボタンをタップして、補正ページに進む。</p>
+<a class="reference internal image-reference" href="_images/image100.jpeg"><img alt="_images/image100.jpeg" class="align-center" src="_images/image100.jpeg" style="width: 6.91944in; height: 2.40208in;" /></a>
+<p>補正には、<strong>カメラ補正</strong>、<strong>前輪補正</strong>、<a href="#id1"><span class="problematic" id="id2">**</span></a>後輪補正**の3つの部分が含まれている。</p>
+<p>このページに入ると、車が前進する。そうでない場合は、<a href="#id1"><span class="problematic" id="id2">**</span></a>後輪補正**の**左**と**右**をクリックして、ホイールの角度を調整する。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>ボタンを押すたびに角度が少しずつ変化する。時間あたりの変化を大きくするには、ボタンを長押ししてください。</p>
+<p>すべての補正が完了したら、<a href="#id1"><span class="problematic" id="id2">**</span></a>OK**をクリックして結果を保存する。</p>
+</div>
+<p><strong>携帯電話用</strong></p>
+<p>また、携帯電話の場合は、<a href="#id1"><span class="problematic" id="id2">**</span></a>フルスクリーン**ボタンをタップすると、表示とパフォーマンスが向上する。次に、ページ上の5つの速度レベルのボタンをタップして速度を制御し、矢印ボタンを押して車の方向とパン＆チルトを制御する。ただし、<a href="#id3"><span class="problematic" id="id4">**</span></a>一度**にタブできるのは1つのタッチポイントのみである。</p>
+<a class="reference internal image-reference" href="_images/image101.jpeg"><img alt="_images/image101.jpeg" class="align-center" src="_images/image101.jpeg" style="width: 6.91944in; height: 4.15069in;" /></a>
+<p>Android操作システムのスマートフォンから次のスクリーンショットを取得する。</p>
+<a class="reference internal image-reference" href="_images/image102.jpeg"><img alt="_images/image102.jpeg" class="align-center" src="_images/image102.jpeg" style="width: 6.91667in; height: 3.89583in;" /></a>
+<p>見た目はPCほど良くないかもしれないが、以降の更新は**Github**で不定期にリリースされる可能性がある。リポジトリを使い、変更を加えたプルリクエストを送信してください。テスト後に問題がなければ、リクエストを知ることは楽しみである。</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ball_tracker.html" class="btn btn-neutral float-right" title="ボール_追跡装置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting_on_the_road.html" class="btn btn-neutral float-left" title="旅に出よう！" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

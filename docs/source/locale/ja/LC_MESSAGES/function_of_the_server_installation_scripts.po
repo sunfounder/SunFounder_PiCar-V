@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-05-28 20:46+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+
+#: ../function_of_the_server_installation_scripts.rst:2
+msgid "Appendix 1: Function of the Server Installation Scripts"
+msgstr "付録1：サーバーインストールスクリプトの機能"
+
+#: ../function_of_the_server_installation_scripts.rst:4
+msgid ""
+"You may have a question: What do the installation scripts do when we "
+"install the server on the Raspberry Pi by them? So here let's check the "
+"detailed steps."
+msgstr ""
+"質問があるかもしれない：Raspberry Piにサーバーをインストールすると、イン"
+"ストールスクリプトはどのように機能するか？ここで、詳細な手順を説明しよ"
+"う。"
+
+#: ../function_of_the_server_installation_scripts.rst:8
+msgid "Install pip."
+msgstr "pipをインストールする。"
+
+#: ../function_of_the_server_installation_scripts.rst:14
+msgid "Use pip to install django."
+msgstr "pipを使ってdjangoをインストールする。"
+
+#: ../function_of_the_server_installation_scripts.rst:20
+msgid "Install i2c-tools and python-smbus."
+msgstr "i2c-toolsとpython-smbusをインストールする。"
+
+#: ../function_of_the_server_installation_scripts.rst:26
+msgid "Install PiCar drivers."
+msgstr "PiCarドライバーをインストールする。"
+
+#: ../function_of_the_server_installation_scripts.rst:35
+msgid "Download source code."
+msgstr "ソースコードをダウンロードしてください。"
+
+#: ../function_of_the_server_installation_scripts.rst:42
+msgid "Copy the MJPG-Streamer file to system directory."
+msgstr "MJPG-Streamerファイルをシステムディレクトリにコピーする。"
+
+#: ../function_of_the_server_installation_scripts.rst:53
+msgid "Export paths."
+msgstr "パスをエクスポートする。"
+
+#: ../function_of_the_server_installation_scripts.rst:61
+msgid "Enable I2C1."
+msgstr "I2C1を有効にする。"
+
+#: ../function_of_the_server_installation_scripts.rst:63
+msgid "Edit the file /boot/config.txt:"
+msgstr "/boot/config.txtファイルを編集する："
+
+#: ../function_of_the_server_installation_scripts.rst:69
+msgid "Add the line in the end:"
+msgstr "最後に行を追加する："
+
+#: ../function_of_the_server_installation_scripts.rst:75
+msgid "Reboot."
+msgstr "再起動する。"

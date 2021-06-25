@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ボール_追跡装置 &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ファイル分析" href="file_analysis.html" />
+    <link rel="prev" title="遠隔操作" href="remote_control.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">ラズベリー パイを始めよう</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="remote_control.html">遠隔操作</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ボール_追跡装置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_analysis.html">ファイル分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">高級段階</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="getting_on_the_road.html">旅に出よう！</a> &raquo;</li>
+        
+      <li>ボール_追跡装置</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ball_tracker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="ball-tracker">
+<h1>ボール_追跡装置<a class="headerlink" href="#ball-tracker" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>キーボードを使用して車の状態を制御するだけでなく、ボールトラッキングコードも作成した。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libatlas</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">dev</span> <span class="n">libjasper</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqt4</span><span class="o">-</span><span class="n">test</span> <span class="n">libwebp6</span> <span class="n">libtiff5</span> <span class="n">libopenexr23</span> <span class="n">libgstreamer1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libavcodec</span><span class="o">-</span><span class="n">dev</span> <span class="n">libavformat</span><span class="o">-</span><span class="n">dev</span> <span class="n">libswscale</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqtgui4</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">opencv</span><span class="o">-</span><span class="n">python</span><span class="o">==</span><span class="mf">3.4</span><span class="o">.</span><span class="mf">6.27</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span><span class="o">/</span><span class="n">ball_track</span>
+<span class="n">python3</span> <span class="n">ball_tracker</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>コードが実行されたら、赤いボール（少なくともカメラの直径よりも大きい）を見つけ、カメラの前の10〜50cmの範囲内に配置して、車があなたのボールを追跡するようにする。</p>
+<a class="reference internal image-reference" href="_images/image103.jpeg"><img alt="_images/image103.jpeg" class="align-center" src="_images/image103.jpeg" style="width: 6.66667in; height: 3.00347in;" /></a>
+<p>車があなたのボールを捕まえたかどうかを知りたい場合は、以下の手順を実行してください：</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ1：<a href="#id3"><span class="problematic" id="id4">**</span></a>Raspberry PiでVNCを有効にする。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">raspi</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>3 Interfacing Options <a href="#id3"><span class="problematic" id="id4">**</span></a>を選択する。<a href="#id5"><span class="problematic" id="id6">**</span></a>Enter**キーを押してください。</p>
+<a class="reference internal image-reference" href="_images/image104.png"><img alt="_images/image104.png" class="align-center" src="_images/image104.png" style="width: 6.69792in; height: 2.79167in;" /></a>
+<p><strong>P3 VNC</strong></p>
+<a class="reference internal image-reference" href="_images/image105.png"><img alt="_images/image105.png" class="align-center" src="_images/image105.png" style="width: 6.6875in; height: 2.72917in;" /></a>
+<p>キーボードの左矢印キーを押して、[<strong>Yes</strong>]を選択します。</p>
+<a class="reference internal image-reference" href="_images/image106.png"><img alt="_images/image106.png" class="align-center" src="_images/image106.png" style="width: 4.68819in; height: 2.88681in;" /></a>
+<p>最後に**OK**-&gt;**Finish**を選択して、構成を終了する。</p>
+<a class="reference internal image-reference" href="_images/image107.png"><img alt="_images/image107.png" class="align-center" src="_images/image107.png" style="width: 5.04167in; height: 3.36458in;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ2：<a href="#id3"><span class="problematic" id="id4">**</span></a>お使いのコンピューター用のVNCビューアーをダウンロードしてインストールする。</p>
+<p><a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/">https://www.realvnc.com/en/connect/download/viewer/</a></p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Windowsへの実装中に次のプロンプトが表示された場合は、続行をクリックしてインストールを続行してください。</p>
+</div>
+<a class="reference internal image-reference" href="_images/image108.png"><img alt="_images/image108.png" class="align-center" src="_images/image108.png" style="width: 4.375in; height: 2.66667in;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ3：<a href="#id3"><span class="problematic" id="id4">**</span></a>インストールしたVNCビューアーを開き、Raspberry PiのIPアドレスを入力して、Enterボタンを押す。</p>
+<a class="reference internal image-reference" href="_images/image109.png"><img alt="_images/image109.png" class="align-center" src="_images/image109.png" style="width: 4.53125in; height: 1.75in;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ4：<a href="#id3"><span class="problematic" id="id4">**</span></a>このページでRaspberry Piのユーザー名とパスワードを入力し、デフォルトでは、別々はpiとraspberryである。次にOKをクリックする。</p>
+<a class="reference internal image-reference" href="_images/image110.png"><img alt="_images/image110.png" class="align-center" src="_images/image110.png" style="width: 3.64583in; height: 3.03125in;" /></a>
+<p>VNC Viewerでログインすると、画面が真っ暗になる場合があります。画面が正常に表示されている場合は、ステップ5に進みます。</p>
+<a class="reference internal image-reference" href="_images/image111.png"><img alt="_images/image111.png" class="align-center" src="_images/image111.png" style="width: 4.36111in; height: 2.98264in;" /></a>
+<p>RaspberryPiの解像度を最高に変更します。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">raspi</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+</div>
+<p>選択**2 Display Options**。</p>
+<a class="reference internal image-reference" href="_images/image112.png"><img alt="_images/image112.png" class="align-center" src="_images/image112.png" style="width: 6.67708in; height: 3.03125in;" /></a>
+<p>選択**D1 Resolution**。</p>
+<a class="reference internal image-reference" href="_images/image113.png"><img alt="_images/image113.png" class="align-center" src="_images/image113.png" style="width: 6.66667in; height: 1.33333in;" /></a>
+<p>デフォルトを**モード16**のような高解像度に変更します。</p>
+<a class="reference internal image-reference" href="_images/image114.png"><img alt="_images/image114.png" class="align-center" src="_images/image114.png" style="width: 5.03125in; height: 2.0625in;" /></a>
+<p>Raspberry Piを再起動し、再度ログインすると、機能します。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ5：<a href="#id3"><span class="problematic" id="id4">**</span></a>次に、Raspberry Piデスクトップに入り、ターミナルをクリックし、次のコマンドを入力して、コードball_tracker.pyを開く。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span><span class="o">/</span><span class="n">ball_track</span>
+<span class="n">sudo</span> <span class="n">nano</span> <span class="n">ball_tracker</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>次に、コードを次のように修正する：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Show_image_enable</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">Draw_circle_enble</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Ctrl+XとYを押して変更を保存する。</p>
+<a class="reference internal image-reference" href="_images/image115.png"><img alt="_images/image115.png" class="align-center" src="_images/image115.png" style="width: 6.8125in; height: 4.53125in;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>この手順を完了したら、VNC経由でRaspberry Piにログインするか、またはモニターを使用してください。そうでない場合、次の警告が出される：</p>
+</div>
+<a class="reference internal image-reference" href="_images/image116.png"><img alt="_images/image116.png" class="align-center" src="_images/image116.png" style="width: 6.80764in; height: 0.45208in;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ6：<a href="#id3"><span class="problematic" id="id4">**</span></a>ball_tracker.pyを実行する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">ball_tracker</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/image117.png"><img alt="_images/image117.png" class="align-center" src="_images/image117.png" style="width: 6.8125in; height: 3.1875in;" /></a>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ステップ7：<a href="#id3"><span class="problematic" id="id4">**</span></a>コードball_tracker.pyを実行すると、これらの4つの画像が表示される。カメラの前に赤いボールを置くと、車が赤いボールを捕まえたことを示す緑の円が表示される。</p>
+<a class="reference internal image-reference" href="_images/image118.jpeg"><img alt="_images/image118.jpeg" class="align-center" src="_images/image118.jpeg" style="width: 6.82292in; height: 4.63056in;" /></a>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="file_analysis.html" class="btn btn-neutral float-right" title="ファイル分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="remote_control.html" class="btn btn-neutral float-left" title="遠隔操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

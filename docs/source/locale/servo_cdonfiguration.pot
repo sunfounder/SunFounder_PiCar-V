@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../servo_cdonfiguration.rst:2
+msgid "Servo Configuration"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:4
+msgid "And since the servos used in this kit are adjusted by software and there's no such physical sticking point as other servos, here we need to configure the servo via software. First you need to finish some software installation before the configuration."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:10
+msgid "Please do not forget to put in the battery and slide the power switch to ON in this chapter."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:14
+msgid "Get Source Code"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:16
+msgid "You can find the source code in our Github repositories. Download the source code by *git clone*:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:25
+msgid "Please pay attention to your typing – if you get the prompt of entering your user name and password, you may have typed wrong. If unluckily you did so, press Ctrl + C to exit and try again."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:29
+msgid "Check by the **ls** command, then you can see the code directory *SunFounder_PiCar-V*:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:38
+msgid "Go to the Code Directory"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:44
+msgid "Enter the code directory and you can see the installation script:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:52
+msgid "Install the Environment via the Script"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:54
+msgid "You can get all the required software and configuration done with the install_dependencies script. If you want to do step by step instead, please follow the instructions in the **Appendix 1: Function of the Server Installation Scripts.**"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:64
+msgid "1. The installation script will install the required components and configure for the running environment. Make sure your Raspberry is connected to the Internet during the installation, or it would fail."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:68
+msgid "2. The Raspberry Pi will prompt you to reboot after the installation. You're recommended to type in **yes** to reboot."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:72
+msgid "Configure the Servo to 90 degrees"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:74
+msgid "After reboot, run the picar tool:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:82
+msgid "If the \"OSError: [Errno 121] Remote I/O error\" error message appears, open raspi-config:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:89
+msgid "Then choose **3 Interfacing Options** → **P5 I2C** → **<YES>** →\\ **OK** to enable I2C service. You can use the up, down, left, and right keys on the keyboard to select, and then press Enter to confirm."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:93
+msgid "After the code is running, insert the rocker arm into the servo. You will see the rocker arm is rotate in clockwise and counterclockwise, then stop at a specific location. It means the servo is good. If the any of the conditions below happened to your servo, your servo is bad:"
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:98
+msgid "Noisy, hot."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:100
+msgid "If unplug the servo line and rotate the rocker arm, it sounds like “ka” “ka” “ka” or there has no sounds of gear driving."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:103
+msgid "Rotate slowly but continuously."
+msgstr ""
+
+#: ../servo_cdonfiguration.rst:105
+msgid "If you find one of the conditions above, please send e-mail to `service@sunfounder.com <mailto:support@sunfounder.com>`__ . We will change a new one to you. If it is broken in the process of using or assembling, you should go to the official website `www.sunfounder.com <http://www.sunfounder.com>`__ to buy."
+msgstr ""

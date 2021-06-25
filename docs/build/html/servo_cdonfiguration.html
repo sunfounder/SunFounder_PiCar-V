@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>サーボ構成 &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Continue to Assemble" href="continue_to_assemble.html" />
+    <link rel="prev" title="Get Started with Raspberry Pi" href="get_started_with_raspberry_pi.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">Components List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">Building the Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">Circuits Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">Get Started with Raspberry Pi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">サーボ構成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-source-code">ソースコードを取得する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#go-to-the-code-directory">コードディレクトリに入る</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-environment-via-the-script">スクリプトを介して環境をインストールする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-servo-to-90-degrees">サーボを 90 度に設定する</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">Continue to Assemble</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">Getting on the Road!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>サーボ構成</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/servo_cdonfiguration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="servo-configuration">
+<h1>サーボ構成<a class="headerlink" href="#servo-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>また、このキットで使用されるサーボはソフトウェアによって調整され、他のサーボほど 物理的な固定点がないため、ここではソフトウェアを介してサーボを構成する。最初に、 構成の前にソフトウェアの実装を完了してください。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>注意：本章では、バッテリーを取り付けて電源スイッチを ON にスライドすることを忘れ ないでください。</p>
+</div>
+<div class="section" id="get-source-code">
+<h2>ソースコードを取得する<a class="headerlink" href="#get-source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ソースコードは Github リポジトリにある。git clone でソースコードをダウンロードする：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">sunfounder</span><span class="o">/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span> <span class="o">-</span><span class="n">b</span> <span class="n">V3</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>注意：入力時に十分に注意してください。ユーザー名とパスワードの入力を求められた場 合は、入力を間違えている可能性がある。それは発生した場合、Ctrl+C を押して終了し、 再試行してください。</p>
+</div>
+<p>ls コマンドで確認すると、コードディレクトリ SunFounder_PiCar-V が表示される：</p>
+<a class="reference internal image-reference" href="_images/image82.png"><img alt="_images/image82.png" class="align-center" src="_images/image82.png" style="width: 6.46875in; height: 3.67708in;" /></a>
+</div>
+<div class="section" id="go-to-the-code-directory">
+<h2>コードディレクトリに入る<a class="headerlink" href="#go-to-the-code-directory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span>
+</pre></div>
+</div>
+<p>コードディレクトリに入ると、インストールスクリプトが表示される：</p>
+<a class="reference internal image-reference" href="_images/image83.png"><img alt="_images/image83.png" class="align-center" src="_images/image83.png" style="width: 6.21528in; height: 1.02292in;" /></a>
+</div>
+<div class="section" id="install-the-environment-via-the-script">
+<h2>スクリプトを介して環境をインストールする<a class="headerlink" href="#install-the-environment-via-the-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>install_dependencies スクリプトを使用して、必要なすべてのソフトウェアと構成を実行 することはできる。代わりに一歩一歩に実行する場合は、「付録 1：サーバーインストー ルスクリプトの機能」の手順に従ってください。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">install_dependencies</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>1.インストールスクリプトは、必要な部品をインストールし、動作環境用に構成する。イ ンストール中に Raspberry がインターネットに接続されていることを確認してくださ い。接続しない場合は、失敗する恐れがある。</p>
+<p>2.インストールを完了した後、Raspberry Pi は再起動すると示す。再起動するには yes と入力してください。</p>
+</div>
+</div>
+<div class="section" id="configure-the-servo-to-90-degrees">
+<h2>サーボを 90 度に設定する<a class="headerlink" href="#configure-the-servo-to-90-degrees" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>再起動後、picar ツールを実行する：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">SunFounder_PiCar</span><span class="o">-</span><span class="n">V</span>
+<span class="n">picar</span> <span class="n">servo</span><span class="o">-</span><span class="n">install</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>「OSError：[Errno 121] Remote I/O error」エラーメッセージが表示された場合は、 raspi-config を開く：</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">raspi</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+</div>
+<p>それから 5 つのインターフェイスオプション「→P5 I2C→ &lt;YES&gt;」を選択し、I2C サー ビスを有効にする。</p>
+<p>コードの実行後、ロッカーアームをサーボに差し込む。ロッカーアームが時計回りと反時 計回りに回転し、特定の位置で停止する。サーボが良い状態にあると示す。以下の条件の いずれかがサーボに発生した場合、サーボは不良である：</p>
+<ol class="arabic simple">
+<li><p>Noisy, hot.</p></li>
+<li><p>If unplug the servo line and rotate the rocker arm, it sounds like
+“ka” “ka” “ka” or there has no sounds of gear driving.</p></li>
+<li><p>Rotate slowly but continuously.</p></li>
+</ol>
+<p>上記の状況のいずれかが発生した場合は、<a class="reference external" href="mailto:cs&#37;&#52;&#48;sunfounder&#46;com">cs<span>&#64;</span>sunfounder<span>&#46;</span>com</a> に送信してくださ い。新品に交換してあげる。使用または組み立ての過程で破損した場合は、公式ウェブサ イト www.sunfounder.com にて購入してください。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="continue_to_assemble.html" class="btn btn-neutral float-right" title="Continue to Assemble" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get_started_with_raspberry_pi.html" class="btn btn-neutral float-left" title="Get Started with Raspberry Pi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

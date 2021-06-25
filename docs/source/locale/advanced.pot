@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../advanced.rst:2
+msgid "Advanced"
+msgstr ""
+
+#: ../advanced.rst:4
+msgid "Now the car is running! You may try control it or view the image captured in Windows, Linux, or Mac OS X."
+msgstr ""
+
+#: ../advanced.rst:7
+msgid "So what to do next?"
+msgstr ""
+
+#: ../advanced.rst:9
+msgid "Yes, sensors! There are 8 digital and 4 analog channels on the Robot HATS, as well as two I2C ports. Plus the 3mm slot on the acrylic plate in the car head, it enables the connection of various sensors, making the car smarter and more intriguing as you want!"
+msgstr ""
+
+#: ../advanced.rst:14
+msgid "And, coding! If you know programming and are capable of compiling code, you may change the code provided for the kit to make the car more fabulous. For instance, you can find the code that controls the front and back wheels in the folder SunFounder_PiCar, downloaded to the directory /home/pi if you've installed the program by install-dependences."
+msgstr ""
+
+#: ../advanced.rst:21
+msgid "You may check what's in the file:"
+msgstr ""
+
+#: ../advanced.rst:28
+msgid "After you've changed the code, you can go to the page of the Github repository for the car, and fork it to help improve it! Also you're quite welcome to post issues and request a pull on our Github page:"
+msgstr ""
+
+#: ../advanced.rst:32
+msgid "PiCar-V: https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
+msgstr ""
+
+#: ../advanced.rst:35
+msgid "PiCar driver: https://github.com/sunfounder/SunFounder_PiCar"
+msgstr ""
+
+#: ../advanced.rst:38
+msgid "And of course, if you have any questions or ideas, please feel free to email us at service@sunfounder.com."
+msgstr ""

@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ファイル分析 &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="高級段階" href="advanced.html" />
+    <link rel="prev" title="ボール_追跡装置" href="ball_tracker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started_with_raspberry_pi.html">ラズベリー パイを始めよう</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="remote_control.html">遠隔操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ball_tracker.html">ボール_追跡装置</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ファイル分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server-code">サーバーコード</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">高級段階</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="getting_on_the_road.html">旅に出よう！</a> &raquo;</li>
+        
+      <li>ファイル分析</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/file_analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="file-analysis">
+<h1>ファイル分析<a class="headerlink" href="#file-analysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>/home/piに2つのフォルダーがある：モーターとステアリングを制御するための**SunFounder_PiCar**と、パン/チルトとワイヤレス制御のための**SunFounder_PiCar-V**ここでPiCar-Vのコードを調べる。</p>
+<p>コードに含まれる内容と指示が多すぎるため、すべての詳細を説明しない。プログラムのPython 2、Python 3、Django、HTML、CSSの詳細については、関連するWebサイトにアクセスするか、または本を購入して自分で学習してください。次のパートでは、全体的な構造とプロセスについて簡単に説明する。</p>
+<p>まず、コードフォルダー内のファイルを確認する：</p>
+<a class="reference internal image-reference" href="_images/image119.jpeg"><img alt="_images/image119.jpeg" class="align-center" src="_images/image119.jpeg" style="width: 1.83681in; height: 3.24236in;" /></a>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>.git``はGitリポジトリのすべての情報を確認するための隠しディレクトリで、リポジトリを作成すると、自動的に生成される。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ball_track</span></code> は車に赤いボールを追跡させるために使用される。</p></li>
+<li><p>`` データシート`` はハードウェアモジュールで使用される一部のチップのマニュアルを保存する。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mjpg-streamer</span></code> はカメラのデータが転送されるオープンソースのストリーミングメディアライブラリである。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>Remote_control``はWebサーバーのコードを保存するためのもので、APIリクエストに基づいて車のモーターとサーボを制御する。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> はGithubリポジトリが同期されるときに無視されるファイルタイプのリクエストを記録する。</p></li>
+<li><p>Pythonパッケージの標準の必要なドキュメントであるプロジェクトを作成すると、<a href="#id1"><span class="problematic" id="id2">``</span></a>_init_.py``は自動的に生成されるため、そのままにしておいてください。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>i2cHelper.py``はI2C接続を構成したり検出したりするためにPython 2によって作成されたPythonスクリプトである。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install_dependencies</span></code>，簡単なインストールと環境設定のための実行可能なbashスクリプト。</p></li>
+<li><p>その名のとおり、<a href="#id1"><span class="problematic" id="id2">``</span></a>LICENSE``はGNU V2ライセンスのテキストファイルである。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>README.md``と``show``はステートメントとプロンプトに関する通常の情報を記録する。</p></li>
+</ul>
+<section id="server-code">
+<h2>サーバーコード<a class="headerlink" href="#server-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>サーバーコードはDjango 1.10に基づいている（必要に応じて最新のリリースに適応する）。これに興味がある場合は、DjangoのWebサイトhttps://www.djangoproject.com/にアクセスするか。ここでは、Webサーバーがどのように機能するかを学習する。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>バグを修正し、一部の関数の更新をリリースするために、Githubでコードが不定期に更新される場合がある。したがって、ここのコードは初期バージョンである。以下の場合、Githubリポジトリの更新を表示できる：</p>
+<p><a class="reference external" href="https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0">https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0</a></p>
+</div>
+<p>コードディレクトリを開き、<a href="#id1"><span class="problematic" id="id2">**</span></a>ls**によってファイルを確認する：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~ $ cd SunFounder_PiCar-V/
+pi@raspberry:~/SunFounder_PiCar-V $ ls
+datasheet   install_dependencies   mjpg-streamer   remote_control
+client          i2cHelper.py       LICENSE         README.md show
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>remote_control``は、Webサーバーのメインコードディレクトリである。cd``remote_control``でコードディレクトリを開き、lsによってファイルを確認する：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~/SunFounder_PiCar-V $ cd remote_control
+pi@raspberry:~/SunFounder_PiCar-V/remote_control $ ls
+db.sqlite3   manage.py   remote_control   start static
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Djangoプロジェクトを作成すると、<a href="#id1"><span class="problematic" id="id2">``</span></a>db.sqlite3``が生成される。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>manage.py``はDjangoプロジェクトのメインプログラムであり、プロジェクトの作成時に生成される。通常は変更する必要はない。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>remote_control``には、メインコードファイルが含まれている。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>start``は``sudo python manage.py runserver 0.0.0.0:8000``を実行するために書かれた小さなスクリプトであり、便宜上、属性のあるインストールを使用したサーボ``インストール``である。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>static``はいくつかの静的な画像をWebに保存するものである。</p></li>
+</ul>
+<p>Djangoウェブサーバーは通常、 <a href="#id1"><span class="problematic" id="id2">``</span></a>sudo python manage.py runserver <a href="#id3"><span class="problematic" id="id4">``</span></a>の実行を通じて起動する。アドレス0.0.0.0:8000は、リスニングアドレスがLAN上のすべてのアドレスをカバーし、ポート番号が8000であることを意味する。ここでは、 <a href="#id5"><span class="problematic" id="id6">``</span></a>remote_control <a href="#id7"><span class="problematic" id="id8">``</span></a>フォルダーのコードに焦点を当てる。 <a href="#id9"><span class="problematic" id="id10">``</span></a>cd remote_control <a href="#id11"><span class="problematic" id="id12">``</span></a>を使用してディレクトリに入る：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~/SunFounder_PiCar-V/remote_control $ cd remote_control
+pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ ls
+driver   \__init__.py   settings.py   templates urls.py   views.py   wsgi.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>driver``は車のドライバーを保存する。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>__init__.py``はPythonパッケージの標準的な必要なドキュメントであるDjangoプロジェクトを作成すると自動的に生成される。そのままにしておいてください。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>settings.py``は自動的に生成され、関連する設定を保存する。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>templates``HTML形式でウェブを格納するためのジャンゴアプリです。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>urls.py``は自動的に生成され、コードに関連付けるURLを構成する。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>views.py``はURLによって関連付けられるページコントロールのコードである。テンプレートを呼び出してページを表示し、ドライバーが車を制御する。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>wsgi.py``は自動的に生成され、変更する必要はない。詳しくはDjangoの公式サイトをご覧ください。</p></li>
+</ul>
+<p>これがコードの動作原理である。<a href="#id1"><span class="problematic" id="id2">``</span></a>urls.py``に自動的に関連付けられるメインプログラム``manage.py``を実行して、URLに応答する。ChromeのようなWebブラウザを実行して``http://&lt;rpi_ip_address&gt;:&lt;port&gt; <a href="#id3"><span class="problematic" id="id4">``</span></a>または、クライアントを介して構成済みのAPIにアクセスすると、<a href="#id5"><span class="problematic" id="id6">``</span></a>urls.py``の関連付けにより、<a href="#id7"><span class="problematic" id="id8">``</span></a>manage.py``が``views.py``に変わる。次に、<a href="#id9"><span class="problematic" id="id10">``</span></a>views.py``はこれを処理し、テンプレートをブラウザに返す。さらに、ブラウザーで設定されたパラメーターに基づいて``driver``パッケージを呼び出し、車を制御する。</p>
+<p>ここで、フォルダー``driver``を開き、以下を確認する：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd driver/
+pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ ls
+camera.py   config   \__init__.py   stream.py
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">driver</span></code> フォルダーには、主にパン＆チルトを制御するためのドライバーモジュールとカメラストリーマーが含まれている。</p>
+<p>パン＆チルトを制御するための``camera.py``。</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>config``は補正データを保存するために使用される。</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>__init__.py``はパッケージの必須ファイルであり、そのままにしておいて下さい。</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>stream.py``はMJPG-streamerに基づくビデオストリーミングサービスである。</p>
+<p>表示するフォルダ``templates``を終了して開くと、以下が表示される：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/driver $ cd ../
+pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control $ cd templates/
+admin.py   \__init__.py   models.py   tests.py
+apps.py    migrations     templates   views.py
+</pre></div>
+</div>
+<p>このフォルダーは、テンプレートを簡単に呼び出すために、`` manage.py startapp`` によって作成される。したがって、`` templates`` 以外のファイルは変更されていない。<a href="#id1"><span class="problematic" id="id2">``</span></a>templates``をもう一度開く：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates $ cd templates
+pi@raspberry:~/SunFounder_PiCar-V/remote_control/remote_control/templates/templates $ ls
+base.html   cali.html   run.html
+</pre></div>
+</div>
+<p>レイヤーで構成される3つのHTMLファイルがある。低レベルの <a href="#id1"><span class="problematic" id="id2">``</span></a>base.html <a href="#id3"><span class="problematic" id="id4">``</span></a>には、デフォルトでは、HTMLの `` &lt;head&gt; <a href="#id5"><span class="problematic" id="id6">``</span></a>、レイアウト全体、とホームページのコンテンツが含まれている。表層：補正用の <a href="#id7"><span class="problematic" id="id8">``</span></a>cali.html <a href="#id9"><span class="problematic" id="id10">``</span></a>と、車を制御するための <a href="#id11"><span class="problematic" id="id12">``</span></a>run.html <a href="#id13"><span class="problematic" id="id14">``</span></a>。</p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced.html" class="btn btn-neutral float-right" title="高級段階" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ball_tracker.html" class="btn btn-neutral float-left" title="ボール_追跡装置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

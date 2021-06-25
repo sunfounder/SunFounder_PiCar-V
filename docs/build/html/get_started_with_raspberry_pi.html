@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ラズベリー パイを始めよう &mdash; SunFounder PiCar-V Car Kit  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://ezblock.cc/readDocFile/topHead.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://ezblock.cc/readDocFile/topHead.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="サーボ構成" href="servo_cdonfiguration.html" />
+    <link rel="prev" title="回路構築" href="circuits_building.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SunFounder PiCar-V Car Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="components_list.html">部品一覧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">前書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_the_car.html">車の組み立て</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circuits_building.html">回路構築</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ラズベリー パイを始めよう</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-os">オペレーティングシステムのインストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#power-on-the-raspberry-pi"><strong>Raspberry Piの電源を入れる</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-the-ip-address"><strong>IPアドレスを取得する</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-ssh-remote-control"><strong>SSHリモートコントロールを使用する</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servo_cdonfiguration.html">サーボ構成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue_to_assemble.html">組み立てを続ける</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_on_the_road.html">旅に出よう！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">付録</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SunFounder PiCar-V Car Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ラズベリー パイを始めよう</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/get_started_with_raspberry_pi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="get-started-with-raspberry-pi">
+<h1>ラズベリー パイを始めよう<a class="headerlink" href="#get-started-with-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>この章では、まずラズベリーパイの起動方法を学びます。内容には、オペレーティングシステム、ラズベリーパイネットワークをインストールする方法とターミナルの開き方が含まれます。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>1.You can check the complete tutorial on the official website of the Raspberry Pi:
+<a class="reference external" href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up">https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up</a></p>
+<p>2.If your Raspberry Pi is set up, you can skip the part and go into
+the next chapter.</p>
+</div>
+<section id="installing-the-os">
+<h2>オペレーティングシステムのインストール<a class="headerlink" href="#installing-the-os" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>必要なコンポーネント</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>任意のラズベリーパイ</p></td>
+<td><p>パーソナルコンピュータ*1台</p></td>
+</tr>
+<tr class="row-even"><td><p>マイクロSDカード*1枚</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ステップ1</strong></p>
+<p>ラズベリーパイが開発したグラフィカルなSDカード書き込みツールは、Mac OS、Ubuntu 18.04、Windowsで動作し、イメージをダウンロードして自動的にSDカードにインストールしてくれるので、ほとんどのユーザーにとって最も簡単なオプションです。</p>
+<p>ダウンロードページにアクセスします。<a class="reference external" href="https://www.raspberrypi.org/software/">https://www.raspberrypi.org/software/</a>。お使いのオペレーティングシステムに合ったラズベリーパイイメージャーのリンクをクリックし、ダウンロードが終了したら、それをクリックしてインストーラーを起動します。</p>
+<a class="reference internal image-reference" href="_images/image67.png"><img alt="_images/image67.png" class="align-center" src="_images/image67.png" style="width: 3.94306in; height: 2.05278in;" /></a>
+<p><strong>ステップ2</strong></p>
+<p>インストーラーを起動すると、オペレーティングシステムが実行をブロックしようとする場合があります。例えば、Windowsでは次のようなメッセージが表示されます。</p>
+<p>これがポップアップされたら、順次に「<strong>More info</strong>」と「<strong>Run anyway</strong>」をクリックした後、指示に従ってラズベリーパイイメージャーをインストールします。</p>
+<a class="reference internal image-reference" href="_images/image68.png"><img alt="_images/image68.png" class="align-center" src="_images/image68.png" style="width: 5.54167in; height: 1.48958in;" /></a>
+<p><strong>ステップ3</strong></p>
+<p>SDカードをパソコンやノートパソコンのSDカードスロットに挿入します。</p>
+<p><strong>ステップ4</strong></p>
+<p>ラズベリーパイイメージャーで、インストールしたいオペレーティングシステムとSDカードを選択します。</p>
+<a class="reference internal image-reference" href="_images/image69.png"><img alt="_images/image69.png" class="align-center" src="_images/image69.png" style="width: 6.93681in; height: 2.44861in;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>1.You will need to be connected to the internet the first time.</p>
+<p>2.That OS will then be stored for future offline
+use(lastdownload.cache, C:UsersyournameAppDataLocalRaspberry
+PiImagercache, ). So the next time you open the software, it will
+have the display &quot;Released: date, cached on your computer&quot;.</p>
+</div>
+<p><strong>ステップ5</strong></p>
+<p>使用中のSDカードを選択します。</p>
+<a class="reference internal image-reference" href="_images/image70.png"><img alt="_images/image70.png" class="align-center" src="_images/image70.png" style="width: 7.11458in; height: 2.80208in;" /></a>
+<p><strong>ステップ6</strong></p>
+<p>「<strong>Ctrl+Shift+X</strong>」を押すと、SSHの有効化と無線LANの設定を行うための「<strong>詳細オプション</strong>」ページが開きます。この2つの項目は必ず設定する必要がありますが、その他の項目はあなたの選択次第です。このイメージカスタマイズオプションを常に使用するように選択することができます。</p>
+<a class="reference internal image-reference" href="_images/image71.png"><img alt="_images/image71.png" class="align-center" src="_images/image71.png" style="width: 7.11458in; height: 4.70833in;" /></a>
+<p>その後、下にスクロールしてWifiの設定を完了し、「<strong>保存</strong>」をクリックします。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>wifiの所在地**は、ラズベリーパイを使用している国の`ISO/IEC alpha2 code &lt;<a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements</a>&gt;`__の2文字のコードを設定してください、以下のリンクを参照してください：</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements</a></p>
+</div>
+<a class="reference internal image-reference" href="_images/image72.png"><img alt="_images/image72.png" class="align-center" src="_images/image72.png" style="width: 6.14583in; height: 3.85972in;" /></a>
+<p><strong>ステップ7</strong></p>
+<p>「<strong>書込み</strong>」ボタンをクリックします。</p>
+<a class="reference internal image-reference" href="_images/image73.png"><img alt="_images/image73.png" class="align-center" src="_images/image73.png" style="width: 6.20833in; height: 3.18125in;" /></a>
+<p><strong>ステップ8</strong></p>
+<p>SDカードに何らかのファイルが保存されている場合は、それらのファイルを永久に失わないようにするために、まずそれらのファイルをバックアップすることをお勧めします。バックアップするファイルがない場合は、「<strong>イェス</strong>」をクリックします。</p>
+<a class="reference internal image-reference" href="_images/image74.png"><img alt="_images/image74.png" class="align-center" src="_images/image74.png" style="width: 6.80972in; height: 3.65278in;" /></a>
+<p><strong>ステップ9</strong></p>
+<p>一定時間を待った後、書き込み完了を表す以下のウィンドウが表示されます。</p>
+<a class="reference internal image-reference" href="_images/image75.png"><img alt="_images/image75.png" class="align-center" src="_images/image75.png" style="width: 6.59375in; height: 3.48958in;" /></a>
+<section id="power-on-the-raspberry-pi">
+<h3><strong>Raspberry Piの電源を入れる</strong><a class="headerlink" href="#power-on-the-raspberry-pi" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>USBカードリーダーを接続し、マイクロSDカードをRaspberry Piに接続する。</p>
+<p>フル充電された2つの18650バッテリーをホルダーに取り付け、バッテリーホルダーからのワイヤを開発ボードに差し込み、スイッチをオフからオンに切り替える。<strong>最初のテストに時間がかかるため、Raspberry Piの電源アダプターを使用して車に電源を供給することもお勧めします。</strong></p>
+</section>
+<section id="get-the-ip-address">
+<h3><strong>IPアドレスを取得する</strong><a class="headerlink" href="#get-the-ip-address" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Raspberry Piの電源を電源アダプターで入れたら、IPアドレスを取得する必要がある。IPアドレスを知る方法はたくさんあるが、そのうちの2つを以下のように示す。</p>
+<p><strong>1. ルーター経由で確認する</strong></p>
+<p>ルーター（ホームネットワークなど）にログインする権限がある場合は、ルーターの管理インターフェイスでRaspberry Piに割り当てられたアドレスを確認できる。</p>
+<p>システムのデフォルトのホスト名－Raspberry Pi OSは**raspberrypi**であり、それを見つける必要がある。（ArchLinuxARMシステムを使用している場合は、alarmpiを見つけてください。）</p>
+<p><strong>2. ネットワークセグメントスキャン</strong></p>
+<p>ネットワークスキャンを使用して、Raspberry PiのIPアドレスを検索することもできる。ソフトウェア、<a href="#id1"><span class="problematic" id="id2">**</span></a>アドバンスドIPスキャナー（Googleからダウンロード）**を使える。</p>
+<p>「<strong>スキャン</strong>」をクリックすると、接続されているすべてのデバイスの名前が表示される。同様に、Raspberry Pi OSのデフォルトのホスト名**はraspberrypi**であり、今ホスト名とそのIPを見つけてください。</p>
+<a class="reference internal image-reference" href="_images/image76.png"><img alt="_images/image76.png" class="align-center" src="_images/image76.png" style="width: 6.38611in; height: 2.41736in;" /></a>
+</section>
+<section id="use-the-ssh-remote-control">
+<h3><strong>SSHリモートコントロールを使用する</strong><a class="headerlink" href="#use-the-ssh-remote-control" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>SSHを適用することにより、Raspberry PiのBash Shellを開くことができる。BashはLinuxの標準のデフォルトシェルである。シェル自体は、お客様とUnix/Linuxをリンクするブリッジである「C」で書き込まれるプログラムである。さらに、必要な作業のほとんどを完了することに役立ち。</p>
+<ul class="simple">
+<li><p><strong>Linuxまたは/ Mac OS Xユーザーの場合</strong></p></li>
+</ul>
+<p><strong>ステップ1</strong></p>
+<p><strong>アプリケーション</strong>-&gt;、<a href="#id1"><span class="problematic" id="id2">**</span></a>ユーティリティ**に入り、ターミナルを見つけてから開く。</p>
+<p><strong>ステップ2</strong></p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ssh pi &#64; ip_address**を入力する。「pi」はユーザー名で、「ip_address」はIP アドレスである。例えば：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">pi</span><span class="nd">@192.168.18.197</span>
+</pre></div>
+</div>
+<p><strong>ステップ3</strong></p>
+<p>「<strong>yes</strong>」を入力する。</p>
+<a class="reference internal image-reference" href="_images/image77.png"><img alt="_images/image77.png" class="align-center" src="_images/image77.png" style="width: 550px;" /></a>
+<p><strong>ステップ4</strong></p>
+<p>デフォルトのパスワード「<strong>raspberry</strong>」を入力する。</p>
+<a class="reference internal image-reference" href="_images/image78.png"><img alt="_images/image78.png" class="align-center" src="_images/image78.png" style="width: 6.69861in; height: 2.16736in;" /></a>
+<p><strong>ステップ5</strong></p>
+<p>これで、Raspberry Piが接続され、次のステップに進む準備ができた。</p>
+<a class="reference internal image-reference" href="_images/image79.png"><img alt="_images/image79.png" class="align-center" src="_images/image79.png" style="width: 6.13611in; height: 1.71944in;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>パスワードを入力すると、ウィンドウに文字が表示されないが、これは正常である。必要なのは、正しいパスコードを入力するだけである。</p>
+</div>
+<ul class="simple">
+<li><p><strong>Windowsユーザーの場合</strong></p></li>
+</ul>
+<p>Windowsユーザーの場合、いくつかのソフトウェアのアプリケーションでSSHを使用できる。ここでは、<strong>PuTTY</strong>、を推薦する（Googleからダウンロードできる）。</p>
+<p><strong>ステップ1</strong></p>
+<p>PuTTYをダウンロードする。PuTTYを開き、左側のツリー構造にある**セッション**をクリックする。「<a href="#id1"><span class="problematic" id="id2">**</span></a>ホスト名」（またはIPアドレス）**の下のテキストボックスにRPiのIPアドレスを入力し、<a href="#id3"><span class="problematic" id="id4">**</span></a>ポート**に**22**（デフォルトでは22）を入力する。</p>
+<a class="reference internal image-reference" href="_images/image80.png"><img alt="_images/image80.png" class="align-center" src="_images/image80.png" style="width: 4.79306in; height: 4.24931in;" /></a>
+<p><strong>ステップ2</strong></p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>開**くをクリックする。IPアドレスを使用してRaspberry Piに初めてログインすると、安全上の指示が表示されることに注意してください。<a href="#id3"><span class="problematic" id="id4">**</span></a>Yes**をクリックする。</p>
+<p><strong>ステップ3</strong></p>
+<p>PuTTYウィンドウに「<strong>login as：</strong>」と表示されたら、「<strong>pi</strong>」（RPiのユーザー名）と**パスワード**「<strong>raspberry</strong>」（変更していない場合はデフォルトのパスワードである）を入力する。</p>
+<a class="reference internal image-reference" href="_images/image81.png"><img alt="_images/image81.png" class="align-center" src="_images/image81.png" style="width: 7.02083in; height: 2.33333in;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>パスワードを入力すると、ウィンドウに文字が表示されないが、これは正常である。必要なのは、正しいパスコードを入力するだけである。</p>
+</div>
+<p>ここで、Raspberry Piを接続し、次の手順を実行する。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="servo_cdonfiguration.html" class="btn btn-neutral float-right" title="サーボ構成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="circuits_building.html" class="btn btn-neutral float-left" title="回路構築" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, SunFounder
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

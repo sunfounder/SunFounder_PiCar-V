@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-19 18:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../components_list.rst:2
+msgid "Components List"
+msgstr ""
+
+#: ../components_list.rst:5
+msgid "Plates"
+msgstr ""
+
+#: ../components_list.rst:11
+msgid "Upper Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:13
+msgid "Front Half Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:15
+msgid "Back Half Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:17
+msgid "Pan-and-tilt Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:19
+msgid "Pan-and-tilt Base Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:21
+msgid "Camera Mount Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:23
+msgid "Steering Connector Plate x 2"
+msgstr ""
+
+#: ../components_list.rst:25
+msgid "Bearing Shield x 8"
+msgstr ""
+
+#: ../components_list.rst:27
+msgid "Steering Linkage Plate x 1"
+msgstr ""
+
+#: ../components_list.rst:29
+msgid "Hex Front Wheel Fixing Plate x 8"
+msgstr ""
+
+#: ../components_list.rst:31
+msgid "Gasket Plate x 2"
+msgstr ""
+
+#: ../components_list.rst:35
+msgid "The Bearing Shield is similar to the Gasket Plate, but the aperture of Gasket Plate is large than the Bearing Shield."
+msgstr ""
+
+#: ../components_list.rst:38
+msgid "Servo x 3"
+msgstr ""
+
+#: ../components_list.rst:44
+msgid "Servo"
+msgstr ""
+
+#: ../components_list.rst:46
+msgid "1-arm Rocker Arm"
+msgstr ""
+
+#: ../components_list.rst:48
+msgid "arm Rocker Arm"
+msgstr ""
+
+#: ../components_list.rst:50
+msgid "4-arm Rocker Arm"
+msgstr ""
+
+#: ../components_list.rst:52
+msgid "Rocker Arm Fixing Screw"
+msgstr ""
+
+#: ../components_list.rst:54
+msgid "Rocker Arm Screw"
+msgstr ""
+
+#: ../components_list.rst:57
+msgid "Mechanical Fasteners"
+msgstr ""
+
+#: ../components_list.rst:66
+msgid "Wires"
+msgstr ""
+
+#: ../components_list.rst:72
+msgid "PCB"
+msgstr ""
+
+#: ../components_list.rst:81
+msgid "Other Components"
+msgstr ""
+
+#: ../components_list.rst:90
+msgid "Tools"
+msgstr ""
+
+#: ../components_list.rst:96
+msgid "Self-provided Components"
+msgstr ""
+
+#: ../components_list.rst:98
+msgid "The following components are not included in this kit."
+msgstr ""
+
+#: ../components_list.rst:104
+msgid "1. You are recommend to use 18650 batteries **without** a protective board. Otherwise, the car may be cut power and stop running because of the overcurrent protection of the protective board."
+msgstr ""
+
+#: ../components_list.rst:108
+msgid "2. For unprotected batteries, please purchase those with the anode bulged out (as shown below), so that it can ensure the well connection with the battery holder."
+msgstr ""
+
+#: ../components_list.rst:116
+msgid "3. In order to keep the car working for a long time, use large-capacity batteries as much as possible"
+msgstr ""
