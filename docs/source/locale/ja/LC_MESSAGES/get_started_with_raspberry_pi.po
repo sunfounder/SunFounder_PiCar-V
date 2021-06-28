@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-20 18:07+0800\n"
-"PO-Revision-Date: 2021-05-28 21:15+0800\n"
+"PO-Revision-Date: 2021-06-25 17:26+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,14 +166,14 @@ msgid ""
 "configure wifi, these 2 items must be set, the others depend on your choice . You can "
 "choose to always use this image customization options."
 msgstr ""
-"「**Ctrl+Shift+X**」を押すと、SSHの有効化と無線LANの設定を行うための「**詳細オプション"
-"**」ページが開きます。この2つの項目は必ず設定する必要がありますが、その他の項目はあなた"
-"の選択次第です。このイメージカスタマイズオプションを常に使用するように選択することができ"
-"ます。"
+"「**Ctrl+Shift+X**」を押すと、SSHの有効化と無線LANの設定を行うための「**Advanced "
+"options**」ページが開きます。この2つの項目は必ず設定する必要がありますが、その他の項目は"
+"あなたの選択次第です。このイメージカスタマイズオプションを常に使用するように選択すること"
+"ができます。"
 
 #: ../get_started_with_raspberry_pi.rst:98
 msgid "Then scroll down to complete the wifi configuration and click **SAVE**."
-msgstr "その後、下にスクロールしてWifiの設定を完了し、「**保存**」をクリックします。"
+msgstr "その後、下にスクロールしてWifiの設定を完了し、「**SAVE**」をクリックします。"
 
 #: ../get_started_with_raspberry_pi.rst:102
 msgid ""
@@ -181,9 +181,8 @@ msgid ""
 "wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__ for the "
 "country in which you are using your Raspberry Pi, please refer to the following link:"
 msgstr ""
-"**wifiの所在地**は、ラズベリーパイを使用している国の`ISO/IEC alpha2 code <https://en."
-"wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__の2文字のコー"
-"ドを設定してください、以下のリンクを参照してください："
+"**wifi country**は、ラズベリーパイを使用している国のの2文字のコードを設定してください、"
+"以下のリンクを参照してください："
 
 #: ../get_started_with_raspberry_pi.rst:107
 msgid "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements"
@@ -196,7 +195,7 @@ msgstr "**ステップ7**"
 
 #: ../get_started_with_raspberry_pi.rst:116
 msgid "Click the **WRITE** button."
-msgstr "「**書込み**」ボタンをクリックします。"
+msgstr "「**WRITE**」ボタンをクリックします。"
 
 #: ../get_started_with_raspberry_pi.rst:123
 msgid "**Step 8**"
@@ -210,7 +209,7 @@ msgid ""
 msgstr ""
 "SDカードに何らかのファイルが保存されている場合は、それらのファイルを永久に失わないように"
 "するために、まずそれらのファイルをバックアップすることをお勧めします。バックアップする"
-"ファイルがない場合は、「**イェス**」をクリックします。"
+"ファイルがない場合は、「**Yes**」をクリックします。"
 
 #: ../get_started_with_raspberry_pi.rst:134
 msgid "**Step 9**"
@@ -286,7 +285,7 @@ msgid ""
 "apply the software, **Advanced IP scanner(download from Google)**."
 msgstr ""
 "ネットワークスキャンを使用して、Raspberry PiのIPアドレスを検索することもできる。ソフト"
-"ウェア、**アドバンスドIPスキャナー（Googleからダウンロード）**を使える。"
+"ウェア、**Advanced IP scanner（Googleからダウンロード）**を使える。"
 
 #: ../get_started_with_raspberry_pi.rst:179
 msgid ""
@@ -294,9 +293,9 @@ msgid ""
 "default hostname of the Raspberry Pi OS is **raspberrypi**, now you need to find the "
 "hostname and its IP."
 msgstr ""
-"「**スキャン**」をクリックすると、接続されているすべてのデバイスの名前が表示される。同様"
-"に、Raspberry Pi OSのデフォルトのホスト名**はraspberrypi**であり、今ホスト名とそのIPを見"
-"つけてください。"
+"「**Scan**」をクリックすると、接続されているすべてのデバイスの名前が表示される。同様に、"
+"Raspberry Pi OSのデフォルトのホスト名は**raspberrypi**であり、今ホスト名とそのIPを見つけ"
+"てください。"
 
 #: ../get_started_with_raspberry_pi.rst:189
 msgid "**Use the SSH Remote Control**"
@@ -319,7 +318,7 @@ msgstr "**Linuxまたは/ Mac OS Xユーザーの場合**"
 
 #: ../get_started_with_raspberry_pi.rst:200
 msgid "Go to **Applications**->\\ **Utilities**, find the **Terminal**, and open it."
-msgstr "**アプリケーション**->、**ユーティリティ**に入り、ターミナルを見つけてから開く。"
+msgstr "**Applications**->、**Utilities**に入り、**Terminal**を見つけてから開く。"
 
 #: ../get_started_with_raspberry_pi.rst:205
 msgid ""
@@ -367,16 +366,16 @@ msgid ""
 "Enter the IP address of the RPi in the text box under **Host Name (or IP address)** and "
 "**22** under **Port** (by default it is 22)."
 msgstr ""
-"PuTTYをダウンロードする。PuTTYを開き、左側のツリー構造にある**セッション**をクリックす"
-"る。「**ホスト名」（またはIPアドレス）**の下のテキストボックスにRPiのIPアドレスを入力"
-"し、**ポート**に**22**（デフォルトでは22）を入力する。"
+"PuTTYをダウンロードする。PuTTYを開き、左側のツリー構造にある**Session**をクリックする。"
+"**「Host Name」（またはIPアドレス）**の下のテキストボックスにRPiのIPアドレスを入力し、"
+"**Port**に**22**（デフォルトでは22）を入力する。"
 
 #: ../get_started_with_raspberry_pi.rst:262
 msgid ""
 "Click **Open**. Note that when you first log in to the Raspberry Pi with the IP "
 "address, there prompts a security reminder. Just click **Yes**."
 msgstr ""
-"**開**くをクリックする。IPアドレスを使用してRaspberry Piに初めてログインすると、安全上の"
+"**Open**をクリックする。IPアドレスを使用してRaspberry Piに初めてログインすると、安全上の"
 "指示が表示されることに注意してください。**Yes**をクリックする。"
 
 #: ../get_started_with_raspberry_pi.rst:267

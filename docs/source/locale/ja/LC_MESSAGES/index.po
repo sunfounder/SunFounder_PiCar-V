@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-20 18:07+0800\n"
-"PO-Revision-Date: 2021-05-28 21:20+0800\n"
+"PO-Revision-Date: 2021-06-25 16:58+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,10 +17,11 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "X-Generator: Poedit 2.4.3\n"
+"Language: ja\n"
 
 #: ../index.rst:2
 msgid "SunFounder PiCar-V Smart Car Kit for Raspberry Pi"
-msgstr "SunFounder PiCar-V Smart Car Kit for Raspberry Pi"
+msgstr "SunFounder PiCar-V  Raspberry Pi スマートロボットカーキット"
 
 #: ../index.rst:5
 msgid "About the PiCar-V"
@@ -54,8 +55,7 @@ msgstr ""
 
 #: ../index.rst:18
 msgid "You are welcomed to post requests and issues on our page on Github."
-msgstr ""
-"あなたはGithubの上で我々のページのポストリクエストと問題に歓迎されます。"
+msgstr "Githubの上で弊社のページでお気軽いに問い合わせください。"
 
 #: ../index.rst:20
 msgid ""
@@ -63,13 +63,13 @@ msgid ""
 "free to send Email and we will update to our online tutorials as soon as "
 "possible, any suggestions are welcomed."
 msgstr ""
-"あなたが我々が持っていないもう一つのプロジェクトを学びたいならば、メール"
-"を送って、我々が我々のオンラインチュートリアルをできるだけ早く更新すると"
-"感じてください、どんな提案も歓迎されます。"
+"製品の関するご意見、またはマニュアルにない新しいプロジェクトを学習したい"
+"場合は、遠慮なくこちらまでご連絡くだだい。できるだけ早めにマニュアルに更"
+"新します。"
 
 #: ../index.rst:22
 msgid "Here is the Email: cs@sunfounder.com."
-msgstr "電子メール：cs@sunfounder.com。"
+msgstr "サポートメールアドレスはこちらまで：cs@sunfounder.com"
 
 #: ../index.rst:38
 msgid "Copyright Notice"
