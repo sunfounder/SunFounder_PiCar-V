@@ -32,7 +32,7 @@ msgid ""
 "Use the Raspberry Pi as the **server**. Run a web server with an API for "
 "controlling the car and transmitting images captured by the camera."
 msgstr ""
-"Raspberry Piを**server**として使う。車を制御し、カメラでキャプチャした画"
+"Raspberry Piを **server** として使う。車を制御し、カメラでキャプチャした画"
 "像を送信するためのAPIを使用してWebサーバーを実行する。"
 
 #: ../remote_control.rst:9
@@ -41,7 +41,7 @@ msgid ""
 "images from the camera and control the car by calling the API of the web "
 "server."
 msgstr ""
-"次に、PC、携帯電話、タブレットを**client**として、カメラから画像を取得"
+"次に、PC、携帯電話、タブレットを **client** として、カメラから画像を取得"
 "し、WebサーバーのAPIを呼び出して車を制御します。"
 
 #: ../remote_control.rst:13
@@ -62,8 +62,8 @@ msgid ""
 "Remotely log into the Raspberry Pi. Run the startup script **start** "
 "under the **remote_control** directory to start the web service."
 msgstr ""
-"Raspberry Piにリモートでログインする。**remote_control**ディレクトリの下"
-"で起動スクリプト**start**を実行して、Webサービスを開始する。"
+"Raspberry Piにリモートでログインする。**remote_control** ディレクトリの下"
+"で起動スクリプト **start** を実行して、Webサービスを開始する。"
 
 #: ../remote_control.rst:29
 msgid ""
@@ -113,9 +113,9 @@ msgid ""
 "**turn left**, and **turn right**, press the arrow keys to control the "
 "camera’s movement, and number **1~5** to change the speed level."
 msgstr ""
-"このページでは、キーボードの**W**、**A**、**S**、**D**キーを押して、車を"
-"**前方**、**後方**、**左折**、**右折**に制御したり、矢印キーを押してカメ"
-"ラの移動を制御したりすることができ、数値**1〜5**は速度レベルを変更する。"
+"このページでは、キーボードの **W**、**A**、**S**、**D** キーを押して、車を"
+"**前方**、**後方**、**左折**、**右折** に制御したり、矢印キーを押してカメ"
+"ラの移動を制御したりすることができ、数値 **1〜5** は速度レベルを変更する。"
 
 #: ../remote_control.rst:67
 msgid "**Calibration**"
@@ -127,7 +127,7 @@ msgid ""
 "the setting button at the top-right corner of the page to go to the "
 "calibration page:"
 msgstr ""
-"もう一度**FULLSCREEN**をクリックして、タイトルバーを表示する。次に、ペー"
+"もう一度 **FULLSCREEN** をクリックして、タイトルバーを表示する。次に、ペー"
 "ジの右上隅にある設定ボタンをタップして、補正ページに進む。"
 
 #: ../remote_control.rst:78
@@ -135,7 +135,7 @@ msgid ""
 "There are three calibration parts: **Camera Calibration**, **Front "
 "Wheels Calibration** and **Rear Wheels Calibration**."
 msgstr ""
-"補正には、**カメラ補正**、**前輪補正**、**後輪補正**の3つの部分が含まれて"
+"補正には、**カメラ補正**、**前輪補正**、**後輪補正** の3つの部分が含まれて"
 "いる。"
 
 #: ../remote_control.rst:81
@@ -144,8 +144,8 @@ msgid ""
 "**Left** and **Right** in **Rear Wheels Calibration** to adjust the "
 "angle of the wheel."
 msgstr ""
-"このページに入ると、車が前進する。そうでない場合は、**後輪補正**の**左**"
-"と**右**をクリックして、ホイールの角度を調整する。"
+"このページに入ると、車が前進する。そうでない場合は、**後輪補正** の **左**"
+"と **右** をクリックして、ホイールの角度を調整する。"
 
 #: ../remote_control.rst:86
 msgid ""
@@ -157,7 +157,7 @@ msgstr ""
 
 #: ../remote_control.rst:89
 msgid "Click **OK** to save the result after all the calibration is done."
-msgstr "すべての補正が完了したら、**OK**をクリックして結果を保存する。"
+msgstr "すべての補正が完了したら、**OK** をクリックして結果を保存する。"
 
 #: ../remote_control.rst:91
 msgid "**For Mobile Phones**"
@@ -171,10 +171,10 @@ msgid ""
 "direction of the car and the pan-and-tilt. But you can only tab one "
 "touch point at **one** time."
 msgstr ""
-"また、携帯電話の場合は、**FULLSCREEN**ボタンをタップすると、表示とパ"
+"また、携帯電話の場合は、**FULLSCREEN** ボタンをタップすると、表示とパ"
 "フォーマンスが向上する。次に、ページ上の5つの速度レベルのボタンをタップし"
 "て速度を制御し、矢印ボタンを押して車の方向とパン＆チルトを制御する。ただ"
-"し、**一度**にタブできるのは1つのタッチポイントのみである。"
+"し、**一度** にタブできるのは1つのタッチポイントのみである。"
 
 #: ../remote_control.rst:104
 msgid "Take this screenshot from an Android phone:"
@@ -188,7 +188,7 @@ msgid ""
 "repository and submit a Pull request with your changes. If there is no "
 "problem after testing, we are more than pleased to merge your request."
 msgstr ""
-"見た目はPCほど良くないかもしれないが、以降の更新は**Github**で不定期にリ"
+"見た目はPCほど良くないかもしれないが、以降の更新は **Github** で不定期にリ"
 "リースされる可能性がある。リポジトリを使い、変更を加えたプルリクエストを"
 "送信してください。テスト後に問題がなければ、リクエストを知ることは楽しみ"
 "である。"

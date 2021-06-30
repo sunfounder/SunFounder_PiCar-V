@@ -39,7 +39,7 @@ msgid ""
 "Mount the **Steering Servo** to the Upper Plate with two **M2x8 Screws** "
 "and **M2 nuts** (pay attention to the direction of the servo wires):"
 msgstr ""
-"2つの**M2x8ネジ**と**M2ナット**を使ってステアリングサーボを上部プレートに"
+"2つの **M2x8ネジ** と **M2ナット** を使ってステアリングサーボを上部プレートに"
 "取り付ける（サーボワイヤーの方向に注意してください）。"
 
 #: ../continue_to_assemble.rst:18
@@ -52,7 +52,7 @@ msgid ""
 "Servo shaft, and then fixed with **Rocker Arm Fixing Screw** (the "
 "shortest)."
 msgstr ""
-"**ロッカーアーム固定ネジ**（最短）で**ステアリングリンケージ**をロッカー"
+"**ロッカーアーム固定ネジ**（最短）で **ステアリングリンケージ** をロッカー"
 "アームに接続する。"
 
 #: ../continue_to_assemble.rst:27
@@ -64,7 +64,7 @@ msgid ""
 "Assemble the **Front Half Chassis** with four **M3x25 copper standoffs** "
 "and **M3 nuts**."
 msgstr ""
-"4つの**M3x25銅製スタンドオフ**と**M3ナットでフロントハーフシャーシ**を組"
+"4つの **M3x25銅製スタンドオフ** と **M3ナットでフロントハーフシャーシ** を組"
 "み立てる。"
 
 #: ../continue_to_assemble.rst:38
@@ -80,7 +80,7 @@ msgid ""
 "Hold them carefully, turn upside down, and fasten the standoffs and "
 "Upper Plate with four **M3x8 screws.**"
 msgstr ""
-"入念に持ち、上下を逆にして、4本の**M3x8ネジ**でスタンドオフと上部プレート"
+"入念に持ち、上下を逆にして、4本の **M3x8ネジ** でスタンドオフと上部プレート"
 "を固定する。"
 
 #: ../continue_to_assemble.rst:52
@@ -89,8 +89,8 @@ msgid ""
 "Mount Plate** with the **Rocker Arm Fixing Screw** in a fixed angle as "
 "shown below:"
 msgstr ""
-"以下に示すように、組み立てられた**パン＆チルトプレート**、**ガスケットプ"
-"レート**と**カメラマウントプレート**を**ロッカーアーム固定ネジ**で固定角"
+"以下に示すように、組み立てられた **パン＆チルトプレート**、**ガスケットプ"
+"レート** と **カメラマウントプレート** を **ロッカーアーム固定ネジ** で固定角"
 "度で組み立てる:"
 
 #: ../continue_to_assemble.rst:57
@@ -104,15 +104,15 @@ msgid ""
 "Screw** and the **Gasket Plate** in the angle as shown below."
 msgstr ""
 "同様に、サーボシャフトが90度に回転していることを確認する。次に、以下に示"
-"す角度で、**パン＆チルトベースプレート**を**ロッカーアーム固定ネジ**と**"
-"ガスケットプレート**で組み立てる。"
+"す角度で、**パン＆チルトベースプレート** を **ロッカーアーム固定ネジ** と **"
+"ガスケットプレート** で組み立てる。"
 
 #: ../continue_to_assemble.rst:69
 msgid ""
 "Assemble the **Pan-and-tilt Plate** to the car with two **M3x10 screws** "
 "and the **M3 nuts.**"
 msgstr ""
-"2つの**M3x10ネジ**と**M3ナット**を使用して、**パン＆チルトプレート**を車"
+"2つの **M3x10ネジ** と **M3ナット** を使用して、**パン＆チルトプレート** を車"
 "に取り付ける。"
 
 #: ../continue_to_assemble.rst:76

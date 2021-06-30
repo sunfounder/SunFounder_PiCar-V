@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"POT-Creation-Date: 2021-06-30 10:17+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgid "You can get all the required software and configuration done with the ins
 msgstr ""
 
 #: ../servo_configuration.rst:64
-msgid "1. The installation script will install the required components and configure for the running environment. Make sure your Raspberry is connected to the Internet during the installation, or it would fail."
+msgid "The installation script will install the required components and configure for the running environment. Make sure your Raspberry is connected to the Internet during the installation, or it would fail."
 msgstr ""
 
 #: ../servo_configuration.rst:68
-msgid "2. The Raspberry Pi will prompt you to reboot after the installation. You're recommended to type in **yes** to reboot."
+msgid "The Raspberry Pi will prompt you to reboot after the installation. You're recommended to type in **yes** to reboot."
 msgstr ""
 
 #: ../servo_configuration.rst:72

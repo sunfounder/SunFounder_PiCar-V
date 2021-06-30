@@ -67,11 +67,12 @@ the SD card you would like to install it on.
    :align: center
 
 .. note::
-    1. You will need to be connected to the internet the first time.
 
-    2. That OS will then be stored for future offline
-       use(lastdownload.cache, C:\\Users\\yourname\\AppData\\Local\\Raspberry
-       Pi\\Imager\\cache, ). So the next time you open the software, it will
+    1) You will need to be connected to the internet the first time.
+
+    2) That OS will then be stored for future offline
+       use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry
+       Pi/Imager/cache, ). So the next time you open the software, it will
        have the display "Released: date, cached on your computer".
 
 **Step 5**

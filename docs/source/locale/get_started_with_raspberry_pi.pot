@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:39+0800\n"
+"POT-Creation-Date: 2021-06-30 10:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,8 +53,8 @@ msgid "1 \\* Micro SD card"
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:25
-#: ../get_started_with_raspberry_pi.rst:198
-#: ../get_started_with_raspberry_pi.rst:249
+#: ../get_started_with_raspberry_pi.rst:199
+#: ../get_started_with_raspberry_pi.rst:250
 msgid "**Step 1**"
 msgstr ""
 
@@ -67,8 +67,8 @@ msgid "Visit the download page: https://www.raspberrypi.org/software/. Click on 
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:41
-#: ../get_started_with_raspberry_pi.rst:203
-#: ../get_started_with_raspberry_pi.rst:260
+#: ../get_started_with_raspberry_pi.rst:204
+#: ../get_started_with_raspberry_pi.rst:261
 msgid "**Step 2**"
 msgstr ""
 
@@ -81,8 +81,8 @@ msgid "If this pops up, click on **More info** and then **Run anyway**, then 
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:55
-#: ../get_started_with_raspberry_pi.rst:212
-#: ../get_started_with_raspberry_pi.rst:265
+#: ../get_started_with_raspberry_pi.rst:213
+#: ../get_started_with_raspberry_pi.rst:266
 msgid "**Step 3**"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgid "Insert your SD card into the computer or laptop SD card slot."
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:59
-#: ../get_started_with_raspberry_pi.rst:220
+#: ../get_started_with_raspberry_pi.rst:221
 msgid "**Step 4**"
 msgstr ""
 
@@ -99,168 +99,168 @@ msgstr ""
 msgid "In the Raspberry Pi Imager, select the OS that you want to install and the SD card you would like to install it on."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:70
+#: ../get_started_with_raspberry_pi.rst:71
 msgid "You will need to be connected to the internet the first time."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:72
-msgid "That OS will then be stored for future offline use(lastdownload.cache, C:\\\\Users\\\\yourname\\\\AppData\\\\Local\\\\Raspberry Pi\\\\Imager\\\\cache, ). So the next time you open the software, it will have the display \"Released: date, cached on your computer\"."
+#: ../get_started_with_raspberry_pi.rst:73
+msgid "That OS will then be stored for future offline use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry Pi/Imager/cache, ). So the next time you open the software, it will have the display \"Released: date, cached on your computer\"."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:77
-#: ../get_started_with_raspberry_pi.rst:229
+#: ../get_started_with_raspberry_pi.rst:78
+#: ../get_started_with_raspberry_pi.rst:230
 msgid "**Step 5**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:79
+#: ../get_started_with_raspberry_pi.rst:80
 msgid "Select the SD card you are using."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:86
+#: ../get_started_with_raspberry_pi.rst:87
 msgid "**Step 6**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:88
+#: ../get_started_with_raspberry_pi.rst:89
 msgid "Press **Ctrl+Shift+X** to open the **Advanced options** page to enable SSH and configure wifi, these 2 items must be set, the others depend on your choice . You can choose to always use this image customization options."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:98
+#: ../get_started_with_raspberry_pi.rst:99
 msgid "Then scroll down to complete the wifi configuration and click **SAVE**."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:102
+#: ../get_started_with_raspberry_pi.rst:103
 msgid "**wifi country** should be set the two-letter `ISO/IEC alpha2 code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__ for the country in which you are using your Raspberry Pi, please refer to the following link:"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:107
+#: ../get_started_with_raspberry_pi.rst:108
 msgid "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:114
+#: ../get_started_with_raspberry_pi.rst:115
 msgid "**Step 7**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:116
+#: ../get_started_with_raspberry_pi.rst:117
 msgid "Click the **WRITE** button."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:123
+#: ../get_started_with_raspberry_pi.rst:124
 msgid "**Step 8**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:125
+#: ../get_started_with_raspberry_pi.rst:126
 msgid "If your SD card currently has any files on it, you may wish to back up these files first to prevent you from permanently losing them. If there is no file to be backed up, click **Yes**."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:134
+#: ../get_started_with_raspberry_pi.rst:135
 msgid "**Step 9**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:136
+#: ../get_started_with_raspberry_pi.rst:137
 msgid "After waiting for a period of time, the following window will appear to represent the completion of writing."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:145
+#: ../get_started_with_raspberry_pi.rst:146
 msgid "**Power on the Raspberry Pi**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:147
+#: ../get_started_with_raspberry_pi.rst:148
 msgid "Now, the Raspberry Pi OS is configured, you can plug out the USB card reader and then plug the Micro SD card into the Raspberry Pi."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:150
+#: ../get_started_with_raspberry_pi.rst:151
 msgid "Put two 18650 fully charged batteries in the holder, plug the wires from the battery holder into the development board then toggle the switch from off to on. **You are also recommended to use the power adapter of Raspberry Pi to power your car for that the first test will take a long time.**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:157
+#: ../get_started_with_raspberry_pi.rst:158
 msgid "**Get the IP Address**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:159
+#: ../get_started_with_raspberry_pi.rst:160
 msgid "After the Raspberry Pi is powered on with a power adapter, we need to get the IP address of it. There are many ways to know the IP address, and two of them are listed as follows."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:163
+#: ../get_started_with_raspberry_pi.rst:164
 msgid "**1.  Checking via the router**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:165
+#: ../get_started_with_raspberry_pi.rst:166
 msgid "If you have permission to log in the router(such as a home network), you can check the addresses assigned to Raspberry Pi on the admin interface of router."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:169
+#: ../get_started_with_raspberry_pi.rst:170
 msgid "The default hostname of the system, Raspberry Pi OS is **raspberrypi**, and you need to find it. (If you are using ArchLinuxARM system, please find alarmpi.)"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:173
+#: ../get_started_with_raspberry_pi.rst:174
 msgid "**2. Network Segment Scanning**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:175
+#: ../get_started_with_raspberry_pi.rst:176
 msgid "You can also use network scanning to look up the IP address of Raspberry Pi. You can apply the software, **Advanced IP scanner(download from Google)**."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:179
+#: ../get_started_with_raspberry_pi.rst:180
 msgid "Click **Scan** and the name of all connected devices will be displayed. Similarly, the default hostname of the Raspberry Pi OS is **raspberrypi**, now you need to find the hostname and its IP."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:189
+#: ../get_started_with_raspberry_pi.rst:190
 msgid "**Use the SSH Remote Control**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:191
+#: ../get_started_with_raspberry_pi.rst:192
 msgid "We can open the Bash Shell of Raspberry Pi by applying SSH. Bash is the standard default shell of Linux. The Shell itself is a program written in C that is the bridge linking the customers and Unix/Linux. Moreover, it can help to complete most of the work needed."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:196
+#: ../get_started_with_raspberry_pi.rst:197
 msgid "**For Linux or/Mac OS X Users**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:200
+#: ../get_started_with_raspberry_pi.rst:201
 msgid "Go to **Applications**->\\ **Utilities**, find the **Terminal**, and open it."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:205
+#: ../get_started_with_raspberry_pi.rst:206
 msgid "Type in **ssh pi@ip_address** . “pi” is your username and “ip_address” is your IP address. For example:"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:214
+#: ../get_started_with_raspberry_pi.rst:215
 msgid "Input”yes”."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:222
+#: ../get_started_with_raspberry_pi.rst:223
 msgid "Input the password and the default password is **raspberry**."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:231
+#: ../get_started_with_raspberry_pi.rst:232
 msgid "We now get the Raspberry Pi connected and are ready to go to the next step."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:240
-#: ../get_started_with_raspberry_pi.rst:275
+#: ../get_started_with_raspberry_pi.rst:241
+#: ../get_started_with_raspberry_pi.rst:276
 msgid "When you input the password, the characters do not display on window accordingly, which is normal. What you need is to input the correct password."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:244
+#: ../get_started_with_raspberry_pi.rst:245
 msgid "**For Windows Users**"
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:246
+#: ../get_started_with_raspberry_pi.rst:247
 msgid "If you're a Windows user, you can use SSH with the application of some software. Here, we recommend **PuTTY**\\ (You can download from Google)."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:251
+#: ../get_started_with_raspberry_pi.rst:252
 msgid "Download PuTTY. Open PuTTY and click **Session** on the left tree-alike structure. Enter the IP address of the RPi in the text box under **Host Name (or IP address)** and **22** under **Port** (by default it is 22)."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:262
+#: ../get_started_with_raspberry_pi.rst:263
 msgid "Click **Open**. Note that when you first log in to the Raspberry Pi with the IP address, there prompts a security reminder. Just click **Yes**."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:267
+#: ../get_started_with_raspberry_pi.rst:268
 msgid "When the PuTTY window prompts **“login as:”**, type in **pi”** (the user name of the RPi), and **password:** “raspberry” (the default one, if you haven't changed it)."
 msgstr ""
 
-#: ../get_started_with_raspberry_pi.rst:279
+#: ../get_started_with_raspberry_pi.rst:280
 msgid "Here, we get the Raspberry Pi connected and it is time to conduct the next steps."
 msgstr ""

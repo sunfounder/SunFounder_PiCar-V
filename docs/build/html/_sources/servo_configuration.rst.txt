@@ -62,11 +62,11 @@ Server Installation Scripts.**
 
 .. note::
    1. The installation script will install the required components and
-   configure for the running environment. Make sure your Raspberry is
-   connected to the Internet during the installation, or it would fail.
+      configure for the running environment. Make sure your Raspberry is
+      connected to the Internet during the installation, or it would fail.
 
    2. The Raspberry Pi will prompt you to reboot after the installation.
-   You're recommended to type in **yes** to reboot.
+      You're recommended to type in **yes** to reboot.
 
 Configure the Servo to 90 degrees
 ---------------------------------
