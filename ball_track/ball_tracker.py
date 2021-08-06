@@ -9,8 +9,8 @@ import os
 
 picar.setup()
 # Show image captured by camera, True to turn on, you will need #DISPLAY and it also slows the speed of tracking
-show_image_enable   = False
-draw_circle_enable  = False
+show_image_enable   = True
+draw_circle_enable  = True
 scan_enable         = False
 rear_wheels_enable  = True
 front_wheels_enable = True
@@ -24,6 +24,11 @@ if (show_image_enable or draw_circle_enable) and "DISPLAY" not in os.environ:
 kernel = np.ones((5,5),np.uint8)
 img = cv2.VideoCapture(-1)
 
+if not img.isOpened:
+    print("not open")
+else:
+    print("open")
+    
 SCREEN_WIDTH = 160
 SCREEN_HIGHT = 120
 img.set(3,SCREEN_WIDTH)
@@ -195,12 +200,15 @@ def test():
 def find_blob() :
     radius = 0
     # Load input image
-    _, bgr_image = img.read()
-
+    #_, bgr_image = img.read()
+    ret, bgr_image = img.read()
+    if ret == False:
+        print("Failed to read image")
+        
     orig_image = bgr_image
 
     bgr_image = cv2.medianBlur(bgr_image, 3)
-
+  
     # Convert input image to HSV
     hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
 
@@ -214,11 +222,13 @@ def find_blob() :
 
     # Use the Hough transform to detect circles in the combined threshold image
     circles = cv2.HoughCircles(red_hue_image, cv2.HOUGH_GRADIENT, 1, 120, 100, 20, 10, 0)
-    circles = np.uint16(np.around(circles))
-    # Loop over all detected circles and outline them on the original image
-    all_r = np.array([])
-    # print("circles: %s"%circles)
+    
     if circles is not None:
+        circles = np.uint16(np.around(circles))
+ 
+    # Loop over all detected circles and outline them on the original image
+        all_r = np.array([])
+    # print("circles: %s"%circles)
         try:
             for i in circles[0,:]:
                 # print("i: %s"%i)
@@ -230,7 +240,7 @@ def find_blob() :
                 cv2.circle(orig_image, center, radius, (0, 255, 0), 5)
         except IndexError:
             pass
-            # print("circles: %s"%circles)
+            #print("circles: %s"%circles)
 
     # Show images
     if show_image_enable:
