@@ -203,7 +203,7 @@ it.
 
 **Step 2**
 
-Type in **ssh pi@ip_address** . “pi” is your username and “ip_address” is
+Type in **ssh pi@ip_address** . \"pi\" is your username and \"ip_address\" is
 your IP address. For example:
 
 .. code-block:: python
@@ -212,7 +212,7 @@ your IP address. For example:
 
 **Step 3**
 
-Input”yes”.
+Input \"yes\".
 
 .. image:: media/image77.png
    :width: 550
@@ -265,7 +265,7 @@ the IP address, there prompts a security reminder. Just click **Yes**.
 
 **Step 3**
 
-When the PuTTY window prompts **“login as:”**, type in **pi”** (the user name of the RPi), and **password:** “raspberry” (the default one, if you haven't changed it).
+When the PuTTY window prompts \"**login as:**\", type in **pi** (the user name of the RPi), and **password:** \"raspberry\" (the default one, if you haven't changed it).
 
 .. image:: media/image81.png
    :width: 7.02083in

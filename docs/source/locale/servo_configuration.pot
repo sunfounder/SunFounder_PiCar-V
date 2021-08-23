@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 10:17+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,70 +36,70 @@ msgstr ""
 msgid "You can find the source code in our Github repositories. Download the source code by *git clone*:"
 msgstr ""
 
-#: ../servo_configuration.rst:25
+#: ../servo_configuration.rst:29
 msgid "Please pay attention to your typing – if you get the prompt of entering your user name and password, you may have typed wrong. If unluckily you did so, press Ctrl + C to exit and try again."
 msgstr ""
 
-#: ../servo_configuration.rst:29
+#: ../servo_configuration.rst:33
 msgid "Check by the **ls** command, then you can see the code directory *SunFounder_PiCar-V*:"
 msgstr ""
 
-#: ../servo_configuration.rst:38
+#: ../servo_configuration.rst:42
 msgid "Go to the Code Directory"
 msgstr ""
 
-#: ../servo_configuration.rst:44
+#: ../servo_configuration.rst:52
 msgid "Enter the code directory and you can see the installation script:"
 msgstr ""
 
-#: ../servo_configuration.rst:52
+#: ../servo_configuration.rst:60
 msgid "Install the Environment via the Script"
 msgstr ""
 
-#: ../servo_configuration.rst:54
+#: ../servo_configuration.rst:62
 msgid "You can get all the required software and configuration done with the install_dependencies script. If you want to do step by step instead, please follow the instructions in the **Appendix 1: Function of the Server Installation Scripts.**"
 msgstr ""
 
-#: ../servo_configuration.rst:64
+#: ../servo_configuration.rst:76
 msgid "The installation script will install the required components and configure for the running environment. Make sure your Raspberry is connected to the Internet during the installation, or it would fail."
 msgstr ""
 
-#: ../servo_configuration.rst:68
+#: ../servo_configuration.rst:80
 msgid "The Raspberry Pi will prompt you to reboot after the installation. You're recommended to type in **yes** to reboot."
 msgstr ""
 
-#: ../servo_configuration.rst:72
+#: ../servo_configuration.rst:84
 msgid "Configure the Servo to 90 degrees"
 msgstr ""
 
-#: ../servo_configuration.rst:74
+#: ../servo_configuration.rst:86
 msgid "After reboot, run the picar tool:"
 msgstr ""
 
-#: ../servo_configuration.rst:82
-msgid "If the \"OSError: [Errno 121] Remote I/O error\" error message appears, open raspi-config:"
+#: ../servo_configuration.rst:98
+msgid "If the \\\"OSError: [Errno 121] Remote I/O error\\\" error message appears, open raspi-config:"
 msgstr ""
 
-#: ../servo_configuration.rst:89
+#: ../servo_configuration.rst:109
 msgid "Then choose **3 Interfacing Options** → **P5 I2C** → **<YES>** →\\ **OK** to enable I2C service. You can use the up, down, left, and right keys on the keyboard to select, and then press Enter to confirm."
 msgstr ""
 
-#: ../servo_configuration.rst:93
+#: ../servo_configuration.rst:113
 msgid "After the code is running, insert the rocker arm into the servo. You will see the rocker arm is rotate in clockwise and counterclockwise, then stop at a specific location. It means the servo is good. If the any of the conditions below happened to your servo, your servo is bad:"
 msgstr ""
 
-#: ../servo_configuration.rst:98
+#: ../servo_configuration.rst:118
 msgid "Noisy, hot."
 msgstr ""
 
-#: ../servo_configuration.rst:100
+#: ../servo_configuration.rst:120
 msgid "If unplug the servo line and rotate the rocker arm, it sounds like “ka” “ka” “ka” or there has no sounds of gear driving."
 msgstr ""
 
-#: ../servo_configuration.rst:103
+#: ../servo_configuration.rst:123
 msgid "Rotate slowly but continuously."
 msgstr ""
 
-#: ../servo_configuration.rst:105
+#: ../servo_configuration.rst:125
 msgid "If you find one of the conditions above, please send e-mail to `service@sunfounder.com <mailto:support@sunfounder.com>`__ . We will change a new one to you. If it is broken in the process of using or assembling, you should go to the official website `www.sunfounder.com <http://www.sunfounder.com>`__ to buy."
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 10:17+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: 2021-06-25 17:32+0800\n"
 "Last-Translator: \n"
 "Language: ja\n"
@@ -47,32 +47,32 @@ msgid ""
 "source code by *git clone*:"
 msgstr "ソースコードはGithubリポジトリにある。*git clone* でソースコードをダウンロードする："
 
-#: ../servo_configuration.rst:25
+#: ../servo_configuration.rst:29
 msgid ""
 "Please pay attention to your typing – if you get the prompt of entering "
 "your user name and password, you may have typed wrong. If unluckily you "
 "did so, press Ctrl + C to exit and try again."
 msgstr "入力時に十分に注意してください。ユーザー名とパスワードの入力を求められた場合は、入力を間違えている可能性がある。それは発生した場合、Ctrl+Cを押して終了し、再試行してください。"
 
-#: ../servo_configuration.rst:29
+#: ../servo_configuration.rst:33
 msgid ""
 "Check by the **ls** command, then you can see the code directory "
 "*SunFounder_PiCar-V*:"
 msgstr "**ls** コマンドで確認すると、コードディレクトリ *SunFounder_PiCar-V* が表示される："
 
-#: ../servo_configuration.rst:38
+#: ../servo_configuration.rst:42
 msgid "Go to the Code Directory"
 msgstr "コードディレクトリに入る"
 
-#: ../servo_configuration.rst:44
+#: ../servo_configuration.rst:52
 msgid "Enter the code directory and you can see the installation script:"
 msgstr "コードディレクトリに入ると、インストールスクリプトが表示される："
 
-#: ../servo_configuration.rst:52
+#: ../servo_configuration.rst:60
 msgid "Install the Environment via the Script"
 msgstr "スクリプトを介して環境をインストールする"
 
-#: ../servo_configuration.rst:54
+#: ../servo_configuration.rst:62
 msgid ""
 "You can get all the required software and configuration done with the "
 "install_dependencies script. If you want to do step by step instead, "
@@ -80,35 +80,35 @@ msgid ""
 "Server Installation Scripts.**"
 msgstr "install_dependenciesスクリプトを使用して、必要なすべてのソフトウェアと構成を実行することはできる。代わりに一歩一歩に実行する場合は、「**付録1：サーバーインストールスクリプトの機能**」の手順に従ってください。"
 
-#: ../servo_configuration.rst:64
+#: ../servo_configuration.rst:76
 msgid ""
 "The installation script will install the required components and "
 "configure for the running environment. Make sure your Raspberry is "
 "connected to the Internet during the installation, or it would fail."
-msgstr ""
-"インストールスクリプトは、必要な部品をインストールし、動作環境用に構成する。インストール中にRaspberryがインターネットに接続されていることを確認してください。接続しない場合は、失敗する恐れがある。"
+msgstr "インストールスクリプトは、必要な部品をインストールし、動作環境用に構成する。インストール中にRaspberryがインターネットに接続されていることを確認してください。接続しない場合は、失敗する恐れがある。"
 
-#: ../servo_configuration.rst:68
+#: ../servo_configuration.rst:80
 msgid ""
 "The Raspberry Pi will prompt you to reboot after the installation. You're"
 " recommended to type in **yes** to reboot."
 msgstr "インストールを完了した後、Raspberry Piは再起動すると示す。再起動するにはyesと入力してください。"
 
-#: ../servo_configuration.rst:72
+#: ../servo_configuration.rst:84
 msgid "Configure the Servo to 90 degrees"
 msgstr "サーボを90度に設定する"
 
-#: ../servo_configuration.rst:74
+#: ../servo_configuration.rst:86
 msgid "After reboot, run the picar tool:"
 msgstr "再起動後、picarツールを実行する："
 
-#: ../servo_configuration.rst:82
+#: ../servo_configuration.rst:98
+#, fuzzy
 msgid ""
-"If the \"OSError: [Errno 121] Remote I/O error\" error message appears, "
-"open raspi-config:"
+"If the \\\"OSError: [Errno 121] Remote I/O error\\\" error message "
+"appears, open raspi-config:"
 msgstr "「*OSError：[Errno 121] Remote I/O error*」エラーメッセージが表示された場合は、raspi-configを開く："
 
-#: ../servo_configuration.rst:89
+#: ../servo_configuration.rst:109
 msgid ""
 "Then choose **3 Interfacing Options** → **P5 I2C** → **<YES>** →\\ **OK**"
 " to enable I2C service. You can use the up, down, left, and right keys on"
@@ -118,7 +118,7 @@ msgstr ""
 "<**OK**>を選択してI2Cサービスを有効にします。 "
 "キーボードの上、下、左、右のキーを使って選択できます、最後は<Enter>キーを押して確認します。"
 
-#: ../servo_configuration.rst:93
+#: ../servo_configuration.rst:113
 msgid ""
 "After the code is running, insert the rocker arm into the servo. You will"
 " see the rocker arm is rotate in clockwise and counterclockwise, then "
@@ -126,21 +126,21 @@ msgid ""
 "the conditions below happened to your servo, your servo is bad:"
 msgstr "コードの実行後、ロッカーアームをサーボに差し込む。ロッカーアームが時計回りと反時計回りに回転し、特定の位置で停止する。サーボが良い状態にあると示す。以下の条件のいずれかがサーボに発生した場合、サーボは不良である："
 
-#: ../servo_configuration.rst:98
+#: ../servo_configuration.rst:118
 msgid "Noisy, hot."
 msgstr "雑音あり、熱い。"
 
-#: ../servo_configuration.rst:100
+#: ../servo_configuration.rst:120
 msgid ""
 "If unplug the servo line and rotate the rocker arm, it sounds like “ka” "
 "“ka” “ka” or there has no sounds of gear driving."
 msgstr "サーボラインを抜いてロッカーアームを回すと「カ」「カ」「カ」のように聞こえるか、またはギアの駆動音が鳴らさない。"
 
-#: ../servo_configuration.rst:103
+#: ../servo_configuration.rst:123
 msgid "Rotate slowly but continuously."
 msgstr "ゆっくりで継続的に回してください。"
 
-#: ../servo_configuration.rst:105
+#: ../servo_configuration.rst:125
 msgid ""
 "If you find one of the conditions above, please send e-mail to "
 "`service@sunfounder.com <mailto:support@sunfounder.com>`__ . We will "

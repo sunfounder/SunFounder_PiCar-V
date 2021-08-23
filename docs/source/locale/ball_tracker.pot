@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,98 +24,98 @@ msgstr ""
 msgid "In addition to using the keyboard to control the status of the car, we also wrote a ball tracking code."
 msgstr ""
 
-#: ../ball_tracker.rst:14
+#: ../ball_tracker.rst:18
 msgid "After the code runs, find a red ball (at least larger than the diameter of the camera) and put it within 10-50cm range in front of the camera to get the car to follow your ball."
 msgstr ""
 
-#: ../ball_tracker.rst:23
+#: ../ball_tracker.rst:27
 msgid "If you want to know whether the car has catched your ball, you can do as follows:"
 msgstr ""
 
-#: ../ball_tracker.rst:26
+#: ../ball_tracker.rst:30
 msgid "**Step 1:** Enable the VNC on the Raspberry Pi."
 msgstr ""
 
-#: ../ball_tracker.rst:32
+#: ../ball_tracker.rst:40
 msgid "Choose **3** **Interfacing Options** by press the down arrow key on your keyboard, then press the **Enter** key.."
 msgstr ""
 
-#: ../ball_tracker.rst:40
+#: ../ball_tracker.rst:48
 msgid "**P3 VNC**"
 msgstr ""
 
-#: ../ball_tracker.rst:47
+#: ../ball_tracker.rst:55
 msgid "Press the left arrow key on your keyboard to choose **Yes.**"
 msgstr ""
 
-#: ../ball_tracker.rst:54
+#: ../ball_tracker.rst:62
 msgid "Finally select **OK**->\\ **Finish** to exit the config."
 msgstr ""
 
-#: ../ball_tracker.rst:61
+#: ../ball_tracker.rst:69
 msgid "**Step 2:** Download the VNC Viewer for your computer and install it."
 msgstr ""
 
-#: ../ball_tracker.rst:63
+#: ../ball_tracker.rst:71
 msgid "https://www.realvnc.com/en/connect/download/viewer/"
 msgstr ""
 
-#: ../ball_tracker.rst:66
+#: ../ball_tracker.rst:74
 msgid "During your installation on your Windows, if you encounter the following prompt, please click **Continue** to continue your installation."
 msgstr ""
 
-#: ../ball_tracker.rst:75
+#: ../ball_tracker.rst:83
 msgid "**Step 3:** Open VNC Viewer you have installed, type in your Raspberry Pi IP address, and press the Enter button."
 msgstr ""
 
-#: ../ball_tracker.rst:83
+#: ../ball_tracker.rst:91
 msgid "**Step 4:** Enter the username and password of your Raspberry Pi on this page, by default, they are pi and raspberry; then click OK."
 msgstr ""
 
-#: ../ball_tracker.rst:91
+#: ../ball_tracker.rst:99
 msgid "When you log in with VNC Viewer, the screen may be black.If your screen is working, skip to Step 5."
 msgstr ""
 
-#: ../ball_tracker.rst:99
+#: ../ball_tracker.rst:107
 msgid "Changing the resolution to the highest on the Raspberry Pi."
 msgstr ""
 
-#: ../ball_tracker.rst:105
+#: ../ball_tracker.rst:117
 msgid "Choose **2 Display Options**."
 msgstr ""
 
-#: ../ball_tracker.rst:112
+#: ../ball_tracker.rst:124
 msgid "Choose **D1 Resolution**."
 msgstr ""
 
-#: ../ball_tracker.rst:119
+#: ../ball_tracker.rst:131
 msgid "Change the default to a higher resolution like **Mode 16**, then click **OK**."
 msgstr ""
 
-#: ../ball_tracker.rst:127
+#: ../ball_tracker.rst:139
 msgid "Reboot the Raspberry Pi, log in again, and it will work."
 msgstr ""
 
-#: ../ball_tracker.rst:133
+#: ../ball_tracker.rst:149
 msgid "**Step 5:** Now, we enter the Raspberry Pi desktop, click Terminal and type the following commands to open the code ball_tracker.py."
 msgstr ""
 
-#: ../ball_tracker.rst:141
+#: ../ball_tracker.rst:161
 msgid "Then modify the code as follows:"
 msgstr ""
 
-#: ../ball_tracker.rst:148
+#: ../ball_tracker.rst:172
 msgid "Press Ctrl+X and Y to save the change."
 msgstr ""
 
-#: ../ball_tracker.rst:157
+#: ../ball_tracker.rst:181
 msgid "After you finish doing this step, you must log in the Raspberry Pi via VNC, or you can use a monitor; if not, the warning is as follows:"
 msgstr ""
 
-#: ../ball_tracker.rst:165
+#: ../ball_tracker.rst:189
 msgid "**Step 6:** Run the ball_tracker.py."
 msgstr ""
 
-#: ../ball_tracker.rst:176
+#: ../ball_tracker.rst:204
 msgid "**Step 7:** After running the code ball_tracker.py, these four images will appear. If you place a red ball in front of the camera, you can see a green circle which represents that the car has catched your red ball."
 msgstr ""

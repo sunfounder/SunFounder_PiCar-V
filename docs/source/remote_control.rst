@@ -20,7 +20,11 @@ Run the Server(Operation on Raspberry Pi)
 Remotely log into the Raspberry Pi. Run the startup script **start**
 under the **remote_control** directory to start the web service.
 
-.. code-block:: python
+.. raw:: html
+
+   <run></run>
+
+.. code-block:: 
 
    cd ~/SunFounder_PiCar-V/remote_control
    python3 manage.py migrate

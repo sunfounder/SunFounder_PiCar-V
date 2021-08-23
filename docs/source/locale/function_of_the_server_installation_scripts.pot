@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,42 +28,42 @@ msgstr ""
 msgid "Install pip."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:14
+#: ../function_of_the_server_installation_scripts.rst:18
 msgid "Use pip to install django."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:20
+#: ../function_of_the_server_installation_scripts.rst:28
 msgid "Install i2c-tools and python-smbus."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:26
+#: ../function_of_the_server_installation_scripts.rst:38
 msgid "Install PiCar drivers."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:35
+#: ../function_of_the_server_installation_scripts.rst:51
 msgid "Download source code."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:42
+#: ../function_of_the_server_installation_scripts.rst:62
 msgid "Copy the MJPG-Streamer file to system directory."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:53
+#: ../function_of_the_server_installation_scripts.rst:77
 msgid "Export paths."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:61
+#: ../function_of_the_server_installation_scripts.rst:89
 msgid "Enable I2C1."
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:63
+#: ../function_of_the_server_installation_scripts.rst:91
 msgid "Edit the file /boot/config.txt:"
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:69
+#: ../function_of_the_server_installation_scripts.rst:101
 msgid "Add the line in the end:"
 msgstr ""
 
-#: ../function_of_the_server_installation_scripts.rst:75
+#: ../function_of_the_server_installation_scripts.rst:111
 msgid "Reboot."
 msgstr ""

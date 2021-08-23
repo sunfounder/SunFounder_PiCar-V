@@ -33,6 +33,7 @@ Here is the Email: cs@sunfounder.com.
     continue_to_assemble
     getting_on_the_road
     appendix
+    thank-robot
 
 Copyright Notice
 ------------------

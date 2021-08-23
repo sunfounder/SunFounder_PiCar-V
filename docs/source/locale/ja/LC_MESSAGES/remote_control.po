@@ -99,7 +99,7 @@ msgid ""
 "Visit the server of the car at ``http://<RPi_IP_address>:8000/``. You "
 "will see a welcome page:"
 msgstr ""
-"``http://<RPi_IP_address>:8000/``で車のサーバに訪問する。ウェルカムページ"
+"``http://<RPi_IP_address>:8000/`` で車のサーバに訪問する。ウェルカムページ"
 "が表示される："
 
 #: ../remote_control.rst:55

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,10 +44,10 @@ msgstr ""
 msgid "Here is the Email: cs@sunfounder.com."
 msgstr ""
 
-#: ../index.rst:38
+#: ../index.rst:39
 msgid "Copyright Notice"
 msgstr ""
 
-#: ../index.rst:39
+#: ../index.rst:40
 msgid "All contents including but not limited to texts, images, and code in this manual are owned by the SunFounder Company. You should only use it for personal study,investigation, enjoyment, or other non-commercial or nonprofit purposes, under therelated regulations and copyrights laws, without infringing the legal rights of the author and relevant right holders. For any individual or organization that uses these for commercial profit without permission, the Company reserves the right to take legal action."
 msgstr ""

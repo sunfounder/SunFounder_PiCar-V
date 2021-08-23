@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 10:03+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,11 +221,11 @@ msgid "Go to **Applications**->\\ **Utilities**, find the **Terminal**, and open
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:206
-msgid "Type in **ssh pi@ip_address** . “pi” is your username and “ip_address” is your IP address. For example:"
+msgid "Type in **ssh pi@ip_address** . \\\"pi\\\" is your username and \\\"ip_address\\\" is your IP address. For example:"
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:215
-msgid "Input”yes”."
+msgid "Input \\\"yes\\\"."
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:223
@@ -258,7 +258,7 @@ msgid "Click **Open**. Note that when you first log in to the Raspberry Pi with 
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:268
-msgid "When the PuTTY window prompts **“login as:”**, type in **pi”** (the user name of the RPi), and **password:** “raspberry” (the default one, if you haven't changed it)."
+msgid "When the PuTTY window prompts \\\"**login as:**\\\", type in **pi** (the user name of the RPi), and **password:** \\\"raspberry\\\" (the default one, if you haven't changed it)."
 msgstr ""
 
 #: ../get_started_with_raspberry_pi.rst:280

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SunFounder PiCar-V Car Kit \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,18 +40,18 @@ msgstr ""
 msgid "You may check what's in the file:"
 msgstr ""
 
-#: ../advanced.rst:28
+#: ../advanced.rst:32
 msgid "After you've changed the code, you can go to the page of the Github repository for the car, and fork it to help improve it! Also you're quite welcome to post issues and request a pull on our Github page:"
 msgstr ""
 
-#: ../advanced.rst:32
+#: ../advanced.rst:36
 msgid "PiCar-V: https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
 msgstr ""
 
-#: ../advanced.rst:35
+#: ../advanced.rst:39
 msgid "PiCar driver: https://github.com/sunfounder/SunFounder_PiCar"
 msgstr ""
 
-#: ../advanced.rst:38
+#: ../advanced.rst:42
 msgid "And of course, if you have any questions or ideas, please feel free to email us at service@sunfounder.com."
 msgstr ""

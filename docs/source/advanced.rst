@@ -20,7 +20,11 @@ install-dependences.
 
 You may check what's in the file:
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     cd ~/SunFounder_PiCar
     ls

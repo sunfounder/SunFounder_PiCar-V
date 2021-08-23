@@ -4,7 +4,11 @@ ball_tracker
 In addition to using the keyboard to control the status of the car, we
 also wrote a ball tracking code.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo apt-get install libatlas-base-dev libjasper-dev libqt4-test libwebp6 libtiff5 libopenexr23 libgstreamer1.0-0 libavcodec-dev libavformat-dev libswscale-dev libqtgui4 -y
     sudo pip3 install opencv-python==3.4.6.27
@@ -25,7 +29,11 @@ follows:
 
 **Step 1:** Enable the VNC on the Raspberry Pi.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo raspi-config
 
@@ -98,7 +106,11 @@ is working, skip to Step 5.
 
 Changing the resolution to the highest on the Raspberry Pi.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo raspi-config
 
@@ -126,21 +138,33 @@ Change the default to a higher resolution like **Mode 16**, then click
 
 Reboot the Raspberry Pi, log in again, and it will work.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo reboot
 
 **Step 5:** Now, we enter the Raspberry Pi desktop, click Terminal and
 type the following commands to open the code ball_tracker.py.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     cd ~/SunFounder_PiCar-V/ball_track
     sudo nano ball_tracker.py
 
 Then modify the code as follows:
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     Show_image_enable = True
     Draw_circle_enble = True
@@ -164,7 +188,11 @@ Press Ctrl+X and Y to save the change.
 
 **Step 6:** Run the ball_tracker.py.
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     python3 ball_tracker.py
 

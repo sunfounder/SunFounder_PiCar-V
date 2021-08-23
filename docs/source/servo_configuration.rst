@@ -16,7 +16,11 @@ Get Source Code
 You can find the source code in our Github repositories. Download the
 source code by *git clone*:
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     cd ~/
     git clone https://github.com/sunfounder/SunFounder_PiCar-V -b V3.0
@@ -37,7 +41,11 @@ Check by the **ls** command, then you can see the code directory
 Go to the Code Directory
 ------------------------
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     cd ~/SunFounder_PiCar-V
 
@@ -56,7 +64,11 @@ install_dependencies script. If you want to do step by step instead,
 please follow the instructions in the **Appendix 1: Function of the
 Server Installation Scripts.**
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo ./install_dependencies
 
@@ -73,16 +85,24 @@ Configure the Servo to 90 degrees
 
 After reboot, run the picar tool:
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     cd ~/SunFounder_PiCar-V
     picar servo-install
 
 .. note::
-    If the "OSError: [Errno 121] Remote I/O error" error message appears,
+    If the \"OSError: [Errno 121] Remote I/O error\" error message appears,
     open raspi-config:
 
-.. code-block:: python
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
 
     sudo raspi-config
 

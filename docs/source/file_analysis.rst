@@ -67,7 +67,7 @@ server works.
 
     https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0
 
-Open the code directory and check the file by **ls**:
+Open the code directory and check the file by ``ls``:
 
 .. code-block::
 
