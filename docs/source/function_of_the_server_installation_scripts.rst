@@ -33,9 +33,9 @@ detailed steps.
 
 .. code-block::
 
-    sudo apt-get install i2c-tools python-smbus
+    sudo pip3 install smbus2
 
-1. Install PiCar drivers.
+4. Install PiCar drivers.
 
 .. raw:: html
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import smbus
+import smbus2 as smbus
 import time
 import os
 
