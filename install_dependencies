@@ -21,7 +21,7 @@ if [ "$(whoami)" != "root" ] ; then
 fi
 
 sudo apt-get update
-#sudo apt-get upgrade -y
+sudo apt-get upgrade -y
 
 function if_continue(){
     while :; do
