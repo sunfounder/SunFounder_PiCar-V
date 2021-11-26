@@ -174,7 +174,7 @@ echo -e "complete\n"
 # Enable I2C1 #
 ###################################
 # Add lines to /boot/config.txt
-echo -e "Enalbe I2C \n"
+echo -e "Enable I2C \n"
 egrep -v "^#|^$" /boot/config.txt > config.txt.temp  # pick up all uncomment configrations
 if grep -q 'dtparam=i2c_arm=on' config.txt.temp; then  # whether i2c_arm in uncomment configrations or not
     echo -e '    Seem i2c_arm parameter already set, skip this step \n'
