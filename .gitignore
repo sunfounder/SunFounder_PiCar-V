@@ -3,3 +3,7 @@
 *auto_ip.inf
 .vscode
 *__pycache__
+*.ai
+*.indd
+docs/build/*
+

@@ -17,7 +17,7 @@ is_installed_libjpeg8_dev=False
 
 if [ "$(whoami)" != "root" ] ; then
     echo -e "You must run this script as root."
-    end
+    exit
 fi
 
 sudo apt-get update
