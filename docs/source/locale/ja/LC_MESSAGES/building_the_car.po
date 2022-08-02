@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-08-16 18:18+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: car\n"
+"X-Generator: Poedit 3.0\n"
+
+#: ../building_the_car.rst:2
+msgid "Building the Car"
+msgstr "車の組み立て"
+
+#: ../building_the_car.rst:4
+msgid ""
+"Are you excited when you open the box and see so many components? Keep "
+"your patience and take it easy. Please note that some details in the "
+"following steps need careful observation. You should double-check your "
+"work based on the figures in the manual after finishing each step. let’s "
+"start!"
+msgstr ""
+"箱を開けてたくさんの部品を見るとワクワクしますか？あなたの忍耐を保ち、そ"
+"れを楽にしてください。次の手順の一部の詳細は注意深く観察する必要があるこ"
+"とに注意してください。各ステップを終えた後、マニュアルの図に基づいて作業"
+"を再確認する必要があります。はじめましょう！"
+
+#: ../building_the_car.rst:11
+msgid "Front Wheels"
+msgstr "前輪"
+
+#: ../building_the_car.rst:13
+msgid ""
+"Insert an **M4x25 screw** through a **Steering Connector Plate**, 3 "
+"**Bearing Shields**, 3 **Hex Front Wheel Fixing Plates**, and a **front "
+"wheel**, into an **M4 Self-locking Nut** as shown below:"
+msgstr ""
+"以下に示すように、**M4x25ネジ** を一つの **ステアリングコネクタプレート"
+"** 、3つの **ベアリングシールド** 、3つの **六角前輪固定プレート** 、と一"
+"つの **前輪** を通して **M4セルフロックナット** に挿入する："
+
+#: ../building_the_car.rst:21
+msgid ""
+"You can use the Cross Socket Wrench to secure the **M4 Self-locking "
+"Nut**, then use the screwdriver to tighten the **M4x25 screw.**"
+msgstr ""
+"クロスソケットレンチを使用して **M4セルフロックナット** を固定してからド"
+"ライバーを使用して **M4x25ネジ** を締める。"
+
+#: ../building_the_car.rst:29
+msgid ""
+"The Self-locking Nut should be screwed tight enough. It would be better "
+"to tighten the screw until the wheel and Steering Connector cannot move "
+"first, then loosen the screw a little, so that the Steering Plate can "
+"just move. Thus, the wheel can turn flexibly when the connection would "
+"not be too loose."
+msgstr ""
+"セルフロックナットはしっかりと締まっていることを確認してください。車輪と"
+"ステアリングコネクタが動かなくなるまでネジを締め、次にネジを少し緩めて、"
+"ステアリングプレートだけが動くようにする。したがって、接続が緩すぎない場"
+"合、ホイールは柔軟に回転できる。"
+
+#: ../building_the_car.rst:35
+msgid ""
+"Assemble the other front wheel in the same way, but bear in mind the "
+"Steering Connector plate on the wheel should be symmetric with the "
+"previous one."
+msgstr ""
+"同じ方法で他の前輪を組み立てるが、車輪のステアリングコネクタプレートは前"
+"のものと対称であることを覚えておいてください。"
+
+#: ../building_the_car.rst:43
+msgid "Now two front wheels have finished assembly."
+msgstr "これで2つの前輪の組み立てが完了した。"
+
+#: ../building_the_car.rst:46
+msgid "Pan-and-Tilt"
+msgstr "パンとチルト"
+
+#: ../building_the_car.rst:48
+msgid ""
+"Take out the **Cross rocker arm** and mount it onto the **Pan-and-tilt "
+"Base Plate** with 2 **M1.5x4 screws** (into the hole like this). Pay "
+"attention to the holes on the round rocker arm to be fastened."
+msgstr ""
+"2 x アームロッカーアームを取出し、2M1.5 x 4 ネジを使って、パン-チルトベー"
+"スプレートに取り付けます。(方向はに次のように)。"
+
+#: ../building_the_car.rst:55
+msgid "Do the same operation to the **Camera Mount Plate**."
+msgstr "**カメラマウントプレート** にも同様の操作を行ってください。"
+
+#: ../building_the_car.rst:60
+msgid ""
+"Assemble the two servos to the **Pan-and-tilt Plate** with four **M2x8 "
+"screws** and the **M2 nuts** (The 2 servo shaft are close to the left "
+"side ):"
+msgstr ""
+"**4つのM2x8ネジ** と **M2ナット** を使用して、2つのサーボを **パン＆チル"
+"トプレート** に取り付ける（2つのサーボシャフトは左側にある）。"
+
+#: ../building_the_car.rst:69
+msgid "Steering Part"
+msgstr "ステアリングパーツ"
+
+#: ../building_the_car.rst:71
+msgid ""
+"Connect the **Steering Linkage** and the **1-arm Rocker Arm** with the "
+"**M1.5x4 Self-tapping Screw**."
+msgstr ""
+"**ステアリングリンケ** ージと **1アームロッカーアーム** を **M1.5x4 セル"
+"フタッピング** ネジで接続します。"
+
+#: ../building_the_car.rst:75
+msgid ""
+"Insert it into the **FIRST** hole of the arm (as indicated by the "
+"**arrow** below) which is the farthest from the gears."
+msgstr ""
+"ギアから最も遠いアームの **最初** の穴（下の **矢印** で示されている）に"
+"挿入します。"
+
+#: ../building_the_car.rst:81
+msgid ""
+"And also fasten them as tightly as possible, and then loosen the screw a "
+"little so the Steering Linkage can move flexibly."
+msgstr ""
+"また、それらをしっかりと締めてから、ネジを少し緩め、ステアリングリンケー"
+"ジが柔軟に動くようにする。"
+
+#: ../building_the_car.rst:85
+msgid "Upper Plate"
+msgstr "上部プレート"
+
+#: ../building_the_car.rst:87
+msgid ""
+"Mount the **M2.5x8 copper standoffs** and **M2.5 nuts** into the **upper "
+"plate** first. Pay attention that the side the protruding prop should "
+"face up."
+msgstr ""
+"最初に **M2.5x8銅製スタンドオフ** と **M2.5ナット** を **上部プレート** "
+"に取り付ける。突き出た支柱が上に向くように注意してください。"
+
+#: ../building_the_car.rst:95
+msgid "Battery Holder"
+msgstr "バッテリーホルダー"
+
+#: ../building_the_car.rst:97
+msgid ""
+"Turn the Upper Plate upside down. Cut the **ribbon** into two halves. "
+"Thread them through the holes on the plate. Pay attention to the "
+"direction and leave one end longer out of the plate for each to remove "
+"the battery easily later."
+msgstr ""
+"上部プレートを裏返しにする。**リボン** を半分にカットする。プレートの穴に"
+"通す。方向に注意して、バッテリーを後で簡単に取り外すことができるように、"
+"プレートの一方の端を長くしてください。"
+
+#: ../building_the_car.rst:105
+msgid ""
+"Fasten the battery holder with two **M3x8 countersunk screws** and **M3 "
+"nuts**. Pay attention to the direction of battery holder’s wire."
+msgstr ""
+"2本の **M3x8皿ネジ** と **M3ナット** でバッテリーホルダーを固定する。バッ"
+"テリーホルダーの配線の方向に注意を払ってください。"
+
+#: ../building_the_car.rst:112
+msgid "Rear Wheels (Screws)"
+msgstr "後輪（ネジ）"
+
+#: ../building_the_car.rst:114
+msgid "Insert 4 **M3x8 screws** with four **M3x25 copper standoffs**:"
+msgstr ""
+"4本の **M3x25銅製スタンドオフ** を備えた4本の **M3x8ネジ** を差し込む。"
+
+#: ../building_the_car.rst:120
+msgid "PCB Assembly"
+msgstr "PCB組み立て"
+
+#: ../building_the_car.rst:122
+msgid ""
+"Assemble the **Raspberry Pi** (TF Card inserted) with 8 **M2.5x8 single "
+"pass** **copper standoffs**, then plug the **Robot HATS** onto it."
+msgstr ""
+"**Raspberry Pi** （TFカード差込済み）を8つの **M2.5x8シングルパス銅製スタ"
+"ンドオフ** で組み立てから **ロボットHATS** を差し込む。"
+
+#: ../building_the_car.rst:126
+msgid "Fix the **Robot HATS** with 4 **M2.5x6** **screws**."
+msgstr "4つの **M2.5x6ねじ** で **ロボットHATS** を固定する。"
+
+#: ../building_the_car.rst:128
+msgid ""
+"3) Fix The **PCA9685 PWM Driver** and the **Motor Driver** with 8 "
+"**M2.5x12** **screws and M2.5 nuts** into the **down plate：**"
+msgstr ""
+"**PCA9685 PWMドライバー** と **モータードライバ** ーを8つの **M2.5x12ネジ"
+"** と **M2.5ナット** で **下部プレート** に固定する："
+
+#: ../building_the_car.rst:135
+msgid "Fixing Rear Wheels"
+msgstr "後輪の固定"
+
+#: ../building_the_car.rst:137
+msgid ""
+"Assemble the two motors with four **M3x25 screws** and **M3 nuts**. Pay "
+"attention to place the motors with wires inward, providing convenience "
+"for connecting the circuit."
+msgstr ""
+"4つの **M3x25ネジ** と **M3ナット** で2つのモーターを組み立てる。モーター"
+"を配線で内側に配置するように注意してください。こうすると、回路を接続する"
+"ことを便利にする。"
+
+#: ../building_the_car.rst:144
+msgid "Assemble the rear wheels with 4 M3 nuts."
+msgstr "4つのM3ナットで後輪を組み立てる。"
+
+#: ../building_the_car.rst:149
+msgid ""
+"Align the **rear** **wheels** with the motor shaft, and rotate to insert "
+"them gently."
+msgstr "**後輪** をモーターシャフトに合わせ、回転させてやさしく差し込む。"

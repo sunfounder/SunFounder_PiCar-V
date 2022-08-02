@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-06-25 17:36+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+"Language: ja\n"
+
+#: ../remote_control.rst:2
+msgid "Remote Control"
+msgstr "遠隔操作"
+
+#: ../remote_control.rst:4
+msgid "Here is what we're going to do:"
+msgstr "これはこれから行うことである："
+
+#: ../remote_control.rst:6
+msgid ""
+"Use the Raspberry Pi as the **server**. Run a web server with an API for "
+"controlling the car and transmitting images captured by the camera."
+msgstr ""
+"Raspberry Piを **server** として使う。車を制御し、カメラでキャプチャした画"
+"像を送信するためのAPIを使用してWebサーバーを実行する。"
+
+#: ../remote_control.rst:9
+msgid ""
+"Then take a PC, cell phone, or tablet as the **client**, and acquire the "
+"images from the camera and control the car by calling the API of the web "
+"server."
+msgstr ""
+"次に、PC、携帯電話、タブレットを **client** として、カメラから画像を取得"
+"し、WebサーバーのAPIを呼び出して車を制御します。"
+
+#: ../remote_control.rst:13
+msgid ""
+"**Now, you can power on the car again. You are also recommended to use "
+"the power adapter of Raspberry Pi to power your car for that the first "
+"test will take a long time.**"
+msgstr ""
+"**その後、再び車の電源を入れてください。最初のテストに時間がかかるため、"
+"Raspberry Piの電源アダプターを使用して車に電源を供給することも勧める。**"
+
+#: ../remote_control.rst:18
+msgid "Run the Server(Operation on Raspberry Pi)"
+msgstr "サーバーを実行する（Raspberry Piでの操作）"
+
+#: ../remote_control.rst:20
+msgid ""
+"Remotely log into the Raspberry Pi. Run the startup script **start** "
+"under the **remote_control** directory to start the web service."
+msgstr ""
+"Raspberry Piにリモートでログインする。**remote_control** ディレクトリの下"
+"で起動スクリプト **start** を実行して、Webサービスを開始する。"
+
+#: ../remote_control.rst:29
+msgid ""
+"The script will enable the service and the corresponding data will "
+"appear. The hardware is initialized at the same time, so the servos "
+"connected to the front wheels and the pan-and-tilt will turn, indicating "
+"the hardware initialization is done."
+msgstr ""
+"スクリプトがサービスを有効にし、対応するデータが表示される。同時にハード"
+"ウェアが初期化されるため、前輪に接続されているサーボとパン＆チルトが回転"
+"し、ハードウェアの初期化が完了したことを示す。"
+
+#: ../remote_control.rst:39
+msgid ""
+"If you get the result similar as shown above, the server is ready. Now "
+"move on to start the client."
+msgstr ""
+"上記のような結果が得られれば、サーバーは準備できた。次に、クライアントを"
+"起動する。"
+
+#: ../remote_control.rst:43
+msgid ""
+"Keep the server being running all the time until you stop to run the "
+"Client."
+msgstr "クライアントの実行を停止するまで、サーバーをいつも動作させる。"
+
+#: ../remote_control.rst:46
+msgid "Run the Client(Operation on PC)"
+msgstr "クライアントの実行（PCでの操作）"
+
+#: ../remote_control.rst:48
+msgid ""
+"Visit the server of the car at ``http://<RPi_IP_address>:8000/``. You "
+"will see a welcome page:"
+msgstr ""
+"``http://<RPi_IP_address>:8000/`` で車のサーバに訪問する。ウェルカムページ"
+"が表示される："
+
+#: ../remote_control.rst:55
+msgid "Click LET'S ROCK to go to the operation interface:"
+msgstr "LET'S ROCKをクリックして、操作インターフェイスに入る。"
+
+#: ../remote_control.rst:62
+msgid ""
+"On this page, you can press the keys **W**, **A**, **S**, and **D** on "
+"the keyboard to control the car to move **forward**, **backward**, "
+"**turn left**, and **turn right**, press the arrow keys to control the "
+"camera’s movement, and number **1~5** to change the speed level."
+msgstr ""
+"このページでは、キーボードの **W**、**A**、**S**、**D** キーを押して、車を"
+"**前方**、**後方**、**左折**、**右折** に制御したり、矢印キーを押してカメ"
+"ラの移動を制御したりすることができ、数値 **1〜5** は速度レベルを変更する。"
+
+#: ../remote_control.rst:67
+msgid "**Calibration**"
+msgstr "**補正**"
+
+#: ../remote_control.rst:69
+msgid ""
+"Click **FULLSCREEN** again to bring back the title bar. And then, tap "
+"the setting button at the top-right corner of the page to go to the "
+"calibration page:"
+msgstr ""
+"もう一度 **FULLSCREEN** をクリックして、タイトルバーを表示する。次に、ペー"
+"ジの右上隅にある設定ボタンをタップして、補正ページに進む。"
+
+#: ../remote_control.rst:78
+msgid ""
+"There are three calibration parts: **Camera Calibration**, **Front "
+"Wheels Calibration** and **Rear Wheels Calibration**."
+msgstr ""
+"補正には、**カメラ補正**、**前輪補正**、**後輪補正** の3つの部分が含まれて"
+"いる。"
+
+#: ../remote_control.rst:81
+msgid ""
+"When you enter this page, the car will go forward; if not, click "
+"**Left** and **Right** in **Rear Wheels Calibration** to adjust the "
+"angle of the wheel."
+msgstr ""
+"このページに入ると、車が前進する。そうでない場合は、**後輪補正** の **左**"
+"と **右** をクリックして、ホイールの角度を調整する。"
+
+#: ../remote_control.rst:86
+msgid ""
+"Every time you press a button, the angle will be changed slightly. For "
+"your larger change per time, you need to long press the button."
+msgstr ""
+"ボタンを押すたびに角度が少しずつ変化する。時間あたりの変化を大きくするに"
+"は、ボタンを長押ししてください。"
+
+#: ../remote_control.rst:89
+msgid "Click **OK** to save the result after all the calibration is done."
+msgstr "すべての補正が完了したら、**OK** をクリックして結果を保存する。"
+
+#: ../remote_control.rst:91
+msgid "**For Mobile Phones**"
+msgstr "**携帯電話用**"
+
+#: ../remote_control.rst:93
+msgid ""
+"Also for mobile phones, tap the **FULLSCREEN** button to have a better "
+"view and performance. Then, tap the buttons of 5 speed levels on the "
+"page to control the speed, and the arrow buttons to control the "
+"direction of the car and the pan-and-tilt. But you can only tab one "
+"touch point at **one** time."
+msgstr ""
+"また、携帯電話の場合は、**FULLSCREEN** ボタンをタップすると、表示とパ"
+"フォーマンスが向上する。次に、ページ上の5つの速度レベルのボタンをタップし"
+"て速度を制御し、矢印ボタンを押して車の方向とパン＆チルトを制御する。ただ"
+"し、**一度** にタブできるのは1つのタッチポイントのみである。"
+
+#: ../remote_control.rst:104
+msgid "Take this screenshot from an Android phone:"
+msgstr ""
+"Android操作システムのスマートフォンから次のスクリーンショットを取得する。"
+
+#: ../remote_control.rst:111
+msgid ""
+"Though the appearance may not be as good as on the PC. Later updates may "
+"be released irregularly on **Github**. You are welcome to fork our "
+"repository and submit a Pull request with your changes. If there is no "
+"problem after testing, we are more than pleased to merge your request."
+msgstr ""
+"見た目はPCほど良くないかもしれないが、以降の更新は **Github** で不定期にリ"
+"リースされる可能性がある。リポジトリを使い、変更を加えたプルリクエストを"
+"送信してください。テスト後に問題がなければ、リクエストを知ることは楽しみ"
+"である。"

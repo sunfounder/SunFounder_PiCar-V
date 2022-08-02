@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-30 09:18+0800\n"
+"PO-Revision-Date: 2021-06-25 17:03+0800\n"
+"Last-Translator: \n"
+"Language: ja\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../components_list.rst:2
+msgid "Components List"
+msgstr "部品一覧"
+
+#: ../components_list.rst:5
+msgid "Plates"
+msgstr "プレート"
+
+#: ../components_list.rst:11
+msgid "Upper Plate x 1"
+msgstr "上部プレートx 1"
+
+#: ../components_list.rst:13
+msgid "Front Half Plate x 1"
+msgstr "前部ハーフプレート×1"
+
+#: ../components_list.rst:15
+msgid "Back Half Plate x 1"
+msgstr "後部ハーフプレート×1"
+
+#: ../components_list.rst:17
+msgid "Pan-and-tilt Plate x 1"
+msgstr "パン/チルトプレートx 1"
+
+#: ../components_list.rst:19
+msgid "Pan-and-tilt Base Plate x 1"
+msgstr "パンとチルトのベースプレートx 1"
+
+#: ../components_list.rst:21
+msgid "Camera Mount Plate x 1"
+msgstr "カメラマウントプレートx 1"
+
+#: ../components_list.rst:23
+msgid "Steering Connector Plate x 2"
+msgstr "サーボコネクタープレートx 2"
+
+#: ../components_list.rst:25
+msgid "Bearing Shield x 8"
+msgstr "ベアリングシールドx 8"
+
+#: ../components_list.rst:27
+msgid "Steering Linkage Plate x 1"
+msgstr "サーボリンケージプレートx 1"
+
+#: ../components_list.rst:29
+msgid "Hex Front Wheel Fixing Plate x 8"
+msgstr "六角前輪固定プレート×8"
+
+#: ../components_list.rst:31
+msgid "Gasket Plate x 2"
+msgstr "ガスケットプレート×2"
+
+#: ../components_list.rst:35
+msgid ""
+"The Bearing Shield is similar to the Gasket Plate, but the aperture of "
+"Gasket Plate is large than the Bearing Shield."
+msgstr "ベアリングシールドはガスケットプレートに似ているが、ガスケットプレートの口径はベアリングシールドよりも大きくなっている。"
+
+#: ../components_list.rst:38
+msgid "Servo x 3"
+msgstr "サーボx 3"
+
+#: ../components_list.rst:44
+msgid "Servo"
+msgstr "サーボ"
+
+#: ../components_list.rst:46
+msgid "1-arm Rocker Arm"
+msgstr "1アームロッカーアーム"
+
+#: ../components_list.rst:48
+msgid "arm Rocker Arm"
+msgstr "アームロッカーアーム"
+
+#: ../components_list.rst:50
+msgid "4-arm Rocker Arm"
+msgstr "4アームロッカーアーム"
+
+#: ../components_list.rst:52
+msgid "Rocker Arm Fixing Screw"
+msgstr "ロッカーアーム固定ネジ"
+
+#: ../components_list.rst:54
+msgid "Rocker Arm Screw"
+msgstr "ロッカーアームねじ"
+
+#: ../components_list.rst:57
+msgid "Mechanical Fasteners"
+msgstr "メカニカルファスナー"
+
+#: ../components_list.rst:66
+msgid "Wires"
+msgstr "配線"
+
+#: ../components_list.rst:72
+msgid "PCB"
+msgstr "PCB"
+
+#: ../components_list.rst:81
+msgid "Other Components"
+msgstr "その他の部品"
+
+#: ../components_list.rst:90
+msgid "Tools"
+msgstr "工具"
+
+#: ../components_list.rst:96
+msgid "Self-provided Components"
+msgstr "別途用意する必要な部品"
+
+#: ../components_list.rst:98
+msgid "The following components are not included in this kit."
+msgstr "このキットには以下の成分が含まれていません。"
+
+#: ../components_list.rst:104
+msgid ""
+"You are recommend to use 18650 batteries **without** a protective board. "
+"Otherwise, the car may be cut power and stop running because of the "
+"overcurrent protection of the protective board."
+msgstr ""
+"保護ボードなしの 18650 "
+"バッテリーを使用することを推奨します。他のバッテリーを使用すると、保護ボードの過電流保護により、製品の電源が切れて動作を停止する可能性があります。"
+
+#: ../components_list.rst:108
+msgid ""
+"For unprotected batteries, please purchase those with the anode bulged "
+"out (as shown below), so that it can ensure the well connection with the "
+"battery holder."
+msgstr "保護回路なしのバッテリーの場合は、バッテリーホルダーとの接続を確実にするために、アノードが膨らんでいる(正極が尖った)バッテリーを購入してください（以下を参照）。"
+
+#: ../components_list.rst:116
+msgid ""
+"In order to keep the car working for a long time, use large-capacity "
+"batteries as much as possible"
+msgstr "長時間使用するために、可能な限り最大電力のバッテリーを使用してください。"
+

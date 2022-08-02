@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-05-28 21:21+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+
+#: ../introduction.rst:2
+msgid "Introduction"
+msgstr "前書き"
+
+#: ../introduction.rst:4
+msgid ""
+"The PiCar-V is developed based on the previous Smart Video Car Kit. It’s "
+"equipped with the new PCA9685 PWM driver, smaller and better-performing "
+"DC motor driver module, a Robot Hat with power and interface integrated, "
+"a wider-angle camera with clearer vision, some better wheels and tires, "
+"and so on. Later we'll check more details."
+msgstr ""
+"PiCar-Vは以前のスマートビデオカーキットに基づいて開発された。新しい"
+"PCA9685 PWMドライバー、小型で高性能のDCモータードライバーモジュール、電源"
+"とインターフェイスが統合されたロボットHAT、より鮮明な視界を備えた広角カメ"
+"ラ、いくつかの優れたホイールとタイヤなどが搭載されている。詳しくは後で説"
+"明する。"
+
+#: ../introduction.rst:10
+msgid ""
+"The basic functions of this new version still stay the same, including "
+"controlling the PiCar-V remotely and streaming the video data it "
+"captures back. Then what's new? Let's unveil the mysteries!"
+msgstr ""
+"この新しいバージョンの基本的な機能は、PiCar-Vをリモートで制御したり、キャ"
+"プチャしたビデオデータをストリーミングしたりするなど、前のとほぼ同じであ"
+"る。それでは新規機能は何か？謎を解き明かそう！"

@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-06-25 17:47+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+"Language: ja\n"
+
+#: ../advanced.rst:2
+msgid "Advanced"
+msgstr "高級段階"
+
+#: ../advanced.rst:4
+msgid ""
+"Now the car is running! You may try control it or view the image "
+"captured in Windows, Linux, or Mac OS X."
+msgstr ""
+"今、車は走行している！それを制御するか、またはWindows、Linux、またはMac "
+"OS Xでキャプチャされた画像を表示してみてください。"
+
+#: ../advanced.rst:7
+msgid "So what to do next?"
+msgstr "それでは次に何をすべきか？"
+
+#: ../advanced.rst:9
+msgid ""
+"Yes, sensors! There are 8 digital and 4 analog channels on the Robot "
+"HATS, as well as two I2C ports. Plus the 3mm slot on the acrylic plate "
+"in the car head, it enables the connection of various sensors, making "
+"the car smarter and more intriguing as you want!"
+msgstr ""
+"はい、センサー！Robot HATSには8つのデジタルチャネルと4つのアナログチャネ"
+"ルと2つのI2Cポートがある。さらに、車のヘッドのアクリル板にある3mmのスロッ"
+"トにより、さまざまなセンサーの接続が可能になり、車がよりスマートになり、"
+"興味をそそられるようになる！"
+
+#: ../advanced.rst:14
+msgid ""
+"And, coding! If you know programming and are capable of compiling code, "
+"you may change the code provided for the kit to make the car more "
+"fabulous. For instance, you can find the code that controls the front "
+"and back wheels in the folder SunFounder_PiCar, downloaded to the "
+"directory /home/pi if you've installed the program by install-"
+"dependences."
+msgstr ""
+"そして、コーディング！プログラミングに関する知識を身につけて、コードをコ"
+"ンパイルできる場合は、キット用に提供されているコードを変更して、車をより"
+"すばらしいものにすることができる。たとえば、前輪と後輪を制御するコード"
+"は、SunFounder_PiCarフォルダで見つけでinstall-dependencesによってプログラ"
+"ムをインストールした場合は、/home/piディレクトリにダウンロードされる。"
+
+#: ../advanced.rst:21
+msgid "You may check what's in the file:"
+msgstr "ファイルの内容を確認してください："
+
+#: ../advanced.rst:28
+msgid ""
+"After you've changed the code, you can go to the page of the Github "
+"repository for the car, and fork it to help improve it! Also you're "
+"quite welcome to post issues and request a pull on our Github page:"
+msgstr ""
+"コードを変更したら、車のGithubリポジトリのページに入り、フォークして改善"
+"に役立つだろう。また、問題を投稿して、Githubページでプルをリクエストする"
+"こともできる："
+
+#: ../advanced.rst:32
+msgid "PiCar-V: https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
+msgstr ""
+"PiCar-V: https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
+
+#: ../advanced.rst:35
+msgid "PiCar driver: https://github.com/sunfounder/SunFounder_PiCar"
+msgstr "PiCarドライバー：https://github.com/sunfounder/SunFounder_PiCar"
+
+#: ../advanced.rst:38
+msgid ""
+"And of course, if you have any questions or ideas, please feel free to "
+"email us at service@sunfounder.com."
+msgstr ""
+"もちろん、質問やアイデアがある場合は、service@sunfounder.comまでお気軽に"
+"送信してください。"

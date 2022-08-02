@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-05-28 20:22+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+
+#: ../continue_to_assemble.rst:2
+msgid "Continue to Assemble"
+msgstr "組み立てを続ける"
+
+#: ../continue_to_assemble.rst:5
+msgid ""
+"Please do forget to put in the battery and slide the power switch to ON, "
+"then keep servo-install running in the whole process of assembly."
+msgstr ""
+"バッテリーを取り付けて電源スイッチをONにスライドさせてから、組み立てのプ"
+"ロセス全体でサーボインストールを実行し続けてください。"
+
+#: ../continue_to_assemble.rst:9
+msgid "Assemble the Steering Servo"
+msgstr "ステアリングサーボの組み立て"
+
+#: ../continue_to_assemble.rst:11
+msgid ""
+"Mount the **Steering Servo** to the Upper Plate with two **M2x8 Screws** "
+"and **M2 nuts** (pay attention to the direction of the servo wires):"
+msgstr ""
+"2つの **M2x8ネジ** と **M2ナット** を使ってステアリングサーボを上部プレートに"
+"取り付ける（サーボワイヤーの方向に注意してください）。"
+
+#: ../continue_to_assemble.rst:18
+msgid "Front Half Chassis"
+msgstr "フロントハーフシャーシ"
+
+#: ../continue_to_assemble.rst:20
+msgid ""
+"The **Rocker Arm** is facing straight ahead, and then inserted into the "
+"Servo shaft, and then fixed with **Rocker Arm Fixing Screw** (the "
+"shortest)."
+msgstr ""
+"**ロッカーアーム固定ネジ**（最短）で **ステアリングリンケージ** をロッカー"
+"アームに接続する。"
+
+#: ../continue_to_assemble.rst:27
+msgid "Mount the wheels onto the Upper Plate carefully."
+msgstr "ホイールを上部プレートに入念に取り付ける。"
+
+#: ../continue_to_assemble.rst:32
+msgid ""
+"Assemble the **Front Half Chassis** with four **M3x25 copper standoffs** "
+"and **M3 nuts**."
+msgstr ""
+"4つの **M3x25銅製スタンドオフ** と **M3ナットでフロントハーフシャーシ** を組"
+"み立てる。"
+
+#: ../continue_to_assemble.rst:38
+msgid ""
+"Then put the assembled Front Half Chassis onto the Upper Plate with "
+"standoffs aligned with the holes."
+msgstr ""
+"次に、組み立てられたフロントハーフシャーシを、スタンドオフを穴に合わせて"
+"いる上部プレートに置く。"
+
+#: ../continue_to_assemble.rst:46
+msgid ""
+"Hold them carefully, turn upside down, and fasten the standoffs and "
+"Upper Plate with four **M3x8 screws.**"
+msgstr ""
+"入念に持ち、上下を逆にして、4本の **M3x8ネジ** でスタンドオフと上部プレート"
+"を固定する。"
+
+#: ../continue_to_assemble.rst:52
+msgid ""
+"Assemble the assembled **Pan-and-tilt Plate, Gasket Plate** and **Camera "
+"Mount Plate** with the **Rocker Arm Fixing Screw** in a fixed angle as "
+"shown below:"
+msgstr ""
+"以下に示すように、組み立てられた **パン＆チルトプレート**、**ガスケットプ"
+"レート** と **カメラマウントプレート** を **ロッカーアーム固定ネジ** で固定角"
+"度で組み立てる:"
+
+#: ../continue_to_assemble.rst:57
+msgid "Do not rotate the servo by hands in case of breaking the servodown."
+msgstr "サーボが故障した場合、手でサーボを回さないでください。"
+
+#: ../continue_to_assemble.rst:62
+msgid ""
+"Similarly check that the servo shaft has spun to 90 degrees. Then "
+"assemble the **Pan-and-tilt Base Plate** with the **Rocker Arm Fixing "
+"Screw** and the **Gasket Plate** in the angle as shown below."
+msgstr ""
+"同様に、サーボシャフトが90度に回転していることを確認する。次に、以下に示"
+"す角度で、**パン＆チルトベースプレート** を **ロッカーアーム固定ネジ** と **"
+"ガスケットプレート** で組み立てる。"
+
+#: ../continue_to_assemble.rst:69
+msgid ""
+"Assemble the **Pan-and-tilt Plate** to the car with two **M3x10 screws** "
+"and the **M3 nuts.**"
+msgstr ""
+"2つの **M3x10ネジ** と **M3ナット** を使用して、**パン＆チルトプレート** を車"
+"に取り付ける。"
+
+#: ../continue_to_assemble.rst:76
+msgid "Assemble the Camera"
+msgstr "カメラを組み立てる"
+
+#: ../continue_to_assemble.rst:78
+msgid ""
+"Take out the camera and nip it to the Camera Mount. Connect its USB "
+"cable to the USB port on the Raspberry Pi."
+msgstr ""
+"カメラを取り出し、カメラマウントに鋏む。USBケーブルをRaspberry PiのUSB"
+"ポートに接続する。"
+
+#: ../continue_to_assemble.rst:81
+msgid ""
+"**So now, the whole assembly is DONE! Congratulations! You can power off "
+"the car now! Don’t forget to charge your batteries.**"
+msgstr ""
+"**これで、アセンブリ全体が完了した。おめでとう！今すぐ車の電源を切ること"
+"ができる！バッテリーを充電することを忘れないでください。**"

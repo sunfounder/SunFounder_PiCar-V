@@ -1,0 +1,390 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
+"PO-Revision-Date: 2021-06-25 17:26+0800\n"
+"Last-Translator: \n"
+"Language: pi\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../get_started_with_raspberry_pi.rst:2
+msgid "Get Started with Raspberry Pi"
+msgstr "ラズベリー パイを始めよう"
+
+#: ../get_started_with_raspberry_pi.rst:4
+msgid ""
+"In this chapter, we firstly learn to start up Raspberry Pi. The content "
+"includes installing the OS, Raspberry Pi network and how to open "
+"terminal."
+msgstr "この章では、まずラズベリーパイの起動方法を学びます。内容には、オペレーティングシステム、ラズベリーパイネットワークをインストールする方法とターミナルの開き方が含まれます。"
+
+#: ../get_started_with_raspberry_pi.rst:9
+msgid ""
+"You can check the complete tutorial on the official website of the "
+"Raspberry Pi: https://projects.raspberrypi.org/en/projects/raspberry-pi-"
+"setting-up"
+msgstr ""
+"完全なチュートリアルは、ラズベリーパイの公式サイト（https://projects.raspberrypi.org/en/projects"
+"/raspberry-pi-setting-up）で確認できます。"
+
+#: ../get_started_with_raspberry_pi.rst:12
+msgid ""
+"If your Raspberry Pi is set up, you can skip the part and go into the "
+"next chapter."
+msgstr "ラズベリーパイがセットアップされている場合は、この部分をスキップして次の章に進むことができます。"
+
+#: ../get_started_with_raspberry_pi.rst:16
+msgid "Installing the OS"
+msgstr "オペレーティングシステムのインストール"
+
+#: ../get_started_with_raspberry_pi.rst:18
+msgid "**Required Components**"
+msgstr "**必要なコンポーネント**"
+
+#: ../get_started_with_raspberry_pi.rst:21
+msgid "Any Raspberry Pi"
+msgstr "任意のラズベリーパイ"
+
+#: ../get_started_with_raspberry_pi.rst:21
+msgid "1 \\* Personal Computer"
+msgstr "パーソナルコンピュータ*1台"
+
+#: ../get_started_with_raspberry_pi.rst:22
+msgid "1 \\* Micro SD card"
+msgstr "マイクロSDカード*1枚"
+
+#: ../get_started_with_raspberry_pi.rst:25
+#: ../get_started_with_raspberry_pi.rst:199
+#: ../get_started_with_raspberry_pi.rst:250
+msgid "**Step 1**"
+msgstr "**ステップ1**"
+
+#: ../get_started_with_raspberry_pi.rst:27
+msgid ""
+"Raspberry Pi have developed a graphical SD card writing tool that works "
+"on Mac OS, Ubuntu 18.04 and Windows, and is the easiest option for most "
+"users as it will download the image and install it automatically to the "
+"SD card."
+msgstr ""
+"ラズベリーパイが開発したグラフィカルなSDカード書き込みツールは、Mac OS、Ubuntu "
+"18.04、Windowsで動作し、イメージをダウンロードして自動的にSDカードにインストールしてくれるので、ほとんどのユーザーにとって最も簡単なオプションです。"
+
+#: ../get_started_with_raspberry_pi.rst:32
+msgid ""
+"Visit the download page: https://www.raspberrypi.org/software/. Click on "
+"the link for the Raspberry Pi Imager that matches your operating system, "
+"when the download finishes, click it to launch the installer."
+msgstr "ダウンロードページにアクセスします。https://www.raspberrypi.org/software/。お使いのオペレーティングシステムに合ったラズベリーパイイメージャーのリンクをクリックし、ダウンロードが終了したら、それをクリックしてインストーラーを起動します。"
+
+#: ../get_started_with_raspberry_pi.rst:41
+#: ../get_started_with_raspberry_pi.rst:204
+#: ../get_started_with_raspberry_pi.rst:261
+msgid "**Step 2**"
+msgstr "**ステップ2**"
+
+#: ../get_started_with_raspberry_pi.rst:43
+msgid ""
+"When you launch the installer, your operating system may try to block you"
+" from running it. For example, on Windows I receive the following "
+"message:"
+msgstr "インストーラーを起動すると、オペレーティングシステムが実行をブロックしようとする場合があります。例えば、Windowsでは次のようなメッセージが表示されます。"
+
+#: ../get_started_with_raspberry_pi.rst:47
+msgid ""
+"If this pops up, click on **More info** and then **Run anyway**, then "
+"follow the instructions to install the Raspberry Pi Imager."
+msgstr ""
+"これがポップアップされたら、順次に「**More info**」と「**Run "
+"anyway**」をクリックした後、指示に従ってラズベリーパイイメージャーをインストールします。"
+
+#: ../get_started_with_raspberry_pi.rst:55
+#: ../get_started_with_raspberry_pi.rst:213
+#: ../get_started_with_raspberry_pi.rst:266
+msgid "**Step 3**"
+msgstr "**ステップ3**"
+
+#: ../get_started_with_raspberry_pi.rst:57
+msgid "Insert your SD card into the computer or laptop SD card slot."
+msgstr "SDカードをパソコンやノートパソコンのSDカードスロットに挿入します。"
+
+#: ../get_started_with_raspberry_pi.rst:59
+#: ../get_started_with_raspberry_pi.rst:221
+msgid "**Step 4**"
+msgstr "**ステップ4**"
+
+#: ../get_started_with_raspberry_pi.rst:61
+msgid ""
+"In the Raspberry Pi Imager, select the OS that you want to install and "
+"the SD card you would like to install it on."
+msgstr "ラズベリーパイイメージャーで、インストールしたいオペレーティングシステムとSDカードを選択します。"
+
+#: ../get_started_with_raspberry_pi.rst:71
+msgid "You will need to be connected to the internet the first time."
+msgstr "初回はインターネットに接続されている必要があります。"
+
+#: ../get_started_with_raspberry_pi.rst:73
+msgid ""
+"That OS will then be stored for future offline use(lastdownload.cache, "
+"C:/Users/yourname/AppData/Local/Raspberry Pi/Imager/cache, ). So the next"
+" time you open the software, it will have the display \"Released: date, "
+"cached on your computer\"."
+msgstr ""
+"そのオペレーティングシステムは、将来のオフラインでの使用のために保存されます(ラストダウンロード.キャッシュ、C:/Users/yourname/AppData/Local/Raspberry"
+" "
+"Pi/Imager/cache,)。そのため、次にソフトを開いたときには、「リリース：日付、あなたのコンピュータにキャッシュされた」という表示になります。"
+
+#: ../get_started_with_raspberry_pi.rst:78
+#: ../get_started_with_raspberry_pi.rst:230
+msgid "**Step 5**"
+msgstr "**ステップ5**"
+
+#: ../get_started_with_raspberry_pi.rst:80
+msgid "Select the SD card you are using."
+msgstr "使用中のSDカードを選択します。"
+
+#: ../get_started_with_raspberry_pi.rst:87
+msgid "**Step 6**"
+msgstr "**ステップ6**"
+
+#: ../get_started_with_raspberry_pi.rst:89
+msgid ""
+"Press **Ctrl+Shift+X** to open the **Advanced options** page to enable "
+"SSH and configure wifi, these 2 items must be set, the others depend on "
+"your choice . You can choose to always use this image customization "
+"options."
+msgstr ""
+"「**Ctrl+Shift+X**」を押すと、SSHの有効化と無線LANの設定を行うための「**Advanced "
+"options**」ページが開きます。この2つの項目は必ず設定する必要がありますが、その他の項目はあなたの選択次第です。このイメージカスタマイズオプションを常に使用するように選択することができます。"
+
+#: ../get_started_with_raspberry_pi.rst:99
+msgid "Then scroll down to complete the wifi configuration and click **SAVE**."
+msgstr "その後、下にスクロールしてWifiの設定を完了し、「**SAVE**」をクリックします。"
+
+#: ../get_started_with_raspberry_pi.rst:103
+msgid ""
+"**wifi country** should be set the two-letter `ISO/IEC alpha2 code "
+"<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__"
+" for the country in which you are using your Raspberry Pi, please refer "
+"to the following link:"
+msgstr "**wifi country** は、ラズベリーパイを使用している国のの2文字のコードを設定してください、以下のリンクを参照してください："
+
+#: ../get_started_with_raspberry_pi.rst:108
+msgid "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements"
+msgstr "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements"
+
+#: ../get_started_with_raspberry_pi.rst:115
+msgid "**Step 7**"
+msgstr "**ステップ7**"
+
+#: ../get_started_with_raspberry_pi.rst:117
+msgid "Click the **WRITE** button."
+msgstr "「**WRITE**」ボタンをクリックします。"
+
+#: ../get_started_with_raspberry_pi.rst:124
+msgid "**Step 8**"
+msgstr "**ステップ8**"
+
+#: ../get_started_with_raspberry_pi.rst:126
+msgid ""
+"If your SD card currently has any files on it, you may wish to back up "
+"these files first to prevent you from permanently losing them. If there "
+"is no file to be backed up, click **Yes**."
+msgstr "SDカードに何らかのファイルが保存されている場合は、それらのファイルを永久に失わないようにするために、まずそれらのファイルをバックアップすることをお勧めします。バックアップするファイルがない場合は、「**Yes**」をクリックします。"
+
+#: ../get_started_with_raspberry_pi.rst:135
+msgid "**Step 9**"
+msgstr "**ステップ9**"
+
+#: ../get_started_with_raspberry_pi.rst:137
+msgid ""
+"After waiting for a period of time, the following window will appear to "
+"represent the completion of writing."
+msgstr "一定時間を待った後、書き込み完了を表す以下のウィンドウが表示されます。"
+
+#: ../get_started_with_raspberry_pi.rst:146
+msgid "**Power on the Raspberry Pi**"
+msgstr "**Raspberry Piの電源を入れる**"
+
+#: ../get_started_with_raspberry_pi.rst:148
+msgid ""
+"Now, the Raspberry Pi OS is configured, you can plug out the USB card "
+"reader and then plug the Micro SD card into the Raspberry Pi."
+msgstr "USBカードリーダーを接続し、マイクロSDカードをRaspberry Piに接続する。"
+
+#: ../get_started_with_raspberry_pi.rst:151
+msgid ""
+"Put two 18650 fully charged batteries in the holder, plug the wires from "
+"the battery holder into the development board then toggle the switch from"
+" off to on. **You are also recommended to use the power adapter of "
+"Raspberry Pi to power your car for that the first test will take a long "
+"time.**"
+msgstr ""
+"フル充電された2つの18650バッテリーをホルダーに取り付け、バッテリーホルダーからのワイヤを開発ボードに差し込み、スイッチをオフからオンに切り替える。**最初のテストに時間がかかるため、Raspberry"
+" Piの電源アダプターを使用して車に電源を供給することもお勧めします。**"
+
+#: ../get_started_with_raspberry_pi.rst:158
+msgid "**Get the IP Address**"
+msgstr "**IPアドレスを取得する**"
+
+#: ../get_started_with_raspberry_pi.rst:160
+msgid ""
+"After the Raspberry Pi is powered on with a power adapter, we need to get"
+" the IP address of it. There are many ways to know the IP address, and "
+"two of them are listed as follows."
+msgstr ""
+"Raspberry "
+"Piの電源を電源アダプターで入れたら、IPアドレスを取得する必要がある。IPアドレスを知る方法はたくさんあるが、そのうちの2つを以下のように示す。"
+
+#: ../get_started_with_raspberry_pi.rst:164
+msgid "**1.  Checking via the router**"
+msgstr "**1. ルーター経由で確認する**"
+
+#: ../get_started_with_raspberry_pi.rst:166
+msgid ""
+"If you have permission to log in the router(such as a home network), you "
+"can check the addresses assigned to Raspberry Pi on the admin interface "
+"of router."
+msgstr ""
+"ルーター（ホームネットワークなど）にログインする権限がある場合は、ルーターの管理インターフェイスでRaspberry "
+"Piに割り当てられたアドレスを確認できる。"
+
+#: ../get_started_with_raspberry_pi.rst:170
+msgid ""
+"The default hostname of the system, Raspberry Pi OS is **raspberrypi**, "
+"and you need to find it. (If you are using ArchLinuxARM system, please "
+"find alarmpi.)"
+msgstr ""
+"システムのデフォルトのホスト名－Raspberry Pi OSは **raspberrypi** "
+"であり、それを見つける必要がある。（ArchLinuxARMシステムを使用している場合は、alarmpiを見つけてください。）"
+
+#: ../get_started_with_raspberry_pi.rst:174
+msgid "**2. Network Segment Scanning**"
+msgstr "**2. ネットワークセグメントスキャン**"
+
+#: ../get_started_with_raspberry_pi.rst:176
+msgid ""
+"You can also use network scanning to look up the IP address of Raspberry "
+"Pi. You can apply the software, **Advanced IP scanner(download from "
+"Google)**."
+msgstr ""
+"ネットワークスキャンを使用して、Raspberry PiのIPアドレスを検索することもできる。ソフトウェア、**Advanced IP "
+"scanner（Googleからダウンロード）** を使える。"
+
+#: ../get_started_with_raspberry_pi.rst:180
+msgid ""
+"Click **Scan** and the name of all connected devices will be displayed. "
+"Similarly, the default hostname of the Raspberry Pi OS is "
+"**raspberrypi**, now you need to find the hostname and its IP."
+msgstr ""
+"「**Scan**」をクリックすると、接続されているすべてのデバイスの名前が表示される。同様に、Raspberry Pi "
+"OSのデフォルトのホスト名は **raspberrypi** であり、今ホスト名とそのIPを見つけてください。"
+
+#: ../get_started_with_raspberry_pi.rst:190
+msgid "**Use the SSH Remote Control**"
+msgstr "**SSHリモートコントロールを使用する**"
+
+#: ../get_started_with_raspberry_pi.rst:192
+msgid ""
+"We can open the Bash Shell of Raspberry Pi by applying SSH. Bash is the "
+"standard default shell of Linux. The Shell itself is a program written in"
+" C that is the bridge linking the customers and Unix/Linux. Moreover, it "
+"can help to complete most of the work needed."
+msgstr ""
+"SSHを適用することにより、Raspberry PiのBash "
+"Shellを開くことができる。BashはLinuxの標準のデフォルトシェルである。シェル自体は、お客様とUnix/Linuxをリンクするブリッジである「C」で書き込まれるプログラムである。さらに、必要な作業のほとんどを完了することに役立ち。"
+
+#: ../get_started_with_raspberry_pi.rst:197
+msgid "**For Linux or/Mac OS X Users**"
+msgstr "**Linuxまたは/ Mac OS Xユーザーの場合**"
+
+#: ../get_started_with_raspberry_pi.rst:201
+msgid ""
+"Go to **Applications**->\\ **Utilities**, find the **Terminal**, and open"
+" it."
+msgstr "**Applications** ->、**Utilities** に入り、**Terminal** を見つけてから開く。"
+
+#: ../get_started_with_raspberry_pi.rst:206
+msgid ""
+"Type in **ssh pi@ip_address** . \\\"pi\\\" is your username and "
+"\\\"ip_address\\\" is your IP address. For example:"
+msgstr "**ssh pi @ ip_address** と入力します。 \\\"pi \\\"はユーザー名、\\\"ip_address \\\"はIPアドレスです。 例えば："
+
+#: ../get_started_with_raspberry_pi.rst:215
+msgid "Input \\\"yes\\\"."
+msgstr "\\\"yes\\\" を入力する。"
+
+#: ../get_started_with_raspberry_pi.rst:223
+msgid "Input the password and the default password is **raspberry**."
+msgstr "デフォルトのパスワード「**raspberry**」を入力する。"
+
+#: ../get_started_with_raspberry_pi.rst:232
+msgid ""
+"We now get the Raspberry Pi connected and are ready to go to the next "
+"step."
+msgstr "これで、Raspberry Piが接続され、次のステップに進む準備ができた。"
+
+#: ../get_started_with_raspberry_pi.rst:241
+#: ../get_started_with_raspberry_pi.rst:276
+msgid ""
+"When you input the password, the characters do not display on window "
+"accordingly, which is normal. What you need is to input the correct "
+"password."
+msgstr "パスワードを入力すると、ウィンドウに文字が表示されないが、これは正常である。必要なのは、正しいパスコードを入力するだけである。"
+
+#: ../get_started_with_raspberry_pi.rst:245
+msgid "**For Windows Users**"
+msgstr "**Windowsユーザーの場合**"
+
+#: ../get_started_with_raspberry_pi.rst:247
+msgid ""
+"If you're a Windows user, you can use SSH with the application of some "
+"software. Here, we recommend **PuTTY**\\ (You can download from Google)."
+msgstr "Windowsユーザーの場合、いくつかのソフトウェアのアプリケーションでSSHを使用できる。ここでは、**PuTTY**、を推薦する（Googleからダウンロードできる）。"
+
+#: ../get_started_with_raspberry_pi.rst:252
+msgid ""
+"Download PuTTY. Open PuTTY and click **Session** on the left tree-alike "
+"structure. Enter the IP address of the RPi in the text box under **Host "
+"Name (or IP address)** and **22** under **Port** (by default it is 22)."
+msgstr ""
+"PuTTYをダウンロードする。PuTTYを開き、左側のツリー構造にある **Session** をクリックする。**「Host "
+"Name」（またはIPアドレス）** の下のテキストボックスにRPiのIPアドレスを入力し、**Port** に **22** "
+"（デフォルトでは22）を入力する。"
+
+#: ../get_started_with_raspberry_pi.rst:263
+msgid ""
+"Click **Open**. Note that when you first log in to the Raspberry Pi with "
+"the IP address, there prompts a security reminder. Just click **Yes**."
+msgstr ""
+"**Open** をクリックする。IPアドレスを使用してRaspberry "
+"Piに初めてログインすると、安全上の指示が表示されることに注意してください。**Yes** をクリックする。"
+
+#: ../get_started_with_raspberry_pi.rst:268
+msgid ""
+"When the PuTTY window prompts \\\"**login as:**\\\", type in **pi** (the "
+"user name of the RPi), and **password:** \\\"raspberry\\\" (the default "
+"one, if you haven't changed it)."
+msgstr ""
+"PuTTYウィンドウに「**login as：**」と表示されたら、「**pi**」（RPiのユーザー名）と "
+"**パスワード**「**raspberry**」（変更していない場合はデフォルトのパスワードである）を入力する。"
+
+#: ../get_started_with_raspberry_pi.rst:280
+msgid ""
+"Here, we get the Raspberry Pi connected and it is time to conduct the "
+"next steps."
+msgstr "ここで、Raspberry Piを接続し、次の手順を実行する。"
+
+#~ msgid "2.That OS will then be stored for future offline"
+#~ msgstr ""
+

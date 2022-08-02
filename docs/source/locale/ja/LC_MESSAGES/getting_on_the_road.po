@@ -1,0 +1,31 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 18:07+0800\n"
+"PO-Revision-Date: 2021-05-28 21:16+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.3\n"
+
+#: ../getting_on_the_road.rst:2
+msgid "Getting on the Road!"
+msgstr "旅に出よう！"
+
+#: ../getting_on_the_road.rst:4
+msgid ""
+"Make sure all the procedures have been finished, and check there is no "
+"problem about the mechanical assembly and software installation."
+msgstr ""
+"すべての手順が完了していて、機械的なアセンブリとソフトウェアのインス"
+"トールに問題がないことを確認してください。"

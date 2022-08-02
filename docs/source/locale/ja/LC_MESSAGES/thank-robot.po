@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
+"PO-Revision-Date: 2021-08-16 18:16+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"X-Generator: Poedit 3.0\n"
+
+#: ../thank-robot.rst:2
+msgid "Thank You"
+msgstr "ありがとうございました"
+
+#: ../thank-robot.rst:4
+msgid ""
+"Thanks to the evaluators who evaluated our products, the veterans who "
+"provided suggestions for the tutorial, and the users who have been "
+"following and supporting us. Your valuable suggestions to us are our "
+"motivation to provide better products!"
+msgstr ""
+"私たちの製品を評価した評価者、チュートリアルのための提案を提供したベテラ"
+"ン、そして私たちをフォローしてサポートしてきたユーザーのおかげで。私たち"
+"にあなたの貴重な提案は、より良い製品を提供する私たちのモチベーションです!"
+
+#: ../thank-robot.rst:7
+msgid "**Particular Thanks**"
+msgstr "**特定の感謝**"
+
+#: ../thank-robot.rst:9
+msgid "Len Davisson"
+msgstr "レン・ヴィセソン"
+
+#: ../thank-robot.rst:10
+msgid "Kalen Daniel"
+msgstr "カレン・ダニエル"
+
+#: ../thank-robot.rst:11
+msgid "Juan Delacosta"
+msgstr "フアン・デラコスタ"
+
+#: ../thank-robot.rst:14
+msgid "Now, could you spare a little time to fill out this questionnaire?"
+msgstr "さて、このアンケートに記入するのに少し時間を割いてもらえますか?"
+
+#: ../thank-robot.rst:22
+msgid ""
+"After submitting the questionnaire, please go back to the top to view "
+"the results."
+msgstr "アンケートを送信した後、トップに戻って結果を確認してください。"

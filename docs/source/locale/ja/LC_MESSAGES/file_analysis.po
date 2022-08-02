@@ -1,0 +1,306 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# Car Kit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V Car Kit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-16 18:13+0800\n"
+"PO-Revision-Date: 2021-06-25 17:41+0800\n"
+"Last-Translator: \n"
+"Language: ja\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../file_analysis.rst:2
+msgid "File Analysis"
+msgstr "ファイル分析"
+
+#: ../file_analysis.rst:4
+msgid ""
+"There are two folders under /home/pi: **SunFounder_PiCar** for "
+"controlling motors and steering and **SunFounder_PiCar-V** for pan/tilt "
+"and wireless control. Here look into the code of PiCar-V."
+msgstr ""
+"/home/piに2つのフォルダーがある：モーターとステアリングを制御するための **SunFounder_PiCar** "
+"と、パン/チルトとワイヤレス制御のための **SunFounder_PiCar-V** ここでPiCar-Vのコードを調べる。"
+
+#: ../file_analysis.rst:8
+msgid ""
+"Since too many contents and instructions are involved in the code, we "
+"will not cover every detail. For more knowledge about Python 2, Python 3,"
+" Django, HTML, and CSS in the programs, you can visit related websites or"
+" buy books to learn by yourself. In the following part, we will go "
+"through the overall structure and the process in brief."
+msgstr ""
+"コードに含まれる内容と指示が多すぎるため、すべての詳細を説明しない。プログラムのPython 2、Python "
+"3、Django、HTML、CSSの詳細については、関連するWebサイトにアクセスするか、または本を購入して自分で学習してください。次のパートでは、全体的な構造とプロセスについて簡単に説明する。"
+
+#: ../file_analysis.rst:14
+msgid "First, let’s check the files in the code folder:"
+msgstr "まず、コードフォルダー内のファイルを確認する："
+
+#: ../file_analysis.rst:21
+msgid ""
+"``.git`` is a hidden directory to store all the information of a Git "
+"repository; it's generated automatically after you create the repository."
+msgstr "``.git`` はGitリポジトリのすべての情報を確認するための隠しディレクトリで、リポジトリを作成すると、自動的に生成される。"
+
+#: ../file_analysis.rst:25
+msgid "``Ball_track`` is used to let the car follow the red ball."
+msgstr "``Ball_track`` は車に赤いボールを追跡させるために使用される。"
+
+#: ../file_analysis.rst:27
+msgid ""
+"``datasheet`` stores the manual of some chips used in the hardware "
+"modules."
+msgstr "``データシート`` はハードウェアモジュールで使用される一部のチップのマニュアルを保存する。"
+
+#: ../file_analysis.rst:30
+msgid ""
+"``mjpg-streamer`` is an open source streaming media library, through "
+"which the data of the camera is transferred."
+msgstr "``mjpg-streamer`` はカメラのデータが転送されるオープンソースのストリーミングメディアライブラリである。"
+
+#: ../file_analysis.rst:33
+msgid ""
+"``Remote_control`` is to store the code of the web server; it controls "
+"the motor and servo of the car based on the API request."
+msgstr "``Remote_control`` はWebサーバーのコードを保存するためのもので、APIリクエストに基づいて車のモーターとサーボを制御する。"
+
+#: ../file_analysis.rst:36
+msgid ""
+"``.gitignore`` records the requests of file types to be ignored when the "
+"Github repository is synchronized."
+msgstr "``.gitignore`` はGithubリポジトリが同期されるときに無視されるファイルタイプのリクエストを記録する。"
+
+#: ../file_analysis.rst:39
+msgid ""
+"``_init_.py`` is automatically generated when you create a project which "
+"is a standard necessary document of python package, just leave it there."
+msgstr ""
+"Pythonパッケージの標準の必要なドキュメントであるプロジェクトを作成すると、``_init_.py`` "
+"は自動的に生成されるため、そのままにしておいてください。"
+
+#: ../file_analysis.rst:43
+msgid ""
+"``i2cHelper.py`` is a Python script written by Python 2 to configure and "
+"detect the I2C connection."
+msgstr "``i2cHelper.py`` はI2C接続を構成したり検出したりするためにPython 2によって作成されたPythonスクリプトである。"
+
+#: ../file_analysis.rst:46
+msgid ""
+"``install_dependencies``, an executable bash script for simple "
+"installation and environment configuration."
+msgstr "``install_dependencies``，簡単なインストールと環境設定のための実行可能なbashスクリプト。"
+
+#: ../file_analysis.rst:49
+msgid "``LICENSE``, as the name suggests, is a text file of GNU V2 license."
+msgstr "その名のとおり、``LICENSE`` はGNU V2ライセンスのテキストファイルである。"
+
+#: ../file_analysis.rst:51
+msgid ""
+"``README.md`` and ``show`` record some information normally for statement"
+" and prompts."
+msgstr "``README.md`` と ``show`` はステートメントとプロンプトに関する通常の情報を記録する。"
+
+#: ../file_analysis.rst:55
+msgid "Server Code"
+msgstr "サーバーコード"
+
+#: ../file_analysis.rst:57
+msgid ""
+"The server code is based on Django 1.10 (adapt to the latest release if "
+"needed). If you are interested in this, you can visit the Django website "
+"https://www.djangoproject.com/. Here we will just learn how the web "
+"server works."
+msgstr ""
+"サーバーコードはDjango "
+"1.10に基づいている（必要に応じて最新のリリースに適応する）。これに興味がある場合は、DjangoのWebサイトhttps://www.djangoproject.com/にアクセスするか。ここでは、Webサーバーがどのように機能するかを学習する。"
+
+#: ../file_analysis.rst:64
+msgid ""
+"The code may be updated irregularly on Github to fix bugs and release "
+"some functions update. So the code here is the initial version. You can "
+"view the updates in the Github repository at:"
+msgstr "バグを修正し、一部の関数の更新をリリースするために、Githubでコードが不定期に更新される場合がある。したがって、ここのコードは初期バージョンである。以下の場合、Githubリポジトリの更新を表示できる："
+
+#: ../file_analysis.rst:68
+msgid "https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
+msgstr "https://github.com/sunfounder/SunFounder_PiCar-V/tree/V3.0"
+
+#: ../file_analysis.rst:70
+msgid "Open the code directory and check the file by ``ls``:"
+msgstr "コードディレクトリを開き、``ls`` でファイルを確認します。"
+
+#: ../file_analysis.rst:79
+msgid ""
+"``remote_control`` is the main code directory of the web server. Open the"
+" code directory by cd ``remote_control``, and check the file by ls:"
+msgstr ""
+"``remote_control`` は、Webサーバーのメインコードディレクトリである。cd ``remote_control`` "
+"でコードディレクトリを開き、lsによってファイルを確認する："
+
+#: ../file_analysis.rst:88
+msgid "``db.sqlite3`` is generated when you create a Django project."
+msgstr "Djangoプロジェクトを作成すると、``db.sqlite3`` が生成される。"
+
+#: ../file_analysis.rst:90
+msgid ""
+"``manage.py`` is the main program of the Django project and is generated "
+"when the project is created. It normally does not need to be modified."
+msgstr "``manage.py`` はDjangoプロジェクトのメインプログラムであり、プロジェクトの作成時に生成される。通常は変更する必要はない。"
+
+#: ../file_analysis.rst:94
+msgid "``remote_control`` includes the main code files."
+msgstr "``remote_control`` には、メインコードファイルが含まれている。"
+
+#: ../file_analysis.rst:96
+msgid ""
+"``start`` is a small script written to run ``sudo python manage.py "
+"runserver 0.0.0.0:8000``, and servo installation with attribute "
+"``install`` just for convenience."
+msgstr ""
+"``start`` は ``sudo python manage.py runserver 0.0.0.0:8000`` "
+"を実行するために書かれた小さなスクリプトであり、便宜上、属性のあるインストールを使用したサーボ ``インストール`` である。"
+
+#: ../file_analysis.rst:100
+msgid "``static`` is to store some static pictures on the web."
+msgstr "``static`` はいくつかの静的な画像をWebに保存するものである。"
+
+#: ../file_analysis.rst:102
+msgid ""
+"The Django web server normally runs ``sudo python manage.py runserver`` "
+"to start. The address 0.0.0.0:8000 means the listening address covers all"
+" the addresses on the LAN, and the port number is 8000. Here we will just"
+" focus on the code in ``remote_control`` folder. Go to the directory via "
+"``cd remote_control``:"
+msgstr ""
+"Djangoウェブサーバーは通常、 ``sudo python manage.py runserver `` "
+"の実行を通じて起動する。アドレス0.0.0.0:8000は、リスニングアドレスがLAN上のすべてのアドレスをカバーし、ポート番号が8000であることを意味する。ここでは、"
+" ``remote_control`` フォルダーのコードに焦点を当てる。 ``cd remote_control`` "
+"を使用してディレクトリに入る："
+
+#: ../file_analysis.rst:114
+msgid "``driver`` stores the drivers of the car."
+msgstr "``driver`` は車のドライバーを保存する。"
+
+#: ../file_analysis.rst:116
+msgid ""
+"``__init__.py`` is automatically generated when you create a Django "
+"project which is a standard necessary document of python package, just "
+"leave it there."
+msgstr ""
+"``__init__.py`` "
+"はPythonパッケージの標準的な必要なドキュメントであるDjangoプロジェクトを作成すると自動的に生成される。そのままにしておいてください。"
+
+#: ../file_analysis.rst:120
+msgid ""
+"``settings.py`` is automatically generated and stores the related "
+"settings."
+msgstr "``settings.py`` は自動的に生成され、関連する設定を保存する。"
+
+#: ../file_analysis.rst:123
+msgid "``templates`` is a Django app for storing the webs in the html format."
+msgstr "``templates`` HTML形式でウェブを格納するためのジャンゴアプリです。"
+
+#: ../file_analysis.rst:125
+msgid ""
+"``urls.py`` is generated automatically to configure the URL to associate "
+"with the code."
+msgstr "``urls.py`` は自動的に生成され、コードに関連付けるURLを構成する。"
+
+#: ../file_analysis.rst:128
+msgid ""
+"``views.py`` is the code for page control which is associated by the URL."
+" It calls the templates to show the page and the driver to control the "
+"car."
+msgstr ""
+"``views.py`` "
+"はURLによって関連付けられるページコントロールのコードである。テンプレートを呼び出してページを表示し、ドライバーが車を制御する。"
+
+#: ../file_analysis.rst:132
+msgid ""
+"``wsgi.py`` is generated automatically and does not need changes. For "
+"more, please visit the official website of Django."
+msgstr "``wsgi.py`` は自動的に生成され、変更する必要はない。詳しくはDjangoの公式サイトをご覧ください。"
+
+#: ../file_analysis.rst:135
+msgid ""
+"So here is how the code works: Run the main program ``manage.py`` which "
+"will be associated with ``urls.py`` automatically, to respond to the URL."
+" When you run the web browser like the Chrome to visit "
+"``http://<rpi_ip_address>:<port>`` or visit the configured API via the "
+"client, the ``manage.py`` will turn to ``views.py`` due to the "
+"association of the ``urls.py.`` Then the ``views.py`` processes this and "
+"returns the templates to the browser. In addition, it will call the "
+"``driver`` package on the basis of the parameters set in the browser to "
+"control the car."
+msgstr ""
+"これがコードの動作原理である。``urls.py`` に自動的に関連付けられるメインプログラム ``manage.py`` "
+"を実行して、URLに応答する。ChromeのようなWebブラウザを実行して ``http://<rpi_ip_address>:<port> ``"
+" または、クライアントを介して構成済みのAPIにアクセスすると、``urls.py`` の関連付けにより、``manage.py`` が "
+"``views.py`` に変わる。次に、``views.py`` "
+"はこれを処理し、テンプレートをブラウザに返す。さらに、ブラウザーで設定されたパラメーターに基づいて ``driver`` "
+"パッケージを呼び出し、車を制御する。"
+
+#: ../file_analysis.rst:144
+msgid "Now open the folder ``driver`` and check:"
+msgstr "ここで、フォルダー ``driver`` を開き、以下を確認する："
+
+#: ../file_analysis.rst:152
+msgid ""
+"The ``driver`` folder mainly includes the driver modules for controlling "
+"the pan and tilt and camera streamer."
+msgstr "``driver`` フォルダーには、主にパン＆チルトを制御するためのドライバーモジュールとカメラストリーマーが含まれている。"
+
+#: ../file_analysis.rst:155
+msgid "``camera.py`` for controlling the pan-and-tilt."
+msgstr "パン＆チルトを制御するための ``camera.py``。"
+
+#: ../file_analysis.rst:157
+msgid "``config`` stores the calibration data."
+msgstr "``config`` は補正データを保存するために使用される。"
+
+#: ../file_analysis.rst:159
+msgid ""
+"``__init__.py`` is the essential file of the package and you can just "
+"leave it alone."
+msgstr "``__init__.py`` はパッケージの必須ファイルであり、そのままにしておいて下さい。"
+
+#: ../file_analysis.rst:161
+msgid "``stream.py`` is a video streaming service based on the MJPG-streamer."
+msgstr "``stream.py`` はMJPG-streamerに基づくビデオストリーミングサービスである。"
+
+#: ../file_analysis.rst:163
+msgid "Exit and open the folder ``templates`` to view:"
+msgstr "表示するフォルダ ``templates`` を終了して開くと、以下が表示される："
+
+#: ../file_analysis.rst:172
+msgid ""
+"This folder is created by the ``manage.py startapp`` just for calling the"
+" templates conveniently. Therefore, the files have not been changed "
+"except for the ``templates``. Open the ``templates`` again:"
+msgstr ""
+"このフォルダーは、テンプレートを簡単に呼び出すために、`` manage.py startapp`` によって作成される。したがって、`` "
+"templates`` 以外のファイルは変更されていない。``templates`` をもう一度開く："
+
+#: ../file_analysis.rst:182
+msgid ""
+"There are three HTML files that also consist of layers. The low level "
+"``base.html`` stores contents contained on each page such as the "
+"``<head>`` of HTML, the overall layout, and contents of the home page by "
+"default. The surface layer: ``cali.html`` for calibration and "
+"``run.html`` to control the car."
+msgstr ""
+"レイヤーで構成される3つのHTMLファイルがある。低レベルの ``base.html`` には、デフォルトでは、HTMLの `` <head> "
+"``、レイアウト全体、とホームページのコンテンツが含まれている。表層：補正用の ``cali.html`` と、車を制御するための "
+"``run.html``。"
+
