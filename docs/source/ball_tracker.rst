@@ -4,6 +4,13 @@ ball_tracker
 In addition to using the keyboard to control the status of the car, we
 also wrote a ball tracking code.
 
+
+**Install OpenCV**
+
+Before installing OpenCV, you need to install the dependencies first. Different operating systems require different dependent libraries. (If you don't know your operating system version, you can try to install both.)
+
+* If your operating system is **RASPBERRY PI BUSTER**, you need to install the following dependencies.
+
 .. raw:: html
 
     <run></run>
@@ -11,7 +18,32 @@ also wrote a ball tracking code.
 .. code-block:: 
 
     sudo apt-get install libatlas-base-dev libjasper-dev libqt4-test libwebp6 libtiff5 libopenexr23 libgstreamer1.0-0 libavcodec-dev libavformat-dev libswscale-dev libqtgui4 -y
+
+
+* If your operating system is **RASPBERRY PI BULLSEYE**, you need to install the following dependencies.
+
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
+
+    sudo apt-get install libatlas-base-dev libjasper-dev libwebp6 libtiff5 libopenexr25 libgstreamer1.0-0 libavcodec-dev libavformat-dev libswscale-dev -y
+
+
+Next is to install OpenCV.
+
+.. raw:: html
+
+    <run></run>
+
+.. code-block:: 
+
     sudo pip3 install opencv-python==3.4.6.27
+
+
+**Run the Code**
+
     cd ~/SunFounder_PiCar-V/ball_track
     python3 ball_tracker.py
 
