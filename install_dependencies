@@ -10,6 +10,8 @@
 # All of these commands are run from the base folder (SunFounder_Smart_Video_Car_Kit_V2.0_for_Raspberry_Pi), wherever you clone it to
 repo_dir=`pwd`
 
+is_installed_pip3=False
+is_installed_flask=False
 is_installed_django=False
 is_installed_python_smbus=False
 is_installed_python_opencv=False
@@ -52,6 +54,18 @@ function print_result(){
     else
         echo -e "Failed"
     fi
+    echo -e "flask   \c"
+    if $is_installed_flask; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
+    echo -e "pip3   \c"
+    if $is_installed_pip3; then
+        echo -e "Success"
+    else
+        echo -e "Failed"
+    fi
     echo -e "python-smbus  \c"
     if $is_installed_python_smbus; then
         echo -e "Success"
@@ -75,6 +89,21 @@ function print_result(){
 ###################################
 # install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
+echo -e "\nInstalling python3-pip\n"
+if sudo apt-get install python3-pip -y; then
+    echo -e "    Successfully installed python-pip\n"
+    is_installed_pip3=true
+else
+    echo -e "    Failed to installed python-pip\n"
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped python-pip installation."
+    else
+        end
+    fi
+fi
+
 echo -e "\nInstalling django \n"
 if sudo pip3 install django==2.0 ; then
     echo -e "    Successfully installed django runtime \n"
@@ -85,6 +114,21 @@ else
     if_continue
     if [ $? = 1 ] ; then
         echo -e "    Skipped django installation."
+    else
+        end
+    fi
+fi
+
+echo -e "\nInstalling flask \n"
+if sudo pip3 install flask ; then
+    echo -e "    Successfully installed flask runtime \n"
+    is_installed_flask=true
+else
+    echo -e "    Failed to installed flask."
+    echo -e "    Do you want to skip this? \c"
+    if_continue
+    if [ $? = 1 ] ; then
+        echo -e "    Skipped flask installation."
     else
         end
     fi
