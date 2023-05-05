@@ -30,12 +30,11 @@ public class SnapshotStreamViewer : MonoBehaviour
         {
             bool isError = false;
             using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(snapshotUrl))
-            {
-                Debug.Log("Sending request to: " + snapshotUrl);
-                yield return request.SendWebRequest();
-
+            {   
                 try
                 {
+                    Debug.Log("Sending request to: " + snapshotUrl);
+                    yield return request.SendWebRequest();
                     if (request.result == UnityWebRequest.Result.Success)
                     {
                         Texture2D texture = DownloadHandlerTexture.GetContent(request);
