@@ -12,7 +12,7 @@
 
 from django.shortcuts import render_to_response
 from .driver import camera, stream
-from picar import back_wheels, front_wheels
+from .picar import back_wheels, front_wheels
 from django.http import HttpResponse
 import picar
 

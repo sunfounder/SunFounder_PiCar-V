@@ -1,0 +1,10 @@
+# File based database
+
+turning_offset = 0
+
+forward_A = 0
+
+forward_B = 0
+
+# requires a newline after 'forward_B = 0/1'
+
