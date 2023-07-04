@@ -1,0 +1,1 @@
+- need to run remote_control server first in order to calibrate device

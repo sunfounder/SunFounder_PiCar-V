@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from picar import back_wheels, front_wheels
 from time import sleep
 fw = front_wheels.Front_Wheels(debug=False)
@@ -18,10 +20,8 @@ if __name__ == "__main__":
     
     fw.turn_straight()
     
-    bw.ready()
-    bw_status = 0
-    
     for x in range(0, 1000):
+        print(x)
         sleep(5)
         fw.turn_left()
         
