@@ -17,12 +17,14 @@ is_installed_python_smbus=False
 is_installed_python_opencv=False
 is_installed_libjpeg8_dev=False
 
-if [ "$(whoami)" != "root" ] ; then
-    echo -e "You must run this script as root."
-    exit
-fi
+#if [ "$(whoami)" != "root" ] ; then
+#    echo -e "You must run this script as root."
+#    exit
+#fi
 
-sudo apt-get update
+python3 -m venv venv_sf
+source venv_sf/bin/activate
+
 #sudo apt-get upgrade -y
 
 function if_continue(){
@@ -89,23 +91,23 @@ function print_result(){
 ###################################
 # install python-pip django i2c-tools python-smbus python-opencv runtime #
 ###################################
-echo -e "\nInstalling python3-pip\n"
-if sudo apt-get install python3-pip -y; then
-    echo -e "    Successfully installed python-pip\n"
-    is_installed_pip3=true
-else
-    echo -e "    Failed to installed python-pip\n"
-    echo -e "    Do you want to skip this? \c"
-    if_continue
-    if [ $? = 1 ] ; then
-        echo -e "    Skipped python-pip installation."
-    else
-        end
-    fi
-fi
+#echo -e "\nInstalling python3-pip\n"
+#if apt-get install python3-pip -y; then
+#    echo -e "    Successfully installed python-pip\n"
+#    is_installed_pip3=true
+#else
+#    echo -e "    Failed to installed python-pip\n"
+#    echo -e "    Do you want to skip this? \c"
+#    if_continue
+#    if [ $? = 1 ] ; then
+#        echo -e "    Skipped python-pip installation."
+#    else
+#        end
+#    fi
+#fi
 
 echo -e "\nInstalling django \n"
-if sudo pip3 install django==2.0 ; then
+if pip3 install django==2.0 ; then
     echo -e "    Successfully installed django runtime \n"
     is_installed_django=true
 else
@@ -120,7 +122,7 @@ else
 fi
 
 echo -e "\nInstalling flask \n"
-if sudo pip3 install flask ; then
+if pip3 install flask; then
     echo -e "    Successfully installed flask runtime \n"
     is_installed_flask=true
 else
@@ -135,7 +137,7 @@ else
 fi
 
 echo -e "\nInstalling python3-smbus and git\n"
-if sudo apt-get install python3-smbus git -y; then
+if pip3 install smbus; then
     echo -e "    Successfully installed python-smbus and git\n"
     is_installed_python_smbus=true
 else
@@ -150,7 +152,7 @@ else
 fi
 
 echo -e "\nInstalling python3-opencv \n"
-if sudo apt-get install python3-opencv -y; then
+if pip3 install opencv-python; then
     echo -e "    Successfully installed python-opencv \n"
     is_installed_python_opencv=true
 else
@@ -188,8 +190,8 @@ cd ../
 git clone --recursive https://github.com/sunfounder/SunFounder_PiCar.git
 cd SunFounder_PiCar
 echo -e "    Installing PiCar module \n"
-sudo python setup.py install
-sudo python3 setup.py install
+python setup.py install
+python3 setup.py install
 cd $repo_dir
 echo -e "complete\n"
 
