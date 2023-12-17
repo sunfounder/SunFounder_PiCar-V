@@ -49,11 +49,17 @@ PORT 	  = '8000'
 autologin = 1
 
 # BASE_URL is variant use to save the format of host and port 
-BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
+if PORT == '80':
+    BASE_URL = 'http://' + HOST +  '/'
+else:
+    BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
 
 def __reflash_url__():
 	global BASE_URL
-	BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
+	if PORT == '80':
+		BASE_URL = 'http://' + HOST +  '/'
+	else:
+		BASE_URL = 'http://' + HOST + ':'+ PORT + '/'
 
 
 def __read_auto_inf__():
@@ -138,7 +144,7 @@ class LoginScreen(QtWidgets.QDialog, Ui_Login_screen):
 		"""
 		global HOST,PORT
 		# check whether the length of input host and port is allowable
-		if 7<len(self.lEd_host.text())<16 :
+		if 7<len(self.lEd_host.text())<50 :
 			HOST = self.lEd_host.text()
 			PORT = self.lEd_port.text()
 			__reflash_url__()
