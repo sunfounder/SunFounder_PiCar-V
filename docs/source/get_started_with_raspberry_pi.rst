@@ -22,6 +22,7 @@ Any Raspberry Pi   1 \* Personal Computer
 1 \* Micro SD card 
 ================== ======================
 
+
 **Step 1**
 
 Raspberry Pi have developed a graphical SD card writing tool that works
@@ -33,10 +34,9 @@ Visit the download page: https://www.raspberrypi.org/software/. Click on
 the link for the Raspberry Pi Imager that matches your operating system,
 when the download finishes, click it to launch the installer.
 
-.. image:: media/image67.png
-   :width: 3.94306in
-   :height: 2.05278in
-   :align: center
+.. image:: media/image11.png
+    :align: center
+
 
 **Step 2**
 
@@ -47,10 +47,8 @@ message:
 If this pops up, click on **More info** and then **Run anyway**, then
 follow the instructions to install the Raspberry Pi Imager.
 
-.. image:: media/image68.png
-   :width: 5.54167in
-   :height: 1.48958in
-   :align: center
+.. image:: media/image12.png
+    :align: center
 
 **Step 3**
 
@@ -61,65 +59,49 @@ Insert your SD card into the computer or laptop SD card slot.
 In the Raspberry Pi Imager, select the OS that you want to install and
 the SD card you would like to install it on.
 
-.. image:: media/image69.png
-   :width: 6.93681in
-   :height: 2.44861in
-   :align: center
+.. image:: media/sp230607_161330.png
+    :align: center
 
-.. note::
+.. note:: 
 
     1) You will need to be connected to the internet the first time.
 
-    2) That OS will then be stored for future offline
-       use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry
-       Pi/Imager/cache, ). So the next time you open the software, it will
-       have the display "Released: date, cached on your computer".
+    2) That OS will then be stored for future offline use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry Pi/Imager/cache). So the next time you open the software, it will have the display "Released: date, cached on your computer".
+
 
 **Step 5**
 
 Select the SD card you are using.
 
-.. image:: media/image70.png
-   :width: 7.11458in
-   :height: 2.80208in
-   :align: center
+.. image:: media/image14.png
+    :align: center
 
 **Step 6**
 
-Press **Ctrl+Shift+X** to open the **Advanced options** page to enable
-SSH and configure wifi, these 2 items must be set, the others depend on
-your choice . You can choose to always use this image customization
-options.
+To open the advanced options page, click the setting button (appears after selecting operating system) or press Ctrl+Shift+X. 
+Enable ssh and set the username and name. You can choose to always use this image customization options.
 
-.. image:: media/image71.png
-   :width: 7.11458in
-   :height: 4.70833in
-   :align: center
+.. note::
+    When the Set hostname box is not checked, the default hostname will still be ``raspberrypi``, and we will use this hostname to access the Raspberry Pi remotely.
+
+.. image:: media/image15.png
+    :align: center
 
 Then scroll down to complete the wifi configuration and click **SAVE**.
 
-
 .. note::
-    **wifi country** should be set the two-letter `ISO/IEC alpha2
-    code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__ for
-    the country in which you are using your Raspberry Pi, please refer to
-    the following link:
 
-    https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
+    **wifi country** should be set the two-letter `ISO/IEC alpha2 code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ for the country in which you are using your Raspberry Pi, please refer to the following link: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
 
-.. image:: media/image72.png
-   :width: 6.14583in
-   :height: 3.85972in
-   :align: center
+.. image:: media/image16.png
+    :align: center
 
 **Step 7**
 
 Click the **WRITE** button.
 
-.. image:: media/image73.png
-   :width: 6.20833in
-   :height: 3.18125in
-   :align: center
+.. image:: media/image17.png
+    :align: center
 
 **Step 8**
 
@@ -127,20 +109,16 @@ If your SD card currently has any files on it, you may wish to back up
 these files first to prevent you from permanently losing them. If there
 is no file to be backed up, click **Yes**.
 
-.. image:: media/image74.png
-   :width: 6.80972in
-   :height: 3.65278in
-   :align: center
+.. image:: media/image18.png
+    :align: center
 
 **Step 9**
 
 After waiting for a period of time, the following window will appear to
 represent the completion of writing.
 
-.. image:: media/image75.png
-   :width: 6.59375in
-   :height: 3.48958in
-   :align: center
+.. image:: media/image19.png
+    :align: center
 
 **Power on the Raspberry Pi**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
