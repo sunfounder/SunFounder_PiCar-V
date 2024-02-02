@@ -17,9 +17,10 @@
 
 # -- Project information -----------------------------------------------------
 import sphinx_rtd_theme
+import time
 
 project = 'SunFounder PiCar-V'
-copyright = '2021, SunFounder'
+copyright = f'{time.localtime().tm_year}, SunFounder'
 author = 'www.sunfounder.com'
 
 
