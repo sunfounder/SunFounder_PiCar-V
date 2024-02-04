@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../appendix/login_windows.rst:4
+msgid "PuTTY"
+msgstr "PuTTY"
+
+#: ../appendix/login_windows.rst:6
+msgid ""
+"If you are a Windows user, you can use some applications of SSH. Here, we"
+" recommend `PuTTY "
+"<https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_."
+msgstr "Windowsユーザーの場合、SSHを利用するためのアプリケーションがいくつかあります。ここでは `PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_ を推奨します。"
+
+#: ../appendix/login_windows.rst:8
+msgid "**Step 1**"
+msgstr "**ステップ1**"
+
+#: ../appendix/login_windows.rst:10
+msgid "Download PuTTY."
+msgstr "PuTTYをダウンロードする。"
+
+#: ../appendix/login_windows.rst:12
+msgid "**Step 2**"
+msgstr "**ステップ2**"
+
+#: ../appendix/login_windows.rst:14
+msgid ""
+"Open PuTTY and click **Session** on the left tree-alike structure. Enter "
+"the IP address of the RPi in the text box under **Host Name (or IP "
+"address)** and **22** under **Port** (by default it is 22)."
+msgstr "PuTTYを開き、左側のツリー構造の **セッション** をクリックします。 **ホスト名（またはIPアドレス）** の下のテキストボックスにRPiのIPアドレスを入力し、 **ポート** にはデフォルトで22と入力します。"
+
+#: ../appendix/login_windows.rst:21
+msgid "**Step 3**"
+msgstr "**ステップ3**"
+
+#: ../appendix/login_windows.rst:23
+msgid ""
+"Click **Open**. Note that when you first log in to the Raspberry Pi with "
+"the IP address, there prompts a security reminder. Just click **Yes**."
+msgstr " **開く** をクリックします。IPアドレスを使用してRaspberry Piに初めてログインする際には、セキュリティのリマインダーが表示されます。 **はい** をクリックしてください。"
+
+#: ../appendix/login_windows.rst:26
+msgid "**Step 4**"
+msgstr "**ステップ4**"
+
+#: ../appendix/login_windows.rst:28
+msgid ""
+"When the PuTTY window prompts \\\"**login as:**\\\", type in "
+"\\\"**pi**\\\" (the user name of the RPi), and **password**: "
+"\\\"raspberry\\\" (the default one, if you haven't changed it)."
+msgstr "PuTTYウィンドウに「 **ログイン名：** 」と表示されたら、「 **pi** 」（RPiのユーザー名）と入力し、 **パスワード** には「 **raspberry** 」（変更していない場合のデフォルト）を入力します。"
+
+#: ../appendix/login_windows.rst:34
+msgid ""
+"When you input the password, the characters do not display on window "
+"accordingly, which is normal. What you need is to input the correct "
+"password."
+msgstr "パスワードを入力するとき、文字はウィンドウに表示されませんが、これは正常です。正しいパスワードを入力する必要があります。"
+
+#: ../appendix/login_windows.rst:36
+msgid ""
+"If inactive appears next to PuTTY, it means that the connection has been "
+"broken and needs to be reconnected."
+msgstr "PuTTYの横に「非アクティブ」が表示された場合、接続が切断されて再接続が必要であることを意味します。"
+
+#: ../appendix/login_windows.rst:41
+msgid "**Step 5**"
+msgstr "**ステップ5**"
+
+#: ../appendix/login_windows.rst:43
+msgid ""
+"Here, we get the Raspberry Pi connected and it is time to conduct the "
+"next steps."
+msgstr "これでRaspberry Piが接続され、次のステップを実行する時間です。"

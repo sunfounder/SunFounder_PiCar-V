@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/what_do_we_need.rst:2
+msgid "What Do We Need?"
+msgstr "何が必要ですか？"
+
+#: ../python_start/what_do_we_need.rst:5
+msgid "Required Components"
+msgstr "必要なコンポーネント"
+
+#: ../python_start/what_do_we_need.rst:7
+msgid "**Raspberry Pi**"
+msgstr "**Raspberry Pi**"
+
+#: ../python_start/what_do_we_need.rst:9
+msgid ""
+"The Raspberry Pi is a low cost, credit-card sized computer that plugs "
+"into a computer monitor or TV, and uses a standard keyboard and mouse. It"
+" is a capable little device that enables people of all ages to explore "
+"computing, and to learn how to program in languages like Scratch and "
+"Python."
+msgstr "Raspberry Piは、低コストでクレジットカードサイズのコンピュータで、コンピュータモニターやTVに接続し、標準のキーボードとマウスを使用します。これは、すべての年齢の人々がコンピューティングを探求し、ScratchやPythonのような言語でプログラミングを学ぶことを可能にする優れた小さなデバイスです。"
+
+#: ../python_start/what_do_we_need.rst:19
+msgid "**Power Adapter**"
+msgstr "**電源アダプター**"
+
+#: ../python_start/what_do_we_need.rst:21
+msgid ""
+"To connect to a power socket, the Raspberry Pi has a micro USB port (the "
+"same found on many mobile phones). You will need a power supply which "
+"provides at least 2.5 amps."
+msgstr "電源ソケットに接続するために、Raspberry PiにはマイクロUSBポート（多くの携帯電話に見られるものと同じ）があります。少なくとも2.5アンペアを提供する電源が必要です。"
+
+#: ../python_start/what_do_we_need.rst:25
+msgid "**Micro SD Card**"
+msgstr "**マイクロSDカード**"
+
+#: ../python_start/what_do_we_need.rst:27
+msgid ""
+"Your Raspberry Pi needs an Micro SD card to store all its files and the "
+"Raspberry Pi OS. You will need a micro SD card with a capacity of at "
+"least 8 GB"
+msgstr "Raspberry Piは、すべてのファイルとRaspberry Pi OSを保存するためにマイクロSDカードが必要です。少なくとも8GBの容量を持つマイクロSDカードが必要になります"
+
+#: ../python_start/what_do_we_need.rst:32
+msgid "Optional Components"
+msgstr "オプションのコンポーネント"
+
+#: ../python_start/what_do_we_need.rst:34
+msgid "**Screen**"
+msgstr "**スクリーン**"
+
+#: ../python_start/what_do_we_need.rst:36
+msgid ""
+"To view the desktop environment of Raspberry Pi, you need to use the "
+"screen that can be a TV screen or a computer monitor. If the screen has "
+"built-in speakers, the Pi plays sounds via them."
+msgstr "Raspberry Piのデスクトップ環境を表示するには、TVスクリーンまたはコンピューターモニターとして使用できるスクリーンが必要です。スクリーンに内蔵スピーカーがある場合、Piはそれらを介して音を再生します。"
+
+#: ../python_start/what_do_we_need.rst:40
+msgid "**Mouse & Keyboard**"
+msgstr "**マウス & キーボード**"
+
+#: ../python_start/what_do_we_need.rst:42
+msgid "When you use a screen , a USB keyboard and a USB mouse are also needed."
+msgstr "スクリーンを使用する場合は、USBキーボードとUSBマウスも必要です。"
+
+#: ../python_start/what_do_we_need.rst:44
+msgid "**HDMI**"
+msgstr "**HDMI**"
+
+#: ../python_start/what_do_we_need.rst:46
+msgid ""
+"The Raspberry Pi has a HDMI output port that is compatible with the HDMI "
+"ports of most modern TV and computer monitors. If your screen has only "
+"DVI or VGA ports, you will need to use the appropriate conversion line."
+msgstr "Raspberry Piには、ほとんどの現代のTVとコンピューターモニターのHDMIポートと互換性のあるHDMI出力ポートがあります。スクリーンにDVIポートまたはVGAポートのみがある場合は、適切な変換ラインを使用する必要があります。"
+
+#: ../python_start/what_do_we_need.rst:50
+msgid "**Case**"
+msgstr "**ケース**"
+
+#: ../python_start/what_do_we_need.rst:52
+msgid ""
+"You can put the Raspberry Pi in a case; by this means, you can protect "
+"your device."
+msgstr "Raspberry Piをケースに入れることができます。これにより、デバイスを保護できます。"
+
+#: ../python_start/what_do_we_need.rst:55
+msgid "**Sound or Earphone**"
+msgstr "**サウンドまたはイヤホン**"
+
+#: ../python_start/what_do_we_need.rst:57
+msgid ""
+"The Raspberry Pi is equipped with an audio port about 3.5 mm that can be "
+"used when your screen has no built-in speakers or when there is no screen"
+" operation."
+msgstr "Raspberry Piには約3.5mmのオーディオポートが装備されており、スクリーンに内蔵スピーカーがない場合やスクリーン操作がない場合に使用できます。"

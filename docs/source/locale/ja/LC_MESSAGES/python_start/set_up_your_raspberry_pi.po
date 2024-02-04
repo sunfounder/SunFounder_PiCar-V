@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:2
+msgid "Set up Your Raspberry Pi"
+msgstr "Raspberry Piのセットアップ"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:4
+msgid "Power Supply for Raspberry Pi (Important)"
+msgstr "Raspberry Piの電源供給（重要）"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:6
+msgid ""
+"Insert the SD card set up with Raspberry Pi OS into the microSD card slot"
+" located on the underside of the Raspberry Pi."
+msgstr "Raspberry Pi OSがセットアップされたSDカードを、Raspberry Piの裏側にあるmicroSDカードスロットに挿入します。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:22
+msgid ""
+"Following the assembly instructions, insert the battery cable and turn on"
+" the power switch. Next, insert the USB cable to Raspberry Pi."
+msgstr "組み立て説明書に従って、バッテリーケーブルを挿入し、電源スイッチをオンにします。次に、USBケーブルをRaspberry Piに挿入します。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:25
+msgid "If You Have a Screen"
+msgstr "画面がある場合"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:27
+msgid ""
+"The Raspberry Pi ZERO installed on the Robot is not easy to connect to "
+"the screen, please use the method without a screen to set it up."
+msgstr "ロボットに搭載されたRaspberry Pi ZEROは画面に接続しにくいため、画面を使わない方法で設定してください。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:30
+msgid ""
+"If you have a screen, it will be easy for you to operate on the Raspberry"
+" Pi."
+msgstr "画面がある場合、Raspberry Piを操作するのが簡単になります。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:33
+#: ../python_start/set_up_your_raspberry_pi.rst:62
+msgid "**Required Components**"
+msgstr "**必要なコンポーネント**"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:35
+msgid "Raspberry Pi 4B/3B 3B+/2B"
+msgstr "Raspberry Pi 4B/3B 3B+/2B"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:36
+#: ../python_start/set_up_your_raspberry_pi.rst:65
+msgid "1 * Power Adapter"
+msgstr "1 * 電源アダプター"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:37
+#: ../python_start/set_up_your_raspberry_pi.rst:66
+msgid "1 * Micro SD card"
+msgstr "1 * マイクロSDカード"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:38
+msgid "1 * Screen Power Adapter"
+msgstr "1 * 画面用電源アダプター"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:39
+msgid "1 * HDMI cable"
+msgstr "1 * HDMIケーブル"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:40
+msgid "1 * Screen"
+msgstr "1 * 画面"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:41
+msgid "1 * Mouse"
+msgstr "1 * マウス"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:42
+msgid "1 * Keyboard"
+msgstr "1 * キーボード"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:44
+msgid "Plug in the Mouse and Keyboard."
+msgstr "マウスとキーボードを接続してください。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:46
+msgid ""
+"Connect the screen to Raspberry Pi's HDMI port and make sure your screen "
+"is plugged into a wall socket and switched on."
+msgstr "画面をRaspberry PiのHDMIポートに接続し、画面が壁のコンセントに差し込まれ、オンになっていることを確認してください。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:50
+msgid ""
+"If you use a Raspberry Pi 4, you need to connect the screen to the HDMI0 "
+"(nearest the power in port)."
+msgstr "Raspberry Pi 4を使用する場合は、画面をHDMI0（電源ポートに最も近い）に接続する必要があります。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:52
+msgid ""
+"Use the power adapter to power the Raspberry Pi. After a few seconds, the"
+" Raspberry Pi OS desktop will be displayed."
+msgstr "電源アダプターを使用してRaspberry Piに電力を供給します。数秒後にRaspberry Pi OSのデスクトップが表示されます。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:58
+msgid "If You Have No Screen"
+msgstr "画面がない場合"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:60
+msgid "If you don't have a monitor, you can remotely log into your Raspberry Pi."
+msgstr "モニターがない場合でも、リモートでRaspberry Piにログインできます。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:64
+msgid "Raspberry Pi 4B/Zero 2 w/3B 3B+/2B/Zero W"
+msgstr "Raspberry Pi 4B/Zero 2 w/3B 3B+/2B/Zero W"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:68
+msgid ""
+"You can apply the SSH command to open the Raspberry Pi's Bash shell. Bash"
+" is the standard default shell for Linux. The shell itself is a command "
+"(instruction) when the user uses Unix/Linux. Most of what you need to do "
+"can be done through the shell."
+msgstr "SSHコマンドを適用してRaspberry PiのBashシェルを開くことができます。BashはLinuxの標準デフォルトシェルです。シェル自体は、ユーザーがUnix/Linuxを使用する際のコマンド（命令）です。必要な操作のほとんどはシェルを通じて行うことができます。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:70
+msgid ""
+"If you're not satisfied with using the command window to access your "
+"Raspberry Pi, you can also use the remote desktop feature to easily "
+"manage files on your Raspberry Pi using a GUI."
+msgstr "コマンドウィンドウを使用してRaspberry Piにアクセスすることに満足していない場合、リモートデスクトップ機能を使用してGUIを介して簡単にRaspberry Pi上のファイルを管理することもできます。"
+
+#: ../python_start/set_up_your_raspberry_pi.rst:72
+msgid "See below for detailed tutorials for each system."
+msgstr "各システムの詳細なチュートリアルについては以下を参照してください。"

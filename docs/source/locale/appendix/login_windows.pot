@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../appendix/login_windows.rst:4
+msgid "PuTTY"
+msgstr ""
+
+#: ../appendix/login_windows.rst:6
+msgid "If you are a Windows user, you can use some applications of SSH. Here, we recommend `PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_."
+msgstr ""
+
+#: ../appendix/login_windows.rst:8
+msgid "**Step 1**"
+msgstr ""
+
+#: ../appendix/login_windows.rst:10
+msgid "Download PuTTY."
+msgstr ""
+
+#: ../appendix/login_windows.rst:12
+msgid "**Step 2**"
+msgstr ""
+
+#: ../appendix/login_windows.rst:14
+msgid "Open PuTTY and click **Session** on the left tree-alike structure. Enter the IP address of the RPi in the text box under **Host Name (or IP address)** and **22** under **Port** (by default it is 22)."
+msgstr ""
+
+#: ../appendix/login_windows.rst:21
+msgid "**Step 3**"
+msgstr ""
+
+#: ../appendix/login_windows.rst:23
+msgid "Click **Open**. Note that when you first log in to the Raspberry Pi with the IP address, there prompts a security reminder. Just click **Yes**."
+msgstr ""
+
+#: ../appendix/login_windows.rst:26
+msgid "**Step 4**"
+msgstr ""
+
+#: ../appendix/login_windows.rst:28
+msgid "When the PuTTY window prompts \\\"**login as:**\\\", type in \\\"**pi**\\\" (the user name of the RPi), and **password**: \\\"raspberry\\\" (the default one, if you haven't changed it)."
+msgstr ""
+
+#: ../appendix/login_windows.rst:34
+msgid "When you input the password, the characters do not display on window accordingly, which is normal. What you need is to input the correct password."
+msgstr ""
+
+#: ../appendix/login_windows.rst:36
+msgid "If inactive appears next to PuTTY, it means that the connection has been broken and needs to be reconnected."
+msgstr ""
+
+#: ../appendix/login_windows.rst:41
+msgid "**Step 5**"
+msgstr ""
+
+#: ../appendix/login_windows.rst:43
+msgid "Here, we get the Raspberry Pi connected and it is time to conduct the next steps."
+msgstr ""

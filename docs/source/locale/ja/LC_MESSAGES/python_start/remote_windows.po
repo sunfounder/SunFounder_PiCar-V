@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/remote_windows.rst:2
+msgid "Windows Users"
+msgstr "Windowsユーザー"
+
+#: ../python_start/remote_windows.rst:5
+msgid "Login Raspberry Pi Remotely"
+msgstr "リモートでRaspberry Piにログイン"
+
+#: ../python_start/remote_windows.rst:7
+msgid ""
+"If you are using win10, you can use follow way to login Raspberry Pi "
+"remotely."
+msgstr "Windows 10を使用している場合、以下の方法でリモートからRaspberry Piにログインできます。"
+
+#: ../python_start/remote_windows.rst:9
+msgid ""
+"Type ``powershell`` in the search box of your Windows desktop, right "
+"click on the ``Windows PowerShell``, and select ``Run as administrator`` "
+"from the menu that appears."
+msgstr "Windowsデスクトップの検索ボックスに ``powershell`` と入力し、表示されたメニューから ``Windows PowerShell`` を右クリックして ``管理者として実行`` を選択します。"
+
+#: ../python_start/remote_windows.rst:14
+msgid ""
+"Then, check the IP address of your Raspberry Pi by typing in ``ping -4 "
+"<hostname>.local``."
+msgstr "次に、 ``ping -4 <hostname>.local`` と入力してRaspberry PiのIPアドレスを確認します。"
+
+#: ../python_start/remote_windows.rst:24
+msgid ""
+"As shown above, you can see the Raspberry Pi's IP address after it has "
+"been connected to the network."
+msgstr "上記のように、ネットワークに接続された後にRaspberry PiのIPアドレスを確認できます。"
+
+#: ../python_start/remote_windows.rst:26
+msgid ""
+"If terminal prompts ``Ping request could not find host pi.local. Please "
+"check the name and try again.``. Please follow the prompts to make sure "
+"the hostname you fill in is correct."
+msgstr "ターミナルが ``Ping request could not find host pi.local. Please check the name and try again.`` と表示された場合は、入力したホスト名が正しいか確認してください。"
+
+#: ../python_start/remote_windows.rst:27
+msgid ""
+"Still can't get the IP? Check your network or WiFi configuration on the "
+"Raspberry Pi."
+msgstr "まだIPを取得できない場合は、Raspberry PiのネットワークまたはWiFiの設定を確認してください。"
+
+#: ../python_start/remote_windows.rst:30
+msgid ""
+"At this point you will be able to log in to your Raspberry Pi using the "
+"``ssh <username>@<hostname>.local`` (or ``ssh <username>@<IP address>``)."
+msgstr "この時点で、 ``ssh <username>@<hostname>.local`` （または ``ssh <username>@<IP address>`` ）を使用してRaspberry Piにログインできるようになります。"
+
+#: ../python_start/remote_windows.rst:38
+msgid ""
+"If a prompt appears ``The term 'ssh' is not recognized as the name of a "
+"cmdlet...``."
+msgstr "``The term 'ssh' is not recognized as the name of a cmdlet...``というプロンプトが表示された場合、"
+
+#: ../python_start/remote_windows.rst:40
+msgid ""
+"It means your system is too old and does not have ssh tools pre-"
+"installed, you need to manually :ref:`openssh_powershell`."
+msgstr "システムが古いかsshツールがプリインストールされていないことを意味します。手動で:ref:`openssh_powershell`を行う必要があります。"
+
+#: ../python_start/remote_windows.rst:42
+msgid "Or use a third party tool like :ref:`login_windows`."
+msgstr "または、:ref:`login_windows`のようなサードパーティのツールを使用してください。"
+
+#: ../python_start/remote_windows.rst:45
+msgid ""
+"The following message will be displayed only when you log in for the "
+"first time, so enter ``yes``."
+msgstr "初めてログインする際にのみ表示されるメッセージですので、``yes``と入力してください。"
+
+#: ../python_start/remote_windows.rst:55
+msgid "Input the password you set before. (Mine is ``raspberry``.)"
+msgstr "以前に設定したパスワードを入力してください。（私の場合は``raspberry``です。）"
+
+#: ../python_start/remote_windows.rst:58
+msgid ""
+"When you input the password, the characters do not display on window "
+"accordingly, which is normal. What you need is to input the correct "
+"password."
+msgstr "パスワードを入力しても文字は画面に表示されませんが、これは正常です。正しいパスワードを入力する必要があります。"
+
+#: ../python_start/remote_windows.rst:62
+msgid ""
+"We now get the Raspberry Pi connected and are ready to go to the next "
+"step."
+msgstr "これでRaspberry Piが接続され、次のステップに進む準備ができました。"
+
+#: ../python_start/remote_windows.rst:71
+msgid "Remote Desktop"
+msgstr "リモートデスクトップ"
+
+#: ../python_start/remote_windows.rst:73
+msgid ""
+"If you're not satisfied with using the command window to access your "
+"Raspberry Pi, you can also use the remote desktop feature to easily "
+"manage files on your Raspberry Pi using a GUI."
+msgstr "コマンドウィンドウを使用してRaspberry Piにアクセスするのに満足できない場合は、リモートデスクトップ機能を使用してGUIを介して簡単にRaspberry Pi上のファイルを管理することもできます。"
+
+#: ../python_start/remote_windows.rst:75
+msgid ""
+"Here we use `VNC® Viewer "
+"<https://www.realvnc.com/en/connect/download/viewer/>`_."
+msgstr "ここでは`VNC® Viewer <https://www.realvnc.com/en/connect/download/viewer/>`_ を使用します。"
+
+#: ../python_start/remote_windows.rst:77
+msgid "**Enable VNC service**"
+msgstr "**VNCサービスを有効にする**"
+
+#: ../python_start/remote_windows.rst:79
+msgid ""
+"The VNC service has been installed in the system. By default, VNC is "
+"disabled. You need to enable it in config."
+msgstr "VNCサービスはシステムにインストールされています。デフォルトではVNCは無効になっています。設定で有効にする必要があります。"
+
+#: ../python_start/remote_windows.rst:82
+msgid "Input the following command:"
+msgstr "以下のコマンドを入力してください："
+
+#: ../python_start/remote_windows.rst:95
+msgid ""
+"Choose **3** **Interfacing Options** by press the down arrow key on your "
+"keyboard, then press the **Enter** key."
+msgstr "キーボードの下矢印キーを押して**3** **インターフェースオプション**を選択し、**Enter**キーを押します。"
+
+#: ../python_start/remote_windows.rst:100
+msgid "Then **VNC**."
+msgstr "その後、**VNC**を選択します。"
+
+#: ../python_start/remote_windows.rst:105
+msgid ""
+"Use the arrow keys on the keyboard to select **<Yes>** -> **<OK>** -> "
+"**<Finish>** to complete the setup."
+msgstr "キーボードの矢印キーを使って**<Yes>** -> **<OK>** -> **<Finish>** を選択し、設定を完了させます。"
+
+#: ../python_start/remote_windows.rst:110
+msgid "**Login to VNC**"
+msgstr "**VNCにログイン**"
+
+#: ../python_start/remote_windows.rst:112
+msgid ""
+"You need to download and install the `VNC Viewer "
+"<https://www.realvnc.com/en/connect/download/viewer/>`_ on personal "
+"computer."
+msgstr "個人のコンピューターに`VNC Viewer <https://www.realvnc.com/en/connect/download/viewer/>`_ をダウンロードしてインストールする必要があります。"
+
+#: ../python_start/remote_windows.rst:114
+msgid ""
+"Open it once the installation is complete. Then, enter the host name or "
+"IP address and press Enter."
+msgstr "インストールが完了したら開き、ホスト名またはIPアドレスを入力してEnterキーを押します。"
+
+#: ../python_start/remote_windows.rst:119
+msgid "After entering your Raspberry Pi name and password, click **OK**."
+msgstr "Raspberry Piの名前とパスワードを入力した後、**OK**をクリックします。"
+
+#: ../python_start/remote_windows.rst:124
+msgid "Now you can see the desktop of the Raspberry Pi."
+msgstr "これでRaspberry Piのデスクトップを見ることができます。"

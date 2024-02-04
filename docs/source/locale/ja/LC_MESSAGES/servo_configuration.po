@@ -102,7 +102,6 @@ msgid "After reboot, run the picar tool:"
 msgstr "再起動後、picarツールを実行する："
 
 #: ../servo_configuration.rst:98
-#, fuzzy
 msgid ""
 "If the \\\"OSError: [Errno 121] Remote I/O error\\\" error message "
 "appears, open raspi-config:"

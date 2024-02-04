@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../python_start/remote_macosx.rst:3
+msgid "Mac OS X user"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:5
+msgid "For Mac users, accessing the Raspberry Pi desktop directly via VNC is more convenient than from the command line. You can access it via Finder by entering the set account password after enabling VNC on the Raspberry Pi side."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:7
+msgid "Note that this method does not encrypt communication between the Mac and Raspberry Pi. The communication will take place within your home or business network, so even if it's unprotected, it won't be an issue. However, if you are concerned about it, you can install a VNC application such as `VNC® Viewer <https://www.realvnc.com/en/connect/download/viewer/>`_."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:11
+msgid "Alternatively it would be handy if you could use a temporary monitor (TV), mouse and keyboard to open the Raspberry Pi desktop directly to set up VNC. If not, it doesn't matter, you can also use the SSH command to open the Raspberry Pi's Bash shell and then using the command to set up the VNC."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:15
+msgid ":ref:`have_temp_monitor`"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:16
+msgid ":ref:`no_temp_monitor`"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:22
+msgid "Have Temporarily Monitor (or TV)?"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:24
+msgid "Connect a monitor (or TV), mouse and keyboard to the Raspberry Pi and power it on. Select the menu according to the numbers in the figure."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:30
+msgid "The following screen will be displayed. Set **VNC** to **Enabled** on the **Interfaces** tab, and click **OK**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:36
+msgid "A VNC icon appears on the upper right of the screen and the VNC server starts."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:42
+msgid "Open the VNC server window by clicking on the **VNC** icon, then click on the **Menu** button in the top right corner and select **Options**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:47
+msgid "You will be presented with the following screen where you can change the options."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:52
+msgid "Set **Encryption** to **Prefer off** and **Authentication** to **VNC password**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:54
+msgid "When you click the **OK** button, the password input screen is displayed. You can use the same password as the Raspberry pi password or a different password, so enter it and click **OK**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:59
+msgid "You are now ready to connect from your Mac. It's okay to disconnect the monitor."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:61
+msgid "**From here, it will be the operation on the Mac side.**"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:63
+msgid "Now, select **Connect to Server** from the Finder's menu, which you can open by right-clicking."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:68
+#: ../python_start/remote_macosx.rst:203
+msgid "Type in ``vnc://<username>@<hostname>.local`` (or ``vnc://<username>@<IP address>``). After entering, click **Connect**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:74
+#: ../python_start/remote_macosx.rst:209
+msgid "You will be asked for a password, so please enter it."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:79
+#: ../python_start/remote_macosx.rst:214
+msgid "The desktop of the Raspberry pi will be displayed, and you will be able to operate it from the Mac as it is."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:87
+msgid "Don't Have Temporarily Monitor (or TV)?"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:89
+msgid "You can apply the SSH command to open the Raspberry Pi's Bash shell."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:90
+msgid "Bash is the standard default shell for Linux."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:91
+msgid "The shell itself is a command (instruction) when the user uses Unix/Linux."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:92
+msgid "Most of what you need to do can be done through the shell."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:93
+msgid "After setting up the Raspberry pi side, you can access the desktop of the Raspberry Pi using the **Finder** from the Mac."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:96
+msgid "Type ``ssh <username>@<hostname>.local`` to connect to the Raspberry Pi."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:107
+msgid "The following message will be displayed only when you log in for the first time, so enter **yes**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:117
+msgid "Enter the password for the Raspberry pi. The password you enter will not be displayed, so be careful not to make a mistake."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:136
+msgid "Set up your Raspberry Pi so that you can log in via VNC from your Mac once you have successfully logged into it. The first step is to update your operating system by running the following commands."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:144
+msgid "``Do you want to continue? [Y/n]``, Enter ``Y`` when prompted."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:146
+msgid "It may take some time for the update to finish. (It depends on the amount of updates at that time.)"
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:149
+msgid "Enter the following command to enable the **VNC Server**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:155
+msgid "The following screen will be displayed. Select **Interface Options** with the arrow keys on the keyboard and press the **Enter** key."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:160
+msgid "Then select **VNC**."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:165
+msgid "Use the arrow keys on the keyboard to select **<Yes>** -> **<OK>** -> **<Finish>** to complete the setup."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:171
+msgid "Now that the VNC server has started, let's change the settings for connecting from a Mac."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:173
+msgid "To specify parameters for all programs for all user accounts on the computer, create ``/etc/vnc/config.d/common.custom``."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:179
+msgid "After entering ``Authentication=VncAuthenter``, press ``Ctrl+X`` -> ``Y`` -> ``Enter`` to save and exit."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:184
+msgid "In addition, set a password for logging in via VNC from a Mac. You can use the same password as the Raspberry pi password or a different password."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:192
+msgid "Once the setup is complete, restart the Raspberry Pi to apply the changes."
+msgstr ""
+
+#: ../python_start/remote_macosx.rst:198
+msgid "Now, select **Connect to Server** from the **Finder**'s menu, which you can open by right-clicking."
+msgstr ""

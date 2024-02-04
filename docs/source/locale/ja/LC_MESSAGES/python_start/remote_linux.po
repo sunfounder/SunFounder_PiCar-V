@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/remote_linux.rst:2
+msgid "Linux /Unix Users"
+msgstr "Linux /Unix ユーザー"
+
+#: ../python_start/remote_linux.rst:5
+msgid ""
+"#. Go to **Applications**->\\ **Utilities**, find the **Terminal**, and "
+"open it."
+msgstr "#.  **アプリケーション** ->\\ **ユーティリティ** に移動し、 **ターミナル** を見つけて開きます。"
+
+#: ../python_start/remote_linux.rst:11
+msgid ""
+"Check if your Raspberry Pi is on the same network by type in ``ping "
+"<hostname>.local``."
+msgstr "``ping <hostname>.local`` を入力して、Raspberry Piが同じネットワーク上にあるか確認してください。"
+
+#: ../python_start/remote_linux.rst:21
+msgid ""
+"As shown above, you can see the Raspberry Pi's IP address after it has "
+"been connected to the network."
+msgstr "上記のように、ネットワークに接続された後、Raspberry PiのIPアドレスを確認できます。"
+
+#: ../python_start/remote_linux.rst:23
+msgid ""
+"If terminal prompts ``Ping request could not find host pi.local. Please "
+"check the name and try again.``. Please follow the prompts to make sure "
+"the hostname you fill in is correct."
+msgstr "ターミナルが ``Ping request could not find host pi.local. Please check the name and try again.`` と表示された場合は、入力したホスト名が正しいか確認してください。"
+
+#: ../python_start/remote_linux.rst:24
+msgid ""
+"Still can't get the IP? Check your network or WiFi configuration on the "
+"Raspberry Pi."
+msgstr "まだIPを取得できない場合は、Raspberry PiのネットワークまたはWiFiの設定を確認してください。"
+
+#: ../python_start/remote_linux.rst:27
+msgid ""
+"Type in ``ssh <username>@<hostname>.local`` (or ``ssh <username>@<IP "
+"address>``)."
+msgstr "``ssh <username>@<hostname>.local`` （または ``ssh <username>@<IP address>`` ）と入力します。"
+
+#: ../python_start/remote_linux.rst:35
+msgid ""
+"If a prompt appears ``The term 'ssh' is not recognized as the name of a "
+"cmdlet...``."
+msgstr "プロンプトが``The term 'ssh' is not recognized as the name of a cmdlet...``と表示された場合、"
+
+#: ../python_start/remote_linux.rst:37
+msgid ""
+"It means your system is too old and does not have ssh tools pre-"
+"installed, you need to manually :ref:`openssh_powershell`."
+msgstr "システムが古すぎてsshツールがプリインストールされていないことを意味します。手動で :ref:`openssh_powershell` を行う必要があります。"
+
+#: ../python_start/remote_linux.rst:39
+msgid "Or use a third party tool like :ref:`login_windows`."
+msgstr "または、 :ref:`login_windows` のようなサードパーティのツールを使用してください。"
+
+#: ../python_start/remote_linux.rst:42
+msgid ""
+"The following message will be displayed only when you log in for the "
+"first time, so enter ``yes``."
+msgstr "次のメッセージは初めてログインするときにのみ表示されるので、 ``yes`` と入力してください。"
+
+#: ../python_start/remote_linux.rst:52
+msgid "Input the password you set before. (Mine is ``raspberry``.)"
+msgstr "以前に設定したパスワードを入力してください。（私の場合は ``raspberry`` です。）"
+
+#: ../python_start/remote_linux.rst:56
+msgid ""
+"When you input the password, the characters do not display on window "
+"accordingly, which is normal. What you need is to input the correct "
+"password."
+msgstr "パスワードを入力するとき、文字はウィンドウに表示されませんが、これは正常です。正しいパスワードを入力する必要があります。"
+
+#: ../python_start/remote_linux.rst:62
+msgid "We now get the Raspberry Pi connected and are ready to go to the nextstep."
+msgstr "これでRaspberry Piが接続され、次のステップに進む準備ができました。"
+

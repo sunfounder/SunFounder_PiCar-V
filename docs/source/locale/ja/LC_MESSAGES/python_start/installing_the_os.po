@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/installing_the_os.rst:2
+msgid "Installing the OS"
+msgstr "OSのインストール"
+
+#: ../python_start/installing_the_os.rst:4
+msgid "**Required Components**"
+msgstr "**必要なコンポーネント**"
+
+#: ../python_start/installing_the_os.rst:6
+msgid "Raspberry Pi 4B/Zero 2 w/3B 3B+/2B/Zero W"
+msgstr "Raspberry Pi 4B/Zero 2 w/3B 3B+/2B/Zero W"
+
+#: ../python_start/installing_the_os.rst:7
+msgid "1 x Personal Computer"
+msgstr "1 x パーソナルコンピュータ"
+
+#: ../python_start/installing_the_os.rst:8
+msgid "1 x Micro SD card"
+msgstr "1 x マイクロSDカード"
+
+#: ../python_start/installing_the_os.rst:10
+msgid "**Steps**"
+msgstr "**手順**"
+
+#: ../python_start/installing_the_os.rst:13
+msgid ""
+"Go to the Raspberry Pi software download page: `Raspberry Pi Imager "
+"<https://www.raspberrypi.org/software/>`_. Select the Imager version for "
+"your operating system. After downloading, open the file to start the "
+"installation."
+msgstr "Raspberry Piのソフトウェアダウンロードページにアクセスしてください： `Raspberry Pi Imager <https://www.raspberrypi.org/software/>`_ 。お使いのオペレーティングシステム用のImagerバージョンを選択します。ダウンロード後、ファイルを開いてインストールを開始してください。"
+
+#: ../python_start/installing_the_os.rst:18
+msgid ""
+"Upon launching the installer, your OS might display a security warning. "
+"For instance, Windows may show a caution message. If this occurs, select "
+"**More info** and then **Run anyway**. Follow the on-screen instructions "
+"to install the Raspberry Pi Imager."
+msgstr "インストーラーを起動すると、OSによってはセキュリティ警告が表示される場合があります。例えば、Windowsでは注意メッセージが表示されることがあります。このような場合は、 **詳細情報** を選択してから **とにかく実行** を選択します。画面の指示に従って、Raspberry Pi Imagerをインストールしてください。"
+
+#: ../python_start/installing_the_os.rst:23
+msgid "Insert your SD card into the computer or laptop SD card slot."
+msgstr "SDカードをコンピューターまたはラップトップのSDカードスロットに挿入してください。"
+
+#: ../python_start/installing_the_os.rst:25
+msgid ""
+"Open the Raspberry Pi Imager application either by clicking its icon or "
+"executing ``rpi-imager`` in your terminal."
+msgstr "アイコンをクリックするか、ターミナルで ``rpi-imager`` を実行することで、Raspberry Pi Imagerアプリケーションを開いてください。"
+
+#: ../python_start/installing_the_os.rst:29
+msgid ""
+"Click **CHOOSE DEVICE** and select your specific Raspberry Pi model from "
+"the list (Note: Raspberry Pi 5 is not applicable)."
+msgstr "**デバイスを選択** をクリックし、リストから特定のRaspberry Piモデルを選択してください（注：Raspberry Pi 5は該当しません）。"
+
+#: ../python_start/installing_the_os.rst:33
+msgid "Select **CHOOSE OS** and then choose **Raspberry Pi OS (Legacy)**."
+msgstr "**OSを選択** を選び、その後で **Raspberry Pi OS（Legacy）** を選択してください。"
+
+#: ../python_start/installing_the_os.rst:36
+msgid ""
+"Please do not install the **Bookworm** version as the speaker will not "
+"work."
+msgstr "**Bookworm** バージョンはスピーカーが動作しないため、インストールしないでください。"
+
+#: ../python_start/installing_the_os.rst:37
+msgid ""
+"You need to install the **Raspberry Pi OS (Legacy)** version - **Debian "
+"Bullseye**."
+msgstr "**Debian Bullseye** の **Raspberry Pi OS（Legacy）** バージョンをインストールする必要があります。"
+
+#: ../python_start/installing_the_os.rst:42
+msgid ""
+"Click **Choose Storage** and pick the correct storage device for the "
+"installation."
+msgstr "**ストレージを選択** をクリックし、インストール用の正しいストレージデバイスを選んでください。"
+
+#: ../python_start/installing_the_os.rst:46
+msgid ""
+"Be sure to select the correct device, especially if multiple storage "
+"devices are connected. Disconnect others if you're unsure."
+msgstr "複数のストレージデバイスが接続されている場合は特に、正しいデバイスを選択してください。不明な場合は、他のデバイスを切断してください。"
+
+#: ../python_start/installing_the_os.rst:50
+msgid "Press **NEXT** and select **EDIT SETTINGS** to customize your OS settings."
+msgstr "**次へ** を押して、 **設定を編集** を選択し、OSの設定をカスタマイズしてください。"
+
+#: ../python_start/installing_the_os.rst:54
+msgid "Set your Raspberry Pi's **hostname**."
+msgstr "Raspberry Piの **ホスト名** を設定してください。"
+
+#: ../python_start/installing_the_os.rst:58
+msgid ""
+"The hostname is what your Raspberry Pi uses to identify itself on the "
+"network. You can connect to your Pi using `<hostname>.local` or "
+"`<hostname>.lan`."
+msgstr "ホスト名は、ネットワーク上でRaspberry Piが自身を識別するために使用する名前です。 `<hostname>.local` や `<hostname>.lan` を使用してPiに接続できます。"
+
+#: ../python_start/installing_the_os.rst:62
+msgid ""
+"Create a **Username** and **Password** for the Raspberry Pi's "
+"administrator account."
+msgstr "Raspberry Piの管理者アカウント用に **ユーザー名** と **パスワード** を作成してください。"
+
+#: ../python_start/installing_the_os.rst:66
+msgid ""
+"Setting a unique username and password is crucial for security, as the "
+"Raspberry Pi does not have a default password."
+msgstr "Raspberry Piにはデフォルトのパスワードがないため、セキュリティのために独自のユーザー名とパスワードを設定することが重要です。"
+
+#: ../python_start/installing_the_os.rst:70
+msgid "Set up wireless LAN by inputting your network's **SSID** and **Password**."
+msgstr "ネットワークの **SSID** と **パスワード** を入力して、無線LANを設定してください。"
+
+#: ../python_start/installing_the_os.rst:74
+msgid ""
+"``Wireless LAN country`` should be set the two-letter `ISO/IEC alpha2 "
+"code "
+"<https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_"
+" for the country in which you are using your Raspberry Pi."
+msgstr " ``無線LANの国`` は、Raspberry Piを使用している国の2文字の `ISO/IEC alpha2コード <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ に設定してください。"
+
+#: ../python_start/installing_the_os.rst:79
+msgid ""
+"Click **SERVICES** and enable **SSH** for password-based remote access. "
+"Remember to click **Save**."
+msgstr " **サービス** をクリックし、パスワードによるリモートアクセス用に **SSH** を有効にしてください。 **保存** をクリックするのを忘れないでください。"
+
+#: ../python_start/installing_the_os.rst:83
+msgid "Confirm your choices by clicking **Yes**."
+msgstr "選択を確認するために **はい** をクリックしてください。"
+
+#: ../python_start/installing_the_os.rst:87
+msgid ""
+"If your SD card has existing files, back them up to avoid data loss. "
+"Click **Yes** to proceed if no backup is necessary."
+msgstr "SDカードに既存のファイルがある場合は、データ損失を避けるためにバックアップを取ってください。バックアップが不要な場合は、 **はい** をクリックして進んでください。"
+
+#: ../python_start/installing_the_os.rst:91
+msgid ""
+"Wait as the OS is written to the SD card. Once completed, a confirmation "
+"window will appear."
+msgstr "OSがSDカードに書き込まれるのを待ちます。完了すると、確認ウィンドウが表示されます。"
+

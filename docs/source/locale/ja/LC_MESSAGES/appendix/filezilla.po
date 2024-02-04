@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../appendix/filezilla.rst:4
+msgid "Filezilla Software"
+msgstr "Filezillaソフトウェア"
+
+#: ../appendix/filezilla.rst:8
+msgid ""
+"The File Transfer Protocol (FTP) is a standard communication protocol "
+"used for the transfer of computer files from a server to a client on a "
+"computer network."
+msgstr "ファイル転送プロトコル（FTP）は、コンピュータネットワーク上でサーバーからクライアントへコンピュータファイルを転送するために使用される標準的な通信プロトコルです。"
+
+#: ../appendix/filezilla.rst:10
+msgid ""
+"Filezilla is an open source software that not only supports FTP, but also"
+" FTP over TLS (FTPS) and SFTP. We can use Filezilla to upload local files"
+" (such as pictures and audio, etc.) to the Raspberry Pi, or download "
+"files from the Raspberry Pi to the local."
+msgstr "FilezillaはFTPだけでなく、FTP over TLS（FTPS）およびSFTPもサポートするオープンソースソフトウェアです。Filezillaを使用して、ローカルファイル（写真やオーディオなど）をRaspberry Piにアップロードしたり、Raspberry Piからローカルにファイルをダウンロードすることができます。"
+
+#: ../appendix/filezilla.rst:12
+msgid "**Step 1**: Download Filezilla."
+msgstr "**ステップ1**: Filezillaをダウンロードする。"
+
+#: ../appendix/filezilla.rst:14
+msgid ""
+"Download the client from `Filezilla’s official website <https"
+"://filezilla-project.org/>`_, Filezilla has a very good tutorial, please "
+"refer to: `Documentation - Filezilla <https://wiki.filezilla-"
+"project.org/Documentation>`_."
+msgstr "クライアントを `Filezillaの公式ウェブサイト <https://filezilla-project.org/>`_ からダウンロードしてください。Filezillaには非常に良いチュートリアルがありますので、 `Documentation - Filezilla <https://wiki.filezilla-project.org/Documentation>`_ を参照してください。"
+
+#: ../appendix/filezilla.rst:16
+msgid "**Step 2**: Connect to Raspberry Pi"
+msgstr "**ステップ2**: Raspberry Piに接続する"
+
+#: ../appendix/filezilla.rst:18
+msgid ""
+"After a quick install open it up and now `connect it to an FTP server "
+"<https://wiki.filezilla-project.org/Using#Connecting_to_an_FTP_server>`_."
+" It has 3 ways to connect, here we use the **Quick Connect** bar. Enter "
+"the **hostname/IP**, **username**, **password** and **port (22)**, then "
+"click **Quick Connect** or press **Enter** to connect to the server."
+msgstr "素早くインストールした後、 `FTPサーバーに接続する <https://wiki.filezilla-project.org/Using#Connecting_to_an_FTP_server>`_ ためにそれを開いてください。接続方法は3つありますが、ここでは **クイック接続** バーを使用します。 **ホスト名/IP** 、 **ユーザー名** 、 **パスワード** 、 **ポート（22）** を入力し、 **クイック接続** をクリックするか、 **Enter** を押してサーバーに接続します。"
+
+#: ../appendix/filezilla.rst:24
+msgid ""
+"Quick Connect is a good way to test your login information. If you want "
+"to create a permanent entry, you can select **File**-> **Copy Current "
+"Connection to Site Manager** after a successful Quick Connect, enter the "
+"name and click **OK**. Next time you will be able to connect by selecting"
+" the previously saved site inside **File** -> **Site Manager**."
+msgstr "クイック接続は、ログイン情報をテストするのに良い方法です。永続的なエントリーを作成したい場合は、クイック接続に成功した後に **ファイル** ->  **現在の接続をサイトマネージャーにコピー** を選択し、名前を入力して **OK** をクリックします。次回からは、 **ファイル** -> **サイトマネージャー** 内で以前に保存したサイトを選択することで接続できます。"
+
+#: ../appendix/filezilla.rst:28
+msgid "**Step 3**: Upload/download files."
+msgstr "**ステップ3**: ファイルをアップロード/ダウンロードする。"
+
+#: ../appendix/filezilla.rst:30
+msgid ""
+"You can upload local files to Raspberry Pi by dragging and dropping them,"
+" or download the files inside Raspberry Pi files locally."
+msgstr "ローカルファイルをドラッグアンドドロップすることでRaspberry Piにアップロードすることができますし、Raspberry Pi内のファイルをローカルにダウンロードすることもできます。"
+

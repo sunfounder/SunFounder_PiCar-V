@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, SunFounder
+# This file is distributed under the same license as the SunFounder PiCar-V
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SunFounder PiCar-V \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-02 18:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../python_start/install_all_modules.rst:5
+msgid "Install All the Modules(Important)"
+msgstr "すべてのモジュールをインストールする（重要）"
+
+#: ../python_start/install_all_modules.rst:7
+msgid "Make sure you are connected to the Internet and update your system:"
+msgstr "インターネットに接続されていることを確認し、システムを更新してください："
+
+#: ../python_start/install_all_modules.rst:20
+msgid ""
+"Python3 related packages must be installed if you are installing the Lite"
+" version OS."
+msgstr "LiteバージョンのOSをインストールする場合は、Python3関連のパッケージをインストールする必要があります。"
+
+#: ../python_start/install_all_modules.rst:31
+msgid "Install ``robot-hat``."
+msgstr " ``robot-hat`` をインストールします。"
+
+#: ../python_start/install_all_modules.rst:45
+msgid "Then download and install the ``vilib`` module."
+msgstr "次に、 ``vilib`` モジュールをダウンロードしてインストールします。"
+
+#: ../python_start/install_all_modules.rst:58
+msgid "Download and install the ``picar-x`` module."
+msgstr " ``picar-x`` モジュールをダウンロードしてインストールします。"
+
+#: ../python_start/install_all_modules.rst:71
+msgid "This step will take a little while, so please be patient."
+msgstr "このステップには少し時間がかかりますので、しばらくお待ちください。"
+
+#: ../python_start/install_all_modules.rst:73
+msgid ""
+"Finally, you need to run the script ``i2samp.sh`` to install the "
+"components required by the i2s amplifier, otherwise the picar-x will have"
+" no sound."
+msgstr "最後に、i2sアンプに必要なコンポーネントをインストールするためにスクリプト ``i2samp.sh`` を実行する必要があります。そうしないと、picar-xは音が出ません。"
+
+#: ../python_start/install_all_modules.rst:86
+msgid "Type ``y`` and press enter to continue running the script."
+msgstr " ``y`` と入力し、エンターキーを押してスクリプトの実行を続けてください。"
+
+#: ../python_start/install_all_modules.rst:90
+msgid "Type ``y`` and press enter to run ``/dev/zero`` in the background."
+msgstr " ``y`` と入力し、エンターキーを押してバックグラウンドで ``/dev/zero`` を実行してください。"
+
+#: ../python_start/install_all_modules.rst:94
+msgid "Type ``y`` and press enter to restart the Picar-X."
+msgstr " ``y`` と入力し、エンターキーを押してPicar-Xを再起動してください。"
+
+#: ../python_start/install_all_modules.rst:97
+msgid ""
+"If there is no sound after restarting, you may need to run the i2samp.sh "
+"script several times."
+msgstr "再起動後に音が出ない場合は、i2samp.shスクリプトを数回実行する必要があるかもしれません。"
+
