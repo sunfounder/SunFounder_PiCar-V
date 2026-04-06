@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PICAR-V MISSION CONTROL</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0a;
+  --green: #00ff41;
+  --green-dim: #00cc33;
+  --red: #ff3333;
+  --yellow: #ffaa00;
+  --inactive: #555555;
+  --border: #1a3a1a;
+  --cyan: #00ffff;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--bg);
+  color: var(--green);
+  font-size: 14px;
+  overflow-x: hidden;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.015) 2px,
+    rgba(0, 255, 65, 0.015) 4px
+  );
+}
+
+/* ============ AUTH SCREEN ============ */
+#auth-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+}
+
+#auth-screen h1 {
+  font-size: 36px;
+  letter-spacing: 6px;
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(0,255,65,0.3);
+}
+
+#auth-screen label {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--green-dim);
+}
+
+#auth-screen input {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 18px;
+  padding: 10px 16px;
+  width: 320px;
+  text-align: center;
+  letter-spacing: 4px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+#auth-screen input:focus {
+  border-color: var(--green-dim);
+  box-shadow: 0 0 10px rgba(0,255,65,0.15);
+}
+
+#auth-btn {
+  background: transparent;
+  border: 1px solid var(--green-dim);
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  padding: 8px 32px;
+  cursor: pointer;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#auth-btn:hover {
+  background: rgba(0,255,65,0.1);
+}
+
+#auth-error {
+  color: var(--red);
+  font-size: 12px;
+  min-height: 18px;
+  letter-spacing: 2px;
+}
+
+/* ============ DASHBOARD ============ */
+#dashboard {
+  display: none;
+  min-height: 100vh;
+}
+
+#dashboard.active { display: block; }
+#auth-screen.hidden { display: none; }
+
+/* Pulsing border on connection lost */
+@keyframes redpulse {
+  0%, 100% { box-shadow: inset 0 0 20px rgba(255,51,51,0.3); }
+  50% { box-shadow: inset 0 0 40px rgba(255,51,51,0.6); }
+}
+
+#dashboard.connection-lost {
+  animation: redpulse 1.5s ease-in-out infinite;
+}
+
+/* Green flash on restore */
+@keyframes greenflash {
+  0% { box-shadow: inset 0 0 60px rgba(0,255,65,0.5); }
+  100% { box-shadow: inset 0 0 0 transparent; }
+}
+
+#dashboard.restored {
+  animation: greenflash 1s ease-out forwards;
+}
+
+/* Panel border pulse */
+@keyframes borderpulse {
+  0%, 100% { border-color: var(--border); }
+  50% { border-color: #1f4f1f; }
+}
+
+.panel {
+  border: 1px solid var(--border);
+  animation: borderpulse 6s ease-in-out infinite;
+}
+
+/* ============ HEADER ============ */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#header .title {
+  font-size: 18px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(0,255,65,0.3);
+  white-space: nowrap;
+}
+
+#header .status-group {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#header .status-item {
+  font-size: 13px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.uplink-active { color: var(--green); }
+.uplink-lost { color: var(--red); animation: blink 0.8s step-end infinite; }
+.uplink-restored { color: var(--cyan); }
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ============ MAIN GRID ============ */
+#main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+/* ============ VIDEO PANEL ============ */
+#video-panel {
+  padding: 12px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#video-panel .panel-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--green-dim);
+  margin-bottom: 8px;
+}
+
+#video-container {
+  flex: 1;
+  position: relative;
+  background: #050505;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+#video-feed {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+#no-signal {
+  position: absolute;
+  color: var(--inactive);
+  font-size: 18px;
+  letter-spacing: 4px;
+}
+
+/* ============ STATUS PANEL ============ */
+#status-panel {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#status-panel .panel-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--green-dim);
+  margin-bottom: 4px;
+}
+
+.status-readouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 15px;
+}
+
+.status-readouts .val { color: var(--green); }
+.status-readouts .lbl { color: var(--green-dim); font-size: 12px; }
+
+/* ============ SVG DIAGRAMS ============ */
+#diagrams {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+#vehicle-diagram-container, #gimbal-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#vehicle-diagram-container .panel-label,
+#gimbal-container .panel-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--green-dim);
+  margin-bottom: 4px;
+}
+
+.diagram-svg {
+  width: 100%;
+  max-width: 200px;
+}
+
+.gimbal-values {
+  font-size: 13px;
+  margin-top: 4px;
+  color: var(--green);
+}
+
+/* Grey out on disconnect */
+#dashboard.connection-lost #vehicle-diagram-container svg,
+#dashboard.connection-lost #gimbal-container svg {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+/* Wheel spin animation */
+@keyframes wheelspin-fwd {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -12; }
+}
+
+@keyframes wheelspin-bwd {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 12; }
+}
+
+.wheel-spinning-fwd {
+  stroke-dasharray: 3 3;
+  animation: wheelspin-fwd 0.3s linear infinite;
+}
+
+.wheel-spinning-bwd {
+  stroke-dasharray: 3 3;
+  animation: wheelspin-bwd 0.3s linear infinite;
+}
+
+/* ============ TELEMETRY PANEL ============ */
+#telemetry-panel {
+  grid-column: 1 / -1;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#telemetry-panel .panel-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--green-dim);
+  margin-bottom: 2px;
+}
+
+.telem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 4px 20px;
+  font-size: 13px;
+}
+
+.telem-item .lbl { color: var(--green-dim); }
+.telem-item .val { color: var(--green); }
+
+.temp-green { color: var(--green) !important; }
+.temp-yellow { color: var(--yellow) !important; }
+.temp-red { color: var(--red) !important; }
+
+/* ============ CONTROLS BAR ============ */
+#controls-bar {
+  grid-column: 1 / -1;
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#controls-bar .label { color: var(--green-dim); letter-spacing: 2px; }
+
+.key-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.key-hint {
+  color: var(--inactive);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.key-indicator {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--inactive);
+  color: var(--inactive);
+  font-size: 12px;
+  min-width: 28px;
+  text-align: center;
+}
+
+.key-indicator.active {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(0,255,65,0.1);
+  text-shadow: 0 0 6px rgba(0,255,65,0.4);
+}
+
+/* ============ STALE SUFFIX ============ */
+.stale-suffix {
+  color: var(--inactive);
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+/* ============ LAST CONTACT ============ */
+#last-contact {
+  display: none;
+  color: var(--red);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#dashboard.connection-lost #last-contact { display: inline; }
+</style>
+</head>
+<body>
+
+<!-- AUTH SCREEN -->
+<div id="auth-screen">
+  <h1>PICAR-V MISSION CONTROL</h1>
+  <label for="password-input">ENTER ACCESS CODE</label>
+  <input type="password" id="password-input" autocomplete="off" spellcheck="false">
+  <button id="auth-btn">AUTHENTICATE</button>
+  <div id="auth-error"></div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <!-- HEADER -->
+  <div id="header" class="panel">
+    <span class="title">PICAR-V MISSION CONTROL</span>
+    <div class="status-group">
+      <span class="status-item">UPLINK [<span id="uplink-status" class="uplink-active">ACTIVE</span>]</span>
+      <span class="status-item">PING: <span id="ping-value">---</span>MS</span>
+      <span id="last-contact">LAST CONTACT: <span id="last-contact-time">00:00:00</span></span>
+      <span class="status-item" id="utc-clock">--:--:-- UTC</span>
+    </div>
+  </div>
+
+  <div id="main-grid">
+    <!-- VIDEO PANEL -->
+    <div id="video-panel" class="panel">
+      <div class="panel-label">LIVE VIDEO FEED</div>
+      <div id="video-container">
+        <img id="video-feed" alt="Video Feed" style="display:none;">
+        <span id="no-signal">NO SIGNAL</span>
+      </div>
+    </div>
+
+    <!-- STATUS PANEL -->
+    <div id="status-panel" class="panel">
+      <div class="panel-label">VEHICLE STATUS</div>
+      <div class="status-readouts">
+        <div><span class="lbl">SPEED: </span><span class="val" id="v-speed">000</span><span class="lbl">%</span></div>
+        <div><span class="lbl">DRIVE: </span><span class="val" id="v-drive">STOP</span></div>
+        <div><span class="lbl">STEER: </span><span class="val" id="v-steer">090</span><span class="lbl">&deg;</span></div>
+      </div>
+
+      <div id="diagrams">
+        <!-- VEHICLE DIAGRAM -->
+        <div id="vehicle-diagram-container">
+          <div class="panel-label">VEHICLE DIAGRAM</div>
+          <svg class="diagram-svg" viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <rect x="30" y="30" width="60" height="120" rx="6" fill="none" stroke="var(--green-dim)" stroke-width="1.5"/>
+            <!-- Center line -->
+            <line x1="60" y1="30" x2="60" y2="150" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="4 4"/>
+            <!-- Axles -->
+            <line x1="20" y1="55" x2="100" y2="55" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="20" y1="125" x2="100" y2="125" stroke="var(--border)" stroke-width="0.5"/>
+            <!-- Front left wheel -->
+            <g id="wheel-fl" style="transform-origin: 22px 55px;">
+              <rect x="12" y="45" width="20" height="20" rx="2" fill="none" stroke="var(--green)" stroke-width="1.5" class="wheel-rect"/>
+            </g>
+            <!-- Front right wheel -->
+            <g id="wheel-fr" style="transform-origin: 98px 55px;">
+              <rect x="88" y="45" width="20" height="20" rx="2" fill="none" stroke="var(--green)" stroke-width="1.5" class="wheel-rect"/>
+            </g>
+            <!-- Back left wheel -->
+            <g id="wheel-bl">
+              <rect x="12" y="115" width="20" height="20" rx="2" fill="none" stroke="var(--green)" stroke-width="1.5" class="wheel-rect"/>
+            </g>
+            <!-- Back right wheel -->
+            <g id="wheel-br">
+              <rect x="88" y="115" width="20" height="20" rx="2" fill="none" stroke="var(--green)" stroke-width="1.5" class="wheel-rect"/>
+            </g>
+            <!-- Windshield hint -->
+            <line x1="38" y1="42" x2="82" y2="42" stroke="var(--green-dim)" stroke-width="0.5"/>
+            <!-- Direction arrow -->
+            <polygon id="dir-arrow" points="60,20 55,28 65,28" fill="var(--green-dim)" opacity="0.5"/>
+            <!-- Labels -->
+            <text x="22" y="41" fill="var(--green-dim)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">FL</text>
+            <text x="98" y="41" fill="var(--green-dim)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">FR</text>
+            <text x="22" y="145" fill="var(--green-dim)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">BL</text>
+            <text x="98" y="145" fill="var(--green-dim)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">BR</text>
+          </svg>
+        </div>
+
+        <!-- CAMERA GIMBAL -->
+        <div id="gimbal-container">
+          <div class="panel-label">CAMERA GIMBAL</div>
+          <svg class="diagram-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid background -->
+            <rect x="20" y="10" width="160" height="160" fill="none" stroke="var(--border)" stroke-width="1"/>
+            <!-- Grid lines at 45-degree intervals (0, 45, 90, 135, 180) -->
+            <!-- Vertical lines (pan) -->
+            <line x1="20" y1="10" x2="20" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="60" y1="10" x2="60" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="100" y1="10" x2="100" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="140" y1="10" x2="140" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="180" y1="10" x2="180" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <!-- Horizontal lines (tilt) -->
+            <line x1="20" y1="10" x2="180" y2="10" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="20" y1="50" x2="180" y2="50" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="20" y1="90" x2="180" y2="90" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="20" y1="130" x2="180" y2="130" stroke="var(--border)" stroke-width="0.5"/>
+            <line x1="20" y1="170" x2="180" y2="170" stroke="var(--border)" stroke-width="0.5"/>
+            <!-- Axis labels -->
+            <text x="100" y="195" fill="var(--green-dim)" font-size="10" font-family="Share Tech Mono" text-anchor="middle">PAN</text>
+            <text x="8" y="90" fill="var(--green-dim)" font-size="10" font-family="Share Tech Mono" text-anchor="middle" transform="rotate(-90 8 90)">TILT</text>
+            <!-- Tick labels pan -->
+            <text x="20" y="183" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">0</text>
+            <text x="60" y="183" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">45</text>
+            <text x="100" y="183" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">90</text>
+            <text x="140" y="183" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">135</text>
+            <text x="180" y="183" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="middle">180</text>
+            <!-- Tick labels tilt -->
+            <text x="14" y="13" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="end">0</text>
+            <text x="14" y="53" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="end">45</text>
+            <text x="14" y="93" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="end">90</text>
+            <text x="14" y="133" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="end">135</text>
+            <text x="14" y="173" fill="var(--inactive)" font-size="7" font-family="Share Tech Mono" text-anchor="end">180</text>
+            <!-- Crosshair -->
+            <line id="gimbal-h" x1="20" y1="90" x2="180" y2="90" stroke="var(--green)" stroke-width="0.5" opacity="0.4"/>
+            <line id="gimbal-v" x1="100" y1="10" x2="100" y2="170" stroke="var(--green)" stroke-width="0.5" opacity="0.4"/>
+            <circle id="gimbal-dot" cx="100" cy="90" r="4" fill="var(--green)" opacity="0.9"/>
+            <circle id="gimbal-dot-outer" cx="100" cy="90" r="8" fill="none" stroke="var(--green)" stroke-width="0.5" opacity="0.5"/>
+          </svg>
+          <div class="gimbal-values">
+            PAN: <span id="g-pan">090</span>&nbsp;&nbsp;TILT: <span id="g-tilt">090</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TELEMETRY PANEL -->
+    <div id="telemetry-panel" class="panel">
+      <div class="panel-label">SYSTEM TELEMETRY</div>
+      <div class="telem-grid">
+        <div class="telem-item"><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span>&nbsp;&nbsp;<span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span></div>
+        <div class="telem-item"><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span></div>
+        <div class="telem-item"><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
+        <div class="telem-item"><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
+        <div class="telem-item"><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
+        <div class="telem-item"><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
+        <div class="telem-item"><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
+        <div class="telem-item"><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
+        <div class="telem-item"><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
+        <div class="telem-item"><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
+      </div>
+    </div>
+
+    <!-- CONTROLS BAR -->
+    <div id="controls-bar" class="panel">
+      <span class="label">CONTROLS:</span>
+      <div class="key-group">
+        <span class="key-indicator" id="key-w">W</span>
+        <span class="key-indicator" id="key-s">S</span>
+        <span class="key-hint">=DRIVE</span>
+      </div>
+      <div class="key-group">
+        <span class="key-indicator" id="key-a">A</span>
+        <span class="key-indicator" id="key-d">D</span>
+        <span class="key-hint">=STEER</span>
+      </div>
+      <div class="key-group">
+        <span class="key-indicator" id="key-up">&uarr;</span>
+        <span class="key-indicator" id="key-down">&darr;</span>
+        <span class="key-indicator" id="key-left">&larr;</span>
+        <span class="key-indicator" id="key-right">&rarr;</span>
+        <span class="key-hint">=CAMERA</span>
+      </div>
+      <div class="key-group">
+        <span class="key-indicator" id="key-1">1</span>
+        <span class="key-indicator" id="key-2">2</span>
+        <span class="key-indicator" id="key-3">3</span>
+        <span class="key-indicator" id="key-4">4</span>
+        <span class="key-indicator" id="key-5">5</span>
+        <span class="key-hint">=SPEED</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ============ STATE ============
+  let token = localStorage.getItem('picar_token');
+  let connected = true;
+  let lastContactTime = null;
+  let lastContactTimer = null;
+  let restoredTimeout = null;
+  let staleMode = false;
+  const heldKeys = new Set();
+  const speedLevels = { '1': 40, '2': 55, '3': 70, '4': 85, '5': 100 };
+
+  // ============ DOM REFS ============
+  const $ = id => document.getElementById(id);
+  const authScreen = $('auth-screen');
+  const dashboard = $('dashboard');
+  const passwordInput = $('password-input');
+  const authBtn = $('auth-btn');
+  const authError = $('auth-error');
+
+  // ============ AUTH ============
+  async function authenticate() {
+    const pw = passwordInput.value;
+    if (!pw) return;
+    authError.textContent = '';
+    try {
+      const res = await fetch('/api/auth/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw })
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        authError.textContent = data.error || 'AUTHENTICATION FAILED';
+        return;
+      }
+      const data = await res.json();
+      token = data.token;
+      localStorage.setItem('picar_token', token);
+      showDashboard();
+    } catch (e) {
+      authError.textContent = 'CONNECTION ERROR';
+    }
+  }
+
+  authBtn.addEventListener('click', authenticate);
+  passwordInput.addEventListener('keydown', e => { if (e.key === 'Enter') authenticate(); });
+
+  function showDashboard() {
+    authScreen.classList.add('hidden');
+    dashboard.classList.add('active');
+    startVideo();
+    startPolling();
+  }
+
+  // Auto-login if token exists
+  if (token) {
+    showDashboard();
+  }
+
+  // ============ HELPERS ============
+  function authHeaders() {
+    return { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
+  }
+
+  function pad(n, w) {
+    return String(n).padStart(w, '0');
+  }
+
+  function formatBytes(bytes) {
+    if (bytes == null) return '--';
+    if (bytes >= 1073741824) return (bytes / 1073741824).toFixed(1) + 'GB';
+    if (bytes >= 1048576) return (bytes / 1048576).toFixed(0) + 'MB';
+    if (bytes >= 1024) return (bytes / 1024).toFixed(0) + 'KB';
+    return bytes + 'B';
+  }
+
+  function formatUptime(seconds) {
+    if (seconds == null) return '--d --h --m';
+    const d = Math.floor(seconds / 86400);
+    const h = Math.floor((seconds % 86400) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    return pad(d, 2) + 'd ' + pad(h, 2) + 'h ' + pad(m, 2) + 'm';
+  }
+
+  function staleSuffix() {
+    return staleMode ? '<span class="stale-suffix">[STALE]</span>' : '';
+  }
+
+  // ============ UTC CLOCK ============
+  setInterval(() => {
+    const now = new Date();
+    $('utc-clock').textContent =
+      pad(now.getUTCHours(), 2) + ':' +
+      pad(now.getUTCMinutes(), 2) + ':' +
+      pad(now.getUTCSeconds(), 2) + ' UTC';
+  }, 1000);
+
+  // ============ VIDEO ============
+  function startVideo() {
+    const img = $('video-feed');
+    const noSig = $('no-signal');
+    img.src = '/api/stream/?token=' + encodeURIComponent(token);
+    img.onload = function() {
+      img.style.display = 'block';
+      noSig.style.display = 'none';
+    };
+    img.onerror = function() {
+      img.style.display = 'none';
+      noSig.style.display = 'block';
+    };
+  }
+
+  // ============ CONNECTION STATE ============
+  function setConnected(isConnected) {
+    if (isConnected && !connected) {
+      // Restored
+      connected = true;
+      staleMode = false;
+      dashboard.classList.remove('connection-lost');
+      dashboard.classList.add('restored');
+      $('uplink-status').textContent = 'RESTORED';
+      $('uplink-status').className = 'uplink-restored';
+      clearTimeout(restoredTimeout);
+      restoredTimeout = setTimeout(() => {
+        $('uplink-status').textContent = 'ACTIVE';
+        $('uplink-status').className = 'uplink-active';
+        dashboard.classList.remove('restored');
+      }, 3000);
+      clearInterval(lastContactTimer);
+      lastContactTimer = null;
+    } else if (!isConnected && connected) {
+      // Lost
+      connected = false;
+      staleMode = true;
+      dashboard.classList.remove('restored');
+      dashboard.classList.add('connection-lost');
+      $('uplink-status').textContent = 'LOST';
+      $('uplink-status').className = 'uplink-lost';
+      lastContactTime = Date.now();
+      lastContactTimer = setInterval(updateLastContact, 1000);
+    }
+  }
+
+  function updateLastContact() {
+    if (!lastContactTime) return;
+    const elapsed = Math.floor((Date.now() - lastContactTime) / 1000);
+    const m = Math.floor(elapsed / 60);
+    const s = elapsed % 60;
+    $('last-contact-time').textContent = '00:' + pad(m, 2) + ':' + pad(s, 2);
+  }
+
+  // ============ STATE POLLING (250ms) ============
+  let driveState = { speed: 0, drive: 0, steer_angle: 90, cam_pan: 90, cam_tilt: 90 };
+
+  async function pollState() {
+    try {
+      const res = await fetch('/api/state/', { headers: authHeaders() });
+      if (!res.ok) {
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem('picar_token');
+          location.reload();
+          return;
+        }
+        throw new Error('HTTP ' + res.status);
+      }
+      const data = await res.json();
+      driveState = data;
+      setConnected(true);
+      updateVehicleStatus(data);
+      updateVehicleDiagram(data);
+      updateGimbal(data);
+    } catch (e) {
+      setConnected(false);
+    }
+  }
+
+  function updateVehicleStatus(d) {
+    const driveLabels = { '-1': 'BWD', '0': 'STOP', '1': 'FWD' };
+    const s = staleSuffix();
+    $('v-speed').innerHTML = pad(d.speed, 3) + s;
+    $('v-drive').innerHTML = (driveLabels[String(d.drive)] || 'STOP') + s;
+    $('v-steer').innerHTML = pad(d.steer_angle, 3) + s;
+  }
+
+  function updateVehicleDiagram(d) {
+    const steerDeg = (d.steer_angle || 90) - 90;
+    $('wheel-fl').style.transform = 'rotate(' + steerDeg + 'deg)';
+    $('wheel-fr').style.transform = 'rotate(' + steerDeg + 'deg)';
+
+    const blRect = $('wheel-bl').querySelector('.wheel-rect');
+    const brRect = $('wheel-br').querySelector('.wheel-rect');
+
+    if (d.drive === 1) {
+      blRect.className.baseVal = 'wheel-rect wheel-spinning-fwd';
+      brRect.className.baseVal = 'wheel-rect wheel-spinning-fwd';
+    } else if (d.drive === -1) {
+      blRect.className.baseVal = 'wheel-rect wheel-spinning-bwd';
+      brRect.className.baseVal = 'wheel-rect wheel-spinning-bwd';
+    } else {
+      blRect.className.baseVal = 'wheel-rect';
+      brRect.className.baseVal = 'wheel-rect';
+    }
+
+    // Direction arrow
+    const arrow = $('dir-arrow');
+    if (d.drive === 1) {
+      arrow.setAttribute('opacity', '1');
+      arrow.setAttribute('points', '60,20 55,28 65,28');
+    } else if (d.drive === -1) {
+      arrow.setAttribute('opacity', '1');
+      arrow.setAttribute('points', '60,165 55,157 65,157');
+    } else {
+      arrow.setAttribute('opacity', '0.3');
+      arrow.setAttribute('points', '60,20 55,28 65,28');
+    }
+
+    // Brighten active wheels
+    const flStroke = steerDeg !== 0 ? 'var(--green)' : 'var(--green-dim)';
+    $('wheel-fl').querySelector('.wheel-rect').setAttribute('stroke', flStroke);
+    $('wheel-fr').querySelector('.wheel-rect').setAttribute('stroke', flStroke);
+    const blStroke = d.drive !== 0 ? 'var(--green)' : 'var(--green-dim)';
+    blRect.setAttribute('stroke', blStroke);
+    brRect.setAttribute('stroke', blStroke);
+  }
+
+  function updateGimbal(d) {
+    const pan = d.cam_pan != null ? d.cam_pan : 90;
+    const tilt = d.cam_tilt != null ? d.cam_tilt : 90;
+    // Map 0-180 to grid: x=20-180, y=10-170
+    const x = 20 + (pan / 180) * 160;
+    const y = 10 + (tilt / 180) * 160;
+
+    $('gimbal-dot').setAttribute('cx', x);
+    $('gimbal-dot').setAttribute('cy', y);
+    $('gimbal-dot-outer').setAttribute('cx', x);
+    $('gimbal-dot-outer').setAttribute('cy', y);
+    $('gimbal-h').setAttribute('y1', y);
+    $('gimbal-h').setAttribute('y2', y);
+    $('gimbal-v').setAttribute('x1', x);
+    $('gimbal-v').setAttribute('x2', x);
+
+    const s = staleSuffix();
+    $('g-pan').innerHTML = pad(pan, 3) + s;
+    $('g-tilt').innerHTML = pad(tilt, 3) + s;
+  }
+
+  // ============ TELEMETRY POLLING (3000ms) ============
+  async function pollTelemetry() {
+    try {
+      const res = await fetch('/api/telemetry/', { headers: authHeaders() });
+      if (!res.ok) return;
+      const data = await res.json();
+      updateTelemetry(data);
+    } catch (e) { /* silent */ }
+  }
+
+  function tempClass(temp) {
+    if (temp >= 75) return 'temp-red';
+    if (temp >= 60) return 'temp-yellow';
+    return 'temp-green';
+  }
+
+  function wifiClass(rssi) {
+    if (rssi <= -70) return 'temp-red';
+    if (rssi <= -50) return 'temp-yellow';
+    return 'temp-green';
+  }
+
+  function updateTelemetry(d) {
+    const sys = d.system || {};
+    const net = d.network || {};
+    const hw = d.hardware || {};
+    const st = d.stream || {};
+    const s = staleSuffix();
+
+    // CPU
+    const cpuTemp = sys.cpu_temp_c != null ? sys.cpu_temp_c.toFixed(1) : '--.-';
+    const cpuPct = sys.cpu_percent != null ? Math.round(sys.cpu_percent) : '--';
+    $('t-cpu-temp').className = 'val ' + (sys.cpu_temp_c != null ? tempClass(sys.cpu_temp_c) : '');
+    $('t-cpu-temp').innerHTML = cpuTemp + s;
+    $('t-cpu-pct').innerHTML = cpuPct + s;
+
+    // Memory — compute used from total - available
+    const memTotal = sys.mem_total_mb;
+    const memAvail = sys.mem_available_mb;
+    const memUsed = (memTotal != null && memAvail != null) ? (memTotal - memAvail) : null;
+    const memPct = sys.mem_used_percent;
+    $('t-mem').innerHTML = (memUsed != null ? Math.round(memUsed) : '---') + '/' +
+      (memTotal != null ? Math.round(memTotal) : '----') + ' MB (' +
+      (memPct != null ? Math.round(memPct) : '--') + '%)' + s;
+
+    // Disk
+    $('t-disk').innerHTML = (sys.disk_used_percent != null ? Math.round(sys.disk_used_percent) : '--') + s;
+
+    // Uptime
+    $('t-uptime').innerHTML = formatUptime(sys.uptime_seconds) + s;
+
+    // Load
+    if (sys.load_avg) {
+      $('t-load').innerHTML = sys.load_avg.map(v => v.toFixed(1)).join(' / ') + s;
+    }
+
+    // Network — sum rx/tx across all interfaces
+    let totalRx = 0, totalTx = 0;
+    const ifaces = net.interfaces || {};
+    for (const iface in ifaces) {
+      totalRx += ifaces[iface].rx_bytes || 0;
+      totalTx += ifaces[iface].tx_bytes || 0;
+    }
+    $('t-rx').innerHTML = formatBytes(totalRx || null) + s;
+    $('t-tx').innerHTML = formatBytes(totalTx || null) + s;
+
+    // WiFi
+    const rssi = net.wifi_rssi_dbm;
+    if (rssi != null) {
+      $('t-wifi').className = 'val ' + wifiClass(rssi);
+      $('t-wifi').innerHTML = rssi + s;
+    } else {
+      $('t-wifi').innerHTML = 'N/A';
+    }
+
+    // Tailscale IP
+    $('t-ts').innerHTML = (net.tailscale_ip || '--') + s;
+
+    // I2C — devices is an array of address strings like ["0x40"]
+    if (hw.i2c_devices) {
+      const devs = hw.i2c_devices.map(addr => addr + ' OK').join('  ');
+      $('t-i2c').innerHTML = '[' + (devs || 'NONE') + ']' + s;
+    }
+
+    // Stream
+    if (st.active != null) {
+      const status = st.active ? 'ACTIVE' : 'INACTIVE';
+      const res = st.resolution || '--';
+      const fps = st.fps != null ? st.fps + 'FPS' : '--';
+      $('t-stream').innerHTML = '[' + status + ' ' + res + ' ' + fps + ']' + s;
+    }
+  }
+
+  // ============ HEALTH POLLING (5000ms) ============
+  async function pollHealth() {
+    try {
+      const res = await fetch('/api/health/', { headers: authHeaders() });
+      if (!res.ok) return;
+      const data = await res.json();
+      const lat = data.latency_ms;
+      if (lat != null) {
+        const cls = lat >= 300 ? 'temp-red' : lat >= 100 ? 'temp-yellow' : 'temp-green';
+        $('ping-value').className = cls;
+        $('ping-value').textContent = pad(Math.round(lat), 3);
+      }
+    } catch (e) { /* silent */ }
+  }
+
+  // ============ POLLING START ============
+  function startPolling() {
+    pollState();
+    pollTelemetry();
+    pollHealth();
+    setInterval(pollState, 250);
+    setInterval(pollTelemetry, 3000);
+    setInterval(pollHealth, 5000);
+  }
+
+  // ============ KEYBOARD CONTROLS ============
+  const keyActions = {
+    'w': { down: 'forward', up: 'stop' },
+    's': { down: 'backward', up: 'stop' },
+    'a': { down: 'fwleft', up: 'fwstraight' },
+    'd': { down: 'fwright', up: 'fwstraight' },
+    'arrowup': { down: 'camup' },
+    'arrowdown': { down: 'camdown' },
+    'arrowleft': { down: 'camleft' },
+    'arrowright': { down: 'camright' },
+  };
+
+  const keyIndicatorMap = {
+    'w': 'key-w', 's': 'key-s', 'a': 'key-a', 'd': 'key-d',
+    'arrowup': 'key-up', 'arrowdown': 'key-down',
+    'arrowleft': 'key-left', 'arrowright': 'key-right',
+    '1': 'key-1', '2': 'key-2', '3': 'key-3', '4': 'key-4', '5': 'key-5',
+  };
+
+  function sendAction(action) {
+    fetch('/api/action/', {
+      method: 'POST',
+      headers: authHeaders(),
+      body: JSON.stringify({ action: action })
+    }).catch(() => {});
+  }
+
+  function sendSpeed(speed) {
+    fetch('/api/speed/', {
+      method: 'POST',
+      headers: authHeaders(),
+      body: JSON.stringify({ speed: speed })
+    }).catch(() => {});
+  }
+
+  function setKeyIndicator(key, active) {
+    const id = keyIndicatorMap[key];
+    if (id) {
+      $(id).classList.toggle('active', active);
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!dashboard.classList.contains('active')) return;
+    // Don't intercept if typing in an input
+    if (e.target.tagName === 'INPUT') return;
+
+    const key = e.key.toLowerCase();
+
+    // Speed keys (no hold tracking needed)
+    if (speedLevels[key]) {
+      e.preventDefault();
+      sendSpeed(speedLevels[key]);
+      setKeyIndicator(key, true);
+      setTimeout(() => setKeyIndicator(key, false), 200);
+      return;
+    }
+
+    const mapping = keyActions[key];
+    if (!mapping) return;
+    e.preventDefault();
+
+    if (heldKeys.has(key)) return; // Already held, don't repeat
+    heldKeys.add(key);
+    setKeyIndicator(key, true);
+
+    if (mapping.down) sendAction(mapping.down);
+  });
+
+  document.addEventListener('keyup', e => {
+    if (!dashboard.classList.contains('active')) return;
+
+    const key = e.key.toLowerCase();
+    const mapping = keyActions[key];
+    if (!mapping) return;
+
+    heldKeys.delete(key);
+    setKeyIndicator(key, false);
+
+    if (mapping.up) sendAction(mapping.up);
+  });
+
+  // Release all keys on blur (prevent stuck keys)
+  window.addEventListener('blur', () => {
+    heldKeys.forEach(key => {
+      const mapping = keyActions[key];
+      setKeyIndicator(key, false);
+      if (mapping && mapping.up) sendAction(mapping.up);
+    });
+    heldKeys.clear();
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,9 +1,10 @@
 import os
+import time
 from pathlib import Path
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
 from .driver import camera
@@ -31,6 +32,7 @@ _is_setup = False
 fw = bw = cam = None
 SPEED = 60
 bw_status = 0
+fw_angle = 90
 
 
 def _setup():
@@ -87,9 +89,10 @@ def cali_page(request):
 
 # --- API views (POST, return JSON) ---
 
+@csrf_exempt
 @require_POST
 def run_action(request):
-    global SPEED, bw_status
+    global SPEED, bw_status, fw_angle
     _ensure_setup()
 
     action = request.POST.get("action", "")
@@ -100,6 +103,7 @@ def run_action(request):
             angle = int(action.split(":")[1])
             angle = max(45, min(135, angle))
             fw.turn(angle)
+            fw_angle = angle
             return JsonResponse({"ok": True})
         except (ValueError, IndexError):
             return JsonResponse({"error": "invalid angle"}, status=400)
@@ -126,12 +130,16 @@ def run_action(request):
     # Front wheels
     elif action == "fwready":
         fw.ready()
+        fw_angle = 90
     elif action == "fwleft":
         fw.turn_left()
+        fw_angle = 45
     elif action == "fwright":
         fw.turn_right()
+        fw_angle = 135
     elif action == "fwstraight":
         fw.turn_straight()
+        fw_angle = 90
 
     # Camera
     elif action == "camready":
@@ -148,6 +156,7 @@ def run_action(request):
     return JsonResponse({"ok": True})
 
 
+@csrf_exempt
 @require_POST
 def set_speed(request):
     global SPEED, bw_status
@@ -208,6 +217,56 @@ def cali_action(request):
         bw.cali_ok()
 
     return JsonResponse({"ok": True})
+
+
+@csrf_exempt
+@require_GET
+def vehicle_state(request):
+    _ensure_setup()
+    return JsonResponse({
+        "speed": SPEED,
+        "drive": bw_status,
+        "steer_angle": fw_angle,
+        "cam_pan": cam.current_pan,
+        "cam_tilt": cam.current_tilt,
+    })
+
+
+@csrf_exempt
+@require_GET
+def telemetry_view(request):
+    _ensure_setup()
+    from . import telemetry as telem
+    sys_info = telem.get_system_info()
+    net_info = telem.get_network_info()
+    return JsonResponse({
+        "vehicle": {
+            "speed": SPEED,
+            "drive": bw_status,
+            "steer_angle": fw_angle,
+            "cam_pan": cam.current_pan,
+            "cam_tilt": cam.current_tilt,
+            "cam_pan_offset": cam.pan_offset,
+            "cam_tilt_offset": cam.tilt_offset,
+            "steer_offset": fw.turning_offset,
+        },
+        "system": sys_info,
+        "network": net_info,
+        "hardware": {
+            "i2c_devices": telem.get_i2c_devices(),
+            "pwm_frequency_hz": 60,
+            "servo_channels": {"steer": 0, "cam_pan": 1, "cam_tilt": 2},
+            "motor_channels": {"left": 4, "right": 5},
+            "motor_gpio": {"a": 17, "b": 27},
+        },
+        "stream": {
+            "active": telem.is_stream_alive(),
+            "resolution": "320x240",
+            "port": 8765,
+            "fps": telem.get_stream_fps(),
+        },
+        "timestamp": time.time(),
+    })
 
 
 @require_GET

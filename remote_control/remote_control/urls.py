@@ -10,6 +10,8 @@ urlpatterns = [
     path("api/action/", views.run_action, name="action"),
     path("api/speed/", views.set_speed, name="speed"),
     path("api/cali/", views.cali_action, name="cali_action"),
+    path("api/state/", views.vehicle_state, name="state"),
+    path("api/telemetry/", views.telemetry_view, name="telemetry"),
     path("api/health/", views.health_check, name="health"),
     re_path(
         r"^static/(?P<path>.*)$",
