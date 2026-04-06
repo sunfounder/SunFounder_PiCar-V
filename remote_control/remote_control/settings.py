@@ -57,10 +57,12 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# Security
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# Security — Secure cookies require HTTPS. Enable when behind a TLS-terminating
+# proxy (Cloudflare Tunnel, Tailscale HTTPS). Disable for plain HTTP dev access.
+_HTTPS = os.environ.get("HTTPS_ENABLED", "false").lower() == "true"
+SESSION_COOKIE_SECURE = _HTTPS
+CSRF_COOKIE_SECURE = _HTTPS
 SESSION_COOKIE_SAMESITE = "Strict"
-CSRF_COOKIE_SAMESITE = "Strict"
+CSRF_COOKIE_SAMESITE = "Lax"
 X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
