@@ -1,15 +1,16 @@
 [Unit]
 Description=PiCar-V Web Control
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
 User=rpicar
 WorkingDirectory=/home/rpicar/SunFounder_PiCar-V/remote_control
 EnvironmentFile=/home/rpicar/SunFounder_PiCar-V/.env
-ExecStart=/home/rpicar/SunFounder_PiCar-V/.venv/bin/gunicorn remote_control.wsgi:application --bind 127.0.0.1:8000 --workers 2 --timeout 120
+ExecStart=/home/rpicar/SunFounder_PiCar-V/.venv/bin/python3 manage.py runserver 0.0.0.0:8000
 Restart=always
-RestartSec=3
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
