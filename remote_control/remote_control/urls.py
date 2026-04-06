@@ -13,6 +13,7 @@ urlpatterns = [
     path("api/state/", views.vehicle_state, name="state"),
     path("api/telemetry/", views.telemetry_view, name="telemetry"),
     path("api/health/", views.health_check, name="health"),
+    path("api/ping/", views.ping, name="ping"),
     re_path(
         r"^static/(?P<path>.*)$",
         serve,

@@ -80,6 +80,14 @@ async def speed(request: Request, _=Depends(verify_token)):
     return await pi_proxy.proxy_post("/api/speed/", {"speed": speed_val})
 
 
+@app.post("/api/ping/")
+async def ping(_=Depends(verify_token)):
+    """Noop ACK — sends a ping to the car and waits for a response."""
+    if settings.mock_mode:
+        return mock.handle_ping()
+    return await pi_proxy.proxy_post("/api/ping/", {})
+
+
 @app.get("/api/stream/")
 async def stream(_=Depends(verify_token_query)):
     if settings.mock_mode:

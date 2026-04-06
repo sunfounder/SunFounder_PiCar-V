@@ -174,6 +174,95 @@ def read_tailscale_ip():
 
 
 # ---------------------------------------------------------------------------
+# Battery (PCF8591 ADC on Robot HAT — I2C bus 1, address 0x48)
+# Channel 4 is wired to battery via 20K/10K voltage divider (3:1 ratio).
+# ---------------------------------------------------------------------------
+
+_PCF8591_ADDR = 0x48
+_I2C_BUS = 1
+_smbus = None
+
+
+def _get_smbus():
+    """Lazy-init smbus to avoid import errors on dev machines."""
+    global _smbus
+    if _smbus is None:
+        try:
+            import smbus2
+            _smbus = smbus2.SMBus(_I2C_BUS)
+        except (ImportError, OSError):
+            return None
+    return _smbus
+
+
+def read_battery_voltage():
+    """Read battery voltage from PCF8591 ADC channel 0 (AIN0).
+
+    The Robot HAT routes battery through a 20K/10K voltage divider,
+    so actual voltage = ADC voltage * 3.
+    PCF8591 is 8-bit (0-255), reference voltage 3.3V.
+    """
+    bus = _get_smbus()
+    if bus is None:
+        return None
+    try:
+        # Control byte: 0x40 = DAC output enable + channel 0 (AIN0)
+        # The first read after setting channel is stale — read twice.
+        bus.write_byte(_PCF8591_ADDR, 0x40)
+        bus.read_byte(_PCF8591_ADDR)  # discard stale
+        raw = bus.read_byte(_PCF8591_ADDR)
+        adc_voltage = raw / 255.0 * 3.3
+        battery_voltage = adc_voltage * 3.0
+        return round(battery_voltage, 2)
+    except (OSError, IOError):
+        return None
+
+
+def read_power_info():
+    """Determine power source and throttling state.
+
+    Returns dict with:
+      - source: "battery", "usb", or "unknown"
+      - voltage: battery voltage (from ADC) or None
+      - under_voltage: True if Pi reports under-voltage (vcgencmd bit 0)
+      - throttled_raw: raw hex throttled value
+    """
+    voltage = read_battery_voltage()
+
+    # Battery connected if ADC reads > 2V (anything meaningful)
+    if voltage is not None and voltage > 2.0:
+        source = "battery"
+    elif voltage is not None:
+        source = "usb"
+    else:
+        source = "unknown"
+
+    # Check Pi firmware throttling flags
+    under_voltage = False
+    throttled_raw = None
+    try:
+        result = subprocess.run(
+            ["vcgencmd", "get_throttled"],
+            capture_output=True, text=True, timeout=2,
+        )
+        if result.returncode == 0:
+            # Output: "throttled=0x0"
+            hex_str = result.stdout.strip().split("=")[-1]
+            throttled_raw = hex_str
+            flags = int(hex_str, 16)
+            under_voltage = bool(flags & 0x1)  # bit 0: under-voltage now
+    except (OSError, subprocess.TimeoutExpired, ValueError):
+        pass
+
+    return {
+        "source": source,
+        "voltage": voltage,
+        "under_voltage": under_voltage,
+        "throttled_raw": throttled_raw,
+    }
+
+
+# ---------------------------------------------------------------------------
 # I2C
 # ---------------------------------------------------------------------------
 

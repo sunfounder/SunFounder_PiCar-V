@@ -14,6 +14,10 @@ _mock_state = {
 }
 
 
+def handle_ping() -> dict:
+    return {"pong": True, "timestamp": time.time()}
+
+
 def handle_action(action: str) -> dict:
     if action.startswith("fwturn:"):
         try:
@@ -66,6 +70,12 @@ def get_telemetry() -> dict:
             "cam_pan_offset": 0,
             "cam_tilt_offset": 0,
             "steer_offset": 0,
+        },
+        "battery": {
+            "source": "battery",
+            "voltage": round(7.2 + 0.4 * math.sin(t / 60), 2),
+            "under_voltage": False,
+            "throttled_raw": "0x0",
         },
         "system": {
             "cpu_temp_c": round(cpu_temp, 1),

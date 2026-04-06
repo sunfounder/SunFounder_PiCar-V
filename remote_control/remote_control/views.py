@@ -250,6 +250,7 @@ def telemetry_view(request):
             "cam_tilt_offset": cam.tilt_offset,
             "steer_offset": fw.turning_offset,
         },
+        "battery": telem.read_power_info(),
         "system": sys_info,
         "network": net_info,
         "hardware": {
@@ -272,3 +273,10 @@ def telemetry_view(request):
 @require_GET
 def health_check(request):
     return HttpResponse("OK")
+
+
+@csrf_exempt
+@require_POST
+def ping(request):
+    """Noop ACK — returns a pong so the relay can verify the car is reachable."""
+    return JsonResponse({"pong": True, "timestamp": time.time()})

@@ -27,17 +27,6 @@ body {
   overflow-x: hidden;
   font-variant-numeric: tabular-nums;
   text-transform: uppercase;
-  text-shadow: 0 0 2px rgba(0, 255, 65, 0.15);
-}
-
-/* Vignette overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 9998;
-  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%);
 }
 
 /* Scanline overlay */
@@ -70,7 +59,7 @@ body::after {
   font-size: 36px;
   letter-spacing: 6px;
   color: var(--green);
-  text-shadow: 0 0 20px rgba(0,255,65,0.3);
+
 }
 
 #auth-screen label {
@@ -151,47 +140,93 @@ body::after {
   animation: greenflash 1s ease-out forwards;
 }
 
-/* Panel border pulse */
-@keyframes borderpulse {
-  0%, 100% { border-color: var(--border); }
-  50% { border-color: #1f4f1f; }
-}
-
 .panel {
   border: 1px solid var(--border);
-  animation: borderpulse 6s ease-in-out infinite;
 }
 
 /* ============ HEADER ============ */
 #header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
+  align-items: stretch;
+  padding: 0;
   border-bottom: 1px solid var(--border);
+  gap: 0;
   flex-wrap: wrap;
-  gap: 8px;
 }
 
 #header .title {
   font-size: 18px;
   letter-spacing: 4px;
-  text-shadow: 0 0 15px rgba(0,255,65,0.3);
   white-space: nowrap;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
 }
 
 #header .status-group {
   display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: 3px;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+  padding: 3px;
 }
 
-#header .status-item {
-  font-size: 13px;
-  letter-spacing: 2px;
+.status-box {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border);
   white-space: nowrap;
+  font-size: 12px;
+  flex: 1 1 0;
+  min-width: 0;
 }
+
+.status-box .status-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 3px;
+  background: var(--green-dim);
+  color: var(--bg);
+  font-size: 8px;
+  -webkit-text-stroke: 0.5px var(--bg);
+  letter-spacing: 0;
+  line-height: 1.1;
+  min-width: 14px;
+  flex-shrink: 0;
+}
+
+.status-box .status-val {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  color: var(--green);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.status-box .status-val .sparkline {
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+/* Header box status coloring */
+.status-box.hdr-nominal { border-color: var(--green-dim); }
+.status-box.hdr-nominal .status-label { background: var(--green-dim); }
+.status-box.hdr-nominal .status-val { color: var(--green); }
+
+.status-box.hdr-warn { border-color: var(--yellow); background: rgba(255, 170, 0, 0.06); }
+.status-box.hdr-warn .status-label { background: var(--yellow); }
+.status-box.hdr-warn .status-val { color: var(--yellow); }
+
+.status-box.hdr-crit { border-color: var(--red); background: rgba(255, 51, 51, 0.08); }
+.status-box.hdr-crit .status-label { background: var(--red); }
+.status-box.hdr-crit .status-val { color: var(--red); }
+
 
 .uplink-active { color: var(--green); }
 .uplink-lost { color: var(--red); animation: blink 0.8s step-end infinite; }
@@ -261,6 +296,19 @@ body::after {
   color: var(--inactive);
   font-size: 18px;
   letter-spacing: 4px;
+}
+
+#stream-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--green-dim);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: right;
 }
 
 /* ============ STATUS PANEL ============ */
@@ -355,41 +403,107 @@ body::after {
 /* ============ TELEMETRY PANEL ============ */
 #telemetry-panel {
   grid-column: 1 / -1;
-  padding: 12px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-#telemetry-panel .panel-label {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--green-dim);
-  margin-bottom: 2px;
+  padding: 2px 4px;
+  border: none;
 }
 
 .telem-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 4px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 4px;
   font-size: 13px;
 }
 
-.telem-item .lbl { color: var(--green-dim); }
-.telem-item .val { color: var(--green); }
+.telem-item {
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.telem-item .telem-header {
+  font-size: 10px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  padding: 2px 8px;
+  background: var(--green-dim);
+  color: var(--bg);
+  -webkit-text-stroke: 0.5px var(--bg);
+}
+
+.telem-item .telem-body {
+  padding: 8px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.telem-item .sparkline {
+  display: block;
+  height: 16px;
+  overflow: hidden;
+}
+
+.telem-item .sparkline svg {
+  width: 100%;
+  height: 16px;
+  display: block;
+}
+
+.telem-item .telem-value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.telem-item .val {
+  color: var(--green);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.telem-item .unit {
+  color: var(--green-dim);
+  font-size: 11px;
+}
+
+/* Box status coloring */
+.telem-item.status-nominal {
+  border-color: var(--green-dim);
+}
+.telem-item.status-nominal .telem-header { background: var(--green-dim); color: var(--bg); }
+.telem-item.status-nominal .val { color: var(--green); }
+
+.telem-item.status-warn {
+  border-color: var(--yellow);
+  background: rgba(255, 170, 0, 0.06);
+}
+.telem-item.status-warn .telem-header { background: var(--yellow); color: var(--bg); }
+.telem-item.status-warn .val { color: var(--yellow); }
+.telem-item.status-warn .unit { color: var(--yellow); }
+.telem-item.status-warn .sparkline polyline { stroke: var(--yellow); }
+
+.telem-item.status-crit {
+  border-color: var(--red);
+  background: rgba(255, 51, 51, 0.08);
+}
+.telem-item.status-crit .telem-header { background: var(--red); color: var(--bg); }
+.telem-item.status-crit .val { color: var(--red); }
+.telem-item.status-crit .unit { color: var(--red); }
+.telem-item.status-crit .sparkline polyline { stroke: var(--red); }
+
+/* Sparklines (header bar only) */
+.sparkline { display: inline-block; vertical-align: middle; margin-left: 4px; }
+.sparkline svg { width: 50px; height: 16px; }
+.sparkline polyline { fill: none; stroke: var(--green-dim); stroke-width: 1; }
 
 .temp-green { color: var(--green) !important; }
 .temp-yellow { color: var(--yellow) !important; }
 .temp-red { color: var(--red) !important; }
-
-.status-dot { margin-right: 4px; font-size: 10px; }
-.dot-green { color: var(--green); }
-.dot-yellow { color: var(--yellow); }
-.dot-red { color: var(--red); }
-
-.sparkline { display: inline-block; vertical-align: middle; margin-left: 4px; }
-.sparkline svg { width: 50px; height: 16px; }
-.sparkline polyline { fill: none; stroke: var(--green-dim); stroke-width: 1; }
 
 /* ============ CONTROLS BAR ============ */
 #controls-bar {
@@ -431,7 +545,7 @@ body::after {
   border-color: var(--green);
   color: var(--green);
   background: rgba(0,255,65,0.1);
-  text-shadow: 0 0 6px rgba(0,255,65,0.4);
+
 }
 
 /* ============ STALE SUFFIX ============ */
@@ -440,16 +554,6 @@ body::after {
   font-size: 10px;
   margin-left: 4px;
 }
-
-/* ============ LAST CONTACT ============ */
-#last-contact {
-  display: none;
-  color: var(--red);
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-#dashboard.connection-lost #last-contact { display: inline; }
 
 /* ============ TOUCH CONTROLS ============ */
 #touch-controls {
@@ -508,7 +612,7 @@ body::after {
 .touch-btn:active, .touch-btn.pressed {
   background: rgba(0, 255, 65, 0.2);
   border-color: var(--green);
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.15);
 }
 
@@ -604,21 +708,31 @@ body::after {
     grid-template-columns: 1fr;
   }
 
+  #header {
+    flex-direction: column;
+  }
+
   #header .title {
     font-size: 13px;
     letter-spacing: 2px;
+    padding: 4px 8px;
+    justify-content: center;
   }
 
   #header .status-group {
-    gap: 12px;
+    flex-wrap: wrap;
+    padding: 2px;
+    gap: 2px;
   }
 
-  #header .status-item {
-    font-size: 11px;
+  .status-box {
+    flex: 1 1 calc(33% - 2px);
+    min-width: 0;
   }
 
-  #header {
-    padding: 8px 12px;
+  .status-box .status-val {
+    padding: 2px 4px;
+    font-size: 10px;
   }
 
   #video-panel {
@@ -645,16 +759,21 @@ body::after {
   }
 
   #telemetry-panel {
-    padding: 8px 12px;
+    padding: 4px 4px;
   }
 
   .telem-grid {
     grid-template-columns: 1fr 1fr;
-    font-size: 11px;
-    gap: 2px 12px;
+    gap: 3px;
   }
 
-  .sparkline { display: none; }
+  .telem-item .telem-body {
+    padding: 4px 6px;
+  }
+
+  .telem-item .val {
+    font-size: 13px;
+  }
 
   /* Hide keyboard controls on mobile */
   #controls-bar {
@@ -715,7 +834,7 @@ body::after {
 
 .boot-final {
   color: var(--green);
-  text-shadow: 0 0 10px rgba(0,255,65,0.4);
+
   font-size: 16px;
   margin-top: 12px;
 }
@@ -745,19 +864,19 @@ body::after {
   <!-- HEADER -->
   <div id="header" class="panel">
     <span class="title">PICAR-V</span>
-    <button id="audio-toggle" class="touch-btn" style="min-width:auto;min-height:auto;padding:2px 8px;font-size:12px;border:none;">&#x1F507;</button>
     <div class="status-group">
-      <span class="status-item">UPLINK [<span id="uplink-status" class="uplink-active">ACTIVE</span>]</span>
-      <span class="status-item">RTT: <span id="rtt-current">---</span> / <span id="rtt-avg">---</span>MS<span class="sparkline" id="spark-latency"></span></span>
-      <span class="status-item">MET: <span id="met-time">00:00:00</span></span>
-      <span class="status-item">TLM: <span id="tlm-rate">--</span>HZ</span>
-      <span class="status-item">SYS: <span id="sys-rate">--</span>HZ</span>
-      <span class="status-item">LINK: <span id="link-quality">--</span>%</span>
-      <span class="status-item" style="color:#0ff">BW: <span id="bw-total">--</span></span>
-      <span class="status-item">SYS: <span id="sys-status">--</span></span>
-      <span class="status-item">OPERATOR: <span id="operator-status">ACTIVE</span></span>
-      <span id="last-contact">LAST CONTACT: <span id="last-contact-time">00:00:00</span></span>
-      <span class="status-item" id="utc-clock">--:--:-- UTC</span>
+      <div class="status-box hdr-nominal" id="hbox-upl"><div class="status-label"><span>U</span><span>P</span><span>L</span></div><div class="status-val"><span id="uplink-status">ACT</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-rtt"><div class="status-label"><span>R</span><span>T</span><span>T</span></div><div class="status-val"><span id="rtt-current">---</span>/<span id="rtt-avg">---</span><span class="sparkline" id="spark-latency"></span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-met"><div class="status-label"><span>M</span><span>E</span><span>T</span></div><div class="status-val"><span id="met-time">00:00:00</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-tlm"><div class="status-label"><span>T</span><span>L</span><span>M</span></div><div class="status-val"><span id="tlm-rate">--</span>HZ</div></div>
+      <div class="status-box hdr-nominal" id="hbox-sys"><div class="status-label"><span>S</span><span>Y</span><span>S</span></div><div class="status-val"><span id="sys-rate">--</span>HZ</div></div>
+      <div class="status-box hdr-nominal" id="hbox-lnk"><div class="status-label"><span>L</span><span>N</span><span>K</span></div><div class="status-val"><span id="link-quality">--</span>%</div></div>
+      <div class="status-box hdr-nominal" id="hbox-ban"><div class="status-label"><span>B</span><span>A</span><span>N</span></div><div class="status-val"><span id="bw-total">--</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-bat"><div class="status-label"><span>B</span><span>A</span><span>T</span></div><div class="status-val"><span id="hdr-bat-v">--.-</span>V</div></div>
+      <div class="status-box hdr-nominal" id="hbox-hlt"><div class="status-label"><span>H</span><span>L</span><span>T</span></div><div class="status-val"><span id="sys-status">--</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-opr"><div class="status-label"><span>O</span><span>P</span><span>R</span></div><div class="status-val"><span id="operator-status">ACT</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-lct"><div class="status-label"><span>L</span><span>C</span><span>T</span></div><div class="status-val"><span id="last-contact-time">00:00:00</span></div></div>
+      <div class="status-box hdr-nominal" id="hbox-utc"><div class="status-label"><span>U</span><span>T</span><span>C</span></div><div class="status-val" id="utc-clock">--:--:--</div></div>
     </div>
   </div>
 
@@ -765,16 +884,67 @@ body::after {
     <!-- TELEMETRY PANEL -->
     <div id="telemetry-panel" class="panel">
       <div class="telem-grid">
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-cpu-temp">&#9679;</span><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span><span class="sparkline" id="spark-cpu-temp"></span>&nbsp;&nbsp;<span class="status-dot dot-green" id="dot-cpu-pct">&#9679;</span><span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span><span class="sparkline" id="spark-cpu-pct"></span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-mem">&#9679;</span><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span><span class="sparkline" id="spark-mem-pct"></span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-disk">&#9679;</span><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-uptime">&#9679;</span><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-load">&#9679;</span><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-net">&#9679;</span><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-wifi">&#9679;</span><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-ts">&#9679;</span><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-i2c">&#9679;</span><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
-        <div class="telem-item"><span class="status-dot dot-green" id="dot-stream">&#9679;</span><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
+        <div class="telem-item" id="box-battery">
+          <div class="telem-header">BATTERY <span id="t-bat-src" style="float:right;opacity:0.6">---</span></div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-bat">--.-</span><span class="unit">V</span></div>
+            <div class="sparkline" id="spark-bat"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-cpu-temp">
+          <div class="telem-header">CPU TEMP</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-cpu-temp">--.-</span><span class="unit">&deg;C</span></div>
+            <div class="sparkline" id="spark-cpu-temp"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-cpu-pct">
+          <div class="telem-header">CPU LOAD</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-cpu-pct">--</span><span class="unit">%</span></div>
+            <div class="sparkline" id="spark-cpu-pct"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-mem">
+          <div class="telem-header">MEMORY</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-mem">--</span><span class="unit">%</span></div>
+            <div class="sparkline" id="spark-mem-pct"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-disk">
+          <div class="telem-header">DISK</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-disk">--</span><span class="unit">%</span></div>
+            <div class="sparkline" id="spark-disk"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-uptime">
+          <div class="telem-header">UPTIME</div>
+          <div class="telem-body"><div class="telem-value"><span class="val" id="t-uptime">--d --h --m</span></div></div>
+        </div>
+        <div class="telem-item" id="box-load">
+          <div class="telem-header">LOAD AVG</div>
+          <div class="telem-body"><div class="telem-value"><span class="val" id="t-load">-- / -- / --</span></div></div>
+        </div>
+        <div class="telem-item" id="box-net">
+          <div class="telem-header">NETWORK</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-rx">--</span><span class="unit">RX</span></div>
+            <div class="telem-value"><span class="val" id="t-tx">--</span><span class="unit">TX</span></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-wifi">
+          <div class="telem-header">WIFI RSSI</div>
+          <div class="telem-body">
+            <div class="telem-value"><span class="val" id="t-wifi">--</span><span class="unit">DBM</span></div>
+            <div class="sparkline" id="spark-wifi"></div>
+          </div>
+        </div>
+        <div class="telem-item" id="box-i2c">
+          <div class="telem-header">I2C BUS</div>
+          <div class="telem-body"><div class="telem-value"><span class="val" id="t-i2c">--</span></div></div>
+        </div>
       </div>
     </div>
 
@@ -783,6 +953,7 @@ body::after {
       <div id="video-container">
         <img id="video-feed" alt="Video Feed" style="display:none;">
         <span id="no-signal">NO SIGNAL</span>
+        <div id="stream-overlay"><span id="t-stream">--</span></div>
       </div>
     </div>
 
@@ -1112,10 +1283,10 @@ body::after {
 
   function formatBytes(bytes) {
     if (bytes == null) return '--';
-    if (bytes >= 1073741824) return (bytes / 1073741824).toFixed(1) + 'GB';
-    if (bytes >= 1048576) return (bytes / 1048576).toFixed(0) + 'MB';
-    if (bytes >= 1024) return (bytes / 1024).toFixed(0) + 'KB';
-    return bytes + 'B';
+    if (bytes >= 1073741824) return (bytes / 1073741824).toFixed(1) + ' GB';
+    if (bytes >= 1048576) return (bytes / 1048576).toFixed(0) + ' MB';
+    if (bytes >= 1024) return (bytes / 1024).toFixed(0) + ' KB';
+    return bytes + ' B';
   }
 
   function formatUptime(seconds) {
@@ -1136,7 +1307,7 @@ body::after {
     $('utc-clock').textContent =
       pad(now.getUTCHours(), 2) + ':' +
       pad(now.getUTCMinutes(), 2) + ':' +
-      pad(now.getUTCSeconds(), 2) + ' UTC';
+      pad(now.getUTCSeconds(), 2);
   }, 1000);
 
   // ============ VIDEO ============
@@ -1164,12 +1335,12 @@ body::after {
       staleMode = false;
       dashboard.classList.remove('connection-lost');
       dashboard.classList.add('restored');
-      $('uplink-status').textContent = 'RESTORED';
-      $('uplink-status').className = 'uplink-restored';
+      $('uplink-status').textContent = 'RST';
+      setHdrStatus('hbox-upl', 'hdr-warn');
       clearTimeout(restoredTimeout);
       restoredTimeout = setTimeout(() => {
-        $('uplink-status').textContent = 'ACTIVE';
-        $('uplink-status').className = 'uplink-active';
+        $('uplink-status').textContent = 'ACT';
+        setHdrStatus('hbox-upl', 'hdr-nominal');
         dashboard.classList.remove('restored');
       }, 3000);
       clearInterval(lastContactTimer);
@@ -1182,8 +1353,8 @@ body::after {
       staleMode = true;
       dashboard.classList.remove('restored');
       dashboard.classList.add('connection-lost');
-      $('uplink-status').textContent = 'LOST';
-      $('uplink-status').className = 'uplink-lost';
+      $('uplink-status').textContent = 'ERR';
+      setHdrStatus('hbox-upl', 'hdr-crit');
       lastContactTime = Date.now();
       lastContactTimer = setInterval(updateLastContact, 1000);
     }
@@ -1349,50 +1520,44 @@ body::after {
     } catch (e) { trackFailure('telemetry'); }
   }
 
-  function tempClass(temp) {
-    if (temp >= 75) return 'temp-red';
-    if (temp >= 60) return 'temp-yellow';
-    return 'temp-green';
-  }
-
-  function wifiClass(rssi) {
-    if (rssi <= -70) return 'temp-red';
-    if (rssi <= -50) return 'temp-yellow';
-    return 'temp-green';
-  }
-
   function updateTelemetry(d) {
+    const bat = d.battery || {};
     const sys = d.system || {};
     const net = d.network || {};
     const hw = d.hardware || {};
     const st = d.stream || {};
     const s = staleSuffix();
 
-    // CPU
-    const cpuTemp = sys.cpu_temp_c != null ? sys.cpu_temp_c.toFixed(1) : '--.-';
-    const cpuPct = sys.cpu_percent != null ? Math.round(sys.cpu_percent) : '--';
-    $('t-cpu-temp').className = 'val ' + (sys.cpu_temp_c != null ? tempClass(sys.cpu_temp_c) : '');
-    $('t-cpu-temp').innerHTML = cpuTemp + s;
-    $('t-cpu-pct').innerHTML = cpuPct + s;
+    // Battery
+    $('t-bat').textContent = bat.voltage != null ? bat.voltage.toFixed(1) : '--.-';
+    $('hdr-bat-v').textContent = bat.voltage != null ? bat.voltage.toFixed(1) : '--.-';
+    // Power source label
+    const srcMap = { battery: 'HAT', usb: 'USB', unknown: '---' };
+    $('t-bat-src').textContent = srcMap[bat.source] || '---';
+    // Header + card status
+    if (bat.source === 'usb') {
+      setHdrStatus('hbox-bat', bat.under_voltage ? 'hdr-crit' : 'hdr-warn');
+    } else if (bat.voltage != null) {
+      setHdrStatus('hbox-bat', bat.voltage <= 6.0 ? 'hdr-crit' : bat.voltage <= 6.8 ? 'hdr-warn' : 'hdr-nominal');
+    }
 
-    // Memory — compute used from total - available
-    const memTotal = sys.mem_total_mb;
-    const memAvail = sys.mem_available_mb;
-    const memUsed = (memTotal != null && memAvail != null) ? (memTotal - memAvail) : null;
+    // CPU
+    $('t-cpu-temp').textContent = sys.cpu_temp_c != null ? sys.cpu_temp_c.toFixed(1) : '--.-';
+    $('t-cpu-pct').textContent = sys.cpu_percent != null ? Math.round(sys.cpu_percent) : '--';
+
+    // Memory — show percent as main value
     const memPct = sys.mem_used_percent;
-    $('t-mem').innerHTML = (memUsed != null ? Math.round(memUsed) : '---') + '/' +
-      (memTotal != null ? Math.round(memTotal) : '----') + ' MB (' +
-      (memPct != null ? Math.round(memPct) : '--') + '%)' + s;
+    $('t-mem').textContent = memPct != null ? Math.round(memPct) : '--';
 
     // Disk
-    $('t-disk').innerHTML = (sys.disk_used_percent != null ? Math.round(sys.disk_used_percent) : '--') + s;
+    $('t-disk').textContent = sys.disk_used_percent != null ? Math.round(sys.disk_used_percent) : '--';
 
     // Uptime
-    $('t-uptime').innerHTML = formatUptime(sys.uptime_seconds) + s;
+    $('t-uptime').textContent = formatUptime(sys.uptime_seconds);
 
     // Load
     if (sys.load_avg) {
-      $('t-load').innerHTML = sys.load_avg.map(v => v.toFixed(1)).join(' / ') + s;
+      $('t-load').textContent = sys.load_avg.map(v => v.toFixed(1)).join(' / ');
     }
 
     // Network — sum rx/tx across all interfaces
@@ -1402,25 +1567,17 @@ body::after {
       totalRx += ifaces[iface].rx_bytes || 0;
       totalTx += ifaces[iface].tx_bytes || 0;
     }
-    $('t-rx').innerHTML = formatBytes(totalRx || null) + s;
-    $('t-tx').innerHTML = formatBytes(totalTx || null) + s;
+    $('t-rx').textContent = formatBytes(totalRx || null);
+    $('t-tx').textContent = formatBytes(totalTx || null);
 
     // WiFi
     const rssi = net.wifi_rssi_dbm;
-    if (rssi != null) {
-      $('t-wifi').className = 'val ' + wifiClass(rssi);
-      $('t-wifi').innerHTML = rssi + s;
-    } else {
-      $('t-wifi').innerHTML = 'N/A';
-    }
-
-    // Tailscale IP
-    $('t-ts').innerHTML = (net.tailscale_ip || '--') + s;
+    $('t-wifi').textContent = rssi != null ? rssi : 'N/A';
 
     // I2C — devices is an array of address strings like ["0x40"]
     if (hw.i2c_devices) {
       const devs = hw.i2c_devices.map(addr => addr + ' OK').join('  ');
-      $('t-i2c').innerHTML = '[' + (devs || 'NONE') + ']' + s;
+      $('t-i2c').textContent = devs || 'NONE';
     }
 
     // Stream
@@ -1428,12 +1585,12 @@ body::after {
       const status = st.active ? 'ACTIVE' : 'INACTIVE';
       const res = st.resolution || '--';
       const fps = st.fps != null ? st.fps + 'FPS' : '--';
-      $('t-stream').innerHTML = '[' + status + ' ' + res + ' ' + fps + ']' + s;
+      $('t-stream').textContent = status + ' ' + res + ' ' + fps;
     }
 
-    // Pass 2: status dots & sparklines
-    updateDots(d);
-    updateSparklines(d);
+    // Pass 2: box status coloring & sparklines
+    updateBoxStatus(d);
+    updateTelemetrySparklines(d);
   }
 
   // ============ HEALTH POLLING (5000ms) ============
@@ -1446,14 +1603,10 @@ body::after {
       const lat = data.latency_ms;
       const avg = data.latency_avg_ms;
       if (lat != null) {
-        const cls = lat >= 300 ? 'temp-red' : lat >= 100 ? 'temp-yellow' : 'temp-green';
-        $('rtt-current').className = cls;
         $('rtt-current').textContent = pad(Math.round(lat), 3);
-      }
-      if (avg != null) {
-        const cls = avg >= 300 ? 'temp-red' : avg >= 100 ? 'temp-yellow' : 'temp-green';
-        $('rtt-avg').className = cls;
-        $('rtt-avg').textContent = pad(Math.round(avg), 3);
+        $('rtt-avg').textContent = avg != null ? pad(Math.round(avg), 3) : '---';
+        const worst = Math.max(lat, avg || 0);
+        setHdrStatus('hbox-rtt', worst >= 300 ? 'hdr-crit' : worst >= 100 ? 'hdr-warn' : 'hdr-nominal');
       }
       // Latency sparkline
       pushSpark('latency', lat);
@@ -1786,13 +1939,7 @@ body::after {
     if (totalRequests === 0) { linkEl.textContent = '--'; return; }
     const pct = ((totalRequests - failedRequests) / totalRequests * 100);
     linkEl.textContent = pct.toFixed(0);
-    if (pct > 99) {
-      linkEl.className = 'link-good';
-    } else if (pct > 95) {
-      linkEl.className = 'link-warn';
-    } else {
-      linkEl.className = 'link-bad';
-    }
+    setHdrStatus('hbox-lnk', pct > 99 ? 'hdr-nominal' : pct > 95 ? 'hdr-warn' : 'hdr-crit');
   }, 1000);
 
   // --- Operator Status ---
@@ -1801,8 +1948,8 @@ body::after {
   function markOperatorActive() {
     lastInputTime = Date.now();
     const el = $('operator-status');
-    el.textContent = 'ACTIVE';
-    el.className = 'operator-active';
+    el.textContent = 'ACT';
+    setHdrStatus('hbox-opr', 'hdr-nominal');
   }
 
   document.addEventListener('keydown', markOperatorActive);
@@ -1813,14 +1960,14 @@ body::after {
     const idle = Date.now() - lastInputTime > 30000;
     const el = $('operator-status');
     if (idle) {
-      el.textContent = 'IDLE';
-      el.className = 'operator-idle';
+      el.textContent = 'IDL';
+      setHdrStatus('hbox-opr', 'hdr-warn');
     }
   }, 1000);
 
   // --- Sparkline Data & Rendering ---
   const SPARK_MAX = 60;
-  const sparkData = { cpuTemp: [], cpuPct: [], memPct: [], latency: [] };
+  const sparkData = { battery: [], cpuTemp: [], cpuPct: [], memPct: [], disk: [], wifi: [], latency: [] };
 
   function pushSpark(key, val) {
     if (val == null) return;
@@ -1852,57 +1999,75 @@ body::after {
     svg.querySelector('polyline').setAttribute('points', pts);
   }
 
-  function setDotClass(dotId, cls) {
-    const el = $(dotId);
-    if (el) el.className = 'status-dot ' + cls;
+  function setHdrStatus(boxId, status) {
+    const el = $(boxId);
+    if (el) el.className = 'status-box ' + status;
   }
 
-  function updateDots(d) {
+  function setBoxStatus(boxId, status) {
+    const el = $(boxId);
+    if (el) el.className = 'telem-item ' + status;
+  }
+
+  function updateBoxStatus(d) {
+    const bat = d.battery || {};
     const sys = d.system || {};
     const net = d.network || {};
     const hw = d.hardware || {};
     const st = d.stream || {};
 
+    // Battery — 2S Li-ion: full ~8.4V, nominal ~7.4V, low ~6.4V, critical ~6.0V
+    if (bat.source === 'usb') {
+      setBoxStatus('box-battery', bat.under_voltage ? 'status-crit' : 'status-warn');
+    } else if (bat.voltage != null) {
+      setBoxStatus('box-battery', bat.voltage <= 6.0 ? 'status-crit' : bat.voltage <= 6.8 ? 'status-warn' : 'status-nominal');
+    }
     // CPU temp
     if (sys.cpu_temp_c != null) {
-      setDotClass('dot-cpu-temp', sys.cpu_temp_c >= 75 ? 'dot-red' : sys.cpu_temp_c >= 60 ? 'dot-yellow' : 'dot-green');
+      setBoxStatus('box-cpu-temp', sys.cpu_temp_c >= 75 ? 'status-crit' : sys.cpu_temp_c >= 60 ? 'status-warn' : 'status-nominal');
     }
     // CPU %
     if (sys.cpu_percent != null) {
-      setDotClass('dot-cpu-pct', sys.cpu_percent >= 85 ? 'dot-red' : sys.cpu_percent >= 70 ? 'dot-yellow' : 'dot-green');
+      setBoxStatus('box-cpu-pct', sys.cpu_percent >= 85 ? 'status-crit' : sys.cpu_percent >= 70 ? 'status-warn' : 'status-nominal');
     }
     // Memory %
     if (sys.mem_used_percent != null) {
-      setDotClass('dot-mem', sys.mem_used_percent >= 85 ? 'dot-red' : sys.mem_used_percent >= 70 ? 'dot-yellow' : 'dot-green');
+      setBoxStatus('box-mem', sys.mem_used_percent >= 85 ? 'status-crit' : sys.mem_used_percent >= 70 ? 'status-warn' : 'status-nominal');
     }
     // Disk %
     if (sys.disk_used_percent != null) {
-      setDotClass('dot-disk', sys.disk_used_percent >= 90 ? 'dot-red' : sys.disk_used_percent >= 80 ? 'dot-yellow' : 'dot-green');
+      setBoxStatus('box-disk', sys.disk_used_percent >= 90 ? 'status-crit' : sys.disk_used_percent >= 80 ? 'status-warn' : 'status-nominal');
     }
     // WiFi RSSI
     if (net.wifi_rssi_dbm != null) {
-      setDotClass('dot-wifi', net.wifi_rssi_dbm <= -70 ? 'dot-red' : net.wifi_rssi_dbm > -50 ? 'dot-green' : 'dot-yellow');
+      setBoxStatus('box-wifi', net.wifi_rssi_dbm <= -70 ? 'status-crit' : net.wifi_rssi_dbm <= -50 ? 'status-warn' : 'status-nominal');
     }
     // I2C
     if (hw.i2c_devices) {
-      setDotClass('dot-i2c', hw.i2c_devices.length > 0 ? 'dot-green' : 'dot-red');
+      setBoxStatus('box-i2c', hw.i2c_devices.length > 0 ? 'status-nominal' : 'status-crit');
     }
-    // Stream
-    if (st.active != null) {
-      setDotClass('dot-stream', st.active ? 'dot-green' : 'dot-red');
-    }
-    // Informational — always green
-    // (uptime, load, net, ts already default to dot-green)
+    // Informational — always nominal
+    setBoxStatus('box-uptime', 'status-nominal');
+    setBoxStatus('box-load', 'status-nominal');
+    setBoxStatus('box-net', 'status-nominal');
   }
 
-  function updateSparklines(d) {
+  function updateTelemetrySparklines(d) {
     const sys = d.system || {};
+    const net = d.network || {};
+    const bat = d.battery || {};
+    pushSpark('battery', bat.voltage);
     pushSpark('cpuTemp', sys.cpu_temp_c);
     pushSpark('cpuPct', sys.cpu_percent);
     pushSpark('memPct', sys.mem_used_percent);
+    pushSpark('disk', sys.disk_used_percent);
+    pushSpark('wifi', net.wifi_rssi_dbm);
+    renderSparkline('spark-bat', sparkData.battery, 5.5, 8.5);
     renderSparkline('spark-cpu-temp', sparkData.cpuTemp, 30, 85);
     renderSparkline('spark-cpu-pct', sparkData.cpuPct, 0, 100);
     renderSparkline('spark-mem-pct', sparkData.memPct, 0, 100);
+    renderSparkline('spark-disk', sparkData.disk, 0, 100);
+    renderSparkline('spark-wifi', sparkData.wifi, -90, -20);
   }
 
   // ============ PASS 5: DEAD-RECKONING PATH TRACE ============
@@ -1991,45 +2156,51 @@ body::after {
   let lastTelemetryData = null;
 
   function updateSysStatus(d) {
+    const bat = d.battery || {};
     const sys = d.system || {};
     const net = d.network || {};
     const st = d.stream || {};
 
-    let worst = 'NOMINAL';
+    let worst = 'NOM';
+
+    // Battery / power
+    if (bat.under_voltage) worst = 'WRN';
+    else if (bat.source === 'usb' && worst !== 'WRN') worst = 'CTN';
+    else if (bat.voltage != null) {
+      if (bat.voltage <= 6.0) worst = 'WRN';
+      else if (bat.voltage <= 6.8 && worst !== 'WRN') worst = 'CTN';
+    }
 
     // CPU temp
     if (sys.cpu_temp_c != null) {
-      if (sys.cpu_temp_c >= 75) worst = 'WARNING';
-      else if (sys.cpu_temp_c >= 60 && worst !== 'WARNING') worst = 'CAUTION';
+      if (sys.cpu_temp_c >= 75) worst = 'WRN';
+      else if (sys.cpu_temp_c >= 60 && worst !== 'WRN') worst = 'CTN';
     }
 
     // Memory
     if (sys.mem_used_percent != null) {
-      if (sys.mem_used_percent >= 85) worst = 'WARNING';
-      else if (sys.mem_used_percent >= 70 && worst !== 'WARNING') worst = 'CAUTION';
+      if (sys.mem_used_percent >= 85) worst = 'WRN';
+      else if (sys.mem_used_percent >= 70 && worst !== 'WRN') worst = 'CTN';
     }
 
     // Disk
     if (sys.disk_used_percent != null) {
-      if (sys.disk_used_percent >= 90) worst = 'WARNING';
-      else if (sys.disk_used_percent >= 80 && worst !== 'WARNING') worst = 'CAUTION';
+      if (sys.disk_used_percent >= 90) worst = 'WRN';
+      else if (sys.disk_used_percent >= 80 && worst !== 'WRN') worst = 'CTN';
     }
 
     // Stream
     if (st.active === false) {
-      worst = 'WARNING';
+      worst = 'WRN';
     }
 
     // WiFi
     if (net.wifi_rssi_dbm != null) {
-      if (net.wifi_rssi_dbm <= -70 && worst !== 'WARNING') worst = 'CAUTION';
+      if (net.wifi_rssi_dbm <= -70 && worst !== 'WRN') worst = 'CTN';
     }
 
-    const el = $('sys-status');
-    el.textContent = worst;
-    if (worst === 'WARNING') el.className = 'sys-warning';
-    else if (worst === 'CAUTION') el.className = 'sys-caution';
-    else el.className = 'sys-nominal';
+    $('sys-status').textContent = worst;
+    setHdrStatus('hbox-hlt', worst === 'WRN' ? 'hdr-crit' : worst === 'CTN' ? 'hdr-warn' : 'hdr-nominal');
   }
 
   // ============ PASS 6: AUDIO FEEDBACK ============
@@ -2070,26 +2241,49 @@ body::after {
     setTimeout(function() { playTone(1200, 80, 0.04); }, 100);
   }
 
-  // Mute toggle button
-  $('audio-toggle').addEventListener('click', function() {
-    audioMuted = !audioMuted;
-    localStorage.setItem('picar_audio_muted', audioMuted);
-    $('audio-toggle').textContent = audioMuted ? '\u{1F507}' : '\u{1F50A}';
-    if (!audioMuted) {
-      getAudioCtx();
-      playTone(1000, 50);
-    }
-  });
-  $('audio-toggle').textContent = audioMuted ? '\u{1F507}' : '\u{1F50A}';
 
   // ============ PASS 6: BOOT SEQUENCE ============
-  const BOOT_STEPS = [
-    'INITIALIZING UPLINK',
-    'AUTHENTICATING OPERATOR',
-    'ESTABLISHING SECURE TUNNEL',
-    'REQUESTING TELEMETRY STREAM',
-    'VEHICLE HANDSHAKE',
-    'CAMERA FEED ACQUISITION',
+  const BOOT_CHECKS = [
+    {
+      label: 'RELAY UPLINK',
+      check: async () => {
+        const res = await fetch('/api/health/');
+        if (!res.ok) throw new Error('relay down');
+        const d = await res.json();
+        return d.relay === 'ok';
+      }
+    },
+    {
+      label: 'OPERATOR AUTH',
+      check: async () => !!token
+    },
+    {
+      label: 'VEHICLE TELEMETRY',
+      check: async () => {
+        const res = await fetch('/api/telemetry/', { headers: authHeaders() });
+        if (!res.ok) throw new Error('telemetry failed');
+        const d = await res.json();
+        return !d.error;
+      }
+    },
+    {
+      label: 'VEHICLE HANDSHAKE',
+      check: async () => {
+        const res = await fetch('/api/ping/', { method: 'POST', headers: authHeaders() });
+        if (!res.ok) throw new Error('ping failed');
+        const d = await res.json();
+        return !!d.pong || !!d.ok;
+      }
+    },
+    {
+      label: 'CAMERA FEED',
+      check: async () => {
+        const res = await fetch('/api/stream/?token=' + encodeURIComponent(token));
+        // Any response (even partial) means the stream endpoint is alive
+        if (res.ok || res.status === 200) { res.body && res.body.cancel(); return true; }
+        throw new Error('stream unavailable');
+      }
+    },
   ];
 
   function sleep(ms) {
@@ -2102,31 +2296,49 @@ body::after {
     overlay.classList.remove('hidden');
     lines.innerHTML = '';
 
-    for (let i = 0; i < BOOT_STEPS.length; i++) {
+    let allOk = true;
+    for (let i = 0; i < BOOT_CHECKS.length; i++) {
+      const step = BOOT_CHECKS[i];
       const line = document.createElement('div');
       line.className = 'boot-line';
 
-      const label = BOOT_STEPS[i];
-      const dotsCount = 40 - label.length;
+      const dotsCount = 40 - step.label.length;
       const dots = '.'.repeat(Math.max(dotsCount, 3));
 
-      line.innerHTML = label + '<span class="dots">' + dots + '</span>';
+      line.innerHTML = step.label + '<span class="dots">' + dots + '</span>';
       lines.appendChild(line);
 
-      await sleep(300 + Math.random() * 200);
-      line.innerHTML += ' <span class="ok">OK</span>';
+      let ok = false;
+      try {
+        ok = await step.check();
+      } catch (e) {
+        ok = false;
+      }
 
-      playTone(1200, 30);
+      if (ok) {
+        line.innerHTML += ' <span class="ok">OK</span>';
+        playTone(1200, 30);
+      } else {
+        line.innerHTML += ' <span class="fail">FAIL</span>';
+        playTone(400, 80);
+        allOk = false;
+      }
     }
 
     await sleep(500);
     const final = document.createElement('div');
     final.className = 'boot-line boot-final';
-    final.textContent = 'ALL SYSTEMS NOMINAL';
+    if (allOk) {
+      final.textContent = 'ALL SYSTEMS NOMINAL';
+      playTone(800, 50);
+      await sleep(100);
+      playTone(1200, 50);
+    } else {
+      final.textContent = 'SYSTEMS DEGRADED — CHECK TELEMETRY';
+      final.style.color = 'var(--yellow)';
+      playTone(600, 100);
+    }
     lines.appendChild(final);
-    playTone(800, 50);
-    await sleep(100);
-    playTone(1200, 50);
 
     await sleep(800);
 
