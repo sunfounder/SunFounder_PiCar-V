@@ -1,6 +1,6 @@
+from django.urls import path, re_path
+from django.views.static import serve
 from django.conf import settings
-from django.conf.urls.static import static
-from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -11,4 +11,9 @@ urlpatterns = [
     path("api/speed/", views.set_speed, name="speed"),
     path("api/cali/", views.cali_action, name="cali_action"),
     path("api/health/", views.health_check, name="health"),
-] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+    re_path(
+        r"^static/(?P<path>.*)$",
+        serve,
+        {"document_root": settings.STATICFILES_DIRS[0]},
+    ),
+]
