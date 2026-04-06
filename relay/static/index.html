@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 <title>PICAR-V MISSION CONTROL</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -413,6 +413,170 @@ body::after {
 }
 
 #dashboard.connection-lost #last-contact { display: inline; }
+
+/* ============ TOUCH CONTROLS ============ */
+#touch-controls {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.touch-pads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.touch-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.touch-pad .pad-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--green-dim);
+  margin-bottom: 4px;
+}
+
+.dpad {
+  display: grid;
+  grid-template-columns: 48px 48px 48px;
+  grid-template-rows: 48px 48px 48px;
+  gap: 4px;
+}
+
+.touch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid var(--border);
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  min-width: 48px;
+  min-height: 48px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  text-transform: uppercase;
+}
+
+.touch-btn:active, .touch-btn.pressed {
+  background: rgba(0, 255, 65, 0.2);
+  border-color: var(--green);
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.15);
+}
+
+.touch-btn.stop-btn {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--red);
+  border-color: rgba(255, 51, 51, 0.3);
+}
+
+.touch-btn.stop-btn:active, .touch-btn.stop-btn.pressed {
+  background: rgba(255, 51, 51, 0.15);
+  border-color: var(--red);
+}
+
+.touch-btn.center-btn {
+  font-size: 20px;
+}
+
+.speed-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.speed-row .lbl {
+  font-size: 10px;
+  color: var(--green-dim);
+  letter-spacing: 1px;
+  margin-right: 4px;
+}
+
+.speed-btn {
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 13px;
+}
+
+/* ============ MOBILE RESPONSIVE ============ */
+@media (max-width: 768px) {
+  #main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #header .title {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  #header .status-group {
+    gap: 12px;
+  }
+
+  #header .status-item {
+    font-size: 11px;
+  }
+
+  #header {
+    padding: 8px 12px;
+  }
+
+  #video-panel {
+    padding: 8px;
+    min-height: 200px;
+  }
+
+  #status-panel {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .status-readouts {
+    font-size: 13px;
+    gap: 4px 16px;
+  }
+
+  #diagrams {
+    gap: 8px;
+  }
+
+  .diagram-svg {
+    max-width: 140px;
+  }
+
+  #telemetry-panel {
+    padding: 8px 12px;
+  }
+
+  .telem-grid {
+    grid-template-columns: 1fr 1fr;
+    font-size: 11px;
+    gap: 2px 12px;
+  }
+
+  /* Hide keyboard controls on mobile */
+  #controls-bar {
+    display: none !important;
+  }
+
+  /* Show touch controls on mobile */
+  #touch-controls {
+    display: block;
+  }
+}
 </style>
 </head>
 <body>
@@ -440,9 +604,24 @@ body::after {
   </div>
 
   <div id="main-grid">
+    <!-- TELEMETRY PANEL -->
+    <div id="telemetry-panel" class="panel">
+      <div class="telem-grid">
+        <div class="telem-item"><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span>&nbsp;&nbsp;<span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span></div>
+        <div class="telem-item"><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span></div>
+        <div class="telem-item"><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
+        <div class="telem-item"><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
+        <div class="telem-item"><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
+        <div class="telem-item"><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
+        <div class="telem-item"><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
+        <div class="telem-item"><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
+        <div class="telem-item"><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
+        <div class="telem-item"><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
+      </div>
+    </div>
+
     <!-- VIDEO PANEL -->
     <div id="video-panel" class="panel">
-      <div class="panel-label">LIVE VIDEO FEED</div>
       <div id="video-container">
         <img id="video-feed" alt="Video Feed" style="display:none;">
         <span id="no-signal">NO SIGNAL</span>
@@ -451,7 +630,6 @@ body::after {
 
     <!-- STATUS PANEL -->
     <div id="status-panel" class="panel">
-      <div class="panel-label">VEHICLE STATUS</div>
       <div class="status-readouts">
         <div><span class="lbl">SPEED: </span><span class="val" id="v-speed">000</span><span class="lbl">%</span></div>
         <div><span class="lbl">DRIVE: </span><span class="val" id="v-drive">STOP</span></div>
@@ -545,20 +723,45 @@ body::after {
       </div>
     </div>
 
-    <!-- TELEMETRY PANEL -->
-    <div id="telemetry-panel" class="panel">
-      <div class="panel-label">SYSTEM TELEMETRY</div>
-      <div class="telem-grid">
-        <div class="telem-item"><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span>&nbsp;&nbsp;<span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span></div>
-        <div class="telem-item"><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span></div>
-        <div class="telem-item"><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
-        <div class="telem-item"><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
-        <div class="telem-item"><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
-        <div class="telem-item"><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
-        <div class="telem-item"><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
-        <div class="telem-item"><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
-        <div class="telem-item"><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
-        <div class="telem-item"><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
+    <!-- TOUCH CONTROLS (mobile only) -->
+    <div id="touch-controls" class="panel">
+      <div class="touch-pads">
+        <div class="touch-pad">
+          <div class="pad-label">DRIVE + STEER</div>
+          <div class="dpad">
+            <div></div>
+            <button class="touch-btn" data-touchstart="forward" data-touchend="stop">&#9650;</button>
+            <div></div>
+            <button class="touch-btn" data-touchstart="fwleft" data-touchend="fwstraight">&#9664;</button>
+            <button class="touch-btn stop-btn" data-tap="stop-all">STOP</button>
+            <button class="touch-btn" data-touchstart="fwright" data-touchend="fwstraight">&#9654;</button>
+            <div></div>
+            <button class="touch-btn" data-touchstart="backward" data-touchend="stop">&#9660;</button>
+            <div></div>
+          </div>
+          <div class="speed-row">
+            <span class="lbl">SPD:</span>
+            <button class="touch-btn speed-btn" data-speed="40">1</button>
+            <button class="touch-btn speed-btn" data-speed="55">2</button>
+            <button class="touch-btn speed-btn" data-speed="70">3</button>
+            <button class="touch-btn speed-btn" data-speed="85">4</button>
+            <button class="touch-btn speed-btn" data-speed="100">5</button>
+          </div>
+        </div>
+        <div class="touch-pad">
+          <div class="pad-label">CAMERA</div>
+          <div class="dpad">
+            <div></div>
+            <button class="touch-btn" data-tap="camup">&#9650;</button>
+            <div></div>
+            <button class="touch-btn" data-tap="camleft">&#9664;</button>
+            <button class="touch-btn center-btn" data-tap="camready">&#8857;</button>
+            <button class="touch-btn" data-tap="camright">&#9654;</button>
+            <div></div>
+            <button class="touch-btn" data-tap="camdown">&#9660;</button>
+            <div></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1051,6 +1254,65 @@ body::after {
       if (mapping && mapping.up) sendAction(mapping.up);
     });
     heldKeys.clear();
+  });
+
+  // ============ TOUCH CONTROLS ============
+  document.querySelectorAll('#touch-controls .touch-btn').forEach(btn => {
+    const startAction = btn.dataset.touchstart;
+    const endAction = btn.dataset.touchend;
+    const tapAction = btn.dataset.tap;
+    const speedVal = btn.dataset.speed;
+
+    if (startAction) {
+      // Drive/steer buttons: hold to activate, release to stop
+      btn.addEventListener('touchstart', e => {
+        e.preventDefault();
+        btn.classList.add('pressed');
+        sendAction(startAction);
+      });
+      btn.addEventListener('touchend', e => {
+        e.preventDefault();
+        btn.classList.remove('pressed');
+        if (endAction) sendAction(endAction);
+      });
+      btn.addEventListener('touchcancel', e => {
+        btn.classList.remove('pressed');
+        if (endAction) sendAction(endAction);
+      });
+    } else if (tapAction) {
+      // Camera buttons + stop: fire once on tap
+      btn.addEventListener('touchstart', e => {
+        e.preventDefault();
+        btn.classList.add('pressed');
+        if (tapAction === 'stop-all') {
+          sendAction('stop');
+          sendAction('fwstraight');
+        } else {
+          sendAction(tapAction);
+        }
+      });
+      btn.addEventListener('touchend', e => {
+        e.preventDefault();
+        btn.classList.remove('pressed');
+      });
+      btn.addEventListener('touchcancel', () => {
+        btn.classList.remove('pressed');
+      });
+    } else if (speedVal) {
+      // Speed buttons
+      btn.addEventListener('touchstart', e => {
+        e.preventDefault();
+        btn.classList.add('pressed');
+        sendSpeed(parseInt(speedVal));
+      });
+      btn.addEventListener('touchend', e => {
+        e.preventDefault();
+        btn.classList.remove('pressed');
+      });
+      btn.addEventListener('touchcancel', () => {
+        btn.classList.remove('pressed');
+      });
+    }
   });
 
 })();
