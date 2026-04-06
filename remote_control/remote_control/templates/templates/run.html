@@ -9,6 +9,13 @@
     <link rel="Shortcut Icon" href="{% static 'favicon.ico' %}">
     <link href="//cdn.muicss.com/mui-0.6.9/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.6.9/js/mui.min.js"></script>
+    <script type="text/javascript">
+      // Set stream URL based on the host the browser is currently using.
+      document.addEventListener('DOMContentLoaded', function() {
+        var streamUrl = 'http://' + window.location.hostname + ':{{ stream_port }}/mjpg';
+        document.getElementById('div_streamer').style.backgroundImage = 'url(' + streamUrl + ')';
+      });
+    </script>
     <style type="text/css">
       html {
         height: 100%;
@@ -23,7 +30,6 @@
         width:  100%;
       }
       #div_streamer {
-        background: url(http://{{ stream_host }}:{{ stream_port }}/mjpg) no-repeat center center;
         background-size: auto 90%;
         width:  100%;
         height:  100%;
