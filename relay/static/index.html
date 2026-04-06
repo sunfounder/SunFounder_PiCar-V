@@ -27,6 +27,17 @@ body {
   overflow-x: hidden;
   font-variant-numeric: tabular-nums;
   text-transform: uppercase;
+  text-shadow: 0 0 2px rgba(0, 255, 65, 0.15);
+}
+
+/* Vignette overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%);
 }
 
 /* Scanline overlay */
@@ -114,9 +125,10 @@ body::after {
 #dashboard {
   display: none;
   min-height: 100vh;
+  flex-direction: column;
 }
 
-#dashboard.active { display: block; }
+#dashboard.active { display: flex; }
 #auth-screen.hidden { display: none; }
 
 /* Pulsing border on connection lost */
@@ -170,7 +182,7 @@ body::after {
 
 #header .status-group {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -189,11 +201,25 @@ body::after {
   50% { opacity: 0; }
 }
 
+/* ============ HEADER ENHANCEMENTS ============ */
+.rate-ok { color: var(--green); }
+.rate-warn { color: var(--yellow); }
+.link-good { color: var(--green); }
+.link-warn { color: var(--yellow); }
+.link-bad { color: var(--red); }
+.sys-nominal { color: var(--green); }
+.sys-caution { color: var(--yellow); }
+.sys-warning { color: var(--red); }
+.operator-active { color: var(--green); }
+.operator-idle { color: var(--inactive); }
+
 /* ============ MAIN GRID ============ */
 #main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 /* ============ VIDEO PANEL ============ */
@@ -270,7 +296,7 @@ body::after {
   min-height: 0;
 }
 
-#vehicle-diagram-container, #gimbal-container {
+#vehicle-diagram-container, #gimbal-container, #path-trace-container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -278,7 +304,8 @@ body::after {
 }
 
 #vehicle-diagram-container .panel-label,
-#gimbal-container .panel-label {
+#gimbal-container .panel-label,
+#path-trace-container .panel-label {
   font-size: 11px;
   letter-spacing: 3px;
   color: var(--green-dim);
@@ -298,7 +325,8 @@ body::after {
 
 /* Grey out on disconnect */
 #dashboard.connection-lost #vehicle-diagram-container svg,
-#dashboard.connection-lost #gimbal-container svg {
+#dashboard.connection-lost #gimbal-container svg,
+#dashboard.connection-lost #path-trace-container svg {
   filter: grayscale(1);
   opacity: 0.4;
 }
@@ -353,6 +381,15 @@ body::after {
 .temp-green { color: var(--green) !important; }
 .temp-yellow { color: var(--yellow) !important; }
 .temp-red { color: var(--red) !important; }
+
+.status-dot { margin-right: 4px; font-size: 10px; }
+.dot-green { color: var(--green); }
+.dot-yellow { color: var(--yellow); }
+.dot-red { color: var(--red); }
+
+.sparkline { display: inline-block; vertical-align: middle; margin-left: 4px; }
+.sparkline svg { width: 50px; height: 16px; }
+.sparkline polyline { fill: none; stroke: var(--green-dim); stroke-width: 1; }
 
 /* ============ CONTROLS BAR ============ */
 #controls-bar {
@@ -511,6 +548,56 @@ body::after {
   font-size: 13px;
 }
 
+/* ============ ARC GAUGES ============ */
+.gauges-row { display: flex; gap: 12px; justify-content: center; }
+.gauge-container { text-align: center; }
+.gauge-svg { width: 100px; height: 60px; }
+
+/* ============ COMMAND LOG ============ */
+#command-log {
+  padding: 8px 12px;
+  flex: 1 1 0;
+  min-height: 60px;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+#log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+#log-entries {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--green-dim);
+}
+
+#log-entries::-webkit-scrollbar {
+  width: 4px;
+}
+
+#log-entries::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+.log-line {
+  white-space: nowrap;
+}
+
+.log-time { color: var(--inactive); }
+.log-cmd { color: var(--green); }
+.log-ack { color: var(--cyan); }
+.log-event { color: var(--yellow); }
+.log-error { color: var(--red); }
+
 /* ============ MOBILE RESPONSIVE ============ */
 @media (max-width: 768px) {
   #main-grid {
@@ -567,6 +654,8 @@ body::after {
     gap: 2px 12px;
   }
 
+  .sparkline { display: none; }
+
   /* Hide keyboard controls on mobile */
   #controls-bar {
     display: none !important;
@@ -576,6 +665,64 @@ body::after {
   #touch-controls {
     display: block;
   }
+
+  /* Command log collapsed by default on mobile */
+  #command-log #log-entries.collapsed {
+    display: none;
+  }
+}
+
+/* ============ BOOT OVERLAY ============ */
+#boot-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+#boot-overlay.hidden {
+  display: none;
+}
+
+#boot-lines {
+  font-size: 14px;
+  line-height: 2;
+  max-width: 500px;
+  width: 100%;
+}
+
+.boot-line {
+  opacity: 0;
+  animation: bootFadeIn 0.1s forwards;
+}
+
+.boot-line .dots {
+  color: var(--inactive);
+}
+
+.boot-line .ok {
+  color: var(--green);
+  font-weight: normal;
+}
+
+.boot-line .fail {
+  color: var(--red);
+}
+
+.boot-final {
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(0,255,65,0.4);
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+@keyframes bootFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 </style>
 </head>
@@ -592,12 +739,23 @@ body::after {
 
 <!-- DASHBOARD -->
 <div id="dashboard">
+  <div id="boot-overlay">
+    <div id="boot-lines"></div>
+  </div>
   <!-- HEADER -->
   <div id="header" class="panel">
     <span class="title">PICAR-V</span>
+    <button id="audio-toggle" class="touch-btn" style="min-width:auto;min-height:auto;padding:2px 8px;font-size:12px;border:none;">&#x1F507;</button>
     <div class="status-group">
       <span class="status-item">UPLINK [<span id="uplink-status" class="uplink-active">ACTIVE</span>]</span>
-      <span class="status-item">PING: <span id="ping-value">---</span>MS</span>
+      <span class="status-item">RTT: <span id="rtt-current">---</span> / <span id="rtt-avg">---</span>MS<span class="sparkline" id="spark-latency"></span></span>
+      <span class="status-item">MET: <span id="met-time">00:00:00</span></span>
+      <span class="status-item">TLM: <span id="tlm-rate">--</span>HZ</span>
+      <span class="status-item">SYS: <span id="sys-rate">--</span>HZ</span>
+      <span class="status-item">LINK: <span id="link-quality">--</span>%</span>
+      <span class="status-item" style="color:#0ff">BW: <span id="bw-total">--</span></span>
+      <span class="status-item">SYS: <span id="sys-status">--</span></span>
+      <span class="status-item">OPERATOR: <span id="operator-status">ACTIVE</span></span>
       <span id="last-contact">LAST CONTACT: <span id="last-contact-time">00:00:00</span></span>
       <span class="status-item" id="utc-clock">--:--:-- UTC</span>
     </div>
@@ -607,16 +765,16 @@ body::after {
     <!-- TELEMETRY PANEL -->
     <div id="telemetry-panel" class="panel">
       <div class="telem-grid">
-        <div class="telem-item"><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span>&nbsp;&nbsp;<span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span></div>
-        <div class="telem-item"><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span></div>
-        <div class="telem-item"><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
-        <div class="telem-item"><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
-        <div class="telem-item"><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
-        <div class="telem-item"><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
-        <div class="telem-item"><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
-        <div class="telem-item"><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
-        <div class="telem-item"><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
-        <div class="telem-item"><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-cpu-temp">&#9679;</span><span class="lbl">CPU: </span><span class="val" id="t-cpu-temp">--.-</span><span class="lbl">&deg;C</span><span class="sparkline" id="spark-cpu-temp"></span>&nbsp;&nbsp;<span class="status-dot dot-green" id="dot-cpu-pct">&#9679;</span><span class="val" id="t-cpu-pct">--</span><span class="lbl">%</span><span class="sparkline" id="spark-cpu-pct"></span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-mem">&#9679;</span><span class="lbl">MEM: </span><span class="val" id="t-mem">---/---- MB</span><span class="sparkline" id="spark-mem-pct"></span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-disk">&#9679;</span><span class="lbl">DISK: </span><span class="val" id="t-disk">--</span><span class="lbl">%</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-uptime">&#9679;</span><span class="lbl">UPTIME: </span><span class="val" id="t-uptime">--d --h --m</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-load">&#9679;</span><span class="lbl">LOAD: </span><span class="val" id="t-load">-- / -- / --</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-net">&#9679;</span><span class="lbl">NET RX: </span><span class="val" id="t-rx">--</span>&nbsp;&nbsp;<span class="lbl">TX: </span><span class="val" id="t-tx">--</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-wifi">&#9679;</span><span class="lbl">WIFI: </span><span class="val" id="t-wifi">--</span><span class="lbl">DBM</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-ts">&#9679;</span><span class="lbl">TS: </span><span class="val" id="t-ts">--</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-i2c">&#9679;</span><span class="lbl">I2C: </span><span class="val" id="t-i2c">--</span></div>
+        <div class="telem-item"><span class="status-dot dot-green" id="dot-stream">&#9679;</span><span class="lbl">STREAM: </span><span class="val" id="t-stream">--</span></div>
       </div>
     </div>
 
@@ -636,10 +794,42 @@ body::after {
         <div><span class="lbl">STEER: </span><span class="val" id="v-steer">090</span><span class="lbl">&deg;</span></div>
       </div>
 
+      <div class="gauges-row">
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 100 70">
+            <!-- background arc -->
+            <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--border)" stroke-width="3"/>
+            <!-- value arc (updated by JS) -->
+            <path id="speed-arc" d="M 10 50 A 40 40 0 0 1 10 50" fill="none" stroke="var(--green)" stroke-width="3"/>
+            <!-- needle -->
+            <line id="speed-needle" x1="50" y1="50" x2="10" y2="50" stroke="var(--green)" stroke-width="1.5"/>
+            <!-- center dot -->
+            <circle cx="50" cy="50" r="2" fill="var(--green)"/>
+            <!-- value below arc -->
+            <text x="50" y="64" fill="var(--green)" font-size="11" font-family="Share Tech Mono" text-anchor="middle" id="speed-gauge-val">000</text>
+            <text x="50" y="70" fill="var(--green-dim)" font-size="6" font-family="Share Tech Mono" text-anchor="middle">SPEED %</text>
+          </svg>
+        </div>
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 100 70">
+            <!-- background arc -->
+            <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--border)" stroke-width="3"/>
+            <!-- value arc (updated by JS) -->
+            <path id="steer-arc" d="M 10 50 A 40 40 0 0 1 50 10" fill="none" stroke="var(--green)" stroke-width="3"/>
+            <!-- needle -->
+            <line id="steer-needle" x1="50" y1="50" x2="50" y2="10" stroke="var(--green)" stroke-width="1.5"/>
+            <!-- center dot -->
+            <circle cx="50" cy="50" r="2" fill="var(--green)"/>
+            <!-- value below arc -->
+            <text x="50" y="64" fill="var(--green)" font-size="11" font-family="Share Tech Mono" text-anchor="middle" id="steer-gauge-val">090</text>
+            <text x="50" y="70" fill="var(--green-dim)" font-size="6" font-family="Share Tech Mono" text-anchor="middle">STEER &deg;</text>
+          </svg>
+        </div>
+      </div>
+
       <div id="diagrams">
         <!-- VEHICLE DIAGRAM -->
         <div id="vehicle-diagram-container">
-          <div class="panel-label">VEHICLE DIAGRAM</div>
           <svg class="diagram-svg" viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
             <!-- Body -->
             <rect x="30" y="30" width="60" height="120" rx="6" fill="none" stroke="var(--green-dim)" stroke-width="1.5"/>
@@ -678,7 +868,7 @@ body::after {
 
         <!-- CAMERA GIMBAL -->
         <div id="gimbal-container">
-          <div class="panel-label">CAMERA GIMBAL</div>
+          <div class="panel-label">CAMERA</div>
           <svg class="diagram-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <!-- Grid background -->
             <rect x="20" y="10" width="160" height="160" fill="none" stroke="var(--border)" stroke-width="1"/>
@@ -719,6 +909,29 @@ body::after {
           <div class="gimbal-values">
             PAN: <span id="g-pan">090</span>&nbsp;&nbsp;TILT: <span id="g-tilt">090</span>
           </div>
+        </div>
+
+        <!-- PATH TRACE -->
+        <div id="path-trace-container">
+          <div class="panel-label">DEAD RECKONING</div>
+          <svg id="path-svg" class="diagram-svg" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid lines -->
+            <line x1="-100" y1="0" x2="100" y2="0" stroke="var(--border)" stroke-width="0.3"/>
+            <line x1="0" y1="-100" x2="0" y2="100" stroke="var(--border)" stroke-width="0.3"/>
+            <line x1="-50" y1="-100" x2="-50" y2="100" stroke="var(--border)" stroke-width="0.2"/>
+            <line x1="50" y1="-100" x2="50" y2="100" stroke="var(--border)" stroke-width="0.2"/>
+            <line x1="-100" y1="-50" x2="100" y2="-50" stroke="var(--border)" stroke-width="0.2"/>
+            <line x1="-100" y1="50" x2="100" y2="50" stroke="var(--border)" stroke-width="0.2"/>
+            <!-- Path trail -->
+            <polyline id="path-trail" fill="none" stroke="var(--green-dim)" stroke-width="1" stroke-dasharray="2 2"/>
+            <!-- Current position dot -->
+            <circle id="path-dot" cx="0" cy="0" r="3" fill="var(--green)"/>
+            <!-- Heading indicator (small line from dot) -->
+            <line id="path-heading" x1="0" y1="0" x2="0" y2="-8" stroke="var(--green)" stroke-width="1.5"/>
+            <!-- Start position marker -->
+            <circle cx="0" cy="0" r="2" fill="none" stroke="var(--inactive)" stroke-width="0.5"/>
+          </svg>
+          <button id="path-reset" class="touch-btn" style="min-width:auto;min-height:auto;padding:2px 8px;font-size:9px;margin-top:4px;">RESET</button>
         </div>
       </div>
     </div>
@@ -795,6 +1008,14 @@ body::after {
       </div>
     </div>
   </div>
+
+  <!-- COMMAND LOG -->
+  <div id="command-log" class="panel">
+    <div id="log-header">
+      <button id="log-toggle" class="touch-btn" style="min-width:auto;min-height:auto;padding:2px 8px;font-size:10px;">CLEAR</button>
+    </div>
+    <div id="log-entries"></div>
+  </div>
 </div>
 
 <script>
@@ -838,7 +1059,8 @@ body::after {
       const data = await res.json();
       token = data.token;
       localStorage.setItem('picar_token', token);
-      showDashboard();
+      localStorage.setItem('picar_met_start', String(Date.now()));
+      showDashboard(true);
     } catch (e) {
       authError.textContent = 'CONNECTION ERROR';
     }
@@ -847,16 +1069,36 @@ body::after {
   authBtn.addEventListener('click', authenticate);
   passwordInput.addEventListener('keydown', e => { if (e.key === 'Enter') authenticate(); });
 
-  function showDashboard() {
+  function showDashboard(freshLogin) {
     authScreen.classList.add('hidden');
     dashboard.classList.add('active');
-    startVideo();
-    startPolling();
+    if (freshLogin) {
+      runBootSequence().then(() => {
+        startVideo();
+        startPolling();
+      });
+    } else {
+      $('boot-overlay').classList.add('hidden');
+      startVideo();
+      startPolling();
+    }
   }
 
-  // Auto-login if token exists
+  // Auto-login if token exists — verify it's still valid first
   if (token) {
-    showDashboard();
+    fetch('/api/state/', { headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' } })
+      .then(function(res) {
+        if (res.ok) {
+          showDashboard(false);
+        } else {
+          localStorage.removeItem('picar_token');
+          token = null;
+        }
+      })
+      .catch(function() {
+        // Server unreachable — try anyway with stored token
+        showDashboard(false);
+      });
   }
 
   // ============ HELPERS ============
@@ -916,6 +1158,8 @@ body::after {
   function setConnected(isConnected) {
     if (isConnected && !connected) {
       // Restored
+      playRestored();
+      logMessage('log-event', 'UPLINK RESTORED');
       connected = true;
       staleMode = false;
       dashboard.classList.remove('connection-lost');
@@ -932,6 +1176,8 @@ body::after {
       lastContactTimer = null;
     } else if (!isConnected && connected) {
       // Lost
+      playAlarm();
+      logMessage('log-error', 'UPLINK LOST');
       connected = false;
       staleMode = true;
       dashboard.classList.remove('restored');
@@ -956,6 +1202,8 @@ body::after {
 
   async function pollState() {
     try {
+      trackRequest('state');
+      recordPollTimestamp('state');
       const res = await fetch('/api/state/', { headers: authHeaders() });
       if (!res.ok) {
         if (res.status === 401 || res.status === 403) {
@@ -963,6 +1211,7 @@ body::after {
           location.reload();
           return;
         }
+        trackFailure('state');
         throw new Error('HTTP ' + res.status);
       }
       const data = await res.json();
@@ -971,7 +1220,9 @@ body::after {
       updateVehicleStatus(data);
       updateVehicleDiagram(data);
       updateGimbal(data);
+      updatePathTrace(data);
     } catch (e) {
+      trackFailure('state');
       setConnected(false);
     }
   }
@@ -982,6 +1233,44 @@ body::after {
     $('v-speed').innerHTML = pad(d.speed, 3) + s;
     $('v-drive').innerHTML = (driveLabels[String(d.drive)] || 'STOP') + s;
     $('v-steer').innerHTML = pad(d.steer_angle, 3) + s;
+    updateSpeedGauge(d.speed || 0);
+    updateSteerGauge(d.steer_angle != null ? d.steer_angle : 90);
+  }
+
+  function updateSpeedGauge(speed) {
+    // speed is 0-100, arc sweeps from left (0%) to right (100%) over the top
+    // All points on the upper semicircle are <180° clockwise from (10,50), so large-arc is always 0
+    const pct = Math.max(0, Math.min(speed, 100)) / 100;
+    const angle = Math.PI - pct * Math.PI;
+    const cx = 50, cy = 50, r = 40;
+    const x = cx + r * Math.cos(angle);
+    const y = cy - r * Math.sin(angle);
+    if (pct > 0.001) {
+      $('speed-arc').setAttribute('d', 'M 10 50 A 40 40 0 0 1 ' + x.toFixed(1) + ' ' + y.toFixed(1));
+    } else {
+      $('speed-arc').setAttribute('d', '');
+    }
+    $('speed-needle').setAttribute('x2', x.toFixed(1));
+    $('speed-needle').setAttribute('y2', y.toFixed(1));
+    $('speed-gauge-val').textContent = pad(speed, 3);
+  }
+
+  function updateSteerGauge(steerAngle) {
+    // steerAngle is 45-135, 90 = center
+    // Map to 0-1 range: 45->0, 135->1
+    const pct = Math.max(0, Math.min((steerAngle - 45) / 90, 1));
+    const angle = Math.PI - pct * Math.PI;
+    const cx = 50, cy = 50, r = 40;
+    const x = cx + r * Math.cos(angle);
+    const y = cy - r * Math.sin(angle);
+    if (pct > 0.001) {
+      $('steer-arc').setAttribute('d', 'M 10 50 A 40 40 0 0 1 ' + x.toFixed(1) + ' ' + y.toFixed(1));
+    } else {
+      $('steer-arc').setAttribute('d', '');
+    }
+    $('steer-needle').setAttribute('x2', x.toFixed(1));
+    $('steer-needle').setAttribute('y2', y.toFixed(1));
+    $('steer-gauge-val').textContent = pad(Math.round(steerAngle), 3);
   }
 
   function updateVehicleDiagram(d) {
@@ -1049,11 +1338,15 @@ body::after {
   // ============ TELEMETRY POLLING (3000ms) ============
   async function pollTelemetry() {
     try {
+      trackRequest('telemetry');
+      recordPollTimestamp('telemetry');
       const res = await fetch('/api/telemetry/', { headers: authHeaders() });
-      if (!res.ok) return;
+      if (!res.ok) { trackFailure('telemetry'); return; }
       const data = await res.json();
+      lastTelemetryData = data;
       updateTelemetry(data);
-    } catch (e) { /* silent */ }
+      updateSysStatus(data);
+    } catch (e) { trackFailure('telemetry'); }
   }
 
   function tempClass(temp) {
@@ -1137,25 +1430,49 @@ body::after {
       const fps = st.fps != null ? st.fps + 'FPS' : '--';
       $('t-stream').innerHTML = '[' + status + ' ' + res + ' ' + fps + ']' + s;
     }
+
+    // Pass 2: status dots & sparklines
+    updateDots(d);
+    updateSparklines(d);
   }
 
   // ============ HEALTH POLLING (5000ms) ============
   async function pollHealth() {
     try {
+      trackRequest('health');
       const res = await fetch('/api/health/', { headers: authHeaders() });
-      if (!res.ok) return;
+      if (!res.ok) { trackFailure('health'); return; }
       const data = await res.json();
       const lat = data.latency_ms;
+      const avg = data.latency_avg_ms;
       if (lat != null) {
         const cls = lat >= 300 ? 'temp-red' : lat >= 100 ? 'temp-yellow' : 'temp-green';
-        $('ping-value').className = cls;
-        $('ping-value').textContent = pad(Math.round(lat), 3);
+        $('rtt-current').className = cls;
+        $('rtt-current').textContent = pad(Math.round(lat), 3);
       }
-    } catch (e) { /* silent */ }
+      if (avg != null) {
+        const cls = avg >= 300 ? 'temp-red' : avg >= 100 ? 'temp-yellow' : 'temp-green';
+        $('rtt-avg').className = cls;
+        $('rtt-avg').textContent = pad(Math.round(avg), 3);
+      }
+      // Latency sparkline
+      pushSpark('latency', lat);
+      renderSparkline('spark-latency', sparkData.latency, 0, 500);
+      // Bandwidth
+      if (data.bandwidth_bps != null) {
+        const bps = data.bandwidth_bps;
+        let label;
+        if (bps >= 1048576) label = (bps / 1048576).toFixed(1) + ' MB/s';
+        else if (bps >= 1024) label = (bps / 1024).toFixed(0) + ' KB/s';
+        else label = bps + ' B/s';
+        $('bw-total').textContent = label;
+      }
+    } catch (e) { trackFailure('health'); }
   }
 
   // ============ POLLING START ============
   function startPolling() {
+    logMessage('log-event', 'SESSION INITIALIZED');
     pollState();
     pollTelemetry();
     pollHealth();
@@ -1183,20 +1500,105 @@ body::after {
     '1': 'key-1', '2': 'key-2', '3': 'key-3', '4': 'key-4', '5': 'key-5',
   };
 
+  // ============ COMMAND LOG ============
+  const MAX_LOG_LINES = 50;
+
+  function logMessage(cls, text) {
+    var entries = $('log-entries');
+    if (!entries) return;
+    var now = new Date();
+    var timeStr = pad(now.getUTCHours(), 2) + ':' + pad(now.getUTCMinutes(), 2) + ':' + pad(now.getUTCSeconds(), 2);
+    var line = document.createElement('div');
+    line.className = 'log-line';
+    line.innerHTML = '<span class="log-time">[' + timeStr + ']</span> <span class="' + cls + '">' + text + '</span>';
+    entries.appendChild(line);
+    while (entries.children.length > MAX_LOG_LINES) {
+      entries.removeChild(entries.firstChild);
+    }
+    entries.scrollTop = entries.scrollHeight;
+  }
+
+  // Clear button
+  $('log-toggle').addEventListener('click', function() {
+    var entries = $('log-entries');
+    // On mobile, toggle collapsed state
+    if (window.innerWidth <= 768 && entries.classList.contains('collapsed')) {
+      entries.classList.remove('collapsed');
+      $('log-toggle').textContent = 'HIDE';
+      return;
+    }
+    if (window.innerWidth <= 768 && !entries.classList.contains('collapsed')) {
+      // If there are entries, clear them; if empty, collapse
+      if (entries.children.length > 0) {
+        entries.innerHTML = '';
+        logMessage('log-event', 'LOG CLEARED');
+      } else {
+        entries.classList.add('collapsed');
+        $('log-toggle').textContent = 'SHOW';
+      }
+      return;
+    }
+    // Desktop: just clear
+    entries.innerHTML = '';
+    logMessage('log-event', 'LOG CLEARED');
+  });
+
+  // Collapse log on mobile by default
+  if (window.innerWidth <= 768) {
+    var logEntries = $('log-entries');
+    if (logEntries) {
+      logEntries.classList.add('collapsed');
+      $('log-toggle').textContent = 'SHOW';
+    }
+  }
+
+  function appendToLastLog(cls, text) {
+    var entries = $('log-entries');
+    if (!entries || !entries.lastChild) return;
+    var span = document.createElement('span');
+    span.className = cls;
+    span.textContent = ' ' + text;
+    entries.lastChild.appendChild(span);
+  }
+
   function sendAction(action) {
+    var t0 = performance.now();
+    logMessage('log-cmd', 'CMD > ' + action.toUpperCase());
+    playKeyBlip();
     fetch('/api/action/', {
       method: 'POST',
       headers: authHeaders(),
       body: JSON.stringify({ action: action })
-    }).catch(() => {});
+    }).then(function(res) {
+      var dt = Math.round(performance.now() - t0);
+      if (res.ok) {
+        playAckTone();
+        appendToLastLog('log-ack', 'ACK ' + dt + 'ms');
+      } else {
+        appendToLastLog('log-error', 'ERR ' + res.status + ' ' + dt + 'ms');
+      }
+    }).catch(function(e) {
+      appendToLastLog('log-error', 'FAIL: ' + e.message);
+    });
   }
 
   function sendSpeed(speed) {
+    var t0 = performance.now();
+    logMessage('log-cmd', 'SPD > ' + speed);
     fetch('/api/speed/', {
       method: 'POST',
       headers: authHeaders(),
       body: JSON.stringify({ speed: speed })
-    }).catch(() => {});
+    }).then(function(res) {
+      var dt = Math.round(performance.now() - t0);
+      if (res.ok) {
+        appendToLastLog('log-ack', 'ACK ' + dt + 'ms');
+      } else {
+        appendToLastLog('log-error', 'ERR ' + res.status + ' ' + dt + 'ms');
+      }
+    }).catch(function(e) {
+      appendToLastLog('log-error', 'FAIL: ' + e.message);
+    });
   }
 
   function setKeyIndicator(key, active) {
@@ -1314,6 +1716,427 @@ body::after {
       });
     }
   });
+
+  // ============ PASS 1: HEADER ENHANCEMENTS ============
+
+  // --- MET Timer ---
+  setInterval(() => {
+    const startStr = localStorage.getItem('picar_met_start');
+    if (!startStr) { $('met-time').textContent = '00:00:00'; return; }
+    const elapsed = Math.floor((Date.now() - parseInt(startStr, 10)) / 1000);
+    if (elapsed < 0) { $('met-time').textContent = '00:00:00'; return; }
+    const h = Math.floor(elapsed / 3600);
+    const m = Math.floor((elapsed % 3600) / 60);
+    const s = elapsed % 60;
+    $('met-time').textContent = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2);
+  }, 1000);
+
+  // --- Telemetry Rate Indicators ---
+  const pollTimestamps = { state: [], telemetry: [] };
+
+  function recordPollTimestamp(type) {
+    const now = Date.now();
+    pollTimestamps[type].push(now);
+    // Keep only last 10 seconds of timestamps
+    const cutoff = now - 10000;
+    pollTimestamps[type] = pollTimestamps[type].filter(t => t >= cutoff);
+  }
+
+  function computeRate(type) {
+    const now = Date.now();
+    const window = 5000;
+    const cutoff = now - window;
+    const recent = pollTimestamps[type].filter(t => t >= cutoff);
+    if (recent.length < 2) return null;
+    return recent.length / (window / 1000);
+  }
+
+  setInterval(() => {
+    // TLM rate (state polls at 250ms = ~4Hz expected)
+    const tlmRate = computeRate('state');
+    const tlmEl = $('tlm-rate');
+    if (tlmRate != null) {
+      tlmEl.textContent = tlmRate.toFixed(1);
+      tlmEl.className = Math.abs(tlmRate - 4) <= 2 ? 'rate-ok' : 'rate-warn';
+    }
+
+    // SYS rate (telemetry polls at 3000ms = ~0.33Hz expected)
+    const sysRate = computeRate('telemetry');
+    const sysEl = $('sys-rate');
+    if (sysRate != null) {
+      sysEl.textContent = sysRate.toFixed(1);
+      sysEl.className = Math.abs(sysRate - 0.33) <= 0.17 ? 'rate-ok' : 'rate-warn';
+    }
+  }, 1000);
+
+  // --- Link Quality (Packet Loss) ---
+  let totalRequests = 0;
+  let failedRequests = 0;
+
+  function trackRequest(type) {
+    totalRequests++;
+  }
+
+  function trackFailure(type) {
+    failedRequests++;
+  }
+
+  setInterval(() => {
+    const linkEl = $('link-quality');
+    if (totalRequests === 0) { linkEl.textContent = '--'; return; }
+    const pct = ((totalRequests - failedRequests) / totalRequests * 100);
+    linkEl.textContent = pct.toFixed(0);
+    if (pct > 99) {
+      linkEl.className = 'link-good';
+    } else if (pct > 95) {
+      linkEl.className = 'link-warn';
+    } else {
+      linkEl.className = 'link-bad';
+    }
+  }, 1000);
+
+  // --- Operator Status ---
+  let lastInputTime = Date.now();
+
+  function markOperatorActive() {
+    lastInputTime = Date.now();
+    const el = $('operator-status');
+    el.textContent = 'ACTIVE';
+    el.className = 'operator-active';
+  }
+
+  document.addEventListener('keydown', markOperatorActive);
+  document.addEventListener('touchstart', markOperatorActive);
+  document.addEventListener('click', markOperatorActive);
+
+  setInterval(() => {
+    const idle = Date.now() - lastInputTime > 30000;
+    const el = $('operator-status');
+    if (idle) {
+      el.textContent = 'IDLE';
+      el.className = 'operator-idle';
+    }
+  }, 1000);
+
+  // --- Sparkline Data & Rendering ---
+  const SPARK_MAX = 60;
+  const sparkData = { cpuTemp: [], cpuPct: [], memPct: [], latency: [] };
+
+  function pushSpark(key, val) {
+    if (val == null) return;
+    const arr = sparkData[key];
+    arr.push(val);
+    if (arr.length > SPARK_MAX) arr.shift();
+  }
+
+  function renderSparkline(containerId, dataArray, minVal, maxVal) {
+    const container = $(containerId);
+    if (!container || dataArray.length < 2) return;
+    const w = 50, h = 16, pad = 1;
+    const n = dataArray.length;
+    const range = maxVal - minVal || 1;
+    let pts = '';
+    for (let i = 0; i < n; i++) {
+      const x = (i / (n - 1)) * w;
+      const y = h - pad - ((dataArray[i] - minVal) / range) * (h - pad * 2);
+      pts += x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+    }
+    let svg = container.querySelector('svg');
+    if (!svg) {
+      svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      svg.appendChild(poly);
+      container.appendChild(svg);
+    }
+    svg.querySelector('polyline').setAttribute('points', pts);
+  }
+
+  function setDotClass(dotId, cls) {
+    const el = $(dotId);
+    if (el) el.className = 'status-dot ' + cls;
+  }
+
+  function updateDots(d) {
+    const sys = d.system || {};
+    const net = d.network || {};
+    const hw = d.hardware || {};
+    const st = d.stream || {};
+
+    // CPU temp
+    if (sys.cpu_temp_c != null) {
+      setDotClass('dot-cpu-temp', sys.cpu_temp_c >= 75 ? 'dot-red' : sys.cpu_temp_c >= 60 ? 'dot-yellow' : 'dot-green');
+    }
+    // CPU %
+    if (sys.cpu_percent != null) {
+      setDotClass('dot-cpu-pct', sys.cpu_percent >= 85 ? 'dot-red' : sys.cpu_percent >= 70 ? 'dot-yellow' : 'dot-green');
+    }
+    // Memory %
+    if (sys.mem_used_percent != null) {
+      setDotClass('dot-mem', sys.mem_used_percent >= 85 ? 'dot-red' : sys.mem_used_percent >= 70 ? 'dot-yellow' : 'dot-green');
+    }
+    // Disk %
+    if (sys.disk_used_percent != null) {
+      setDotClass('dot-disk', sys.disk_used_percent >= 90 ? 'dot-red' : sys.disk_used_percent >= 80 ? 'dot-yellow' : 'dot-green');
+    }
+    // WiFi RSSI
+    if (net.wifi_rssi_dbm != null) {
+      setDotClass('dot-wifi', net.wifi_rssi_dbm <= -70 ? 'dot-red' : net.wifi_rssi_dbm > -50 ? 'dot-green' : 'dot-yellow');
+    }
+    // I2C
+    if (hw.i2c_devices) {
+      setDotClass('dot-i2c', hw.i2c_devices.length > 0 ? 'dot-green' : 'dot-red');
+    }
+    // Stream
+    if (st.active != null) {
+      setDotClass('dot-stream', st.active ? 'dot-green' : 'dot-red');
+    }
+    // Informational — always green
+    // (uptime, load, net, ts already default to dot-green)
+  }
+
+  function updateSparklines(d) {
+    const sys = d.system || {};
+    pushSpark('cpuTemp', sys.cpu_temp_c);
+    pushSpark('cpuPct', sys.cpu_percent);
+    pushSpark('memPct', sys.mem_used_percent);
+    renderSparkline('spark-cpu-temp', sparkData.cpuTemp, 30, 85);
+    renderSparkline('spark-cpu-pct', sparkData.cpuPct, 0, 100);
+    renderSparkline('spark-mem-pct', sparkData.memPct, 0, 100);
+  }
+
+  // ============ PASS 5: DEAD-RECKONING PATH TRACE ============
+
+  const pathState = {
+    x: 0,
+    y: 0,
+    heading: 0,    // radians, 0 = up/north
+    trail: [],
+    maxTrail: 200
+  };
+
+  function updatePathTrace(d) {
+    if (d.drive === 0) return;
+
+    const speed = d.speed || 0;
+    const steerAngle = d.steer_angle != null ? d.steer_angle : 90;
+    const stepSize = (speed / 100) * 1.5;
+    const steerRate = (steerAngle - 90) / 90 * 0.1;
+
+    if (d.drive === 1) {
+      pathState.heading += steerRate;
+      pathState.x += Math.sin(pathState.heading) * stepSize;
+      pathState.y -= Math.cos(pathState.heading) * stepSize;
+    } else if (d.drive === -1) {
+      pathState.heading -= steerRate;
+      pathState.x -= Math.sin(pathState.heading) * stepSize;
+      pathState.y += Math.cos(pathState.heading) * stepSize;
+    }
+
+    pathState.trail.push({ x: pathState.x, y: pathState.y });
+    if (pathState.trail.length > pathState.maxTrail) {
+      pathState.trail.shift();
+    }
+
+    renderPathTrace();
+  }
+
+  function renderPathTrace() {
+    // Build polyline points
+    const points = pathState.trail.map(function(p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' ');
+    $('path-trail').setAttribute('points', points);
+
+    // Update current position dot
+    $('path-dot').setAttribute('cx', pathState.x.toFixed(1));
+    $('path-dot').setAttribute('cy', pathState.y.toFixed(1));
+
+    // Update heading indicator line
+    const hx = pathState.x + Math.sin(pathState.heading) * 8;
+    const hy = pathState.y - Math.cos(pathState.heading) * 8;
+    $('path-heading').setAttribute('x1', pathState.x.toFixed(1));
+    $('path-heading').setAttribute('y1', pathState.y.toFixed(1));
+    $('path-heading').setAttribute('x2', hx.toFixed(1));
+    $('path-heading').setAttribute('y2', hy.toFixed(1));
+
+    // Auto-center viewBox around trail and origin
+    var minX = Math.min(0, pathState.x) - 50;
+    var minY = Math.min(0, pathState.y) - 50;
+    var maxX = Math.max(0, pathState.x) + 50;
+    var maxY = Math.max(0, pathState.y) + 50;
+    // Also include trail bounds
+    for (var i = 0; i < pathState.trail.length; i++) {
+      var p = pathState.trail[i];
+      if (p.x - 10 < minX) minX = p.x - 10;
+      if (p.y - 10 < minY) minY = p.y - 10;
+      if (p.x + 10 > maxX) maxX = p.x + 10;
+      if (p.y + 10 > maxY) maxY = p.y + 10;
+    }
+    var size = Math.max(maxX - minX, maxY - minY, 100);
+    var cx = (minX + maxX) / 2;
+    var cy = (minY + maxY) / 2;
+    $('path-svg').setAttribute('viewBox', (cx - size / 2).toFixed(1) + ' ' + (cy - size / 2).toFixed(1) + ' ' + size.toFixed(1) + ' ' + size.toFixed(1));
+  }
+
+  // Reset button
+  $('path-reset').addEventListener('click', function() {
+    pathState.x = 0;
+    pathState.y = 0;
+    pathState.heading = 0;
+    pathState.trail = [];
+    renderPathTrace();
+    logMessage('log-event', 'DEAD RECKONING RESET');
+  });
+
+  // --- System Status Summary ---
+  let lastTelemetryData = null;
+
+  function updateSysStatus(d) {
+    const sys = d.system || {};
+    const net = d.network || {};
+    const st = d.stream || {};
+
+    let worst = 'NOMINAL';
+
+    // CPU temp
+    if (sys.cpu_temp_c != null) {
+      if (sys.cpu_temp_c >= 75) worst = 'WARNING';
+      else if (sys.cpu_temp_c >= 60 && worst !== 'WARNING') worst = 'CAUTION';
+    }
+
+    // Memory
+    if (sys.mem_used_percent != null) {
+      if (sys.mem_used_percent >= 85) worst = 'WARNING';
+      else if (sys.mem_used_percent >= 70 && worst !== 'WARNING') worst = 'CAUTION';
+    }
+
+    // Disk
+    if (sys.disk_used_percent != null) {
+      if (sys.disk_used_percent >= 90) worst = 'WARNING';
+      else if (sys.disk_used_percent >= 80 && worst !== 'WARNING') worst = 'CAUTION';
+    }
+
+    // Stream
+    if (st.active === false) {
+      worst = 'WARNING';
+    }
+
+    // WiFi
+    if (net.wifi_rssi_dbm != null) {
+      if (net.wifi_rssi_dbm <= -70 && worst !== 'WARNING') worst = 'CAUTION';
+    }
+
+    const el = $('sys-status');
+    el.textContent = worst;
+    if (worst === 'WARNING') el.className = 'sys-warning';
+    else if (worst === 'CAUTION') el.className = 'sys-caution';
+    else el.className = 'sys-nominal';
+  }
+
+  // ============ PASS 6: AUDIO FEEDBACK ============
+  let audioCtx = null;
+  let audioMuted = localStorage.getItem('picar_audio_muted') !== 'false'; // default muted
+
+  function getAudioCtx() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+
+  function playTone(freq, durationMs, volume) {
+    if (volume === undefined) volume = 0.05;
+    if (audioMuted) return;
+    try {
+      const ctx = getAudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.value = volume;
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + durationMs / 1000);
+      osc.stop(ctx.currentTime + durationMs / 1000 + 0.01);
+    } catch (e) { /* ignore audio errors */ }
+  }
+
+  function playKeyBlip() { playTone(800, 50, 0.03); }
+  function playAckTone() { playTone(1200, 30, 0.03); }
+  function playAlarm() {
+    playTone(400, 300, 0.05);
+    setTimeout(function() { playTone(400, 300, 0.05); }, 500);
+  }
+  function playRestored() {
+    playTone(800, 80, 0.04);
+    setTimeout(function() { playTone(1200, 80, 0.04); }, 100);
+  }
+
+  // Mute toggle button
+  $('audio-toggle').addEventListener('click', function() {
+    audioMuted = !audioMuted;
+    localStorage.setItem('picar_audio_muted', audioMuted);
+    $('audio-toggle').textContent = audioMuted ? '\u{1F507}' : '\u{1F50A}';
+    if (!audioMuted) {
+      getAudioCtx();
+      playTone(1000, 50);
+    }
+  });
+  $('audio-toggle').textContent = audioMuted ? '\u{1F507}' : '\u{1F50A}';
+
+  // ============ PASS 6: BOOT SEQUENCE ============
+  const BOOT_STEPS = [
+    'INITIALIZING UPLINK',
+    'AUTHENTICATING OPERATOR',
+    'ESTABLISHING SECURE TUNNEL',
+    'REQUESTING TELEMETRY STREAM',
+    'VEHICLE HANDSHAKE',
+    'CAMERA FEED ACQUISITION',
+  ];
+
+  function sleep(ms) {
+    return new Promise(function(resolve) { setTimeout(resolve, ms); });
+  }
+
+  async function runBootSequence() {
+    const overlay = $('boot-overlay');
+    const lines = $('boot-lines');
+    overlay.classList.remove('hidden');
+    lines.innerHTML = '';
+
+    for (let i = 0; i < BOOT_STEPS.length; i++) {
+      const line = document.createElement('div');
+      line.className = 'boot-line';
+
+      const label = BOOT_STEPS[i];
+      const dotsCount = 40 - label.length;
+      const dots = '.'.repeat(Math.max(dotsCount, 3));
+
+      line.innerHTML = label + '<span class="dots">' + dots + '</span>';
+      lines.appendChild(line);
+
+      await sleep(300 + Math.random() * 200);
+      line.innerHTML += ' <span class="ok">OK</span>';
+
+      playTone(1200, 30);
+    }
+
+    await sleep(500);
+    const final = document.createElement('div');
+    final.className = 'boot-line boot-final';
+    final.textContent = 'ALL SYSTEMS NOMINAL';
+    lines.appendChild(final);
+    playTone(800, 50);
+    await sleep(100);
+    playTone(1200, 50);
+
+    await sleep(800);
+
+    overlay.style.transition = 'opacity 0.5s';
+    overlay.style.opacity = '0';
+    await sleep(500);
+    overlay.classList.add('hidden');
+    overlay.style.opacity = '';
+    overlay.style.transition = '';
+  }
 
 })();
 </script>

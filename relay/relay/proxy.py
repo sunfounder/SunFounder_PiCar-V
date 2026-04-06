@@ -12,6 +12,15 @@ from .config import settings
 last_successful_contact: float = 0.0
 _latency_window: deque[float] = deque(maxlen=20)
 
+# Bandwidth tracking
+_api_bytes: int = 0
+_stream_bytes: int = 0
+_bw_last_check: float = time.monotonic()
+_bw_last_api: int = 0
+_bw_last_stream: int = 0
+_api_bps: float = 0.0
+_stream_bps: float = 0.0
+
 # Shared httpx client — created lazily
 _client: httpx.AsyncClient | None = None
 
@@ -42,6 +51,7 @@ async def proxy_get(path: str, port: int | None = None) -> dict:
         dt = (time.monotonic() - t0) * 1000
         _latency_window.append(dt)
         last_successful_contact = time.time()
+        _track_api_bytes(len(resp.content))
         return resp.json()
     except (httpx.ConnectError, httpx.TimeoutException, httpx.ReadError) as e:
         return _unreachable_response(str(e))
@@ -58,6 +68,7 @@ async def proxy_post(path: str, data: dict, port: int | None = None) -> dict:
         dt = (time.monotonic() - t0) * 1000
         _latency_window.append(dt)
         last_successful_contact = time.time()
+        _track_api_bytes(len(resp.content))
         return resp.json()
     except (httpx.ConnectError, httpx.TimeoutException, httpx.ReadError) as e:
         return _unreachable_response(str(e))
@@ -74,6 +85,7 @@ async def proxy_stream(path: str, port: int | None = None):
         try:
             async with client.stream("GET", url) as resp:
                 async for chunk in resp.aiter_bytes(chunk_size=4096):
+                    _track_stream_bytes(len(chunk))
                     yield chunk
         except (httpx.ConnectError, httpx.TimeoutException, httpx.ReadError, httpx.StreamClosed):
             # Yield a placeholder frame
@@ -81,6 +93,29 @@ async def proxy_stream(path: str, port: int | None = None):
             await asyncio.sleep(2)
         except GeneratorExit:
             return
+
+
+def _track_api_bytes(n: int) -> None:
+    global _api_bytes
+    _api_bytes += n
+
+
+def _track_stream_bytes(n: int) -> None:
+    global _stream_bytes
+    _stream_bytes += n
+
+
+def _update_bw_rates() -> None:
+    global _bw_last_check, _bw_last_api, _bw_last_stream, _api_bps, _stream_bps
+    now = time.monotonic()
+    dt = now - _bw_last_check
+    if dt < 1.0:
+        return
+    _api_bps = (_api_bytes - _bw_last_api) / dt
+    _stream_bps = (_stream_bytes - _bw_last_stream) / dt
+    _bw_last_api = _api_bytes
+    _bw_last_stream = _stream_bytes
+    _bw_last_check = now
 
 
 def _unreachable_response(detail: str = "") -> dict:
@@ -92,6 +127,7 @@ def _unreachable_response(detail: str = "") -> dict:
 
 
 def get_health_info() -> dict:
+    _update_bw_rates()
     latencies = list(_latency_window)
     return {
         "relay": "ok",
@@ -100,6 +136,9 @@ def get_health_info() -> dict:
         "latency_ms": round(latencies[-1], 1) if latencies else None,
         "latency_avg_ms": round(sum(latencies) / len(latencies), 1) if latencies else None,
         "latency_max_ms": round(max(latencies), 1) if latencies else None,
+        "bandwidth_bps": round(_api_bps + _stream_bps),
+        "api_bps": round(_api_bps),
+        "stream_bps": round(_stream_bps),
     }
 
 
