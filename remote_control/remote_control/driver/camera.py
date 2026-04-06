@@ -11,9 +11,9 @@
 **********************************************************************
 '''
 
-from picar.SunFounder_PCA9685 import Servo
-import time
+from picar import servo
 from picar import filedb
+import time
 
 class Camera(object):
 	'''Camera movement control class'''
@@ -38,8 +38,8 @@ class Camera(object):
 		self.pan_offset = int(self.db.get('pan_offset', default_value=0))
 		self.tilt_offset = int(self.db.get('tilt_offset', default_value=0))
 
-		self.pan_servo = Servo.Servo(self.pan_channel, bus_number=bus_number, offset=self.pan_offset)
-		self.tilt_servo = Servo.Servo(self.tilt_channel, bus_number=bus_number, offset=self.tilt_offset)
+		self.pan_servo = servo.Servo(self.pan_channel, bus_number=bus_number, offset=self.pan_offset)
+		self.tilt_servo = servo.Servo(self.tilt_channel, bus_number=bus_number, offset=self.tilt_offset)
 		self.debug = debug
 		if self._DEBUG:
 			print(self._DEBUG_INFO, 'Pan servo channel:', self.pan_channel)

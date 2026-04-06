@@ -1,0 +1,21 @@
+[project]
+name = "picar-v"
+version = "3.0.0"
+description = "SunFounder PiCar-V remote control server"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2,<6",
+    "gunicorn>=22",
+    "opencv-python-headless>=4",
+    "flask>=3",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "djlint"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[tool.setuptools.packages.find]
+include = ["picar*"]

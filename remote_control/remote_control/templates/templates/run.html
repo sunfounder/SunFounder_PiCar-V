@@ -6,19 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="save" content="history">
-    <link rel = "Shortcut Icon" href="{% static 'favicon.ico' %} ">
-    <!-- load MUI -->
+    <link rel="Shortcut Icon" href="{% static 'favicon.ico' %}">
     <link href="//cdn.muicss.com/mui-0.6.9/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.6.9/js/mui.min.js"></script>
-    <script type="text/javascript">
-      function keydown_event(key){
-        var a=key
-      }
-      function keyup_event(key){
-        var a=key
-      }
-    </script>
     <style type="text/css">
       html {
         height: 100%;
@@ -33,7 +23,7 @@
         width:  100%;
       }
       #div_streamer {
-        background: url(http://{{ host }}:8765/mjpg) no-repeat center center; 
+        background: url(http://{{ stream_host }}:{{ stream_port }}/mjpg) no-repeat center center;
         background-size: auto 90%;
         width:  100%;
         height:  100%;
@@ -51,209 +41,127 @@
   </head>
 
   <body class="mui--no-user-select" onkeydown="keydown_event(0)" onkeyup="keyup_event(0)">
+    {% csrf_token %}
     <div id="div_appbar">
       <div class="mui--z2 mui-appbar mui-container-fluid mui--bg-primary-dark mui--appbar-min-height mui--appbar-line-height">
         <div class="mui-row">
-          <div class="mui-col-xs-1 mui-col-sm-1", align="right">
-            <form class="mui-form" action="/" method="get" id="back">
-              <button class="mui-btn mui-btn--flat mui-btn--small" form="back" style="background-color:#000000;background-color:rgba(0,0,0,0)"><img src="{% static "back_unpressed.png" %}"></button>
-            </form>
+          <div class="mui-col-xs-1 mui-col-sm-1" align="right">
+            <a href="/" class="mui-btn mui-btn--flat mui-btn--small" style="background-color:rgba(0,0,0,0)"><img src="{% static 'back_unpressed.png' %}"></a>
           </div>
-          <div class="mui-col-xs-10 mui-col-md-10 mui--text-headline", align="center">
+          <div class="mui-col-xs-10 mui-col-md-10 mui--text-headline" align="center">
             <div class="mui--appbar-height mui--appbar-line-height">
               PiCar-V
             </div>
           </div>
-          <div class="mui-col-xs-1 mui-col-sm-1", align="left">
-            <form class="mui-form" action="/cali/" method="get" id="settings">
-              <button class="mui-btn mui-btn--flat mui-btn--small" form="settings" style="background-color:#000000;background-color:rgba(0,0,0,0)"><img src="{% static "settings_unpressed.png" %}"></button>
-            </form>
+          <div class="mui-col-xs-1 mui-col-sm-1" align="left">
+            <a href="/cali/" class="mui-btn mui-btn--flat mui-btn--small" style="background-color:rgba(0,0,0,0)"><img src="{% static 'settings_unpressed.png' %}"></a>
           </div>
         </div>
       </div>
       <br>
     </div>
     <script type="text/javascript">
-      run_action('setup');
+      function getCSRFToken() {
+        var m = document.cookie.match(/csrftoken=([^;]+)/);
+        return m ? m[1] : '';
+      }
+
+      function run_action(value) {
+        fetch('/api/action/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCSRFToken()
+          },
+          body: 'action=' + encodeURIComponent(value)
+        });
+      }
+
+      function set_speed(value) {
+        fetch('/api/speed/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCSRFToken()
+          },
+          body: 'speed=' + encodeURIComponent(value)
+        });
+      }
+
+      // Init hardware on page load.
       run_action('bwready');
       run_action('fwready');
       run_action('camready');
+
       var allowed = true;
 
-      function run_action(value){
-        var xmlHttp  = new XMLHttpRequest();
-        var protocol  = window.location.protocol;
-        var host      = window.location.host;
-        var pathname  = window.location.pathname;
-        url = protocol + "//" + host + pathname + "?action" + "=" + value;
-        //document.getElementById("debug").innerHTML=url;
-        xmlHttp.open( "GET", url, false );
-        xmlHttp.send( null );
-        return xmlHttp.responseText;
-      }
-      function set_speed(value){
-        var xmlHttp  = new XMLHttpRequest();
-        var protocol  = window.location.protocol;
-        var host      = window.location.host;
-        var pathname  = window.location.pathname;
-        url = protocol + "//" + host + pathname + "?speed" + "=" + value;
-        //document.getElementById("debug").innerHTML=url;
-        xmlHttp.open( "GET", url, false );
-        xmlHttp.send( null );
-        return xmlHttp.responseText;
-      }
-      function keydown_event(key){
-        if (event.repeat != undefined) {
+      function keydown_event(key) {
+        if (event.repeat !== undefined) {
           allowed = !event.repeat;
         }
         if (!allowed) return;
         allowed = false;
-        if (key == 0){
-          var x;
-          if(window.event) { // IE8 以及更早版本
-            x=event.keyCode;
-          }
-          else if(event.which) {// IE9/Firefox/Chrome/Opera/Safari
-            x=event.which;
-          }
-          var keychar=String.fromCharCode(x);
+        var keychar;
+        if (key == 0) {
+          keychar = String.fromCharCode(event.keyCode || event.which);
+        } else {
+          keychar = key;
         }
-        else{
-          keychar = key
+        switch (keychar) {
+          case 'W': run_action('forward'); break;
+          case 'S': run_action('backward'); break;
+          case 'A': run_action('fwleft'); break;
+          case 'D': run_action('fwright'); break;
+          case '&': run_action('camup'); break;
+          case '(': run_action('camdown'); break;
+          case "'": run_action('camright'); break;
+          case '%': run_action('camleft'); break;
+          case '1': set_speed('40'); break;
+          case '2': set_speed('55'); break;
+          case '3': set_speed('70'); break;
+          case '4': set_speed('85'); break;
+          case '5': set_speed('100'); break;
         }
-        switch(keychar){
-          case 'W':
-            run_action('forward')
-            break;
-          case 'S':
-            run_action('backward')
-            break;
-          case 'A':
-            run_action('fwleft')
-            break;
-          case 'D':
-            run_action('fwright')
-            break;
-          case '&':
-            run_action('camup')
-            break;
-          case '(':
-            run_action('camdown')
-            break;
-          case "'":
-            run_action('camright')
-            break;
-          case '%':
-            run_action('camleft')
-            break;
-          case '1':
-            set_speed('40')
-            break;
-          case '2':
-            set_speed('55')
-            break;
-          case '3':
-            set_speed('70')
-            break;
-          case "4":
-            set_speed('85')
-            break;
-          case '5':
-            set_speed('100')
-            break;
-        }
-      }
-      function keyup_event(key){
-        allowed = true;
-        if (key == 0){
-          var x;
-          if(window.event) { // IE8 以及更早版本
-            x=event.keyCode;
-          }
-          else if(event.which) {// IE9/Firefox/Chrome/Opera/Safari
-            x=event.which;
-          }
-          var keychar=String.fromCharCode(x);
-        }
-        else{
-          keychar = key
-        }
-        switch(keychar){
-          case 'W':
-            run_action('stop')
-            break;
-          case 'S':
-            run_action('stop')
-            break;
-          case 'A':
-            run_action('fwstraight')
-            break;
-          case 'D':
-            run_action('fwstraight')
-            break;
-          case '&':
-            run_action('camready')
-            break;
-          case '(':
-            run_action('camready')
-            break;
-          case "'":
-            run_action('camready')
-            break;
-          case '%':
-            run_action('camready')
-            break;
-        }
-      }
-      function forward_left(){
-        run_action('forward')
-        run_action('fwleft')
-      }
-      function forward_right(){
-        run_action('forward')
-        run_action('fwright')
-      }
-      function backward_left(){
-        run_action('backward')
-        run_action('fwleft')
-      }
-      function backward_right(){
-        run_action('backward')
-        run_action('fwright')
-      }
-      function camup_left(){
-        run_action('camup')
-        run_action('camleft')
-      }
-      function camup_right(){
-        run_action('camup')
-        run_action('camright')
-      }
-      function camdown_left(){
-        run_action('camdown')
-        run_action('camleft')
-      }
-      function camdown_right(){
-        run_action('camdown')
-        run_action('camright')
-      }
-      function stop(){
-        run_action('stop')
-        run_action('fwstraight')
       }
 
-      function toggle(targetid){
-        if (document.getElementById){
-          target=document.getElementById(targetid);
-            if (target.style.display=="block"){
-              target.style.display="none";
-            } else {
-              target.style.display="block";
-            }
+      function keyup_event(key) {
+        allowed = true;
+        var keychar;
+        if (key == 0) {
+          keychar = String.fromCharCode(event.keyCode || event.which);
+        } else {
+          keychar = key;
+        }
+        switch (keychar) {
+          case 'W': run_action('stop'); break;
+          case 'S': run_action('stop'); break;
+          case 'A': run_action('fwstraight'); break;
+          case 'D': run_action('fwstraight'); break;
+          case '&': run_action('camready'); break;
+          case '(': run_action('camready'); break;
+          case "'": run_action('camready'); break;
+          case '%': run_action('camready'); break;
+        }
+      }
+
+      function forward_left()   { run_action('forward'); run_action('fwleft'); }
+      function forward_right()  { run_action('forward'); run_action('fwright'); }
+      function backward_left()  { run_action('backward'); run_action('fwleft'); }
+      function backward_right() { run_action('backward'); run_action('fwright'); }
+      function camup_left()     { run_action('camup'); run_action('camleft'); }
+      function camup_right()    { run_action('camup'); run_action('camright'); }
+      function camdown_left()   { run_action('camdown'); run_action('camleft'); }
+      function camdown_right()  { run_action('camdown'); run_action('camright'); }
+      function stop()           { run_action('stop'); run_action('fwstraight'); }
+
+      function toggle(targetid) {
+        var target = document.getElementById(targetid);
+        if (target) {
+          target.style.display = (target.style.display === "block") ? "none" : "block";
         }
       }
     </script>
-    <div class="mui-container-fluid-height mui-container-fluid-line-height", id="div_streamer">
+    <div class="mui-container-fluid-height mui-container-fluid-line-height" id="div_streamer">
       <div id="div_control">
         <div class="mui-row">
           <button class="mui-btn mui--text-subhead" disabled>Speed:</button>
@@ -265,60 +173,55 @@
           <button class="mui-btn mui-btn--primary" onmousedown="toggle('div_appbar')" id="button_opacity">Fullscreen</button>
         </div>
         <!-- Control Panel-->
-        <!--Forward, Camera up button  ◤◥-->
+        <!--Forward, Camera up button-->
         <div class="mui-row">
-          <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-            <button class="mui-btn mui-btn--primary" ontouchstart="forward_left()"ontouchend="stop()" id="button_opacity">◤</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="right">
+            <button class="mui-btn mui-btn--primary" ontouchstart="forward_left()" ontouchend="stop()" id="button_opacity">&#9700;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('forward')" ontouchend="stop()" id="button_opacity">▲</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="center">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('forward')" ontouchend="stop()" id="button_opacity">&#9650;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-            <button class="mui-btn mui-btn--primary" ontouchstart="forward_right()"ontouchend="stop()" id="button_opacity">◥</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="left">
+            <button class="mui-btn mui-btn--primary" ontouchstart="forward_right()" ontouchend="stop()" id="button_opacity">&#9701;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-            <button class="mui-btn mui-btn--primary" ontouchstart="camup_left()"ontouchend="run_action('camready')" id="button_opacity">◸</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="right">
+            <button class="mui-btn mui-btn--primary" ontouchstart="camup_left()" ontouchend="run_action('camready')" id="button_opacity">&#9720;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camup')" ontouchend="run_action('camready')" id="button_opacity">△</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="center">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camup')" ontouchend="run_action('camready')" id="button_opacity">&#9651;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-            <button class="mui-btn mui-btn--primary" ontouchstart="camup_right()" ontouchend="run_action('camready')" id="button_opacity">◹</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="left">
+            <button class="mui-btn mui-btn--primary" ontouchstart="camup_right()" ontouchend="run_action('camready')" id="button_opacity">&#9721;</button>
           </div>
         </div>
         <!--Camera Left, Right button-->
         <div class="mui-row">
-          <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-6 mui-col-xs-offset-6", align="right">
-            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camleft')" ontouchend="run_action('camready')" id="button_opacity">◁</button>
+          <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-6 mui-col-xs-offset-6" align="right">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camleft')" ontouchend="run_action('camready')" id="button_opacity">&#9665;</button>
           </div>
-          <!--
-          <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camready')" ontouchend="run_action('camready')">□</button>
-          </div>
-          -->
-          <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2", align="left">
-            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camright')" ontouchend="run_action('camready')" id="button_opacity">▷</button>
+          <div class="mui-col-xs-2 mui-col-sm-2 mui-col-sm-offset-2 mui-col-xs-offset-2" align="left">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camright')" ontouchend="run_action('camready')" id="button_opacity">&#9655;</button>
           </div>
         </div>
         <!--Backward button-->
         <div class="mui-row">
-          <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-              <button class="mui-btn mui-btn--primary" ontouchstart="backward_left()" ontouchend="stop()" id="button_opacity">◣</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="right">
+            <button class="mui-btn mui-btn--primary" ontouchstart="backward_left()" ontouchend="stop()" id="button_opacity">&#9699;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-              <button class="mui-btn mui-btn--primary" ontouchstart="run_action('backward')" ontouchend="stop()" id="button_opacity">▼</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="center">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('backward')" ontouchend="stop()" id="button_opacity">&#9660;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-              <button class="mui-btn mui-btn--primary" ontouchstart="backward_right()" ontouchend="stop()" id="button_opacity">◢</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="left">
+            <button class="mui-btn mui-btn--primary" ontouchstart="backward_right()" ontouchend="stop()" id="button_opacity">&#9698;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="right">
-              <button class="mui-btn mui-btn--primary" ontouchstart="camdown_left()" ontouchend="run_action('camready')" id="button_opacity">◺</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="right">
+            <button class="mui-btn mui-btn--primary" ontouchstart="camdown_left()" ontouchend="run_action('camready')" id="button_opacity">&#9722;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="center">
-              <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camdown')" ontouchend="run_action('camready')" id="button_opacity">▽</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="center">
+            <button class="mui-btn mui-btn--primary" ontouchstart="run_action('camdown')" ontouchend="run_action('camready')" id="button_opacity">&#9661;</button>
           </div>
-          <div class="mui-col-xs-2 mui-col-sm-2", align="left">
-              <button class="mui-btn mui-btn--primary" ontouchstart="camdown_right()" ontouchend="run_action('camready')" id="button_opacity">◿</button>
+          <div class="mui-col-xs-2 mui-col-sm-2" align="left">
+            <button class="mui-btn mui-btn--primary" ontouchstart="camdown_right()" ontouchend="run_action('camready')" id="button_opacity">&#9727;</button>
           </div>
         </div>
       </div>

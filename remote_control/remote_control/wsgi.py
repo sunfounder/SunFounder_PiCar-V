@@ -1,16 +1,13 @@
-"""
-WSGI config for remote_control project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
-"""
-
 import os
+import sys
+from pathlib import Path
 
-from django.core.wsgi import get_wsgi_application
+# Add the repo root to sys.path so the vendored 'picar' package is importable.
+repo_root = str(Path(__file__).resolve().parent.parent.parent)
+if repo_root not in sys.path:
+    sys.path.insert(0, repo_root)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "remote_control.settings")
 
+from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

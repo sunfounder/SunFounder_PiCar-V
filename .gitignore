@@ -3,3 +3,10 @@
 *auto_ip.inf
 .vscode
 *__pycache__
+.env
+*.sqlite3
+.venv/
+.idea/
+*.egg-info/
+dist/
+build/
