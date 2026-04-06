@@ -196,26 +196,33 @@ def _get_smbus():
 
 
 def read_battery_voltage():
-    """Read battery voltage from PCF8591 ADC channel 0 (AIN0).
+    """Read battery voltage from PCF8591 ADC.
 
     The Robot HAT routes battery through a 20K/10K voltage divider,
     so actual voltage = ADC voltage * 3.
     PCF8591 is 8-bit (0-255), reference voltage 3.3V.
+
+    We scan all 4 channels (AIN0-AIN3) and return the highest reading,
+    since the battery channel varies across Robot HAT revisions.
     """
     bus = _get_smbus()
     if bus is None:
         return None
-    try:
-        # Control byte: 0x40 = DAC output enable + channel 0 (AIN0)
-        # The first read after setting channel is stale — read twice.
-        bus.write_byte(_PCF8591_ADDR, 0x40)
-        bus.read_byte(_PCF8591_ADDR)  # discard stale
-        raw = bus.read_byte(_PCF8591_ADDR)
-        adc_voltage = raw / 255.0 * 3.3
-        battery_voltage = adc_voltage * 3.0
-        return round(battery_voltage, 2)
-    except (OSError, IOError):
-        return None
+    best = 0.0
+    for channel in range(4):
+        try:
+            # Control byte: 0x40 | channel = DAC enable + channel select
+            # First read after switching channel is stale — read twice.
+            bus.write_byte(_PCF8591_ADDR, 0x40 | channel)
+            bus.read_byte(_PCF8591_ADDR)  # discard stale
+            raw = bus.read_byte(_PCF8591_ADDR)
+            adc_voltage = raw / 255.0 * 3.3
+            voltage = adc_voltage * 3.0
+            if voltage > best:
+                best = voltage
+        except (OSError, IOError):
+            continue
+    return round(best, 2) if best > 0 else None
 
 
 def read_power_info():
@@ -267,29 +274,32 @@ def read_power_info():
 # ---------------------------------------------------------------------------
 
 _i2c_cache = None
+_i2c_cache_time = 0
+_I2C_CACHE_TTL = 60  # seconds
 
 
 def get_i2c_devices():
-    """Detect I2C devices on bus 1 (cached after first call)."""
-    global _i2c_cache
-    if _i2c_cache is not None:
+    """Detect I2C devices on bus 1 via smbus2 scan (cached for 60s)."""
+    global _i2c_cache, _i2c_cache_time
+    now = time.time()
+    if _i2c_cache is not None and (now - _i2c_cache_time) < _I2C_CACHE_TTL:
         return _i2c_cache
-    try:
-        result = subprocess.run(
-            ["i2cdetect", "-y", "1"],
-            capture_output=True, text=True, timeout=5,
-        )
-        devices = []
-        if result.returncode == 0:
-            for line in result.stdout.splitlines()[1:]:
-                for token in line.split()[1:]:
-                    if token != "--":
-                        devices.append("0x" + token)
-        _i2c_cache = devices
-        return devices
-    except (OSError, subprocess.TimeoutExpired):
-        _i2c_cache = []
+
+    bus = _get_smbus()
+    if bus is None:
         return []
+
+    devices = []
+    for addr in range(0x03, 0x78):
+        try:
+            bus.read_byte(addr)
+            devices.append("0x%02x" % addr)
+        except (OSError, IOError):
+            continue
+
+    _i2c_cache = devices
+    _i2c_cache_time = now
+    return devices
 
 
 # ---------------------------------------------------------------------------
