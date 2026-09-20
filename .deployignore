@@ -1,0 +1,20 @@
+.git
+.venv/
+.env
+# Live servo calibration — written on the Pi, must never be overwritten
+remote_control/remote_control/driver/config
+.claude/
+relay/
+mjpg-streamer/
+datasheet/
+ball_track/
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+*.log
+*.sqlite3
+*auto_ip.inf
+.DS_Store
+*.pdf

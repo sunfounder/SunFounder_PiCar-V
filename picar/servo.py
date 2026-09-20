@@ -58,6 +58,9 @@ class Servo:
         self._offset = value
         self._debug_("Set offset to %d" % self._offset)
 
+    def _pulse_to_analog(self, pulse_wide):
+        return int(float(pulse_wide) / 1000000 * self.frequency * 4096)
+
     def write(self, angle):
         if self.lock:
             angle = max(0, min(180, angle))
@@ -68,7 +71,19 @@ class Servo:
             )
         val = self._angle_to_analog(angle)
         val += self._offset
-        self.pwm.write(self.channel, 0, val)
+        # The offset is applied after the angle clamp above, so a non-zero
+        # offset can push the final pulse outside the servo's rated range
+        # and drive it into its mechanical stop, where it stalls and buzzes.
+        # Clamp in the analog domain, which is what actually reaches the servo.
+        low = self._pulse_to_analog(self._MIN_PULSE_WIDTH)
+        high = self._pulse_to_analog(self._MAX_PULSE_WIDTH)
+        clamped = max(low, min(high, val))
+        if clamped != val:
+            self._debug_(
+                "Analog value %d out of range (%d, %d); clamped to %d"
+                % (val, low, high, clamped)
+            )
+        self.pwm.write(self.channel, 0, clamped)
         self._debug_("Turn angle = %d" % angle)
 
     @property
