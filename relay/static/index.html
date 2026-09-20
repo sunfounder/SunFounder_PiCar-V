@@ -248,6 +248,30 @@ body::after {
 .operator-active { color: var(--green); }
 .operator-idle { color: var(--inactive); }
 
+/* ============ WARNING BANNER ============ */
+#warning-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--red);
+  color: #000;
+  font-size: 13px;
+  -webkit-text-stroke: 0.5px #000;
+  letter-spacing: 2px;
+  animation: banner-pulse 1.5s ease-in-out infinite;
+}
+
+.warning-icon {
+  font-size: 16px;
+}
+
+@keyframes banner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 /* ============ MAIN GRID ============ */
 #main-grid {
   display: grid;
@@ -286,7 +310,7 @@ body::after {
 
 #video-feed {
   width: 100%;
-  height: 100%;
+  max-height: 50vh;
   object-fit: contain;
   display: block;
 }
@@ -878,6 +902,11 @@ body::after {
       <div class="status-box hdr-nominal" id="hbox-lct"><div class="status-label"><span>L</span><span>C</span><span>T</span></div><div class="status-val"><span id="last-contact-time">00:00:00</span></div></div>
       <div class="status-box hdr-nominal" id="hbox-utc"><div class="status-label"><span>U</span><span>T</span><span>C</span></div><div class="status-val" id="utc-clock">--:--:--</div></div>
     </div>
+  </div>
+
+  <div id="warning-banner" style="display:none;">
+    <span class="warning-icon">&#9888;</span>
+    <span id="warning-text"></span>
   </div>
 
   <div id="main-grid">
@@ -1591,6 +1620,19 @@ body::after {
     // Pass 2: box status coloring & sparklines
     updateBoxStatus(d);
     updateTelemetrySparklines(d);
+
+    // Warning banner
+    const warnings = [];
+    if (bat.under_voltage) warnings.push('UNDER-VOLTAGE DETECTED');
+    if (bat.voltage != null && bat.voltage <= 6.0 && bat.source === 'battery') warnings.push('BATTERY CRITICAL ' + bat.voltage.toFixed(1) + 'V');
+    if (sys.cpu_temp_c != null && sys.cpu_temp_c >= 80) warnings.push('CPU THERMAL ' + sys.cpu_temp_c.toFixed(0) + '\u00B0C');
+    const banner = $('warning-banner');
+    if (warnings.length > 0) {
+      $('warning-text').textContent = warnings.join('  \u2502  ');
+      banner.style.display = 'flex';
+    } else {
+      banner.style.display = 'none';
+    }
   }
 
   // ============ HEALTH POLLING (5000ms) ============
